@@ -1,0 +1,8 @@
+pandas
+numpy
+pylatex
+matplotlib
+scipy
+pingouin
+openpyxl
+dcmri
