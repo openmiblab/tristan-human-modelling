@@ -5,38 +5,6 @@ import numpy as np
 import pingouin as pg
 
 
-def _derive_rates(output):
-    # Calculate derived excretion rates
-    visits = output.visit.unique()
-    structure = 'liver'
-    for subject in output.subject.unique():
-        df_subj = output[output.subject==subject]
-        for visit in visits:
-            df = df_subj[df_subj.visit==visit]
-            df = df[df.structure==structure]
-            khe = df[df.parameter.isin(['k_he_i','k_he_f'])]
-            khe = khe[khe.notna()]
-            if len(khe)==2:
-                khe_max = np.amax(khe.value.values)
-                khe_min = np.amin(khe.value.values)
-                output.loc[len(output)] = [subject, visit, structure, 'Hepatocellular uptake rate (max)', khe_max, 'mL/min/100mL', 'k_he_max']
-                output.loc[len(output)] = [subject, visit, structure, 'Hepatocellular uptake rate (max)', khe_min, 'mL/min/100mL', 'k_he_min']
-            Kbh = df[df.parameter.isin(['Kbh_i','Kbh_f'])]
-            Kbh = Kbh[Kbh.notna()]
-            if len(Kbh)==2:
-                ve = df[df.parameter=='ve'].value.values[0]
-                Kbh_i = Kbh[Kbh.parameter=='Kbh_i'].value.values[0]
-                Kbh_f = Kbh[Kbh.parameter=='Kbh_f'].value.values[0]
-                kbh_i = Kbh_i * (1-ve/100)
-                kbh_f = Kbh_f * (1-ve/100)
-                kbh_max = np.amax([kbh_i, kbh_f])
-                kbh_min = np.amin([kbh_i, kbh_f])
-                output.loc[len(output)] = [subject, visit, structure, 'Biliary excretion rate (initial)', kbh_i, 'mL/min/100mL', 'k_bh_i']
-                output.loc[len(output)] = [subject, visit, structure, 'Biliary excretion rate (final)', kbh_f, 'mL/min/100mL', 'k_bh_f']
-                output.loc[len(output)] = [subject, visit, structure, 'Biliary excretion rate (max)', kbh_max, 'mL/min/100mL', 'k_bh_max']
-                output.loc[len(output)] = [subject, visit, structure, 'Biliary excretion rate (min)', kbh_min, 'mL/min/100mL', 'k_bh_min']
-    return output
-
 
 def _derive_effect_sizes(output):
     # Calculate effect sizes
@@ -53,58 +21,28 @@ def _derive_effect_sizes(output):
                     effect = 100*np.divide(v1-v0, v0)
                     name = df_par[df_par.visit==visits[0]].name.values[0]
                     unit = df_par[df_par.visit==visits[0]].unit.values[0]
-                    output.loc[len(output)] = [subject, 'change (%)', structure, name, effect, unit, par + ' effect size']
+                    output.loc[len(output)] = [subject, 'change (%)', structure, name, effect, unit, 0, par + ' effect size']
     return output
 
-
-
-def derive_liver_pars(src):
-    output_file = os.path.join(src, 'parameters.csv')
-    output = pd.read_csv(output_file)
-    # df = output[output.parameter.isin(['k_he_i','k_he_f','Kbh_i','Kbh_f'])]
-    # output.drop(index=df.index, inplace=True)
-    #output = _derive_rates(output)
-    output = _derive_effect_sizes(output)
-    output.to_csv(os.path.join(src, 'parameters_ext.csv'))
-    output.to_pickle(os.path.join(src, 'parameters_ext.pkl'))
-
-
 def derive_pars(src):
-    output_file = os.path.join(src, 'parameters.csv')
-    output = pd.read_csv(output_file)
-    output = _derive_effect_sizes(output)
-    output.to_csv(os.path.join(src, 'parameters_ext.csv'))
-    output.to_pickle(os.path.join(src, 'parameters_ext.pkl'))
-
-
-def derive_aorta_pars(src):
-    output_file = os.path.join(src, 'parameters.csv')
-    output = pd.read_csv(output_file)
-    output = _derive_effect_sizes(output)
-    todrop = ['S02','BAT1','BAT2']
+    output_file = os.path.join(src, 'parameters.pkl')
+    output = pd.read_pickle(output_file)
+    todrop = ['BAT','BAT1','BAT2','S02b','S02','Tc']
+    todrop +=['S02l','t0','t1','t2','t3','dt1','dt2',
+            'khe_min','khe_max', 'khe_var',
+            'kbh_min','kbh_max', 'kbh_var',
+            'Khe_i','Khe_f','Kbh_i','Kbh_f', 'Th_i', 'Th_f']
     todrop += [v + ' effect size' for v in todrop]
     df = output[output.parameter.isin(todrop)]
     output.drop(index=df.index, inplace=True)
     output.reset_index(drop=True, inplace=True)
-    output.to_csv(os.path.join(src, 'parameters_ext.csv'))
-    output.to_pickle(os.path.join(src, 'parameters_ext.pkl'))
-
-
-def report_pars(src):
-    output = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
-    todrop = ['S02','t0','t1','t2','t3','dt1','dt2',
-              'k_he_i','k_he_f','k_he_min','k_he_max',
-              'k_bh_i','k_bh_f','k_bh_min','k_bh_max', 
-              'Khe_i','Khe_f','Kbh_i','Kbh_f']
-    todrop += [v + ' effect size' for v in todrop]
-    df = output[output.parameter.isin(todrop)]
-    output.drop(index=df.index, inplace=True)
-    output.reset_index(drop=True, inplace=True)
+    output = _derive_effect_sizes(output)
     output.to_csv(os.path.join(src, 'parameters_rep.csv'))
     output.to_pickle(os.path.join(src, 'parameters_rep.pkl'))
 
 def desc_stats(src):
-    output_file = os.path.join(src, 'parameters_ext.pkl')
+    #output_file = os.path.join(src, 'parameters_ext.pkl')
+    output_file = os.path.join(src, 'parameters_rep.pkl')
     output = pd.read_pickle(output_file)
     visits = output.visit[output.visit!='change (%)'].unique()
     v0 = output[output.visit==visits[0]]
@@ -118,32 +56,30 @@ def desc_stats(src):
     ef.to_csv(os.path.join(src, '_table_effect.csv'))
     # Calculate stats
     bstats = v0.describe()
-    bstats = bstats[['k_he', 'k_bh']].round(2)
-    bstats = bstats.rename(columns={"k_he": "k_he "+visits[0]+" (mL/min/100mL)", "k_bh": "k_bh "+visits[0]+" (mL/min/100mL)"})
+    bstats = bstats[['khe', 'kbh']].round(2)
+    bstats = bstats.rename(columns={"khe": "khe "+visits[0]+" (mL/min/100mL)", "kbh": "kbh "+visits[0]+" (mL/min/100mL)"})
     rstats = v1.describe()
-    rstats = rstats[['k_he', 'k_bh']].round(2)
-    rstats = rstats.rename(columns={"k_he": "k_he "+visits[1]+" (mL/min/100mL)", "k_bh": "k_bh "+visits[1]+" (mL/min/100mL)"})
+    rstats = rstats[['khe', 'kbh']].round(2)
+    rstats = rstats.rename(columns={"khe": "khe "+visits[1]+" (mL/min/100mL)", "kbh": "kbh "+visits[1]+" (mL/min/100mL)"})
     estats = ef.describe()
-    estats = estats[['k_he effect size', 'k_bh effect size']].round(1)
-    estats = estats.rename(columns={"k_he effect size": "k_he effect size (%)", "k_bh effect size": "k_bh effect size (%)"})
+    estats = estats[['khe effect size', 'kbh effect size']].round(1)
+    estats = estats.rename(columns={"khe effect size": "khe effect size (%)", "kbh effect size": "kbh effect size (%)"})
     stats = pd.concat([estats.T, bstats.T, rstats.T])
     stats=stats.reindex([
-        "k_he effect size (%)",
-        "k_he "+visits[0]+" (mL/min/100mL)",
-        "k_he "+visits[1]+" (mL/min/100mL)",
-        "k_bh effect size (%)",
-        "k_bh "+visits[0]+" (mL/min/100mL)",
-        "k_bh "+visits[1]+" (mL/min/100mL)",
+        "khe effect size (%)",
+        "khe "+visits[0]+" (mL/min/100mL)",
+        "khe "+visits[1]+" (mL/min/100mL)",
+        "kbh effect size (%)",
+        "kbh "+visits[0]+" (mL/min/100mL)",
+        "kbh "+visits[1]+" (mL/min/100mL)",
         ])
     stats.to_csv(os.path.join(src, '_table_k_stats.csv'))
     stats.to_pickle(os.path.join(src, '_table_k_stats.pkl'))
 
-
-
-def ttest(src, filename):
+def ttest(src):
     
-    df = pd.read_pickle(os.path.join(src, filename))
-    df.unit.fillna(' ', inplace=True)
+    df = pd.read_pickle(os.path.join(src, 'parameters_rep.pkl'))
+    df.unit.fillna('None', inplace=True)
     visits = df.visit[df.visit!='change (%)'].unique()
 
     # Get mean, sdev and count of all variables
@@ -151,7 +87,7 @@ def ttest(src, filename):
     std = pd.pivot_table(df, values='value', columns='visit', index=['structure','name','unit'], aggfunc='std')
     cnt = pd.pivot_table(df, values='value', columns='visit', index=['structure','name','unit'], aggfunc='count')
 
-    avr = avr.sort_values(['structure','name']) # changed from just name
+    avr = avr.sort_values(['structure','name']) 
     std = std.sort_values(['structure','name'])
     cnt = cnt.sort_values(['structure','name'])
 
@@ -167,9 +103,12 @@ def ttest(src, filename):
     output = None
     df = df[df.visit != 'change (%)']
     for struct in df.structure.unique():
-        for par in df.name.unique():
-            dfp = df[(df.name==par) & (df.structure==struct)]
-            stats = pg.pairwise_tests(data=dfp, dv='value', within='visit', subject='subject', return_desc=False, effsize='odds-ratio')
+        dfs = df[df.structure==struct]
+        for par in dfs.name.unique():
+            dfp = dfs[dfs.name==par]
+            stats = pg.pairwise_tests(data=dfp, 
+                    dv='value', within='visit', subject='subject', 
+                    return_desc=False, effsize='odds-ratio')
             stats['structure'] = [struct]
             stats['name'] = [par]
             if output is None:
@@ -199,6 +138,66 @@ def ttest(src, filename):
     output1.to_pickle(os.path.join(src, 'stats1.pkl'))
     output2.to_csv(os.path.join(src, 'stats2.csv'))
     output2.to_pickle(os.path.join(src, 'stats2.pkl'))
+
+
+
+def _derive_vart_effect_sizes(output):
+    # Calculate effect sizes
+    for subject in output.subject.unique():
+        df_subj = output[output.subject==subject]
+        for structure in df_subj.structure.unique():
+            df_struct = df_subj[df_subj.structure==structure]
+            for tacq in df_struct.tacq.unique():
+                df_tacq = df_struct[df_struct.tacq==tacq]
+                for par in df_tacq.parameter.unique():
+                    df_par = df_tacq[df_tacq.parameter==par]
+                    if len(df_par)==2:
+                        visits = df_par.visit.unique()
+                        v0 = df_par[df_par.visit==visits[0]].value.values[0]
+                        v1 = df_par[df_par.visit==visits[1]].value.values[0]
+                        effect = 100*np.divide(v1-v0, v0)
+                        name = df_par[df_par.visit==visits[0]].name.values[0]
+                        unit = df_par[df_par.visit==visits[0]].unit.values[0]
+                        output.loc[len(output)] = [subject, 'change (%)', structure, 
+                                name, effect, unit, 0, tacq, par + ' effect size']
+    return output
+
+def derive_vart_pars(src):
+    output_file = os.path.join(src, 'parameters.pkl')
+    output = pd.read_pickle(output_file)
+    todrop = ['BAT','BAT1','BAT2','S02b','S02','Tc']
+    todrop +=['S02l','t0','t1','t2','t3','dt1','dt2',
+            'khe_min','khe_max', 'khe_var',
+            'kbh_min','kbh_max', 'kbh_var',
+            'Khe_i','Khe_f','Kbh_i','Kbh_f', 'Th_i', 'Th_f']
+    todrop += [v + ' effect size' for v in todrop]
+    df = output[output.parameter.isin(todrop)]
+    output.drop(index=df.index, inplace=True)
+    output.reset_index(drop=True, inplace=True)
+    output = _derive_vart_effect_sizes(output)
+    output.to_csv(os.path.join(src, 'parameters_rep.csv'))
+    output.to_pickle(os.path.join(src, 'parameters_rep.pkl'))
+
+# obsolete
+def derive_liver_pars(src): 
+    output_file = os.path.join(src, 'parameters.pkl')
+    output = pd.read_pickle(output_file)
+    output = _derive_effect_sizes(output)
+    output.to_csv(os.path.join(src, 'parameters_ext.csv'))
+    output.to_pickle(os.path.join(src, 'parameters_ext.pkl'))
+
+# obsolete
+def derive_aorta_pars(src): 
+    output_file = os.path.join(src, 'parameters.pkl')
+    output = pd.read_pickle(output_file)
+    output = _derive_effect_sizes(output)
+    todrop = ['S02','BAT1','BAT2','S02b','BAT']
+    todrop += [v + ' effect size' for v in todrop]
+    df = output[output.parameter.isin(todrop)]
+    output.drop(index=df.index, inplace=True)
+    output.reset_index(drop=True, inplace=True)
+    output.to_csv(os.path.join(src, 'parameters_ext.csv'))
+    output.to_pickle(os.path.join(src, 'parameters_ext.pkl'))
 
 
 def first_digit(x):

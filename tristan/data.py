@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 # https://bioxydynltd.sharepoint.com/:f:/s/WP2-TRISTAN/Enz3hJ8UPddEgZxXdaspo5YB7GkeLKsJB5k1Xd2mmr8jPw?e=5%3avvdrgU&at=9
 
@@ -36,7 +35,7 @@ def read(subj):
         dyn2['portal_valid'] = 1
     t0 = dyn1.time.values[0]
     
-    return {
+    data = {
         'time1': dyn1.time.values-t0, 
         'fa1': dyn1.fa.values, 
         'aorta1': dyn1.aorta.values, 
@@ -75,10 +74,38 @@ def read(subj):
         'weight': const.at['weight', 'value'], 
         'dose1': const.at['dose1', 'value'], 
         'dose2': const.at['dose2', 'value'], 
+        'baseline': const.at['baseline', 'value'], 
         'liver_volume': const.at['liver-volume-mm3','value']/1000,
         'kidney_volume': const.at['kidney-volume-mm3','value']/1000,
         't0': t0,
     }
+
+    # Format data
+    xa = (data['aorta_valid1']==1, 
+          data['aorta_valid2']==1)
+    xl = (data['liver_valid1']==1, 
+          data['liver_valid2']==1)
+    data['xdata'] = (
+             data['time1'][xa[0]], 
+             data['time2'][xa[1]],
+             data['time1'][xl[0]], 
+             data['time2'][xl[1]])
+    data['ydata'] = (
+             data['aorta1'][xa[0]], 
+             data['aorta2'][xa[1]], 
+             data['liver1'][xl[0]], 
+             data['liver2'][xl[1]])
+    data['tR1'] = [0, data['T1time2'], data['T1time3']]
+    data['R1l'] = [
+           1000.0/data['T1liver1'], 
+           1000.0/data['T1liver2'],
+           1000.0/data['T1liver3']]
+    data['R1a'] = [
+           1000.0/data['T1aorta1'], 
+           1000.0/data['T1aorta2'],
+           1000.0/data['T1aorta3']]
+
+    return data
 
 
 

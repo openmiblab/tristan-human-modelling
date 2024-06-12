@@ -36,28 +36,29 @@ clr = {
 
 def _line_plots(src, ax1, ax2, ylim=[50,5]):
 
-    output = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
+    output = pd.read_pickle(os.path.join(src, 'parameters_rep.pkl'))
+    #output = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
     visits = output.visit[output.visit!='change (%)'].unique()
 
     fontsize=10
     markersize=6
     ax1.set_title('Hepatocellular uptake rate', fontsize=fontsize, pad=10)
-    ax1.set_ylabel('k_he (mL/min/100mL)', fontsize=fontsize)
+    ax1.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax1.set_ylim(0, ylim[0])
     ax1.tick_params(axis='x', labelsize=fontsize)
     ax1.tick_params(axis='y', labelsize=fontsize)
     ax2.set_title('Biliary excretion rate', fontsize=fontsize, pad=10)
-    ax2.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
+    ax2.set_ylabel('kbh (mL/min/100mL)', fontsize=fontsize)
     ax2.set_ylim(0, ylim[1])
     ax2.tick_params(axis='x', labelsize=fontsize)
     ax2.tick_params(axis='y', labelsize=fontsize)
     
     pivot = pd.pivot_table(output[output.visit==visits[0]], values='value', columns='parameter', index='subject')
-    khe_ref = pivot.loc[:, 'k_he']
-    kbh_ref = pivot.loc[:, 'k_bh']
+    khe_ref = pivot.loc[:, 'khe']
+    kbh_ref = pivot.loc[:, 'kbh']
     pivot = pd.pivot_table(output[output.visit==visits[1]], values='value', columns='parameter', index='subject')
-    khe_rif = pivot.loc[:, 'k_he']
-    kbh_rif = pivot.loc[:, 'k_bh']
+    khe_rif = pivot.loc[:, 'khe']
+    kbh_rif = pivot.loc[:, 'kbh']
     
     for s in khe_ref.index:
         if s in khe_rif.index:
@@ -68,16 +69,17 @@ def _line_plots(src, ax1, ax2, ylim=[50,5]):
             x = [visits[0]]
             khe = [khe_ref[s]]
             kbh = [kbh_ref[s]]            
-        ax1.plot(x, khe, '-', label=str(s), marker=mark[s], markersize=markersize, color=clr[s])
-        ax2.plot(x, kbh, '-', label=str(s), marker=mark[s], markersize=markersize, color=clr[s])
+        ax1.plot(x, khe, '-', label=s, marker=mark[int(s)], markersize=markersize, color=clr[int(s)])
+        ax2.plot(x, kbh, '-', label=s, marker=mark[int(s)], markersize=markersize, color=clr[int(s)])
 
 
 def _effect_box_plots(src, ax):
 
-    pars = ['k_he', 'k_bh']
-    df = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
+    pars = ['khe', 'kbh']
+    df = pd.read_pickle(os.path.join(src, 'parameters_rep.pkl'))
+    #df = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
     all_data = []
-    for par in ['k_he effect size', 'k_bh effect size']:
+    for par in ['khe effect size', 'kbh effect size']:
         data = df[df.parameter==par].value.values.tolist()
         all_data.append(data)
 
@@ -125,6 +127,112 @@ def effect_plot(src, ylim=[50,5]):
     plt.close()
 
 
+def ref_effect_box_plots(src, biom, ax, ylim=[-100,0]):
+
+    df = pd.read_pickle(os.path.join(src, 'parameters_rep.pkl'))
+    all_data = []
+    data = df[df.parameter==biom + ' effect size'].value.values.tolist()
+    all_data.append(data)
+
+    linewidth = 1.0
+    fontsize=10
+    for axis in ['top','bottom','left','right']:
+        ax.spines[axis].set_linewidth(linewidth)
+
+    # box plot
+    boxprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    medianprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    whiskerprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    capprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    flierprops = dict(marker='o', markerfacecolor='white', markersize=6,
+                  markeredgecolor='black', markeredgewidth=linewidth)
+    bplot = ax.boxplot(all_data,
+                        whis = [2.5,97.5],
+                        capprops=capprops,
+                        flierprops=flierprops,
+                        whiskerprops=whiskerprops,
+                        medianprops=medianprops,
+                        boxprops=boxprops,
+                        widths=0.3,
+                        vert=True,  # vertical box alignment
+                        patch_artist=True,  # fill with color
+                        labels=['3-4hrs'])  # will be used to label x-ticks
+    ax.set_ylim(ylim[0], ylim[1])
+    ax.yaxis.grid(True)
+    ax.tick_params(labelleft=False)
+    if biom == 'khe':
+        ax.set_xticks([])
+
+    # fill with colors
+    for patch in bplot['boxes']:
+        patch.set_facecolor('lightsteelblue')
+
+    # adding horizontal grid line
+    
+    #ax.set_ylabel('Effect size (%)', fontsize=fontsize)
+
+
+def vart_effect_box_plots(src, biom, ax, ylim=[-100,0]):
+
+    df = pd.read_pickle(os.path.join(src, 'parameters_rep.pkl'))
+    all_data = []
+    par = biom + ' effect size'
+    labels = df.tacq.unique()
+    for tacq in labels:
+        data = df[(df.parameter==par) & (df.tacq==tacq)]
+        data = data.value.values.tolist()
+        all_data.append(data)
+
+    linewidth = 1.0
+    fontsize=10
+    for axis in ['top','bottom','left','right']:
+        ax.spines[axis].set_linewidth(linewidth)
+
+    # box plot
+    boxprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    medianprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    whiskerprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    capprops = dict(linestyle='-', linewidth=linewidth, color='black')
+    flierprops = dict(marker='o', markerfacecolor='white', markersize=6,
+                  markeredgecolor='black', markeredgewidth=linewidth)
+    bplot = ax.boxplot(all_data,
+                        whis = [2.5,97.5],
+                        capprops=capprops,
+                        flierprops=flierprops,
+                        whiskerprops=whiskerprops,
+                        medianprops=medianprops,
+                        boxprops=boxprops,
+                        widths=0.3,
+                        vert=True,  # vertical box alignment
+                        patch_artist=True,  # fill with color
+                        labels=labels)  # will be used to label x-ticks
+    ax.set_ylim(ylim[0], ylim[1])
+    if biom == 'khe':
+        ax.set_xticks([])
+    else:
+        ax.set_xlabel('Total acquisition time (min)')
+
+    # fill with colors
+    for patch in bplot['boxes']:
+        patch.set_facecolor('lightsteelblue')
+
+    # adding horizontal grid line
+    ax.yaxis.grid(True)
+    ax.set_ylabel(biom + ' effect (%)', fontsize=fontsize)
+
+
+def vart_effect_plot(src, src_2scan):
+    fig, ((ax0,ax1), (ax2,ax3)) = plt.subplots(2, 2, figsize=(8,4), width_ratios=[8,1])
+    fig.subplots_adjust(wspace=0.1)
+    fig.suptitle('Effect sizes as a function of total acquisition time')
+    vart_effect_box_plots(src, 'khe', ax0, ylim=[-100,-80])
+    vart_effect_box_plots(src, 'kbh', ax2, ylim=[-100,100])
+    ref_effect_box_plots(src_2scan, 'khe', ax1, ylim=[-100,-80])
+    ref_effect_box_plots(src_2scan, 'kbh', ax3, ylim=[-100,100])
+    plt.savefig(fname=os.path.join(src, '_effect_plot.png'))
+    plt.close()
+
+
 def _max_line_plots(output_file, ax1, ax2):
 
     resultsfolder = os.path.dirname(output_file)
@@ -134,22 +242,22 @@ def _max_line_plots(output_file, ax1, ax2):
     fontsize=12
     markersize=6
     ax1.set_title('Hepatocellular uptake rate', fontsize=fontsize, pad=10)
-    ax1.set_ylabel('k_he (mL/min/100mL)', fontsize=fontsize)
+    ax1.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax1.set_ylim(0, 40)
     ax1.tick_params(axis='x', labelsize=fontsize)
     ax1.tick_params(axis='y', labelsize=fontsize)
     ax2.set_title('Biliary excretion rate', fontsize=fontsize, pad=10)
-    ax2.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
+    ax2.set_ylabel('kbh (mL/min/100mL)', fontsize=fontsize)
     ax2.set_ylim(0, 3.5)
     ax2.tick_params(axis='x', labelsize=fontsize)
     ax2.tick_params(axis='y', labelsize=fontsize)
 
     pivot = pd.pivot_table(output[output.visit==visits[0]], values='value', columns='parameter', index='subject')
-    khe_ref = pivot.loc[:, 'k_he_max']
-    kbh_ref = pivot.loc[:, 'k_bh_max']
+    khe_ref = pivot.loc[:, 'khe_max']
+    kbh_ref = pivot.loc[:, 'kbh_max']
     pivot = pd.pivot_table(output[output.visit==visits[1]], values='value', columns='parameter', index='subject')
-    khe_rif = pivot.loc[:, 'k_he_min']
-    kbh_rif = pivot.loc[:, 'k_bh_min']
+    khe_rif = pivot.loc[:, 'khe_min']
+    kbh_rif = pivot.loc[:, 'kbh_min']
     
     for s in khe_ref.index:
         if s in khe_rif.index:
@@ -160,8 +268,8 @@ def _max_line_plots(output_file, ax1, ax2):
             x = [visits[0]]
             khe = [khe_ref[s]]
             kbh = [kbh_ref[s]]            
-        ax1.plot(x, khe, '-', label=str(s), marker=mark[s], markersize=markersize, color=clr[s])
-        ax2.plot(x, kbh, '-', label=str(s), marker=mark[s], markersize=markersize, color=clr[s])
+        ax1.plot(x, khe, '-', label=s, marker=mark[int(s)], markersize=markersize, color=clr[int(s)])
+        ax2.plot(x, kbh, '-', label=s, marker=mark[int(s)], markersize=markersize, color=clr[int(s)])
     #ax1.legend(loc='upper center', ncol=5, prop={'size': 14})
     #ax2.legend(loc='upper center', ncol=5, prop={'size': 14})
 
@@ -170,10 +278,10 @@ def _max_effect_box_plots(output_file, ax):
 
     resultsfolder = os.path.dirname(output_file)
     output = pd.read_pickle(os.path.join(resultsfolder, 'parameters_ext.pkl'))
-    khe = output[output.parameter=='k_he max effect size 1'].value.values.tolist()
-    kbh = output[output.parameter=='k_bh max effect size 1'].value.values.tolist()
+    khe = output[output.parameter=='khe max effect size 1'].value.values.tolist()
+    kbh = output[output.parameter=='kbh max effect size 1'].value.values.tolist()
     all_data = [khe, kbh]
-    parameters = ['k_he', 'k_bh']
+    parameters = ['khe', 'kbh']
     
     # Create box plot
     linewidth = 1.0
@@ -225,7 +333,7 @@ def max_effect_plot(output_file):
 
 def tmax_effect(output_file, pdf):
     # Read parameter file
-    output = pd.read_csv(output_file)
+    output = pd.read_pkl(output_file)
     output = output[output.structure=='liver']
     # Set up figure
     fontsize=12
@@ -240,23 +348,23 @@ def tmax_effect(output_file, pdf):
                     wspace=0.3,
                     #hspace=1,
                     )
-    title = "Effect of changing acquisition time \non hepatocellular uptake (k_he, top row) and biliary excretion (k_bh, bottom row) of Gadoxetate \n at baseline (left column) and after administration of rifampicin (right column). \n Full lines connect values taken in the same subject." 
+    title = "Effect of changing acquisition time \non hepatocellular uptake (khe, top row) and biliary excretion (k_bh, bottom row) of Gadoxetate \n at baseline (left column) and after administration of rifampicin (right column). \n Full lines connect values taken in the same subject." 
     fig.suptitle(title, fontsize=12)
     ax = {
-        'baselinek_he': ax1,
-        'rifampicink_he': ax2,
-        'baselinek_bh': ax3,
-        'rifampicink_bh': ax4,
+        'baselinekhe': ax1,
+        'rifampicinkhe': ax2,
+        'baselinekbh': ax3,
+        'rifampicinkbh': ax4,
     }
     ax1.set_title('Baseline', fontsize=titlesize)
     ax1.set_xlabel('Scan time (mins)', fontsize=fontsize)
-    ax1.set_ylabel('k_he (mL/min/100mL)', fontsize=fontsize)
+    ax1.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax1.set_ylim(0, 50)
     ax1.tick_params(axis='x', labelsize=fontsize)
     ax1.tick_params(axis='y', labelsize=fontsize)
     ax2.set_title('Rifampicin', fontsize=titlesize)
     ax2.set_xlabel('Scan time (mins)', fontsize=fontsize)
-    ax2.set_ylabel('k_he (mL/min/100mL)', fontsize=fontsize)
+    ax2.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax2.set_ylim(0, 3)
     ax2.tick_params(axis='x', labelsize=fontsize)
     ax2.tick_params(axis='y', labelsize=fontsize)
@@ -280,8 +388,8 @@ def tmax_effect(output_file, pdf):
             df = df[df.subject==subject]
             if not df.empty:
                 df = pd.pivot(df, values='value', columns='parameter', index='tmax') 
-                for par in ['k_he', 'k_bh']:
-                    ax[visit+par].plot(df.index.values/60, df[par].values, 'k-', label=str(subject), marker=mark[subject], markersize=markersize)
+                for par in ['khe', 'kbh']:
+                    ax[visit+par].plot(df.index.values/60, df[par].values, 'k-', label=subject, marker=mark[int(subject)], markersize=markersize)
 
     # Export results
     resultsfolder = os.path.dirname(output_file)
@@ -293,8 +401,11 @@ def tmax_effect(output_file, pdf):
                 
 
 def diurnal_k(src, ylim=[50,6]):
-    output = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
-    visits = output.visit[output.visit!='change (%)'].unique()
+    # output = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
+    # visits = output.visit[output.visit!='change (%)'].unique()
+
+    output = pd.read_pickle(os.path.join(src, 'parameters.pkl'))
+    visits = output.visit.unique()
 
     fontsize=10
     titlesize=12
@@ -309,32 +420,32 @@ def diurnal_k(src, ylim=[50,6]):
                     #hspace=1,
                     )
     ax = {
-        visits[0]+'k_he': ax1,
-        visits[1]+'k_he': ax2,
-        visits[0]+'k_bh': ax3,
-        visits[1]+'k_bh': ax4,
+        visits[0]+'khe': ax1,
+        visits[1]+'khe': ax2,
+        visits[0]+'kbh': ax3,
+        visits[1]+'kbh': ax4,
     }
     ax1.set_title(visits[0], fontsize=titlesize)
     ax1.set_xlabel('Time of day (hrs)', fontsize=fontsize)
-    ax1.set_ylabel('k_he (mL/min/100mL)', fontsize=fontsize)
+    ax1.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax1.set_ylim(0, ylim[0])
     ax1.tick_params(axis='x', labelsize=fontsize)
     ax1.tick_params(axis='y', labelsize=fontsize)
     ax2.set_title(visits[1], fontsize=titlesize)
     ax2.set_xlabel('Time of day (hrs)', fontsize=fontsize)
-    ax2.set_ylabel('k_he (mL/min/100mL)', fontsize=fontsize)
+    ax2.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax2.set_ylim(0, ylim[0])
     ax2.tick_params(axis='x', labelsize=fontsize)
     ax2.tick_params(axis='y', labelsize=fontsize)
     #ax3.set_title('Baseline', fontsize=titlesize)
     ax3.set_xlabel('Time of day (hrs)', fontsize=fontsize)
-    ax3.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
+    ax3.set_ylabel('kbh (mL/min/100mL)', fontsize=fontsize)
     ax3.set_ylim(0, ylim[1])
     ax3.tick_params(axis='x', labelsize=fontsize)
     ax3.tick_params(axis='y', labelsize=fontsize)
     #ax4.set_title('Rifampicin', fontsize=titlesize)
     ax4.set_xlabel('Time of day (hrs)', fontsize=fontsize)
-    ax4.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
+    ax4.set_ylabel('kbh (mL/min/100mL)', fontsize=fontsize)
     ax4.set_ylim(0, ylim[1])
     ax4.tick_params(axis='x', labelsize=fontsize)
     ax4.tick_params(axis='y', labelsize=fontsize)
@@ -345,7 +456,7 @@ def diurnal_k(src, ylim=[50,6]):
         subjects = df_visit.subject.unique()
         for s in subjects:
             df_subj = df_visit[df_visit.subject==s]
-            for par in ['k_he', 'k_bh']:
+            for par in ['khe', 'kbh']:
                 data_subj = []
                 for p in [par+'_i', par+'_f']:
                     df_par = df_subj[df_subj.parameter==p]
@@ -359,7 +470,7 @@ def diurnal_k(src, ylim=[50,6]):
                         v = df_par.value.values[0]
                         t.append(v)
                 if len(data_subj) == 2:
-                    ax[visit+par].plot(t, data_subj, '-', label=str(s), marker=mark[s], markersize=markersize, color=clr[s])
+                    ax[visit+par].plot(t, data_subj, '-', label=s, marker=mark[int(s)], markersize=markersize, color=clr[int(s)])
 
     plot_file = os.path.join(src, '_diurnal_function.png')
     plt.savefig(fname=plot_file)
@@ -369,7 +480,7 @@ def diurnal_k(src, ylim=[50,6]):
 
 def line_plot_extracellular(output_file):
     resultsfolder = os.path.dirname(output_file)
-    output = pd.read_csv(output_file)
+    output = pd.read_pickle(output_file)
     fontsize=20
     titlesize=30
     fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,8))
@@ -407,7 +518,7 @@ def line_plot_extracellular(output_file):
                         v = df_visit['value'].values[0]
                         x.append(visit)
                         y.append(v)
-                ax[par].plot(x, y, 'k-', label=str(s), marker=mark[s], markersize=12)
+                ax[par].plot(x, y, 'k-', label=s, marker=mark[int(s)], markersize=12)
     #ax1.legend(loc='upper center', ncol=5, prop={'size': 14})
     #ax2.legend(loc='upper center', ncol=5, prop={'size': 14})
     plot_file = os.path.join(resultsfolder, '_lineplot_extracellular.png')
@@ -421,7 +532,7 @@ def line_plot_extracellular(output_file):
 def drug_effect(output_file, pars=None, name='', ylim=[-100,100]):
 
     resultsfolder = os.path.dirname(output_file)
-    output = pd.read_csv(output_file)
+    output = pd.read_pickle(output_file)
 
     # Create box plots for aorta and liver
     subjects = output['subject'].unique()
@@ -474,7 +585,7 @@ def drug_effect(output_file, pars=None, name='', ylim=[-100,100]):
 def create_box_plot(output_file, ylim={}):
 
     resultsfolder = os.path.dirname(output_file)
-    output = pd.read_csv(output_file)
+    output = pd.read_pickle(output_file)
 
     # Create box plots for each parameter
     subjects = output['subject'].unique()
@@ -527,7 +638,7 @@ def create_box_plot(output_file, ylim={}):
 def create_bar_chart(output_file, ylim={}):
 
     resultsfolder = os.path.dirname(output_file)
-    output = pd.read_csv(output_file)
+    output = pd.read_pickle(output_file)
     visits = output.visit[output.visit!='change (%)'].unique()
 
     # Create bar charts for each parameter

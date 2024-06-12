@@ -8,7 +8,7 @@ from pylatex.utils import NoEscape
 import miblab_report.report as report
 
 
-def generate(filename, results):
+def generate(filename, results, subtitle='DCE-MRI results'):
 
     print('Creating report..')
 
@@ -19,7 +19,7 @@ def generate(filename, results):
 
     report.makecover(doc, 
             title = 'Ghent dog kidney study',
-            subtitle = 'DCE-MRI results',
+            subtitle = subtitle,
             subject = 'Internal report',
             author = 'Steven Sourbron')
     report.titlepage(doc, results)
@@ -92,33 +92,35 @@ def generate(filename, results):
 
     df = pd.read_pickle(os.path.join(results, 'kidneys', 'parameters.pkl'))
     dfa = pd.read_pickle(os.path.join(results, 'aorta', 'parameters_ext.pkl'))
+    dfa = dfa.astype({'subject':'int32'})
+
     for i, subject in enumerate(df.subject.unique()):
         if i>0:
             doc.append(NoEscape('\\clearpage'))
         subj = str(subject)
         with doc.create(pl.Subsection('Subject ' + subj)):
-
+            
             dfs = df[df.subject==subject]
             dfas = dfa[dfa.subject==int(subject)]
-
+            
             # # Left Kidney plots
             with doc.create(pl.Figure(position='h!')) as pic:
-                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.1 LK_all.png')
+                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.1 LK_kidney_all.png')
                 pic.add_image(im, width='5.5in')
                 pic.add_caption("Left kidney signal-time curves for subject "+subj+' at baseline.')
             with doc.create(pl.Figure(position='h!')) as pic:
-                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.2 LK_all.png')
+                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.2 LK_kidney_all.png')
                 pic.add_image(im, width='5.5in')
                 pic.add_caption("Left kidney signal-time curves for subject "+subj+' at visit 2.')
 
             # Right Kidney plots
             doc.append(NoEscape('\\clearpage'))
             with doc.create(pl.Figure(position='h!')) as pic:
-                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.1 RK_all.png')
+                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.1 RK_kidney_all.png')
                 pic.add_image(im, width='5.5in')
                 pic.add_caption("Right kidney signal-time curves for subject "+subj+' at baseline.')
             with doc.create(pl.Figure(position='h!')) as pic:
-                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.2 RK_all.png')
+                im = os.path.join(results, 'kidneys',  'Dog' + subj + '.2 RK_kidney_all.png')
                 pic.add_image(im, width='5.5in')
                 pic.add_caption("Right kidney signal-time curves for subject "+subj+' at visit 2.')
 
@@ -154,7 +156,7 @@ def generate(filename, results):
             pivot = pd.pivot_table(dfas, values='value', columns='visit', index=['name','structure','unit'])
             cols = pivot.columns.tolist()
             if len(cols)>1:
-                pivot = pivot[[1,2]]
+                pivot = pivot[['1','2']]
             with doc.create(pl.Table(position='h!')) as table:
                 table.append(pl.Command('centering'))
                 with table.create(pl.Tabular('lll'+'c'*pivot.shape[1])) as tab:

@@ -1,13 +1,7 @@
 import os
 
-from tristan import aorta as fit_aorta_1scan
-from tristan import liver as fit_liver_1scan
-from tristan import aorta_2scan as fit_aorta_2scan
-from tristan import liver_2scan as fit_liver_2scan
-
-import plot
-import calc
-import exp_med_report
+from tristan import onescan, twoscan, onescan_vart 
+import plot, calc, exp_med_report
 
 root = os.path.abspath(os.sep)
 datapath = os.path.join(root, 'Users', 'steve', 'Dropbox')
@@ -15,39 +9,26 @@ sourcepath = os.path.join(datapath, 'Data', 'tristan_exp_med')
 resultspath = os.path.join(datapath, 'Results', 'tristan_exp_med_dev')
 
 # Calculate
-fit_aorta_1scan.main(sourcepath, resultspath)
-fit_liver_1scan.main(sourcepath, resultspath)
-fit_aorta_2scan.main(sourcepath, resultspath)
-fit_liver_2scan.main(sourcepath, resultspath)
+onescan.main(sourcepath, resultspath)
+twoscan.main(sourcepath, resultspath)
+onescan_vart.main(sourcepath, resultspath)
 
-# Aorta 2-scan results.
-src = os.path.join(resultspath, 'aorta_2scan')
-calc.derive_aorta_pars(src)
-calc.ttest(src, 'parameters_ext.pkl')
+# Summarise results
+for exp in ['onescan','twoscan']:
+    src = os.path.join(resultspath, exp)
+    calc.derive_pars(src)
+    calc.ttest(src)
+    calc.desc_stats(src)
+    plot.effect_plot(src, ylim=[50,5])
 
-# # Liver 2-scan results
-src = os.path.join(resultspath, 'liver_2scan')
-calc.derive_liver_pars(src)
-calc.report_pars(src)
-calc.desc_stats(src)
-plot.effect_plot(src, ylim=[50,5])
-plot.diurnal_k(src, ylim=[50,5])
-calc.ttest(src, 'parameters_rep.pkl')
+# Plot diurnal variations
+plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[50,5])
 
-# Aorta 1-scan results
-src = os.path.join(resultspath, 'aorta_1scan')
-calc.derive_aorta_pars(src)
-calc.ttest(src, 'parameters_ext.pkl')
+# Plot variable acquisition time results
+src = os.path.join(resultspath, 'onescan_vart')
+calc.derive_vart_pars(src)
+plot.vart_effect_plot(src, os.path.join(resultspath, 'twoscan'))
 
-# Liver 1-scan results
-src = os.path.join(resultspath, 'liver_1scan')
-calc.derive_liver_pars(src)
-calc.desc_stats(src)
-plot.effect_plot(src, ylim=[50,5])
-calc.ttest(src, 'parameters_ext.pkl')
-
-# # # results on varying the acquisition time
-# # # plot.tmax_effect(os.path.join(filepath, 'results', 'liver_1scan_vart', 'parameters.csv'), pdf)
-
+# Creat report
 exp_med_report.generate('report_exp_med', resultspath)
 exp_med_report.generate('report_exp_med', resultspath)

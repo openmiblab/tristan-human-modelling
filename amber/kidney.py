@@ -1,74 +1,73 @@
 import os
-import time
+
 import pandas as pd
 import numpy as np
+import dcmri as dc
 
-import plot
-
-import dcmods.tools as tools
-import models.kidney_nephron_short_pbpk as kid
-import models.aorta_chc as ao
-import amber.aorta as aofit
+from dcmods import tools, fig
 
 
-def format(time, signal, weight, R1, kidney_volume, aortapars):
+def fit(xdata, ydata, weight, R1, kidney_volume, aortapars, path, name):
 
     # Get aorta data
     df = tools.read_csv(aortapars)
-    pars = df.value.values
-    _, _, _, aovars, _, _ = aofit.format(time, signal, weight)
-    t, cb = ao.model(time, *pars, return_conc=True, **aovars)
-    BAT = pars[0]
-    CO = pars[1]
+    dt = 0.5
+    aorta = dc.AortaSignal8b()
+    aorta.pars = df.value.values
+    aorta.weight = weight
+    aorta.dose = 0.2
+    aorta.rate = 1
+    aorta.dose_tolerance = 0.1
+    aorta.agent = 'Dotarem'
+    aorta.dt = dt
+    t = np.arange(0, max(xdata)+xdata[1]+dt, dt)
+    cb = aorta.predict(t, return_conc=True)
+    BAT = aorta.pars[0]
 
-    # Format kidney data
-    vars = {
-        'R10k': R1,
-        'dt': aovars['dt'],
-        'J_aorta': CO*cb/1000,
-        'TR': aovars['TR'],
-        'FA': aovars['FA'],
-        'agent': aovars['agent'],
-        'kidney_volume': kidney_volume,
-    }
-    pars, bounds, pfix = tools.unpack_pars(kid.PARS)
-    xdata, ydata = time, signal
-    vars = kid.init(xdata, ydata, vars, BAT)
-    return xdata, ydata, pars, vars, pfix, bounds, BAT, CO
+    # For kidney model
+    kidney = dc.KidneySignal9()
+    kidney.dt = dt
+    kidney.J_aorta = cb*aorta.pars[1]
+    kidney.TR = 4.80/1000.0
+    kidney.FA = 17
+    kidney.R10 = R1
+    kidney.kidney_volume = kidney_volume
+    kidney.BAT = BAT
+    kidney.CO = aorta.pars[1]
+    kidney.Hct = 0.36
 
-
-def fit(time, signal, weight, R1, kidney_volume, aortapars, path, name):
-
-    xdata, ydata, pars, vars, pfix, bounds, BAT, CO = format(time, signal, weight, R1, kidney_volume, aortapars)
-    
     # Fit model to data
-    loss = tools.loss(kid.model, xdata, ydata, pars, vars=vars)
-    print('Goodness of fit: ', loss)
-    pars, pcov = tools.curve_fit(
-        kid.model, xdata, ydata, 
-        pars, vars = vars, 
-        pfix = pfix,
-        bounds = bounds,
-        xtol = 1e-6,
-    )  
-    loss = tools.loss(kid.model, xdata, ydata, pars, vars=vars)
-    print('Goodness of fit: ', loss)
+    kidney.initialize('Amber')
+    kidney.pretrain(xdata, ydata)
+    loss = kidney.cost(xdata, ydata)
+    print('Goodness of fit (initial): ', loss)
+
+    kidney.train(xdata, ydata, bounds='Amber', xtol=1e-3)
+    loss = kidney.cost(xdata, ydata)
+    print('Goodness of fit (optimal): ', loss)
 
     # Export results
-    Hct = 0.36
-    tools.to_csv(kid.PARS, pars, os.path.join(path, name + '.csv'))
-    kid.plot_fit(xdata, ydata, pars, BAT, vars=vars, save=True, show=False, path=path, prefix=name)
-    return kid.export_pars(pars, kidney_volume, time.max(), CO, Hct)
+    kwargs = {'color':['cornflowerblue','darkblue'], 'label':['Plasma', 'Tubuli'], 
+              'show':False, 'save':True, 'path':path, 'prefix':name+'_kidney'}
+    fig.tissue_2cm(kidney, xdata, ydata, **kwargs)
+    fig.tissue_2cm(kidney, xdata, ydata, win='win', xlim=[BAT-20, BAT+40], **kwargs)
+    fig.tissue_2cm(kidney, xdata, ydata, win='win_', xlim=[BAT-20, BAT+160], **kwargs)
+    
+    # Export data
+    tools.to_csv(kidney, os.path.join(path, name + '.csv'), 'Amber')
+    pars = kidney.pfree(units='custom') + kidney.pdep(units='custom')
+    return tools.to_df(pars)
 
 
-def fit_data(datadir, aorta_results, kidney_results):
+def main(datadir, aorta_results, kidney_results):
+    
     datafile = os.path.join(datadir, 'Overview.xlsx')
     parfile = os.path.join(datadir, 'ROI size.xlsx')
     data = pd.read_excel(datafile, sheet_name='Blad1')
     const = pd.read_excel(parfile, sheet_name='Blad1')
     weight = pd.read_excel(parfile, sheet_name='Blad2')
     output = None
-    for s in ['1','2','3','4']:
+    for s in ['1','2','3','4','5','6','7','8']:
         for visit in ['1','2']:
             for kid in ['LK','RK']:
                 print('Fitting ', s, visit, kid)
@@ -99,14 +98,3 @@ def fit_data(datadir, aorta_results, kidney_results):
 
     return output_file
 
-
-
-def main(datadir, aorta_results, kidney_results):
-    start = time.time()
-    output_file = fit_data(datadir, aorta_results, kidney_results)
-    plot.create_bar_chart(output_file, ylim={})
-    print('Calculation time (mins): ', (time.time()-start)/60)
-
-
-if __name__ == "__main__":
-    main()
