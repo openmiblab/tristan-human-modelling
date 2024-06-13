@@ -11,7 +11,6 @@ resultspath = os.path.join(datapath, 'Results', 'tristan_exp_med_dev')
 # Calculate
 onescan.main(sourcepath, resultspath)
 twoscan.main(sourcepath, resultspath)
-onescan_vart.main(sourcepath, resultspath)
 
 # Summarise results
 for exp in ['onescan','twoscan']:
@@ -24,11 +23,12 @@ for exp in ['onescan','twoscan']:
 # Plot diurnal variations
 plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[50,5])
 
-# Plot variable acquisition time results
+# Variable acquisition time results
+onescan_vart.main(sourcepath, resultspath)
 src = os.path.join(resultspath, 'onescan_vart')
 calc.derive_vart_pars(src)
 plot.vart_effect_plot(src, os.path.join(resultspath, 'twoscan'))
 
-# Creat report
+# Create report
 exp_med_report.generate('report_exp_med', resultspath)
 exp_med_report.generate('report_exp_med', resultspath)

@@ -5,7 +5,6 @@ import numpy as np
 import pylatex as pl
 from pylatex.utils import NoEscape
 
-#import miblab_report.report as report
 from miblab_report import report
 
 def generate(filename, results):
@@ -44,6 +43,14 @@ def generate(filename, results):
     # Secondary results
     #doc.append(NoEscape('\\clearpage'))
     doc.append(pl.Command('chapter', 'Secondary results'))
+    section_diurnal(doc, results)
+    section_acqtime(doc, results)
+
+    report.create(doc, os.path.abspath(""), filename, results)
+
+
+
+def section_diurnal(doc, results):
     with doc.create(pl.Section('Diurnal variation')):
 
         with doc.create(pl.Figure(position='h!')) as pic:
@@ -51,6 +58,8 @@ def generate(filename, results):
             pic.add_image(im, width='6in')
             pic.add_caption("Intra-day changes in hepatocellular uptake (k_he, top row) and biliary excretion (k_bh, bottom row) of Gadoxetate at baseline (left column) and after rifampicin (right column). Full lines connect values taken in the same subject at the same day." )
 
+
+def section_acqtime(doc, results):
     doc.append(NoEscape('\\clearpage'))
     with doc.create(pl.Section('Acquisition time')):
 
@@ -58,8 +67,6 @@ def generate(filename, results):
             im = os.path.join(results, 'onescan_vart', '_effect_plot.png')
             pic.add_image(im, width='6in')
             pic.add_caption("The effect of shortening the acquisition time on measured effect sizes. The figure shows the reference result with 2 scans, and then repeated results with shorter acquisition times ranging from 5min to 40min." )
-
-    report.create(doc, os.path.abspath(""), filename, results)
 
 
 def section_summary(doc, results, folder):
@@ -83,6 +90,7 @@ def section_summary(doc, results, folder):
                     tab.add_row([row] + list(df.loc[row,:]))
                 tab.add_hline()
             table.add_caption("Effect size and absolute values of hepatocellular uptake (k_he) and biliary excretion (k_bh) of Gadoxetate")
+
 
 def section_biomarkers(doc, results, folder):
 
@@ -166,17 +174,19 @@ def section_case_notes(doc, results, folder):
                 dfas = dfa[dfa.subject==subject]
                 dfr = dfs[dfs.visit=='rifampicin']
 
-                # Liver results
+                # Images
                 with doc.create(pl.Figure(position='h!')) as pic:
-                    im = os.path.join(results, folder, subj +'_baseline_Liver_all.png')
+                    im = os.path.join(results, folder, subj +'_baseline.png')
                     pic.add_image(im, width='5.5in')
-                    pic.add_caption("Liver signal-time curves for subject "+subj+' at baseline.')
+                    pic.add_caption("Signal-time curves for subject "+subj+' at baseline.')
+
                 if not dfr.empty:
                     with doc.create(pl.Figure(position='h!')) as pic:
-                        im = os.path.join(results, folder,  subj +'_rifampicin_Liver_all.png')
+                        im = os.path.join(results, folder,  subj +'_rifampicin.png')
                         pic.add_image(im, width='5.5in')
-                        pic.add_caption("Liver signal-time curves for subject "+subj+' after rifampicin.')
+                        pic.add_caption("Signal-time curves for subject "+subj+' after rifampicin.')
 
+                # Tables
                 pivot = pd.pivot_table(dfs, values='value', columns='visit', index=['name','unit'])
                 cols = pivot.columns.tolist()
                 if len(cols)>1:
@@ -191,18 +201,6 @@ def section_case_notes(doc, results, folder):
                             tab.add_row([row[0],row[1]] + list(np.around(pivot.loc[row,:].values,2)))
                         tab.add_hline()
                     table.add_caption("Values for liver of subject "+subj)
-
-                # Aorta results
-                doc.append(NoEscape('\\clearpage'))
-                with doc.create(pl.Figure(position='h!')) as pic:
-                    im = os.path.join(results, folder,  subj +'_baseline_Aorta_all.png')
-                    pic.add_image(im, width='5.5in')
-                    pic.add_caption("Aorta signal-time curves for subject "+subj+' at baseline.')
-                if not dfr.empty:
-                    with doc.create(pl.Figure(position='h!')) as pic:
-                        im = os.path.join(results, folder,  subj +'_rifampicin_Aorta_all.png')
-                        pic.add_image(im, width='5.5in')
-                        pic.add_caption("Aorta signal-time curves for subject "+subj+' after rifampicin.')
 
                 pivot = pd.pivot_table(dfas, values='value', columns='visit', index=['name','unit'])
                 cols = pivot.columns.tolist()

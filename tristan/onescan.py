@@ -51,7 +51,7 @@ def figure(model:dc.AortaLiver,
           dc.signal_ss(R1l[1], model.S0l, model.TR, model.FA)]
     test=((t,ya),(t,yl))
     BAT = model.BAT
-    model.plot(xdata, ydata, fname=file + '_win0.png', testdata=test, show=False)
+    model.plot(xdata, ydata, fname=file + '.png', testdata=test, show=False)
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], fname=file + '_win1.png', testdata=test, show=False)
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], fname=file + '_win2.png', testdata=test, show=False)
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], fname=file + '_win3.png', testdata=test, show=False) 

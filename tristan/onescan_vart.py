@@ -3,7 +3,7 @@ import time
 
 import pandas as pd
 
-import plot
+import plot, tools
 from tristan import data, onescan
 
 
@@ -11,6 +11,7 @@ def main(datapath, results):
 
     start = time.time()
     resultspath = os.path.join(results, 'onescan_vart') 
+    resultspath = tools.save_path(resultspath)
 
     output = None
     for visit in [f.name for f in os.scandir(datapath) if f.is_dir()]:

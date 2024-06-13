@@ -60,7 +60,7 @@ def figure(model:dc.AortaLiver2scan,
           dc.signal_ss(R1l[2], model.S02l, model.TR, model.FA)]
     test = ((t,ya),(t,yl))
     file = os.path.join(path, name)
-    model.plot(xdata, ydata, fname=file + '__win0.png', testdata=test, show=False)
+    model.plot(xdata, ydata, fname=file + '.png', testdata=test, show=False)
     BAT = model.BAT
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], fname=file + '_scan1_win1.png', testdata=test, show=False)
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], fname=file + '_scan1_win2.png', testdata=test, show=False)
