@@ -1,11 +1,10 @@
 import os
-import time
+import pickle
 
 import numpy as np
-import pandas as pd
 import dcmri as dc
 
-import plot, tools
+import tools
 from tristan import data
 
 
@@ -14,7 +13,7 @@ def params(model:dc.AortaLiver):
     model.tmax = model.BAT+180*60
     t, cb, Cl = model.conc()
     t, R1b, R1l = model.relax()
-    AUC_DR1b = np.trapz(R1b-model.R10b, t)
+    AUC_DR1b = np.trapz(R1b-model.R10a, t)
     AUC_Cb = np.trapz(cb, model.t) 
     AUC_DR1l = np.trapz(R1l-model.R10l, t)
     AUC_Cl = np.trapz(Cl, t)
@@ -22,12 +21,12 @@ def params(model:dc.AortaLiver):
     model.tmax = model.BAT+35*60
     t, cb, Cl = model.conc()
     t, R1b, R1l = model.relax()
-    AUC35_DR1b = np.trapz(R1b-model.R10b, t)
+    AUC35_DR1b = np.trapz(R1b-model.R10a, t)
     AUC35_Cb = np.trapz(cb, model.t) 
     AUC35_DR1l = np.trapz(R1l-model.R10l, t)
     AUC35_Cl = np.trapz(Cl, t) 
 
-    pars = model.pars()
+    pars = model.export_params()
     pars['AUC_R1b']=['AUC for DR1b (0-inf)', AUC_DR1b, '',0]
     pars['AUC_Cb']=['AUC for Cb (0-inf)', 1000*AUC_Cb, 'mM*sec',0]
     pars['AUC_R1l']=['AUC for DR1l (0-inf)', AUC_DR1l, '',0]
@@ -45,48 +44,36 @@ def figure(model:dc.AortaLiver,
             ydata:tuple[np.ndarray, np.ndarray], 
             path, name, t, R1a, R1l):
     file = os.path.join(path, name)
-    ya = [dc.signal_ss(R1a[0], model.S0b, model.TR, model.FA),
-          dc.signal_ss(R1a[1], model.S0b, model.TR, model.FA)]
+    ya = [dc.signal_ss(R1a[0], model.S0a, model.TR, model.FA),
+          dc.signal_ss(R1a[1], model.S0a, model.TR, model.FA)]
     yl = [dc.signal_ss(R1l[0], model.S0l, model.TR, model.FA),
           dc.signal_ss(R1l[1], model.S0l, model.TR, model.FA)]
     test=((t,ya),(t,yl))
     BAT = model.BAT
-    model.plot(xdata, ydata, fname=file + '.png', testdata=test, show=False)
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], fname=file + '_win1.png', testdata=test, show=False)
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], fname=file + '_win2.png', testdata=test, show=False)
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], fname=file + '_win3.png', testdata=test, show=False) 
+    model.plot(xdata, ydata, 
+               fname=file + '.png', ref=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], 
+               fname=file + '_win1.png', ref=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], 
+               fname=file + '_win2.png', ref=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], 
+               fname=file + '_win3.png', ref=test, show=False) 
 
 
-def fit(data, path, name, tacq=None):
 
-    xdata = (data['xdata'][0], data['xdata'][2])
-    ydata = (data['ydata'][0], data['ydata'][2])
+def fit_subj(data, path, name, tacq=None):
+
+    xdata = data['xdata']
+    ydata = data['ydata']
 
     # Truncate data if requested
     if tacq is not None:
         idx0, idx1 = xdata[0]<tacq, xdata[1]<tacq
         xdata = (xdata[0][idx0], xdata[1][idx1])
         ydata = (ydata[0][idx0], ydata[1][idx1])
-
-    # Get model
-    model = dc.AortaLiver(
-        tacq = data['time1'][1]-data['time1'][0],
-        weight = data['weight'],
-        agent = 'gadoxetate',
-        dose = data['dose1'],
-        rate = 1,
-        field_strength = 3.0,
-        t0 = data['baseline'],
-        TR = 3.71/1000.0,
-        FA = 15,
-        R10b = data['R1a'][0],
-        # R10b = 1/dc.T1(),
-        R10l = data['R1l'][0],
-        Hct = 0.45,
-        vol = data['liver_volume'],
-    )
-
+    
     # Fit model to data
+    model = dc.AortaLiver(**data['params'])
     loss0 = model.cost(xdata, ydata)
     print('Goodness of fit (initial): ', loss0)
     model.train(xdata, ydata, xtol=1e-3, verbose=2)
@@ -95,7 +82,7 @@ def fit(data, path, name, tacq=None):
 
     # Export data
     figure(model, xdata, ydata, path, name, 
-           data['tR1'][:2], data['R1a'][:2], data['R1l'][:2])
+           data['tR1'], data['R1a'], data['R1l'])
     pars = params(model)
     tools.to_csv(model, os.path.join(path, name + '.csv'), pars)
     pars = tools.to_tristan_units(pars)
@@ -103,46 +90,40 @@ def fit(data, path, name, tacq=None):
 
 
 
-def main(datapath, results):
+def format_data(datapath, resultspath):
 
-    start = time.time()
-    resultspath = os.path.join(results, 'onescan') 
     resultspath = tools.save_path(resultspath)
 
-    output = None
+    data_dict = {}
     for visit in [f.name for f in os.scandir(datapath) if f.is_dir()]:
         visitdatapath = os.path.join(datapath, visit)
+        data_dict[visit] = {}
         for s in os.listdir(visitdatapath):
             subj = os.path.join(visitdatapath, s)
-            print('Fitting aorta and liver of ', visit, subj)
             subj_data = data.read(subj)
-            name = s[:3] + '_' + visit
-            pars = fit(subj_data, resultspath, name)
-            pars['subject'] = s[:3]
-            pars['visit'] = visit
-            structure = []
-            for p in pars.index.values:
-                if p in ['BAT','CO','Thl','Dhl','To',
-                         'Eb','Eo','Teb','BAT2','Tc',
-                         'AUC_R1b','AUC_Cb','AUC35_R1b','AUC35_Cb']:
-                    structure.append('aorta')
-                else:
-                    structure.append('liver')
-            pars['structure'] = structure
-            if output is None:
-                output = pars
-            else:
-                output = pd.concat([output, pars])
+            data_dict[visit][s[:3]] = {
+                'xdata': (subj_data['xdata'][0], subj_data['xdata'][2]),
+                'ydata': (subj_data['ydata'][0], subj_data['ydata'][2]),
+                'tR1':  subj_data['tR1'][:2],
+                'R1a':  subj_data['R1a'][:2],
+                'R1l':  subj_data['R1l'][:2],
+                'params': {
+                    'weight':  subj_data['weight'],
+                    'agent': 'gadoxetate',
+                    'dose':  subj_data['dose1'],
+                    'rate':  1,
+                    'field_strength':  3.0,
+                    't0':  subj_data['baseline'],
+                    'TR':  3.71/1000.0,
+                    'FA':  15,
+                    'TS':  subj_data['time1'][1]-subj_data['time1'][0],
+                    'R10a': subj_data['R1a'][0],
+                    'R10l': subj_data['R1l'][0],
+                    'H':  0.45,
+                    'vol':  subj_data['liver_volume'],
+                }
+            }
 
-    # Format output and save
-    output = output.reindex(columns=['subject','visit','structure','name','value','unit','stdev'])
-    output['parameter'] = output.index
-    output.to_csv(os.path.join(resultspath, 'parameters.csv'), index=False)
-    output.to_pickle(os.path.join(resultspath, 'parameters.pkl'))
-    plot.create_bar_chart(os.path.join(resultspath, 'parameters.pkl'))
-    
-    print('Calculation time (mins): ', (time.time()-start)/60)
+    with open(os.path.join(resultspath, 'data.pkl'), 'wb') as fp:
+        pickle.dump(data_dict, fp, protocol=pickle.HIGHEST_PROTOCOL)
 
-
-if __name__ == "__main__":
-    main()

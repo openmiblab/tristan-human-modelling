@@ -1,20 +1,29 @@
 import os
 
-from tristan import onescan, twoscan, onescan_vart 
-import plot, calc, exp_med_report
+from tristan import onescan, twoscan
+import plot, tools, calc, report
 
 root = os.path.abspath(os.sep)
 datapath = os.path.join(root, 'Users', 'steve', 'Dropbox')
 sourcepath = os.path.join(datapath, 'Data', 'tristan_exp_med')
 resultspath = os.path.join(datapath, 'Results', 'tristan_exp_med_dev')
 
+# Format data
+onescan.format_data(sourcepath, os.path.join(resultspath, 'onescan'))
+twoscan.format_data(sourcepath, os.path.join(resultspath, 'twoscan'))
+
 # Calculate
-onescan.main(sourcepath, resultspath)
-twoscan.main(sourcepath, resultspath)
+tools.compute(onescan.fit_subj, os.path.join(resultspath, 'onescan'))
+tools.compute(twoscan.fit_subj, os.path.join(resultspath, 'twoscan'))
+tools.compute_vart(
+    onescan.fit_subj, 
+    os.path.join(resultspath, 'onescan_vart'),
+    os.path.join(resultspath, 'onescan'))
 
 # Summarise results
 for exp in ['onescan','twoscan']:
     src = os.path.join(resultspath, exp)
+    plot.create_bar_chart(src)
     calc.derive_pars(src)
     calc.ttest(src)
     calc.desc_stats(src)
@@ -24,11 +33,16 @@ for exp in ['onescan','twoscan']:
 plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[50,5])
 
 # Variable acquisition time results
-onescan_vart.main(sourcepath, resultspath)
 src = os.path.join(resultspath, 'onescan_vart')
+plot.create_bar_chart(src)
 calc.derive_vart_pars(src)
 plot.vart_effect_plot(src, os.path.join(resultspath, 'twoscan'))
 
 # Create report
-exp_med_report.generate('report_exp_med', resultspath)
-exp_med_report.generate('report_exp_med', resultspath)
+report.generate('exp_med', resultspath)
+report.generate('exp_med', resultspath)
+
+# Obsolete
+# exp_med_report.generate('report_exp_med', resultspath)
+
+calc.derive_pars(os.path.join(resultspath, 'twoscan'), ref=True)

@@ -1,20 +1,19 @@
 import os
-import time
+import pickle
 
 import numpy as np
-import pandas as pd
 import dcmri as dc
 
-import plot, tools
+import tools
 from tristan import data
 
 def params(model:dc.AortaLiver2scan, xdata, t0):
-    model.dose[1] = 0
+    model.dose2 = 0
 
     model.tmax = model.BAT+180*60
     t, cb, Cl = model.conc()
     t, R1b, R1l = model.relax()
-    AUC_DR1b = np.trapz(R1b-model.R10b, t)
+    AUC_DR1b = np.trapz(R1b-model.R10a, t)
     AUC_Cb = np.trapz(cb, model.t) 
     AUC_DR1l = np.trapz(R1l-model.R10l, t)
     AUC_Cl = np.trapz(Cl, t)
@@ -22,12 +21,12 @@ def params(model:dc.AortaLiver2scan, xdata, t0):
     model.tmax = model.BAT+35*60
     t, cb, Cl = model.conc()
     t, R1b, R1l = model.relax()
-    AUC35_DR1b = np.trapz(R1b-model.R10b, t)
+    AUC35_DR1b = np.trapz(R1b-model.R10a, t)
     AUC35_Cb = np.trapz(cb, model.t) 
     AUC35_DR1l = np.trapz(R1l-model.R10l, t)
     AUC35_Cl = np.trapz(Cl, t) 
 
-    pars = model.pars()
+    pars = model.export_params()
     pars['AUC_R1b']=['AUC for DR1b (0-inf)', AUC_DR1b, '',0]
     pars['AUC_Cb']=['AUC for Cb (0-inf)', 1000*AUC_Cb, 'mM*sec',0]
     pars['AUC_R1l']=['AUC for DR1l (0-inf)', AUC_DR1l, '',0]
@@ -38,12 +37,16 @@ def params(model:dc.AortaLiver2scan, xdata, t0):
     pars['AUC35_Cl']=['AUC for Cl (0-35min)', 1000*AUC35_Cl, 'mM*sec',0]       
 
     # Timings needed for plotting etc
-    pars['t0']=["Start time first acquisition", (t0+xdata[0][0])/(60*60), 'hrs',0]
-    pars['t1']=["End time first acquisition", (t0+xdata[0][-1])/(60*60), 'hrs',0]
-    pars['t2']=["Start time second acquisition", (t0+xdata[1][0])/(60*60), 'hrs',0]
-    pars['t3']=["End time second acquisition", (t0+xdata[1][-1])/(60*60), 'hrs',0]
-    pars['dt1']=["Time step first acquisition", model.tacq, 'sec',0]
-    pars['dt2']=["Time step second acquisition", model.tacq2, 'sec',0]
+    pars['t0']=["Start time first acquisition", (t0+xdata[0][0])/(60*60), 
+                'hrs',0]
+    pars['t1']=["End time first acquisition", (t0+xdata[0][-1])/(60*60), 
+                'hrs',0]
+    pars['t2']=["Start time second acquisition", (t0+xdata[1][0])/(60*60), 
+                'hrs',0]
+    pars['t3']=["End time second acquisition", (t0+xdata[1][-1])/(60*60), 
+                'hrs',0]
+    pars['dt1']=["Time step first acquisition", model.TS, 'sec',0]
+    pars['dt2']=["Time step second acquisition", model.TS, 'sec',0]
 
     return pars  
 
@@ -52,50 +55,38 @@ def figure(model:dc.AortaLiver2scan,
             xdata:tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray], 
             ydata:tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray], 
             path, name, t, R1a, R1l):
-    ya = [dc.signal_ss(R1a[0], model.S0b, model.TR, model.FA),
-          dc.signal_ss(R1a[1], model.S0b, model.TR, model.FA),
-          dc.signal_ss(R1a[2], model.S02b, model.TR, model.FA)]
+    ya = [dc.signal_ss(R1a[0], model.S0a, model.TR, model.FA),
+          dc.signal_ss(R1a[1], model.S0a, model.TR, model.FA),
+          dc.signal_ss(R1a[2], model.S02a, model.TR, model.FA)]
     yl = [dc.signal_ss(R1l[0], model.S0l, model.TR, model.FA),
           dc.signal_ss(R1l[1], model.S0l, model.TR, model.FA),
           dc.signal_ss(R1l[2], model.S02l, model.TR, model.FA)]
     test = ((t,ya),(t,yl))
     file = os.path.join(path, name)
-    model.plot(xdata, ydata, fname=file + '.png', testdata=test, show=False)
+    model.plot(xdata, ydata, fname=file + '.png', ref=test, show=False)
     BAT = model.BAT
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], fname=file + '_scan1_win1.png', testdata=test, show=False)
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], fname=file + '_scan1_win2.png', testdata=test, show=False)
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], fname=file + '_scan1_win3.png', testdata=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], 
+               fname=file + '_scan1_win1.png', ref=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], 
+               fname=file + '_scan1_win2.png', ref=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], 
+               fname=file + '_scan1_win3.png', ref=test, show=False)
     BAT = model.BAT2
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], fname=file + '_scan2_win1.png', testdata=test, show=False)
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], fname=file + '_scan2_win2.png', testdata=test, show=False)
-    model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], fname=file + '_scan2_win3.png', testdata=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], 
+               fname=file + '_scan2_win1.png', ref=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+600], 
+               fname=file + '_scan2_win2.png', ref=test, show=False)
+    model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], 
+               fname=file + '_scan2_win3.png', ref=test, show=False)
 
 
-def fit(data, path, name):
+def fit_subj(data, path, name):
 
-    xdata, ydata = data['xdata'], data['ydata']
-
-    # Get model
-    model = dc.AortaLiver2scan(
-        tacq = data['time1'][1]-data['time1'][0],
-        tacq2 = data['time2'][1]-data['time2'][0],
-        weight = data['weight'],
-        agent = 'gadoxetate',
-        dose = [data['dose1'], data['dose2']],
-        rate = 1,
-        field_strength = 3.0,
-        t0 = data['baseline'],
-        TR = 3.71/1000.0,
-        FA = 15,
-        R10b = data['R1a'][0],
-        R10l = data['R1l'][0],
-        R102b = data['R1a'][2],
-        R102l = data['R1l'][2],
-        Hct = 0.45,
-        vol = data['liver_volume'],
-    )
+    xdata = data['xdata']
+    ydata = data['ydata']
 
     # Fit model to data
+    model = dc.AortaLiver2scan(**data['params'])
     loss0 = model.cost(xdata, ydata)
     print('Goodness of fit (initial): ', loss0)
     model.train(xdata, ydata, xtol=1e-3, verbose=2)
@@ -111,46 +102,44 @@ def fit(data, path, name):
     return tools.to_df(pars)
 
 
-def main(datapath, results):
+def format_data(datapath, resultspath):
 
-    start = time.time()
-    resultspath = os.path.join(results, 'twoscan') 
     resultspath = tools.save_path(resultspath)
 
-    output = None
+    data_dict = {}
     for visit in [f.name for f in os.scandir(datapath) if f.is_dir()]:
         visitdatapath = os.path.join(datapath, visit)
+        data_dict[visit] = {}
         for s in os.listdir(visitdatapath):
             subj = os.path.join(visitdatapath, s)
-            print('Fitting aorta and liver of ', visit, subj)
             subj_data = data.read(subj)
-            name = s[:3] + '_' + visit
-            pars = fit(subj_data, resultspath, name)
-            pars['subject'] = s[:3]
-            pars['visit'] = visit
-            structure = []
-            for p in pars.index.values:
-                if p in ['BAT','CO','Thl','Dhl','To',
-                         'Eb','Eo','Teb','BAT2','Tc',
-                         'AUC_R1b','AUC_Cb','AUC35_R1b','AUC35_Cb']:
-                    structure.append('aorta')
-                else:
-                    structure.append('liver')
-            pars['structure'] = structure
-            if output is None:
-                output = pars
-            else:
-                output = pd.concat([output, pars])
-
-    # Format output and save
-    output = output.reindex(columns=['subject','visit','structure','name','value','unit','stdev'])
-    output['parameter'] = output.index
-    output.to_csv(os.path.join(resultspath, 'parameters.csv'), index=False)
-    output.to_pickle(os.path.join(resultspath, 'parameters.pkl'))
-    plot.create_bar_chart(os.path.join(resultspath, 'parameters.pkl'))
+            data_dict[visit][s[:3]] = {
+                'xdata': subj_data['xdata'],
+                'ydata': subj_data['ydata'],
+                'tR1':  subj_data['tR1'],
+                'R1a':  subj_data['R1a'],
+                'R1l':  subj_data['R1l'],
+                't0': subj_data['t0'],
+                'params': {
+                    'weight':  subj_data['weight'],
+                    'agent': 'gadoxetate',
+                    'dose':  subj_data['dose1'],
+                    'dose2':  subj_data['dose2'],
+                    'rate':  1,
+                    'field_strength':  3.0,
+                    't0':  subj_data['baseline'],
+                    'TR':  3.71/1000.0,
+                    'FA':  15,
+                    'TS':  subj_data['time1'][1]-subj_data['time1'][0],
+                    'R10a': subj_data['R1a'][0],
+                    'R10l': subj_data['R1l'][0],
+                    'R102a': subj_data['R1a'][2],
+                    'R102l': subj_data['R1l'][2],
+                    'H':  0.45,
+                    'vol':  subj_data['liver_volume'],
+                }
+            }
     
-    print('Calculation time (mins): ', (time.time()-start)/60)
+    with open(os.path.join(resultspath, 'data.pkl'), 'wb') as fp:
+        pickle.dump(data_dict, fp, protocol=pickle.HIGHEST_PROTOCOL)
 
-
-if __name__ == "__main__":
-    main()
