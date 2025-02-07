@@ -8,6 +8,14 @@ from pylatex.utils import NoEscape
 from miblab_report import report
 
 
+CONTROL = 'control'
+DRUG = 'drug'
+
+# # Needs harmonizing
+# CONTROL = 'baseline'
+# DRUG = 'rifampicin'
+
+
 def generate(filename, results):
 
     if filename == 'gothenburg':
@@ -174,13 +182,13 @@ def section_reference(doc, results, folder):
             pic.add_image(im, width='6in')
             pic.add_caption(
                 "Comparison to reference values in healthy volunteers "
-                "treated with rifampicin (drug) and under control conditions.")
+                "treated with the drug and under control conditions.")
 
         doc.append(NoEscape('\\clearpage')) 
         with doc.create(pl.Subsection('Control')):
             
             df = pd.read_pickle(os.path.join(results, folder, 'stats_ref.pkl'))
-            df = df[df.visit=='control']
+            df = df[df.visit==CONTROL]
             df = df[df.structure=='liver']
             df.drop(columns=['visit','structure'], inplace=True)
             with doc.create(pl.Table(position='h!')) as table:
@@ -198,7 +206,7 @@ def section_reference(doc, results, folder):
                     "reference data, under control conditions.")
                 
             df = pd.read_pickle(os.path.join(results, folder, 'stats_ref.pkl'))
-            df = df[df.visit=='control']
+            df = df[df.visit==CONTROL]
             df = df[df.structure=='aorta']
             df.drop(columns=['visit','structure'], inplace=True)
             with doc.create(pl.Table(position='h!')) as table:
@@ -219,7 +227,7 @@ def section_reference(doc, results, folder):
         with doc.create(pl.Subsection('Treatment')):
             
             df = pd.read_pickle(os.path.join(results, folder, 'stats_ref.pkl'))
-            df = df[df.visit=='drug']
+            df = df[df.visit==DRUG]
             df = df[df.structure=='liver']
             df.drop(columns=['visit','structure'], inplace=True)
             with doc.create(pl.Table(position='h!')) as table:
@@ -237,7 +245,7 @@ def section_reference(doc, results, folder):
                     "reference data, under treatment conditions.")
                 
             df = pd.read_pickle(os.path.join(results, folder, 'stats_ref.pkl'))
-            df = df[df.visit=='drug']
+            df = df[df.visit==DRUG]
             df = df[df.structure=='aorta']
             df.drop(columns=['visit','structure'], inplace=True)
             with doc.create(pl.Table(position='h!')) as table:
@@ -357,11 +365,11 @@ def section_case_notes(doc, results, folder):
 
                 dfs = df[df.subject==subject]
                 dfas = dfa[dfa.subject==subject]
-                dfr = dfs[dfs.visit=='drug']
+                dfr = dfs[dfs.visit==DRUG]
 
                 # Images
                 with doc.create(pl.Figure(position='h!')) as pic:
-                    im = os.path.join(results, folder, subj +'_control.png')
+                    im = os.path.join(results, folder, subj +'_'+CONTROL+'.png')
                     pic.add_image(im, width='4.5in')
                     pic.add_caption(
                         "Signal-time curves for subject "+subj+" at the "
@@ -370,7 +378,7 @@ def section_case_notes(doc, results, folder):
                 if not dfr.empty:
                     with doc.create(pl.Figure(position='h!')) as pic:
                         im = os.path.join(
-                            results, folder,  subj +'_drug.png')
+                            results, folder,  subj +'_'+DRUG+'.png')
                         pic.add_image(im, width='4.5in')
                         pic.add_caption(
                             "Signal-time curves for subject "+subj+" at "
@@ -382,7 +390,7 @@ def section_case_notes(doc, results, folder):
                                        index=['name','unit'])
                 cols = pivot.columns.tolist()
                 if len(cols)>1:
-                    pivot = pivot[['control','drug','change (%)']]
+                    pivot = pivot[[CONTROL,DRUG,'change (%)']]
                 with doc.create(pl.Table(position='h!')) as table:
                     table.append(pl.Command('centering'))
                     tabular = pl.Tabular('ll'+'c'*pivot.shape[1])
@@ -401,7 +409,7 @@ def section_case_notes(doc, results, folder):
                                        index=['name','unit'])
                 cols = pivot.columns.tolist()
                 if len(cols)>1:
-                    pivot = pivot[['control','drug','change (%)']]
+                    pivot = pivot[[CONTROL,DRUG,'change (%)']]
                 with doc.create(pl.Table(position='h!')) as table:
                     table.append(pl.Command('centering'))
                     tabular = pl.Tabular('ll'+'c'*pivot.shape[1])

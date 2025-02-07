@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 
 sym = {
-    'baseline': 'b-',
-    'rifampicin': 'r-',
+    'control': 'b-',
+    'drug': 'r-',
 }
 mark = {
     1: 'o',
@@ -38,11 +38,15 @@ def _line_plot_ref(ax1, ax2, visits):
     output = pd.read_pickle(
         os.path.join(os.getcwd(), 'tristan', 'reference.pkl'))
 
-    pivot = pd.pivot_table(output[output.visit=='baseline'], values='value', 
+    pivot = pd.pivot_table(output[output.visit=='control'], values='value', 
                            columns='parameter', index='subject')
+    # pivot = pd.pivot_table(output[output.visit=='baseline'], values='value', 
+    #                        columns='parameter', index='subject')
     khe_ref = pivot.loc[:, 'khe']
     kbh_ref = pivot.loc[:, 'kbh']
-    pivot = pd.pivot_table(output[output.visit=='rifampicin'], values='value', 
+    # pivot = pd.pivot_table(output[output.visit=='rifampicin'], values='value', 
+    #                        columns='parameter', index='subject')
+    pivot = pd.pivot_table(output[output.visit=='drug'], values='value', 
                            columns='parameter', index='subject')
     khe_rif = pivot.loc[:, 'khe']
     kbh_rif = pivot.loc[:, 'kbh']
@@ -214,9 +218,9 @@ def compare_to_ref(src):
     df_ref = pd.read_pickle(
         os.path.join(os.getcwd(), 'tristan', 'reference.pkl'))
     
-    # This becomes obsolete afte renaming exp_med visits
-    df_ref.replace('baseline', 'control', inplace=True)
-    df_ref.replace('rifampicin', 'drug', inplace=True)
+    # # This becomes obsolete afte renaming exp_med visits
+    # df_ref.replace('baseline', 'control', inplace=True)
+    # df_ref.replace('rifampicin', 'drug', inplace=True)
 
     # Add column and merge
     df_ref['source'] = 'reference'
@@ -491,35 +495,40 @@ def tmax_effect(output_file, pdf):
     title =( 
         "Effect of changing acquisition time \non hepatocellular uptake "
         "(khe, top row) and biliary excretion (k_bh, bottom row) of "
-        "Gadoxetate \n at baseline (left column) and after administration "
-        "of rifampicin (right column). \n Full lines connect values taken in "
+        "gadoxetate \n at the control visit (left column) and after administration "
+        "of the drug (right column). \n Full lines connect values taken in "
         "the same subject." )
     fig.suptitle(title, fontsize=12)
     ax = {
-        'baselinekhe': ax1,
-        'rifampicinkhe': ax2,
-        'baselinekbh': ax3,
-        'rifampicinkbh': ax4,
+        # 'baselinekhe': ax1,
+        'controlkhe': ax1,
+        # 'rifampicinkhe': ax2,
+        'drugkhe': ax2,
+        # 'baselinekbh': ax3,
+        'controlkbh': ax3,
+        # 'rifampicinkbh': ax4,
+        'drugkbh': ax4,
     }
-    ax1.set_title('Baseline', fontsize=titlesize)
+    ax1.set_title('Control', fontsize=titlesize)
     ax1.set_xlabel('Scan time (mins)', fontsize=fontsize)
     ax1.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax1.set_ylim(0, 50)
     ax1.tick_params(axis='x', labelsize=fontsize)
     ax1.tick_params(axis='y', labelsize=fontsize)
-    ax2.set_title('Rifampicin', fontsize=titlesize)
+    # ax2.set_title('Rifampicin', fontsize=titlesize)
+    ax2.set_title('Drug', fontsize=titlesize)
     ax2.set_xlabel('Scan time (mins)', fontsize=fontsize)
     ax2.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
     ax2.set_ylim(0, 3)
     ax2.tick_params(axis='x', labelsize=fontsize)
     ax2.tick_params(axis='y', labelsize=fontsize)
-    #ax3.set_title('Baseline', fontsize=titlesize)
+ 
     ax3.set_xlabel('Scan time (mins)', fontsize=fontsize)
     ax3.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
     ax3.set_ylim(0, 4)
     ax3.tick_params(axis='x', labelsize=fontsize)
     ax3.tick_params(axis='y', labelsize=fontsize)
-    #ax4.set_title('Rifampicin', fontsize=titlesize)
+  
     ax4.set_xlabel('Scan time (mins)', fontsize=fontsize)
     ax4.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
     ax4.set_ylim(0, 4)

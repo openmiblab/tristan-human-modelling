@@ -179,9 +179,9 @@ def compare_to_ref(src):
     df_ref = pd.read_pickle(
         os.path.join(os.getcwd(), 'tristan', 'reference.pkl'))
     
-    # This becomes obsolete afte renaming exp_med visits
-    df_ref.replace('baseline', 'control', inplace=True)
-    df_ref.replace('rifampicin', 'drug', inplace=True)
+    # # This becomes obsolete afte renaming exp_med visits
+    # df_ref.replace('baseline', 'control', inplace=True)
+    # df_ref.replace('rifampicin', 'drug', inplace=True)
 
     # Add column and merge
     df_ref['source'] = 'reference'

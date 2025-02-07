@@ -6,8 +6,8 @@ import plot, tools, calc, report
 
 root = os.path.abspath(os.sep)
 datapath = os.path.join(root, 'Users', 'steve', 'Dropbox')
-sourcepath = os.path.join(datapath, 'Data', 'tristan_gothenburg_final_data')
-resultspath = os.path.join(datapath, 'Results', 'tristan_gothenburg_dev_final_data')
+sourcepath = os.path.join(datapath, 'Data', 'tristan_gothenburg')
+resultspath = os.path.join(datapath, 'Results', 'tristan_gothenburg_dev')
 
 # Format data
 onescan.format_data(sourcepath, os.path.join(resultspath, 'onescan'))
