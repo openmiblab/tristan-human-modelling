@@ -57,17 +57,17 @@ def read(subj):
         'portal_valid2': dyn2.portal_valid.values,
         'kidney_valid2': dyn2.kidney_valid.values,
         'T1time1': molli1.time.values[0]-t0, 
-        'T1aorta1': molli1.aorta.values[0], 
+        'T1aorta1': molli1.aorta.values[0] if molli1.aorta.values[0]>1000 else 1681, 
         'T1liver1': molli1.liver.values[0], 
         'T1kidney1': molli1['kidney-parenchyma'].values[0], 
         'T1portal1': molli1['portal vein'].values[0],
         'T1time2': molli2.time.values[0]-t0, 
-        'T1aorta2': molli2.aorta.values[0], 
+        'T1aorta2': molli2.aorta.values[0] if molli2.aorta.values[0]>0 else 1681, 
         'T1liver2': molli2.liver.values[0], 
         'T1kidney2': molli2['kidney-parenchyma'].values[0], 
         'T1portal2': molli2['portal vein'].values[0],
         'T1time3': molli3.time.values[0]-t0, 
-        'T1aorta3': molli3.aorta.values[0], 
+        'T1aorta3': molli3.aorta.values[0] if molli3.aorta.values[0]>0 else 1681, 
         'T1liver3': molli3.liver.values[0], 
         'T1kidney3': molli3['kidney-parenchyma'].values[0], 
         'T1portal3': molli3['portal vein'].values[0],
@@ -78,6 +78,7 @@ def read(subj):
         'liver_volume': const.at['liver-volume-mm3','value']/1000,
         'kidney_volume': const.at['kidney-volume-mm3','value']/1000,
         't0': t0,
+        'TR': const.at['TR', 'value'],
     }
 
     # Format data

@@ -1,595 +1,595 @@
 ,subject,visit,structure,name,value,unit,stdev,parameter
-0,001,baseline,aorta,Cardiac output,12.955197131841564,L/min,0.4051750886368221,CO
-1,001,baseline,aorta,Heart-lung mean transit time,26.71166353314846,sec,1.73115364020899,Thl
-2,001,baseline,aorta,Heart-lung dispersion,63.77053961067188,%,1.3483021973480689,Dhl
-3,001,baseline,aorta,Organs blood mean transit time,22.687372052849632,sec,0.6358205997500763,To
-4,001,baseline,aorta,Organs extraction fraction,14.153624853965036,%,0.4524887645482043,Eo
-5,001,baseline,aorta,Organs extravascular mean transit time,7.504397974950432,min,0.28549039055966946,Toe
-6,001,baseline,aorta,Body extraction fraction,6.238714051534032,%,0.31432373520883716,Eb
-7,001,baseline,liver,Hematocrit,45.0,%,0.0,H
-8,001,baseline,liver,Liver extracellular volume fraction,29.696819692240833,mL/100cm3,0.7674438001481005,ve
-9,001,baseline,liver,Extracellular mean transit time,39.663786004563114,sec,1.4076530061912857,Te
-10,001,baseline,liver,Extracellular dispersion,72.15730651381126,%,1.9755621660251168,De
-11,001,baseline,liver,Initial hepatocellular uptake rate,38.043181393270146,mL/min/100cm3,0.3998135756896346,khe_i
-12,001,baseline,liver,Final hepatocellular uptake rate,8.082280764802407,mL/min/100cm3,0.19568693223026667,khe_f
-13,001,baseline,liver,Hepatocellular mean transit time,80.46123973025315,min,0.0,Th
-14,001,baseline,liver,Hepatocellular uptake rate,23.062731079036276,mL/min/100cm3,0.0,khe
-15,001,baseline,liver,Biliary tissue excretion rate,1.2428344422140483,mL/min/100cm3,0.0,Kbh
-16,001,baseline,liver,Hepatocellular tissue uptake rate,77.66060917648394,mL/min/100cm3,0.0,Khe
-17,001,baseline,liver,Biliary excretion rate,0.8737521388366754,mL/min/100cm3,0.0,kbh
-18,001,baseline,liver,Initial biliary excretion rate,3.7134082153458072,mL/min/100cm3,0.0,kbh_i
-19,001,baseline,liver,Final biliary excretion rate,0.4951268942325072,mL/min/100cm3,0.0,kbh_f
-20,001,baseline,liver,Liver blood clearance,0.2551230167590904,L/min,0.0,CL
-21,001,baseline,aorta,AUC for DR1b (0-inf),147572.8040405377,%,0.0,AUC_R1b
-22,001,baseline,aorta,AUC for Cb (0-inf),150.58449391891605,mM*sec,0.0,AUC_Cb
-23,001,baseline,liver,AUC for DR1l (0-inf),2521181.018527091,%,0.0,AUC_R1l
-24,001,baseline,liver,AUC for Cl (0-inf),2572.6336923745826,mM*sec,0.0,AUC_Cl
-25,001,baseline,aorta,AUC for DR1b (0-35min),104738.20838759246,%,0.0,AUC35_R1b
-26,001,baseline,aorta,AUC for Cb (0-35min),106.8757228444821,mM*sec,0.0,AUC35_Cb
-27,001,baseline,liver,AUC for DR1l (0-35min),657661.660750715,%,0.0,AUC35_R1l
-28,001,baseline,liver,AUC for Cl (0-35min),671.0833272966479,mM*sec,0.0,AUC35_Cl
-29,001,baseline,liver,RE for R1b at 20min,60.10953377791435,%,0.0,RE_R1b
-30,001,baseline,liver,RE for R1l at 20min,260.2982624840488,%,0.0,RE_R1l
-31,001,baseline,liver,RE for Sb at 20min,46.69737703647314,%,0.0,RE_Sb
-32,001,baseline,liver,RE for Sl at 20min,176.1728494173027,%,0.0,RE_Sl
-33,002,baseline,aorta,Cardiac output,3.5304422319908206,L/min,0.09331558900078575,CO
-34,002,baseline,aorta,Heart-lung mean transit time,14.11835733102584,sec,0.6893869998273345,Thl
-35,002,baseline,aorta,Heart-lung dispersion,68.95823205640814,%,1.1994830997733639,Dhl
-36,002,baseline,aorta,Organs blood mean transit time,36.70744886472692,sec,1.9448301172879805,To
-37,002,baseline,aorta,Organs extraction fraction,19.366624739758564,%,0.6966858204745877,Eo
-38,002,baseline,aorta,Organs extravascular mean transit time,9.408911395270975,min,0.8054773104390266,Toe
-39,002,baseline,aorta,Body extraction fraction,6.398950959025025,%,0.4843332431970555,Eb
-40,002,baseline,liver,Hematocrit,45.0,%,0.0,H
-41,002,baseline,liver,Liver extracellular volume fraction,1.0176347844176763,mL/100cm3,1.63668358791566,ve
-42,002,baseline,liver,Extracellular mean transit time,3.744219812195942,sec,3.508149317133481,Te
-43,002,baseline,liver,Extracellular dispersion,8.944394166192643,%,231.4536771380274,De
-44,002,baseline,liver,Initial hepatocellular uptake rate,25.810039947465974,mL/min/100cm3,0.5417278069097462,khe_i
-45,002,baseline,liver,Final hepatocellular uptake rate,62.70528474991584,mL/min/100cm3,1.1566424502641715,khe_f
-46,002,baseline,liver,Hepatocellular mean transit time,40.413972944929775,min,0.0,Th
-47,002,baseline,liver,Hepatocellular uptake rate,44.25766234869091,mL/min/100cm3,0.0,khe
-48,002,baseline,liver,Biliary tissue excretion rate,2.474391719326019,mL/min/100cm3,0.0,Kbh
-49,002,baseline,liver,Hepatocellular tissue uptake rate,4349.071300075163,mL/min/100cm3,0.0,Khe
-50,002,baseline,liver,Biliary excretion rate,2.4492114484874072,mL/min/100cm3,0.0,kbh
-51,002,baseline,liver,Initial biliary excretion rate,1.9957400362234563,mL/min/100cm3,0.0,kbh_i
-52,002,baseline,liver,Final biliary excretion rate,3.1693501825733192,mL/min/100cm3,0.0,kbh_f
-53,002,baseline,liver,Liver blood clearance,0.30258043153016995,L/min,0.0,CL
-54,002,baseline,aorta,AUC for DR1b (0-inf),28992.713665157236,%,0.0,AUC_R1b
-55,002,baseline,aorta,AUC for Cb (0-inf),29.58440169914004,mM*sec,0.0,AUC_Cb
-56,002,baseline,liver,AUC for DR1l (0-inf),380660.36993626633,%,0.0,AUC_R1l
-57,002,baseline,liver,AUC for Cl (0-inf),388.42894891455745,mM*sec,0.0,AUC_Cl
-58,002,baseline,aorta,AUC for DR1b (0-35min),17073.90481816309,%,0.0,AUC35_R1b
-59,002,baseline,aorta,AUC for Cb (0-35min),17.422351855268456,mM*sec,0.0,AUC35_Cb
-60,002,baseline,liver,AUC for DR1l (0-35min),103348.24293204038,%,0.0,AUC35_R1l
-61,002,baseline,liver,AUC for Cl (0-35min),105.45739074697997,mM*sec,0.0,AUC35_Cl
-62,002,baseline,liver,RE for R1b at 20min,9.359878692644354,%,0.0,RE_R1b
-63,002,baseline,liver,RE for R1l at 20min,35.79775673281783,%,0.0,RE_R1l
-64,002,baseline,liver,RE for Sb at 20min,9.4827420850759,%,0.0,RE_Sb
-65,002,baseline,liver,RE for Sl at 20min,30.400546176521352,%,0.0,RE_Sl
-66,003,baseline,aorta,Cardiac output,5.52484909732252,L/min,0.18341285638782795,CO
-67,003,baseline,aorta,Heart-lung mean transit time,17.925332722684164,sec,1.6305870357387062,Thl
-68,003,baseline,aorta,Heart-lung dispersion,42.636352150743356,%,2.687938537456703,Dhl
-69,003,baseline,aorta,Organs blood mean transit time,27.58090741201013,sec,1.8671880178662168,To
-70,003,baseline,aorta,Organs extraction fraction,16.446843837799722,%,1.3296987181370579,Eo
-71,003,baseline,aorta,Organs extravascular mean transit time,4.649344883108429,min,0.42501363458268,Toe
-72,003,baseline,aorta,Body extraction fraction,9.011252245628608,%,0.44541782066975927,Eb
-73,003,baseline,liver,Hematocrit,45.0,%,0.0,H
-74,003,baseline,liver,Liver extracellular volume fraction,26.191031453903374,mL/100cm3,20.666804027184522,ve
-75,003,baseline,liver,Extracellular mean transit time,52.863792195919594,sec,41.518762393799705,Te
-76,003,baseline,liver,Extracellular dispersion,86.50946419691815,%,12.411122891066622,De
-77,003,baseline,liver,Initial hepatocellular uptake rate,47.962413395363825,mL/min/100cm3,2.3472110157657107,khe_i
-78,003,baseline,liver,Final hepatocellular uptake rate,85.45315770937304,mL/min/100cm3,253.87351029402743,khe_f
-79,003,baseline,liver,Hepatocellular mean transit time,26.863134986847005,min,0.0,Th
-80,003,baseline,liver,Hepatocellular uptake rate,66.70778555236843,mL/min/100cm3,0.0,khe
-81,003,baseline,liver,Biliary tissue excretion rate,3.7225737073860885,mL/min/100cm3,0.0,Kbh
-82,003,baseline,liver,Hepatocellular tissue uptake rate,254.69705410332995,mL/min/100cm3,0.0,Khe
-83,003,baseline,liver,Biliary excretion rate,2.7475932567898607,mL/min/100cm3,0.0,kbh
-84,003,baseline,liver,Initial biliary excretion rate,2.070850128667751,mL/min/100cm3,0.0,kbh_i
-85,003,baseline,liver,Final biliary excretion rate,4.081360933646393,mL/min/100cm3,0.0,kbh_f
-86,003,baseline,liver,Liver blood clearance,0.5830742525091764,L/min,0.0,CL
-87,003,baseline,aorta,AUC for DR1b (0-inf),13370.490354826967,%,0.0,AUC_R1b
-88,003,baseline,aorta,AUC for Cb (0-inf),13.643357504925476,mM*sec,0.0,AUC_Cb
-89,003,baseline,liver,AUC for DR1l (0-inf),218614.88252956618,%,0.0,AUC_R1l
-90,003,baseline,liver,AUC for Cl (0-inf),223.07641074445525,mM*sec,0.0,AUC_Cl
-91,003,baseline,aorta,AUC for DR1b (0-35min),11763.316516266836,%,0.0,AUC35_R1b
-92,003,baseline,aorta,AUC for Cb (0-35min),12.003384200272281,mM*sec,0.0,AUC35_Cb
-93,003,baseline,liver,AUC for DR1l (0-35min),109579.64535269521,%,0.0,AUC35_R1l
-94,003,baseline,liver,AUC for Cl (0-35min),111.81596464560735,mM*sec,0.0,AUC35_Cl
-95,003,baseline,liver,RE for R1b at 20min,5.999071360642785,%,0.0,RE_R1b
-96,003,baseline,liver,RE for R1l at 20min,41.22660138958961,%,0.0,RE_R1l
-97,003,baseline,liver,RE for Sb at 20min,6.192100359452793,%,0.0,RE_Sb
-98,003,baseline,liver,RE for Sl at 20min,33.87558085006487,%,0.0,RE_Sl
-99,004,baseline,aorta,Cardiac output,4.13472168277019,L/min,0.03948865996189491,CO
-100,004,baseline,aorta,Heart-lung mean transit time,18.753676763243135,sec,0.13857854068610367,Thl
-101,004,baseline,aorta,Heart-lung dispersion,31.150695273297025,%,0.3257297860138561,Dhl
-102,004,baseline,aorta,Organs blood mean transit time,26.330290378144323,sec,0.7976660717663542,To
-103,004,baseline,aorta,Organs extraction fraction,30.89780642249303,%,0.5800367669684248,Eo
-104,004,baseline,aorta,Organs extravascular mean transit time,5.603692654415085,min,0.2274447769720027,Toe
-105,004,baseline,aorta,Body extraction fraction,14.9090673686691,%,0.3849083568487276,Eb
-106,004,baseline,liver,Hematocrit,45.0,%,0.0,H
-107,004,baseline,liver,Liver extracellular volume fraction,5.799955999223359,mL/100cm3,1.1191653927786818,ve
-108,004,baseline,liver,Extracellular mean transit time,25.542868677890233,sec,4.136653182838318,Te
-109,004,baseline,liver,Extracellular dispersion,56.448630851170535,%,8.497805061383032,De
-110,004,baseline,liver,Initial hepatocellular uptake rate,19.62407218395548,mL/min/100cm3,0.25108158257904495,khe_i
-111,004,baseline,liver,Final hepatocellular uptake rate,28.148734852414396,mL/min/100cm3,0.5990017765200978,khe_f
-112,004,baseline,liver,Hepatocellular mean transit time,179.44412806438402,min,0.0,Th
-113,004,baseline,liver,Hepatocellular uptake rate,23.88640351818494,mL/min/100cm3,0.0,khe
-114,004,baseline,liver,Biliary tissue excretion rate,0.5572765243347517,mL/min/100cm3,0.0,Kbh
-115,004,baseline,liver,Hepatocellular tissue uptake rate,411.8376677578837,mL/min/100cm3,0.0,Khe
-116,004,baseline,liver,Biliary excretion rate,0.5249547311293349,mL/min/100cm3,0.0,kbh
-117,004,baseline,liver,Initial biliary excretion rate,0.6677534480907119,mL/min/100cm3,0.0,kbh_i
-118,004,baseline,liver,Final biliary excretion rate,0.4324710326085169,mL/min/100cm3,0.0,kbh_f
-119,004,baseline,liver,Liver blood clearance,0.21164484856007607,L/min,0.0,CL
-120,004,baseline,aorta,AUC for DR1b (0-inf),43458.870278174865,%,0.0,AUC_R1b
-121,004,baseline,aorta,AUC for Cb (0-inf),44.34578599813763,mM*sec,0.0,AUC_Cb
-122,004,baseline,liver,AUC for DR1l (0-inf),926531.052025696,%,0.0,AUC_R1l
-123,004,baseline,liver,AUC for Cl (0-inf),945.4398490058122,mM*sec,0.0,AUC_Cl
-124,004,baseline,aorta,AUC for DR1b (0-35min),36019.197178298964,%,0.0,AUC35_R1b
-125,004,baseline,aorta,AUC for Cb (0-35min),36.754282834998946,mM*sec,0.0,AUC35_Cb
-126,004,baseline,liver,AUC for DR1l (0-35min),186620.09848038887,%,0.0,AUC35_R1l
-127,004,baseline,liver,AUC for Cl (0-35min),190.42867191876417,mM*sec,0.0,AUC35_Cl
-128,004,baseline,liver,RE for R1b at 20min,18.188399061034247,%,0.0,RE_R1b
-129,004,baseline,liver,RE for R1l at 20min,75.50251136285763,%,0.0,RE_R1l
-130,004,baseline,liver,RE for Sb at 20min,7.1336114464511695,%,0.0,RE_Sb
-131,004,baseline,liver,RE for Sl at 20min,61.709140653144004,%,0.0,RE_Sl
-132,005,baseline,aorta,Cardiac output,6.6148931396669255,L/min,0.10571324884991103,CO
-133,005,baseline,aorta,Heart-lung mean transit time,10.351961972390102,sec,0.33113608262502087,Thl
-134,005,baseline,aorta,Heart-lung dispersion,56.03675296829774,%,1.3626296048436914,Dhl
-135,005,baseline,aorta,Organs blood mean transit time,22.44283006972161,sec,0.784629467970286,To
-136,005,baseline,aorta,Organs extraction fraction,17.49966337667635,%,0.5168219225606001,Eo
-137,005,baseline,aorta,Organs extravascular mean transit time,4.608939811284859,min,0.1784909922104694,Toe
-138,005,baseline,aorta,Body extraction fraction,6.621333429447781,%,0.186713767801577,Eb
-139,005,baseline,liver,Hematocrit,45.0,%,0.0,H
-140,005,baseline,liver,Liver extracellular volume fraction,18.18859772193989,mL/100cm3,1.865763758192603,ve
-141,005,baseline,liver,Extracellular mean transit time,39.05713438368848,sec,4.804358715388767,Te
-142,005,baseline,liver,Extracellular dispersion,79.53483267495652,%,3.562632212771213,De
-143,005,baseline,liver,Initial hepatocellular uptake rate,34.85045981688628,mL/min/100cm3,0.43191961803107043,khe_i
-144,005,baseline,liver,Final hepatocellular uptake rate,24.181132418113393,mL/min/100cm3,0.40466054023834536,khe_f
-145,005,baseline,liver,Hepatocellular mean transit time,33.81866420887766,min,0.0,Th
-146,005,baseline,liver,Hepatocellular uptake rate,29.515796117499832,mL/min/100cm3,0.0,khe
-147,005,baseline,liver,Biliary tissue excretion rate,2.956947068706198,mL/min/100cm3,0.0,Kbh
-148,005,baseline,liver,Hepatocellular tissue uptake rate,162.27636989242208,mL/min/100cm3,0.0,Khe
-149,005,baseline,liver,Biliary excretion rate,2.419119861528534,mL/min/100cm3,0.0,kbh
-150,005,baseline,liver,Initial biliary excretion rate,2.5483726162025344,mL/min/100cm3,0.0,kbh_i
-151,005,baseline,liver,Final biliary excretion rate,2.3023455325316466,mL/min/100cm3,0.0,kbh_f
-152,005,baseline,liver,Liver blood clearance,0.2081814818858267,L/min,0.0,CL
-153,005,baseline,aorta,AUC for DR1b (0-inf),45441.2680165031,%,0.0,AUC_R1b
-154,005,baseline,aorta,AUC for Cb (0-inf),46.368640833166424,mM*sec,0.0,AUC_Cb
-155,005,baseline,liver,AUC for DR1l (0-inf),516682.76281146146,%,0.0,AUC_R1l
-156,005,baseline,liver,AUC for Cl (0-inf),527.2273089912871,mM*sec,0.0,AUC_Cl
-157,005,baseline,aorta,AUC for DR1b (0-35min),37008.43257560554,%,0.0,AUC35_R1b
-158,005,baseline,aorta,AUC for Cb (0-35min),37.76370670980157,mM*sec,0.0,AUC35_Cb
-159,005,baseline,liver,AUC for DR1l (0-35min),207621.67666639894,%,0.0,AUC35_R1l
-160,005,baseline,liver,AUC for Cl (0-35min),211.8588537412234,mM*sec,0.0,AUC35_Cl
-161,005,baseline,liver,RE for R1b at 20min,15.772771224324044,%,0.0,RE_R1b
-162,005,baseline,liver,RE for R1l at 20min,96.75660733913824,%,0.0,RE_R1l
-163,005,baseline,liver,RE for Sb at 20min,2.0920317019319974,%,0.0,RE_Sb
-164,005,baseline,liver,RE for Sl at 20min,75.07164089236059,%,0.0,RE_Sl
-165,006,baseline,aorta,Cardiac output,4.415036706073544,L/min,0.051045483992752674,CO
-166,006,baseline,aorta,Heart-lung mean transit time,15.907821245463628,sec,0.1489286877805157,Thl
-167,006,baseline,aorta,Heart-lung dispersion,34.64276238885634,%,0.46976487482047224,Dhl
-168,006,baseline,aorta,Organs blood mean transit time,31.608727747552123,sec,1.1152319936300523,To
-169,006,baseline,aorta,Organs extraction fraction,20.49670521369719,%,0.6447696278783287,Eo
-170,006,baseline,aorta,Organs extravascular mean transit time,6.489841682686082,min,0.3382237249169839,Toe
-171,006,baseline,aorta,Body extraction fraction,8.236065658413416,%,0.28387404932429416,Eb
-172,006,baseline,liver,Hematocrit,45.0,%,0.0,H
-173,006,baseline,liver,Liver extracellular volume fraction,18.681039366290364,mL/100cm3,3.169914747505957,ve
-174,006,baseline,liver,Extracellular mean transit time,44.54607807217631,sec,6.987507393103655,Te
-175,006,baseline,liver,Extracellular dispersion,67.68590201032171,%,5.708448973239133,De
-176,006,baseline,liver,Initial hepatocellular uptake rate,40.4427402753483,mL/min/100cm3,0.6066312860718817,khe_i
-177,006,baseline,liver,Final hepatocellular uptake rate,33.473370891631646,mL/min/100cm3,0.6486500884790743,khe_f
-178,006,baseline,liver,Hepatocellular mean transit time,43.348900617513856,min,0.0,Th
-179,006,baseline,liver,Hepatocellular uptake rate,36.95805558348997,mL/min/100cm3,0.0,khe
-180,006,baseline,liver,Biliary tissue excretion rate,2.30686357844097,mL/min/100cm3,0.0,Kbh
-181,006,baseline,liver,Hepatocellular tissue uptake rate,197.83725551256097,mL/min/100cm3,0.0,Khe
-182,006,baseline,liver,Biliary excretion rate,1.875917485225798,mL/min/100cm3,0.0,kbh
-183,006,baseline,liver,Initial biliary excretion rate,1.766481972190732,mL/min/100cm3,0.0,kbh_i
-184,006,baseline,liver,Final biliary excretion rate,1.9998077909398222,mL/min/100cm3,0.0,kbh_f
-185,006,baseline,liver,Liver blood clearance,0.2554355650572706,L/min,0.0,CL
-186,006,baseline,aorta,AUC for DR1b (0-inf),36454.39870264777,%,0.0,AUC_R1b
-187,006,baseline,aorta,AUC for Cb (0-inf),37.19836602310997,mM*sec,0.0,AUC_Cb
-188,006,baseline,liver,AUC for DR1l (0-inf),630107.715704175,%,0.0,AUC_R1l
-189,006,baseline,liver,AUC for Cl (0-inf),642.9670568409948,mM*sec,0.0,AUC_Cl
-190,006,baseline,aorta,AUC for DR1b (0-35min),26793.757299752924,%,0.0,AUC35_R1b
-191,006,baseline,aorta,AUC for Cb (0-35min),27.340568673217266,mM*sec,0.0,AUC35_Cb
-192,006,baseline,liver,AUC for DR1l (0-35min),193245.9870936743,%,0.0,AUC35_R1l
-193,006,baseline,liver,AUC for Cl (0-35min),197.18978274864725,mM*sec,0.0,AUC35_Cl
-194,006,baseline,liver,RE for R1b at 20min,15.332496310434726,%,0.0,RE_R1b
-195,006,baseline,liver,RE for R1l at 20min,93.25561382107121,%,0.0,RE_R1l
-196,006,baseline,liver,RE for Sb at 20min,12.728358705204377,%,0.0,RE_Sb
-197,006,baseline,liver,RE for Sl at 20min,75.79799064610977,%,0.0,RE_Sl
-198,007,baseline,aorta,Cardiac output,9.40707199334189,L/min,0.1698567739436689,CO
-199,007,baseline,aorta,Heart-lung mean transit time,11.334743296848698,sec,0.5560365747562569,Thl
-200,007,baseline,aorta,Heart-lung dispersion,36.429092990471254,%,1.3887585183591153,Dhl
-201,007,baseline,aorta,Organs blood mean transit time,19.327708518233568,sec,0.936141721769722,To
-202,007,baseline,aorta,Organs extraction fraction,19.650390861574458,%,0.7203635530396594,Eo
-203,007,baseline,aorta,Organs extravascular mean transit time,4.560158850906831,min,0.17189354647486718,Toe
-204,007,baseline,aorta,Body extraction fraction,3.1945986119271486,%,0.10977677830737158,Eb
-205,007,baseline,liver,Hematocrit,45.0,%,0.0,H
-206,007,baseline,liver,Liver extracellular volume fraction,21.99527972008842,mL/100cm3,8.452649255829588,ve
-207,007,baseline,liver,Extracellular mean transit time,58.01590522015788,sec,24.3449131838768,Te
-208,007,baseline,liver,Extracellular dispersion,95.59744278362882,%,3.2124387100021115,De
-209,007,baseline,liver,Initial hepatocellular uptake rate,35.48428349064616,mL/min/100cm3,0.9010919271211805,khe_i
-210,007,baseline,liver,Final hepatocellular uptake rate,29.707546777129377,mL/min/100cm3,1.057874795049339,khe_f
-211,007,baseline,liver,Hepatocellular mean transit time,29.732637710015418,min,0.0,Th
-212,007,baseline,liver,Hepatocellular uptake rate,32.59591513388777,mL/min/100cm3,0.0,khe
-213,007,baseline,liver,Biliary tissue excretion rate,3.3633073854834974,mL/min/100cm3,0.0,Kbh
-214,007,baseline,liver,Hepatocellular tissue uptake rate,148.19504706783852,mL/min/100cm3,0.0,Khe
-215,007,baseline,liver,Biliary excretion rate,2.62353851820001,mL/min/100cm3,0.0,kbh
-216,007,baseline,liver,Initial biliary excretion rate,3.269369122011037,mL/min/100cm3,0.0,kbh_i
-217,007,baseline,liver,Final biliary excretion rate,2.1907735039005574,mL/min/100cm3,0.0,kbh_f
-218,007,baseline,liver,Liver blood clearance,0.30775923486887435,L/min,0.0,CL
-219,007,baseline,aorta,AUC for DR1b (0-inf),65749.46159964245,%,0.0,AUC_R1b
-220,007,baseline,aorta,AUC for Cb (0-inf),67.09128734657394,mM*sec,0.0,AUC_Cb
-221,007,baseline,liver,AUC for DR1l (0-inf),639192.8601168452,%,0.0,AUC_R1l
-222,007,baseline,liver,AUC for Cl (0-inf),652.2376123641277,mM*sec,0.0,AUC_Cl
-223,007,baseline,aorta,AUC for DR1b (0-35min),35891.99322038854,%,0.0,AUC35_R1b
-224,007,baseline,aorta,AUC for Cb (0-35min),36.62448287794749,mM*sec,0.0,AUC35_Cb
-225,007,baseline,liver,AUC for DR1l (0-35min),184743.5965567101,%,0.0,AUC35_R1l
-226,007,baseline,liver,AUC for Cl (0-35min),188.51387403745926,mM*sec,0.0,AUC35_Cl
-227,007,baseline,liver,RE for R1b at 20min,24.941419309449376,%,0.0,RE_R1b
-228,007,baseline,liver,RE for R1l at 20min,85.54662635545091,%,0.0,RE_R1l
-229,007,baseline,liver,RE for Sb at 20min,2.6322956478989705,%,0.0,RE_Sb
-230,007,baseline,liver,RE for Sl at 20min,72.582902636776,%,0.0,RE_Sl
-231,008,baseline,aorta,Cardiac output,10.736539344565161,L/min,0.14761220697890565,CO
-232,008,baseline,aorta,Heart-lung mean transit time,16.29829558190725,sec,0.40940362699577065,Thl
-233,008,baseline,aorta,Heart-lung dispersion,42.31193261822652,%,0.7665904269101373,Dhl
-234,008,baseline,aorta,Organs blood mean transit time,22.595627307530883,sec,0.783648379717885,To
-235,008,baseline,aorta,Organs extraction fraction,15.525308991564819,%,0.551456662292508,Eo
-236,008,baseline,aorta,Organs extravascular mean transit time,4.631597574337064,min,0.2030465080962739,Toe
-237,008,baseline,aorta,Body extraction fraction,4.765186023322886,%,0.11905399979545617,Eb
-238,008,baseline,liver,Hematocrit,45.0,%,0.0,H
-239,008,baseline,liver,Liver extracellular volume fraction,13.673406512324293,mL/100cm3,1.0578715881215028,ve
-240,008,baseline,liver,Extracellular mean transit time,18.818735802748122,sec,1.9364087437551085,Te
-241,008,baseline,liver,Extracellular dispersion,47.37016320213023,%,7.187482969490828,De
-242,008,baseline,liver,Initial hepatocellular uptake rate,39.58082927255139,mL/min/100cm3,0.4849432444362574,khe_i
-243,008,baseline,liver,Final hepatocellular uptake rate,24.47770956703203,mL/min/100cm3,0.41847760807826295,khe_f
-244,008,baseline,liver,Hepatocellular mean transit time,33.570322299219555,min,0.0,Th
-245,008,baseline,liver,Hepatocellular uptake rate,32.02926941979172,mL/min/100cm3,0.0,khe
-246,008,baseline,liver,Biliary tissue excretion rate,2.9788215647344205,mL/min/100cm3,0.0,Kbh
-247,008,baseline,liver,Hepatocellular tissue uptake rate,234.2449878230613,mL/min/100cm3,0.0,Khe
-248,008,baseline,liver,Biliary excretion rate,2.571515182911504,mL/min/100cm3,0.0,kbh
-249,008,baseline,liver,Initial biliary excretion rate,3.7555554747715627,mL/min/100cm3,0.0,kbh_i
-250,008,baseline,liver,Final biliary excretion rate,1.9551130051735095,mL/min/100cm3,0.0,kbh_f
-251,008,baseline,liver,Liver blood clearance,0.3296801790361648,L/min,0.0,CL
-252,008,baseline,aorta,AUC for DR1b (0-inf),38961.797787923075,%,0.0,AUC_R1b
-253,008,baseline,aorta,AUC for Cb (0-inf),39.75693651828885,mM*sec,0.0,AUC_Cb
-254,008,baseline,liver,AUC for DR1l (0-inf),425524.5641003711,%,0.0,AUC_R1l
-255,008,baseline,liver,AUC for Cl (0-inf),434.20873887792965,mM*sec,0.0,AUC_Cl
-256,008,baseline,aorta,AUC for DR1b (0-35min),27721.761373013327,%,0.0,AUC35_R1b
-257,008,baseline,aorta,AUC for Cb (0-35min),28.28751160511564,mM*sec,0.0,AUC35_Cb
-258,008,baseline,liver,AUC for DR1l (0-35min),159128.8832912528,%,0.0,AUC35_R1l
-259,008,baseline,liver,AUC for Cl (0-35min),162.37641152168655,mM*sec,0.0,AUC35_Cl
-260,008,baseline,liver,RE for R1b at 20min,18.3489910813761,%,0.0,RE_R1b
-261,008,baseline,liver,RE for R1l at 20min,65.14867410336342,%,0.0,RE_R1l
-262,008,baseline,liver,RE for Sb at 20min,13.18076769940976,%,0.0,RE_Sb
-263,008,baseline,liver,RE for Sl at 20min,54.13343550815658,%,0.0,RE_Sl
-264,009,baseline,aorta,Cardiac output,10.464746935420015,L/min,0.11683816661344655,CO
-265,009,baseline,aorta,Heart-lung mean transit time,22.82129666528413,sec,0.1599386432991124,Thl
-266,009,baseline,aorta,Heart-lung dispersion,31.424264552082214,%,0.5328388666458783,Dhl
-267,009,baseline,aorta,Organs blood mean transit time,23.872514754897654,sec,0.917518070478322,To
-268,009,baseline,aorta,Organs extraction fraction,18.610164825984143,%,0.6378634388172781,Eo
-269,009,baseline,aorta,Organs extravascular mean transit time,5.361764857774374,min,0.26325431766483953,Toe
-270,009,baseline,aorta,Body extraction fraction,6.544427594618832,%,0.1642585713301514,Eb
-271,009,baseline,liver,Hematocrit,45.0,%,0.0,H
-272,009,baseline,liver,Liver extracellular volume fraction,14.961912218258538,mL/100cm3,1.6501162085015828,ve
-273,009,baseline,liver,Extracellular mean transit time,33.93340441797262,sec,4.900333493332156,Te
-274,009,baseline,liver,Extracellular dispersion,69.43225100063565,%,5.926543771778051,De
-275,009,baseline,liver,Initial hepatocellular uptake rate,22.06838784164453,mL/min/100cm3,0.40943806107006453,khe_i
-276,009,baseline,liver,Final hepatocellular uptake rate,20.608571992777204,mL/min/100cm3,0.5418982652571854,khe_f
-277,009,baseline,liver,Hepatocellular mean transit time,28.00032410366068,min,0.0,Th
-278,009,baseline,liver,Hepatocellular uptake rate,21.338479917210865,mL/min/100cm3,0.0,khe
-279,009,baseline,liver,Biliary tissue excretion rate,3.571387232154441,mL/min/100cm3,0.0,Kbh
-280,009,baseline,liver,Hepatocellular tissue uptake rate,142.6186680280799,mL/min/100cm3,0.0,Khe
-281,009,baseline,liver,Biliary excretion rate,3.0370394095054003,mL/min/100cm3,0.0,kbh
-282,009,baseline,liver,Initial biliary excretion rate,2.8075546385543673,mL/min/100cm3,0.0,kbh_i
-283,009,baseline,liver,Final biliary excretion rate,3.3073789771089435,mL/min/100cm3,0.0,kbh_f
-284,009,baseline,liver,Liver blood clearance,0.25309925440616754,L/min,0.0,CL
-285,009,baseline,aorta,AUC for DR1b (0-inf),38910.845762836514,%,0.0,AUC_R1b
-286,009,baseline,aorta,AUC for Cb (0-inf),39.704944655955636,mM*sec,0.0,AUC_Cb
-287,009,baseline,liver,AUC for DR1l (0-inf),255766.5623018075,%,0.0,AUC_R1l
-288,009,baseline,liver,AUC for Cl (0-inf),260.9862880630689,mM*sec,0.0,AUC_Cl
-289,009,baseline,aorta,AUC for DR1b (0-35min),28248.689062404952,%,0.0,AUC35_R1b
-290,009,baseline,aorta,AUC for Cb (0-35min),28.82519292082138,mM*sec,0.0,AUC35_Cb
-291,009,baseline,liver,AUC for DR1l (0-35min),99072.83634180331,%,0.0,AUC35_R1l
-292,009,baseline,liver,AUC for Cl (0-35min),101.09473096102379,mM*sec,0.0,AUC35_Cl
-293,009,baseline,liver,RE for R1b at 20min,17.79620063012916,%,0.0,RE_R1b
-294,009,baseline,liver,RE for R1l at 20min,47.661381572570065,%,0.0,RE_R1l
-295,009,baseline,liver,RE for Sb at 20min,9.041948683531592,%,0.0,RE_Sb
-296,009,baseline,liver,RE for Sl at 20min,41.19843986410299,%,0.0,RE_Sl
-297,010,baseline,aorta,Cardiac output,7.123004313786696,L/min,0.09512219549615233,CO
-298,010,baseline,aorta,Heart-lung mean transit time,9.721636748483869,sec,0.22713699376290603,Thl
-299,010,baseline,aorta,Heart-lung dispersion,58.80743884736715,%,1.2980588654116423,Dhl
-300,010,baseline,aorta,Organs blood mean transit time,46.748547361918426,sec,1.4417567195816698,To
-301,010,baseline,aorta,Organs extraction fraction,14.239525357689518,%,0.5074616468717436,Eo
-302,010,baseline,aorta,Organs extravascular mean transit time,8.961346255046257,min,0.503353134745354,Toe
-303,010,baseline,aorta,Body extraction fraction,3.4609693734241116,%,0.1571693371609128,Eb
-304,010,baseline,liver,Hematocrit,45.0,%,0.0,H
-305,010,baseline,liver,Liver extracellular volume fraction,15.240543890083256,mL/100cm3,2.9365239964874714,ve
-306,010,baseline,liver,Extracellular mean transit time,39.11499329695533,sec,8.42025447771982,Te
-307,010,baseline,liver,Extracellular dispersion,74.64763110612573,%,6.742431127818276,De
-308,010,baseline,liver,Initial hepatocellular uptake rate,26.426395057530243,mL/min/100cm3,0.5813297089273706,khe_i
-309,010,baseline,liver,Final hepatocellular uptake rate,30.071110210155524,mL/min/100cm3,0.9789444282475216,khe_f
-310,010,baseline,liver,Hepatocellular mean transit time,26.05487379025821,min,0.0,Th
-311,010,baseline,liver,Hepatocellular uptake rate,28.248752633842887,mL/min/100cm3,0.0,khe
-312,010,baseline,liver,Biliary tissue excretion rate,3.838053517549162,mL/min/100cm3,0.0,Kbh
-313,010,baseline,liver,Hepatocellular tissue uptake rate,185.35265432504568,mL/min/100cm3,0.0,Khe
-314,010,baseline,liver,Biliary excretion rate,3.2531132866821983,mL/min/100cm3,0.0,kbh
-315,010,baseline,liver,Initial biliary excretion rate,3.2590447393213893,mL/min/100cm3,0.0,kbh_i
-316,010,baseline,liver,Final biliary excretion rate,3.247203385275447,mL/min/100cm3,0.0,kbh_f
-317,010,baseline,liver,Liver blood clearance,0.30392581912086897,L/min,0.0,CL
-318,010,baseline,aorta,AUC for DR1b (0-inf),77061.62267862019,%,0.0,AUC_R1b
-319,010,baseline,aorta,AUC for Cb (0-inf),78.63430885573489,mM*sec,0.0,AUC_Cb
-320,010,baseline,liver,AUC for DR1l (0-inf),551497.6473478378,%,0.0,AUC_R1l
-321,010,baseline,liver,AUC for Cl (0-inf),562.7527013753448,mM*sec,0.0,AUC_Cl
-322,010,baseline,aorta,AUC for DR1b (0-35min),36467.912169827694,%,0.0,AUC35_R1b
-323,010,baseline,aorta,AUC for Cb (0-35min),37.21215527533438,mM*sec,0.0,AUC35_Cb
-324,010,baseline,liver,AUC for DR1l (0-35min),148733.0590434031,%,0.0,AUC35_R1l
-325,010,baseline,liver,AUC for Cl (0-35min),151.76842759530928,mM*sec,0.0,AUC35_Cl
-326,010,baseline,liver,RE for R1b at 20min,21.07199855048249,%,0.0,RE_R1b
-327,010,baseline,liver,RE for R1l at 20min,63.36469912506818,%,0.0,RE_R1l
-328,010,baseline,liver,RE for Sb at 20min,11.962585886820117,%,0.0,RE_Sb
-329,010,baseline,liver,RE for Sl at 20min,51.42313043576602,%,0.0,RE_Sl
-330,002,rifampicin,aorta,Cardiac output,5.754886265446996,L/min,0.12214180490942753,CO
-331,002,rifampicin,aorta,Heart-lung mean transit time,8.232872050298436,sec,0.3210888771720833,Thl
-332,002,rifampicin,aorta,Heart-lung dispersion,68.68853040758559,%,1.8494387413455469,Dhl
-333,002,rifampicin,aorta,Organs blood mean transit time,25.396213593007637,sec,1.116648830759881,To
-334,002,rifampicin,aorta,Organs extraction fraction,14.055657345882826,%,0.6573631390789377,Eo
-335,002,rifampicin,aorta,Organs extravascular mean transit time,4.982793823147407,min,0.36359287598570605,Toe
-336,002,rifampicin,aorta,Body extraction fraction,5.3054149003596285,%,0.21415673195892515,Eb
-337,002,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-338,002,rifampicin,liver,Liver extracellular volume fraction,18.475148910096674,mL/100cm3,0.8778067842683569,ve
-339,002,rifampicin,liver,Extracellular mean transit time,36.19478317152395,sec,3.2039396423265036,Te
-340,002,rifampicin,liver,Extracellular dispersion,72.1717648332487,%,4.1200869168702825,De
-341,002,rifampicin,liver,Initial hepatocellular uptake rate,2.5202907665465197,mL/min/100cm3,0.12633162203444342,khe_i
-342,002,rifampicin,liver,Final hepatocellular uptake rate,3.432927941029808,mL/min/100cm3,0.48621042378354984,khe_f
-343,002,rifampicin,liver,Hepatocellular mean transit time,315.11439080290717,min,0.0,Th
-344,002,rifampicin,liver,Hepatocellular uptake rate,2.9766093537881644,mL/min/100cm3,0.0,khe
-345,002,rifampicin,liver,Biliary tissue excretion rate,0.31734507505417753,mL/min/100cm3,0.0,Kbh
-346,002,rifampicin,liver,Hepatocellular tissue uptake rate,16.111422799745046,mL/min/100cm3,0.0,Khe
-347,002,rifampicin,liver,Biliary excretion rate,0.25871509987906016,mL/min/100cm3,0.0,kbh
-348,002,rifampicin,liver,Initial biliary excretion rate,0.13587475420305095,mL/min/100cm3,0.0,kbh_i
-349,002,rifampicin,liver,Final biliary excretion rate,2.6969271779195436,mL/min/100cm3,0.0,kbh_f
-350,002,rifampicin,liver,Liver blood clearance,0.023885545958595093,L/min,0.0,CL
-351,002,rifampicin,aorta,AUC for DR1b (0-inf),21763.561258480066,%,0.0,AUC_R1b
-352,002,rifampicin,aorta,AUC for Cb (0-inf),22.207715569877625,mM*sec,0.0,AUC_Cb
-353,002,rifampicin,liver,AUC for DR1l (0-inf),78912.65957419972,%,0.0,AUC_R1l
-354,002,rifampicin,liver,AUC for Cl (0-inf),80.52312201448952,mM*sec,0.0,AUC_Cl
-355,002,rifampicin,aorta,AUC for DR1b (0-35min),16882.309193342466,%,0.0,AUC35_R1b
-356,002,rifampicin,aorta,AUC for Cb (0-35min),17.226846115655572,mM*sec,0.0,AUC35_Cb
-357,002,rifampicin,liver,AUC for DR1l (0-35min),15984.944416693039,%,0.0,AUC35_R1l
-358,002,rifampicin,liver,AUC for Cl (0-35min),16.311167772135754,mM*sec,0.0,AUC35_Cl
-359,002,rifampicin,liver,RE for R1b at 20min,9.122881302552672,%,0.0,RE_R1b
-360,002,rifampicin,liver,RE for R1l at 20min,6.153959699746806,%,0.0,RE_R1l
-361,002,rifampicin,liver,RE for Sb at 20min,2.5730016022813227,%,0.0,RE_Sb
-362,002,rifampicin,liver,RE for Sl at 20min,3.9533215121820056,%,0.0,RE_Sl
-363,003,rifampicin,aorta,Cardiac output,6.172199238996064,L/min,0.15477268552240586,CO
-364,003,rifampicin,aorta,Heart-lung mean transit time,12.68760922100006,sec,0.9120070411658718,Thl
-365,003,rifampicin,aorta,Heart-lung dispersion,48.91284167739295,%,2.2596358872391837,Dhl
-366,003,rifampicin,aorta,Organs blood mean transit time,26.390259530179737,sec,0.8576362750904601,To
-367,003,rifampicin,aorta,Organs extraction fraction,10.946635306519841,%,0.522592456764348,Eo
-368,003,rifampicin,aorta,Organs extravascular mean transit time,6.11060590509138,min,0.39371956405810055,Toe
-369,003,rifampicin,aorta,Body extraction fraction,3.4084295477419784,%,0.14025617173868252,Eb
-370,003,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-371,003,rifampicin,liver,Liver extracellular volume fraction,20.088174440183195,mL/100cm3,0.9118597361834389,ve
-372,003,rifampicin,liver,Extracellular mean transit time,28.346958380393843,sec,2.093498659918662,Te
-373,003,rifampicin,liver,Extracellular dispersion,65.373966295776,%,3.894150775359299,De
-374,003,rifampicin,liver,Initial hepatocellular uptake rate,3.214087279495119,mL/min/100cm3,0.23938758277595687,khe_i
-375,003,rifampicin,liver,Final hepatocellular uptake rate,4.245466849684516,mL/min/100cm3,0.5151920950060058,khe_f
-376,003,rifampicin,liver,Hepatocellular mean transit time,61.086754494718114,min,0.0,Th
-377,003,rifampicin,liver,Hepatocellular uptake rate,3.729777064589818,mL/min/100cm3,0.0,khe
-378,003,rifampicin,liver,Biliary tissue excretion rate,1.6370160901025859,mL/min/100cm3,0.0,Kbh
-379,003,rifampicin,liver,Hepatocellular tissue uptake rate,18.56702845595064,mL/min/100cm3,0.0,Khe
-380,003,rifampicin,liver,Biliary excretion rate,1.3081694423089119,mL/min/100cm3,0.0,kbh
-381,003,rifampicin,liver,Initial biliary excretion rate,1.2166717764025141,mL/min/100cm3,0.0,kbh_i
-382,003,rifampicin,liver,Final biliary excretion rate,1.4145480458199393,mL/min/100cm3,0.0,kbh_f
-383,003,rifampicin,liver,Liver blood clearance,0.03214200947804495,L/min,0.0,CL
-384,003,rifampicin,aorta,AUC for DR1b (0-inf),31509.78389044495,%,0.0,AUC_R1b
-385,003,rifampicin,aorta,AUC for Cb (0-inf),32.15284070453566,mM*sec,0.0,AUC_Cb
-386,003,rifampicin,liver,AUC for DR1l (0-inf),70973.09405790221,%,0.0,AUC_R1l
-387,003,rifampicin,liver,AUC for Cl (0-inf),72.42152454887982,mM*sec,0.0,AUC_Cl
-388,003,rifampicin,aorta,AUC for DR1b (0-35min),19678.444873405817,%,0.0,AUC35_R1b
-389,003,rifampicin,aorta,AUC for Cb (0-35min),20.08004578918961,mM*sec,0.0,AUC35_Cb
-390,003,rifampicin,liver,AUC for DR1l (0-35min),19461.767914770302,%,0.0,AUC35_R1l
-391,003,rifampicin,liver,AUC for Cl (0-35min),19.858946851806433,mM*sec,0.0,AUC35_Cl
-392,003,rifampicin,liver,RE for R1b at 20min,12.631753099160981,%,0.0,RE_R1b
-393,003,rifampicin,liver,RE for R1l at 20min,6.726986497873068,%,0.0,RE_R1l
-394,003,rifampicin,liver,RE for Sb at 20min,4.269897878483055,%,0.0,RE_Sb
-395,003,rifampicin,liver,RE for Sl at 20min,4.774104343278283,%,0.0,RE_Sl
-396,004,rifampicin,aorta,Cardiac output,6.054781654740845,L/min,0.05222665304810179,CO
-397,004,rifampicin,aorta,Heart-lung mean transit time,20.44686609624904,sec,0.16201903244889138,Thl
-398,004,rifampicin,aorta,Heart-lung dispersion,32.24616951959738,%,0.3218590822606857,Dhl
-399,004,rifampicin,aorta,Organs blood mean transit time,36.325444060058985,sec,1.0554608631525877,To
-400,004,rifampicin,aorta,Organs extraction fraction,22.091086254297007,%,0.5981880416659898,Eo
-401,004,rifampicin,aorta,Organs extravascular mean transit time,5.5815140305708555,min,0.2799654773557937,Toe
-402,004,rifampicin,aorta,Body extraction fraction,5.073389134608835,%,0.16649736925270472,Eb
-403,004,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-404,004,rifampicin,liver,Liver extracellular volume fraction,19.542984307998445,mL/100cm3,0.7788452345050183,ve
-405,004,rifampicin,liver,Extracellular mean transit time,52.7483132294662,sec,3.1942517322912702,Te
-406,004,rifampicin,liver,Extracellular dispersion,80.48764634670732,%,2.044456754920431,De
-407,004,rifampicin,liver,Initial hepatocellular uptake rate,1.7355976111302793,mL/min/100cm3,0.21091477004832176,khe_i
-408,004,rifampicin,liver,Final hepatocellular uptake rate,2.817058939130784,mL/min/100cm3,0.2452784428221939,khe_f
-409,004,rifampicin,liver,Hepatocellular mean transit time,79.49024763520592,min,0.0,Th
-410,004,rifampicin,liver,Hepatocellular uptake rate,2.276328275130532,mL/min/100cm3,0.0,khe
-411,004,rifampicin,liver,Biliary tissue excretion rate,1.2580159576167982,mL/min/100cm3,0.0,Kbh
-412,004,rifampicin,liver,Hepatocellular tissue uptake rate,11.647802808698406,mL/min/100cm3,0.0,Khe
-413,004,rifampicin,liver,Biliary excretion rate,1.012162096427631,mL/min/100cm3,0.0,kbh
-414,004,rifampicin,liver,Initial biliary excretion rate,1.0643928549435115,mL/min/100cm3,0.0,kbh_i
-415,004,rifampicin,liver,Final biliary excretion rate,0.9648175898273665,mL/min/100cm3,0.0,kbh_f
-416,004,rifampicin,liver,Liver blood clearance,0.022382597969249914,L/min,0.0,CL
-417,004,rifampicin,aorta,AUC for DR1b (0-inf),85899.81182046393,%,0.0,AUC_R1b
-418,004,rifampicin,aorta,AUC for Cb (0-inf),87.65286920455503,mM*sec,0.0,AUC_Cb
-419,004,rifampicin,liver,AUC for DR1l (0-inf),137629.73903901433,%,0.0,AUC_R1l
-420,004,rifampicin,liver,AUC for Cl (0-inf),140.438509223484,mM*sec,0.0,AUC_Cl
-421,004,rifampicin,aorta,AUC for DR1b (0-35min),47805.30096620856,%,0.0,AUC35_R1b
-422,004,rifampicin,aorta,AUC for Cb (0-35min),48.78091935327404,mM*sec,0.0,AUC35_Cb
-423,004,rifampicin,liver,AUC for DR1l (0-35min),34668.10709916773,%,0.0,AUC35_R1l
-424,004,rifampicin,liver,AUC for Cl (0-35min),35.37561948894667,mM*sec,0.0,AUC35_Cl
-425,004,rifampicin,liver,RE for R1b at 20min,31.957259742353333,%,0.0,RE_R1b
-426,004,rifampicin,liver,RE for R1l at 20min,12.217745942611586,%,0.0,RE_R1l
-427,004,rifampicin,liver,RE for Sb at 20min,26.923678890158016,%,0.0,RE_Sb
-428,004,rifampicin,liver,RE for Sl at 20min,11.081381707341398,%,0.0,RE_Sl
-429,006,rifampicin,aorta,Cardiac output,8.037589502054674,L/min,0.11184842204987232,CO
-430,006,rifampicin,aorta,Heart-lung mean transit time,12.273923885375115,sec,0.2807200947094126,Thl
-431,006,rifampicin,aorta,Heart-lung dispersion,52.85636498769458,%,0.6018273428595107,Dhl
-432,006,rifampicin,aorta,Organs blood mean transit time,32.887265825830106,sec,0.8901191588499211,To
-433,006,rifampicin,aorta,Organs extraction fraction,11.568151897885526,%,0.3700980163514146,Eo
-434,006,rifampicin,aorta,Organs extravascular mean transit time,7.3442920175412265,min,0.4406803662758524,Toe
-435,006,rifampicin,aorta,Body extraction fraction,2.4358130769199717,%,0.14272303636704936,Eb
-436,006,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-437,006,rifampicin,liver,Liver extracellular volume fraction,31.99697162747514,mL/100cm3,0.9548240221094644,ve
-438,006,rifampicin,liver,Extracellular mean transit time,43.50311758918786,sec,1.8604822423506324,Te
-439,006,rifampicin,liver,Extracellular dispersion,67.01592586990965,%,2.0551206761061107,De
-440,006,rifampicin,liver,Initial hepatocellular uptake rate,1.3773242926382396,mL/min/100cm3,0.22715557740454898,khe_i
-441,006,rifampicin,liver,Final hepatocellular uptake rate,2.5108319915415054,mL/min/100cm3,0.35787402241365485,khe_f
-442,006,rifampicin,liver,Hepatocellular mean transit time,93.01844721985135,min,0.0,Th
-443,006,rifampicin,liver,Hepatocellular uptake rate,1.9440781420898727,mL/min/100cm3,0.0,khe
-444,006,rifampicin,liver,Biliary tissue excretion rate,1.0750555721882518,mL/min/100cm3,0.0,Kbh
-445,006,rifampicin,liver,Hepatocellular tissue uptake rate,6.0758191891526785,mL/min/100cm3,0.0,Khe
-446,006,rifampicin,liver,Biliary excretion rate,0.7310703457755864,mL/min/100cm3,0.0,kbh
-447,006,rifampicin,liver,Initial biliary excretion rate,0.6067655124519211,mL/min/100cm3,0.0,kbh_i
-448,006,rifampicin,liver,Final biliary excretion rate,0.9194288616316536,mL/min/100cm3,0.0,kbh_f
-449,006,rifampicin,liver,Liver blood clearance,0.013720559310428593,L/min,0.0,CL
-450,006,rifampicin,aorta,AUC for DR1b (0-inf),65111.21127935734,%,0.0,AUC_R1b
-451,006,rifampicin,aorta,AUC for Cb (0-inf),66.4400115095483,mM*sec,0.0,AUC_Cb
-452,006,rifampicin,liver,AUC for DR1l (0-inf),110535.88291053101,%,0.0,AUC_R1l
-453,006,rifampicin,liver,AUC for Cl (0-inf),112.79171725564389,mM*sec,0.0,AUC_Cl
-454,006,rifampicin,aorta,AUC for DR1b (0-35min),30057.084346117863,%,0.0,AUC35_R1b
-455,006,rifampicin,aorta,AUC for Cb (0-35min),30.670494230732515,mM*sec,0.0,AUC35_Cb
-456,006,rifampicin,liver,AUC for DR1l (0-35min),26669.31584373845,%,0.0,AUC35_R1l
-457,006,rifampicin,liver,AUC for Cl (0-35min),27.213587595651475,mM*sec,0.0,AUC35_Cl
-458,006,rifampicin,liver,RE for R1b at 20min,20.715784332989013,%,0.0,RE_R1b
-459,006,rifampicin,liver,RE for R1l at 20min,9.485457996449147,%,0.0,RE_R1l
-460,006,rifampicin,liver,RE for Sb at 20min,9.186686205025103,%,0.0,RE_Sb
-461,006,rifampicin,liver,RE for Sl at 20min,8.288835751800269,%,0.0,RE_Sl
-462,007,rifampicin,aorta,Cardiac output,8.421140451981161,L/min,0.1268298851084619,CO
-463,007,rifampicin,aorta,Heart-lung mean transit time,12.921185819079204,sec,0.16187013323129731,Thl
-464,007,rifampicin,aorta,Heart-lung dispersion,36.58233514491162,%,0.8191746622675393,Dhl
-465,007,rifampicin,aorta,Organs blood mean transit time,15.419996185900315,sec,0.6575366862318323,To
-466,007,rifampicin,aorta,Organs extraction fraction,19.372436868513184,%,0.6116199938423154,Eo
-467,007,rifampicin,aorta,Organs extravascular mean transit time,4.0832316846083865,min,0.17988650219742083,Toe
-468,007,rifampicin,aorta,Body extraction fraction,3.063379656664315,%,0.08583291598109248,Eb
-469,007,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-470,007,rifampicin,liver,Liver extracellular volume fraction,18.945020216004618,mL/100cm3,0.9820599051153699,ve
-471,007,rifampicin,liver,Extracellular mean transit time,38.888668967161905,sec,3.119684091301102,Te
-472,007,rifampicin,liver,Extracellular dispersion,77.128306211519,%,3.0782524623457004,De
-473,007,rifampicin,liver,Initial hepatocellular uptake rate,2.299623864380983,mL/min/100cm3,1.0367811258513187,khe_i
-474,007,rifampicin,liver,Final hepatocellular uptake rate,1.3343424126827224,mL/min/100cm3,0.13628038671834353,khe_f
-475,007,rifampicin,liver,Hepatocellular mean transit time,148.98428846205044,min,0.0,Th
-476,007,rifampicin,liver,Hepatocellular uptake rate,1.816983138531853,mL/min/100cm3,0.0,khe
-477,007,rifampicin,liver,Biliary tissue excretion rate,0.6712117165661544,mL/min/100cm3,0.0,Kbh
-478,007,rifampicin,liver,Hepatocellular tissue uptake rate,9.590821850888702,mL/min/100cm3,0.0,Khe
-479,007,rifampicin,liver,Biliary excretion rate,0.5440505211705048,mL/min/100cm3,0.0,kbh
-480,007,rifampicin,liver,Initial biliary excretion rate,8.057611356532455,mL/min/100cm3,0.0,kbh_i
-481,007,rifampicin,liver,Final biliary excretion rate,0.281529714262156,mL/min/100cm3,0.0,kbh_f
-482,007,rifampicin,liver,Liver blood clearance,0.020269387344455655,L/min,0.0,CL
-483,007,rifampicin,aorta,AUC for DR1b (0-inf),76898.36550466991,%,0.0,AUC_R1b
-484,007,rifampicin,aorta,AUC for Cb (0-inf),78.46771990272441,mM*sec,0.0,AUC_Cb
-485,007,rifampicin,liver,AUC for DR1l (0-inf),140466.61238060473,%,0.0,AUC_R1l
-486,007,rifampicin,liver,AUC for Cl (0-inf),143.33327793939256,mM*sec,0.0,AUC_Cl
-487,007,rifampicin,aorta,AUC for DR1b (0-35min),43816.10191427432,%,0.0,AUC35_R1b
-488,007,rifampicin,aorta,AUC for Cb (0-35min),44.71030807579012,mM*sec,0.0,AUC35_Cb
-489,007,rifampicin,liver,AUC for DR1l (0-35min),31773.6771269795,%,0.0,AUC35_R1l
-490,007,rifampicin,liver,AUC for Cl (0-35min),32.42211951732602,mM*sec,0.0,AUC35_Cl
-491,007,rifampicin,liver,RE for R1b at 20min,29.391039857692615,%,0.0,RE_R1b
-492,007,rifampicin,liver,RE for R1l at 20min,11.699201976228013,%,0.0,RE_R1l
-493,007,rifampicin,liver,RE for Sb at 20min,34.229429320350526,%,0.0,RE_Sb
-494,007,rifampicin,liver,RE for Sl at 20min,9.46031475786745,%,0.0,RE_Sl
-495,008,rifampicin,aorta,Cardiac output,10.724784218560373,L/min,0.178074793164321,CO
-496,008,rifampicin,aorta,Heart-lung mean transit time,11.379778595527384,sec,0.37111685923983784,Thl
-497,008,rifampicin,aorta,Heart-lung dispersion,48.43072112754728,%,0.8878754079572917,Dhl
-498,008,rifampicin,aorta,Organs blood mean transit time,22.92409133372404,sec,0.6451866915544513,To
-499,008,rifampicin,aorta,Organs extraction fraction,9.150250092270849,%,0.31641675747272485,Eo
-500,008,rifampicin,aorta,Organs extravascular mean transit time,7.055926035116706,min,0.3582154669292452,Toe
-501,008,rifampicin,aorta,Body extraction fraction,2.5736330587265264,%,0.08094505428388186,Eb
-502,008,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-503,008,rifampicin,liver,Liver extracellular volume fraction,16.318642394696028,mL/100cm3,0.6509834903127013,ve
-504,008,rifampicin,liver,Extracellular mean transit time,31.301522763939467,sec,2.3435062198498122,Te
-505,008,rifampicin,liver,Extracellular dispersion,62.34126248544663,%,4.161380498846861,De
-506,008,rifampicin,liver,Initial hepatocellular uptake rate,1.2709748496226585,mL/min/100cm3,0.10417190958224105,khe_i
-507,008,rifampicin,liver,Final hepatocellular uptake rate,2.9036744954825187,mL/min/100cm3,0.30180478678341865,khe_f
-508,008,rifampicin,liver,Hepatocellular mean transit time,217.92392265743572,min,0.0,Th
-509,008,rifampicin,liver,Hepatocellular uptake rate,2.0873246725525885,mL/min/100cm3,0.0,khe
-510,008,rifampicin,liver,Biliary tissue excretion rate,0.45887573415789895,mL/min/100cm3,0.0,Kbh
-511,008,rifampicin,liver,Hepatocellular tissue uptake rate,12.791043654654885,mL/min/100cm3,0.0,Khe
-512,008,rifampicin,liver,Biliary excretion rate,0.3839934440646354,mL/min/100cm3,0.0,kbh
-513,008,rifampicin,liver,Initial biliary excretion rate,0.22725677148107848,mL/min/100cm3,0.0,kbh_i
-514,008,rifampicin,liver,Final biliary excretion rate,1.2374501983447461,mL/min/100cm3,0.0,kbh_f
-515,008,rifampicin,liver,Liver blood clearance,0.018382318258866447,L/min,0.0,CL
-516,008,rifampicin,aorta,AUC for DR1b (0-inf),71526.20486088636,%,0.0,AUC_R1b
-517,008,rifampicin,aorta,AUC for Cb (0-inf),72.98592332743505,mM*sec,0.0,AUC_Cb
-518,008,rifampicin,liver,AUC for DR1l (0-inf),136594.91236226063,%,0.0,AUC_R1l
-519,008,rifampicin,liver,AUC for Cl (0-inf),139.38256363495984,mM*sec,0.0,AUC_Cl
-520,008,rifampicin,aorta,AUC for DR1b (0-35min),40178.8268945126,%,0.0,AUC35_R1b
-521,008,rifampicin,aorta,AUC for Cb (0-35min),40.99880295358428,mM*sec,0.0,AUC35_Cb
-522,008,rifampicin,liver,AUC for DR1l (0-35min),25893.845378426482,%,0.0,AUC35_R1l
-523,008,rifampicin,liver,AUC for Cl (0-35min),26.422291202476003,mM*sec,0.0,AUC35_Cl
-524,008,rifampicin,liver,RE for R1b at 20min,25.597947720567177,%,0.0,RE_R1b
-525,008,rifampicin,liver,RE for R1l at 20min,7.707209287771523,%,0.0,RE_R1l
-526,008,rifampicin,liver,RE for Sb at 20min,20.356866842323868,%,0.0,RE_Sb
-527,008,rifampicin,liver,RE for Sl at 20min,5.094945177008976,%,0.0,RE_Sl
-528,009,rifampicin,aorta,Cardiac output,12.374084243295417,L/min,0.19391708252814446,CO
-529,009,rifampicin,aorta,Heart-lung mean transit time,13.99055537502177,sec,0.49217353905466665,Thl
-530,009,rifampicin,aorta,Heart-lung dispersion,57.68722213007679,%,0.9504264952525168,Dhl
-531,009,rifampicin,aorta,Organs blood mean transit time,38.759565708506805,sec,1.013599907376045,To
-532,009,rifampicin,aorta,Organs extraction fraction,9.469157078405974,%,0.36017779725660115,Eo
-533,009,rifampicin,aorta,Organs extravascular mean transit time,8.013156693639296,min,0.4655173429639765,Toe
-534,009,rifampicin,aorta,Body extraction fraction,2.2720445063582484,%,0.09698926070250667,Eb
-535,009,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-536,009,rifampicin,liver,Liver extracellular volume fraction,22.396552524216187,mL/100cm3,0.7821755462690992,ve
-537,009,rifampicin,liver,Extracellular mean transit time,53.82163154539401,sec,3.1927051412692125,Te
-538,009,rifampicin,liver,Extracellular dispersion,68.54716772389092,%,2.814779389184036,De
-539,009,rifampicin,liver,Initial hepatocellular uptake rate,0.7862097638458357,mL/min/100cm3,0.1802802600680874,khe_i
-540,009,rifampicin,liver,Final hepatocellular uptake rate,1.411729973024758,mL/min/100cm3,0.26204087744742094,khe_f
-541,009,rifampicin,liver,Hepatocellular mean transit time,47.856629800937505,min,0.0,Th
-542,009,rifampicin,liver,Hepatocellular uptake rate,1.0989698684352969,mL/min/100cm3,0.0,khe
-543,009,rifampicin,liver,Biliary tissue excretion rate,2.0895746402526867,mL/min/100cm3,0.0,Kbh
-544,009,rifampicin,liver,Hepatocellular tissue uptake rate,4.906870676846537,mL/min/100cm3,0.0,Khe
-545,009,rifampicin,liver,Biliary excretion rate,1.6215819584157927,mL/min/100cm3,0.0,kbh
-546,009,rifampicin,liver,Initial biliary excretion rate,1.294170981745949,mL/min/100cm3,0.0,kbh_i
-547,009,rifampicin,liver,Final biliary excretion rate,2.1707603790863046,mL/min/100cm3,0.0,kbh_f
-548,009,rifampicin,liver,Liver blood clearance,0.013185612041672852,L/min,0.0,CL
-549,009,rifampicin,aorta,AUC for DR1b (0-inf),89464.0894314514,%,0.0,AUC_R1b
-550,009,rifampicin,aorta,AUC for Cb (0-inf),91.28988717495041,mM*sec,0.0,AUC_Cb
-551,009,rifampicin,liver,AUC for DR1l (0-inf),73265.92544119184,%,0.0,AUC_R1l
-552,009,rifampicin,liver,AUC for Cl (0-inf),74.76114840937942,mM*sec,0.0,AUC_Cl
-553,009,rifampicin,aorta,AUC for DR1b (0-35min),39867.176144023564,%,0.0,AUC35_R1b
-554,009,rifampicin,aorta,AUC for Cb (0-35min),40.68079198369751,mM*sec,0.0,AUC35_Cb
-555,009,rifampicin,liver,AUC for DR1l (0-35min),22200.389186055825,%,0.0,AUC35_R1l
-556,009,rifampicin,liver,AUC for Cl (0-35min),22.653458353118186,mM*sec,0.0,AUC35_Cl
-557,009,rifampicin,liver,RE for R1b at 20min,30.056397566727156,%,0.0,RE_R1b
-558,009,rifampicin,liver,RE for R1l at 20min,8.404793272241848,%,0.0,RE_R1l
-559,009,rifampicin,liver,RE for Sb at 20min,16.554587287300883,%,0.0,RE_Sb
-560,009,rifampicin,liver,RE for Sl at 20min,8.004660995017849,%,0.0,RE_Sl
-561,010,rifampicin,aorta,Cardiac output,7.031785714024292,L/min,0.088216453679356,CO
-562,010,rifampicin,aorta,Heart-lung mean transit time,22.064994578411547,sec,0.6017768017319587,Thl
-563,010,rifampicin,aorta,Heart-lung dispersion,39.733359786719554,%,0.6488755643549312,Dhl
-564,010,rifampicin,aorta,Organs blood mean transit time,38.18275953202334,sec,1.1191797340536045,To
-565,010,rifampicin,aorta,Organs extraction fraction,16.206795251971094,%,0.475698743136551,Eo
-566,010,rifampicin,aorta,Organs extravascular mean transit time,8.592802305775916,min,0.4431122370861499,Toe
-567,010,rifampicin,aorta,Body extraction fraction,3.2130957865435703,%,0.15567949134024908,Eb
-568,010,rifampicin,liver,Hematocrit,45.0,%,0.0,H
-569,010,rifampicin,liver,Liver extracellular volume fraction,23.81536076424518,mL/100cm3,0.9304592558817268,ve
-570,010,rifampicin,liver,Extracellular mean transit time,53.77294285193779,sec,3.536743185635993,Te
-571,010,rifampicin,liver,Extracellular dispersion,73.10737033856091,%,2.7614083117471924,De
-572,010,rifampicin,liver,Initial hepatocellular uptake rate,0.9913379884473636,mL/min/100cm3,0.28032259234160156,khe_i
-573,010,rifampicin,liver,Final hepatocellular uptake rate,1.7719171107203815,mL/min/100cm3,0.42787536742803417,khe_f
-574,010,rifampicin,liver,Hepatocellular mean transit time,132.06656465205282,min,0.0,Th
-575,010,rifampicin,liver,Hepatocellular uptake rate,1.3816275495838726,mL/min/100cm3,0.0,khe
-576,010,rifampicin,liver,Biliary tissue excretion rate,0.7571939215914604,mL/min/100cm3,0.0,Kbh
-577,010,rifampicin,liver,Hepatocellular tissue uptake rate,5.801413479564658,mL/min/100cm3,0.0,Khe
-578,010,rifampicin,liver,Biliary excretion rate,0.5768654574795183,mL/min/100cm3,0.0,kbh
-579,010,rifampicin,liver,Initial biliary excretion rate,1.2397300311339934,mL/min/100cm3,0.0,kbh_i
-580,010,rifampicin,liver,Final biliary excretion rate,0.37588534612748997,mL/min/100cm3,0.0,kbh_f
-581,010,rifampicin,liver,Liver blood clearance,0.015323214232505366,L/min,0.0,CL
-582,010,rifampicin,aorta,AUC for DR1b (0-inf),81322.44808400884,%,0.0,AUC_R1b
-583,010,rifampicin,aorta,AUC for Cb (0-inf),82.98208988164167,mM*sec,0.0,AUC_Cb
-584,010,rifampicin,liver,AUC for DR1l (0-inf),106047.91467267032,%,0.0,AUC_R1l
-585,010,rifampicin,liver,AUC for Cl (0-inf),108.21215782925545,mM*sec,0.0,AUC_Cl
-586,010,rifampicin,aorta,AUC for DR1b (0-35min),35186.41945505487,%,0.0,AUC35_R1b
-587,010,rifampicin,aorta,AUC for Cb (0-35min),35.904509648015186,mM*sec,0.0,AUC35_Cb
-588,010,rifampicin,liver,AUC for DR1l (0-35min),23206.964379067886,%,0.0,AUC35_R1l
-589,010,rifampicin,liver,AUC for Cl (0-35min),23.680575897008048,mM*sec,0.0,AUC35_Cl
-590,010,rifampicin,liver,RE for R1b at 20min,22.652999298247728,%,0.0,RE_R1b
-591,010,rifampicin,liver,RE for R1l at 20min,7.8112685907816175,%,0.0,RE_R1l
-592,010,rifampicin,liver,RE for Sb at 20min,14.968107044284155,%,0.0,RE_Sb
-593,010,rifampicin,liver,RE for Sl at 20min,6.941330816600266,%,0.0,RE_Sl
+0,001,control,aorta,Cardiac output,12.955197131841564,L/min,0.4051750886368221,CO
+1,001,control,aorta,Heart-lung mean transit time,26.71166353314846,sec,1.73115364020899,Thl
+2,001,control,aorta,Heart-lung dispersion,63.77053961067188,%,1.3483021973480689,Dhl
+3,001,control,aorta,Organs blood mean transit time,22.687372052849632,sec,0.6358205997500763,To
+4,001,control,aorta,Organs extraction fraction,14.153624853965036,%,0.4524887645482043,Eo
+5,001,control,aorta,Organs extravascular mean transit time,7.504397974950432,min,0.28549039055966946,Toe
+6,001,control,aorta,Body extraction fraction,6.238714051534032,%,0.31432373520883716,Eb
+7,001,control,liver,Hematocrit,45.0,%,0.0,H
+8,001,control,liver,Liver extracellular volume fraction,29.696819692240833,mL/100cm3,0.7674438001481005,ve
+9,001,control,liver,Extracellular mean transit time,39.663786004563114,sec,1.4076530061912857,Te
+10,001,control,liver,Extracellular dispersion,72.15730651381126,%,1.9755621660251168,De
+11,001,control,liver,Initial hepatocellular uptake rate,38.043181393270146,mL/min/100cm3,0.3998135756896346,khe_i
+12,001,control,liver,Final hepatocellular uptake rate,8.082280764802407,mL/min/100cm3,0.19568693223026667,khe_f
+13,001,control,liver,Hepatocellular mean transit time,80.46123973025315,min,0.0,Th
+14,001,control,liver,Hepatocellular uptake rate,23.062731079036276,mL/min/100cm3,0.0,khe
+15,001,control,liver,Biliary tissue excretion rate,1.2428344422140483,mL/min/100cm3,0.0,Kbh
+16,001,control,liver,Hepatocellular tissue uptake rate,77.66060917648394,mL/min/100cm3,0.0,Khe
+17,001,control,liver,Biliary excretion rate,0.8737521388366754,mL/min/100cm3,0.0,kbh
+18,001,control,liver,Initial biliary excretion rate,3.7134082153458072,mL/min/100cm3,0.0,kbh_i
+19,001,control,liver,Final biliary excretion rate,0.4951268942325072,mL/min/100cm3,0.0,kbh_f
+20,001,control,liver,Liver blood clearance,0.2551230167590904,L/min,0.0,CL
+21,001,control,aorta,AUC for DR1b (0-inf),147572.8040405377,%,0.0,AUC_R1b
+22,001,control,aorta,AUC for Cb (0-inf),150.58449391891605,mM*sec,0.0,AUC_Cb
+23,001,control,liver,AUC for DR1l (0-inf),2521181.018527091,%,0.0,AUC_R1l
+24,001,control,liver,AUC for Cl (0-inf),2572.6336923745826,mM*sec,0.0,AUC_Cl
+25,001,control,aorta,AUC for DR1b (0-35min),104738.20838759246,%,0.0,AUC35_R1b
+26,001,control,aorta,AUC for Cb (0-35min),106.8757228444821,mM*sec,0.0,AUC35_Cb
+27,001,control,liver,AUC for DR1l (0-35min),657661.660750715,%,0.0,AUC35_R1l
+28,001,control,liver,AUC for Cl (0-35min),671.0833272966479,mM*sec,0.0,AUC35_Cl
+29,001,control,liver,RE for R1b at 20min,60.10953377791435,%,0.0,RE_R1b
+30,001,control,liver,RE for R1l at 20min,260.2982624840488,%,0.0,RE_R1l
+31,001,control,liver,RE for Sb at 20min,46.327859310340436,%,0.0,RE_Sb
+32,001,control,liver,RE for Sl at 20min,176.7902028794001,%,0.0,RE_Sl
+33,002,control,aorta,Cardiac output,3.5304422319908206,L/min,0.09331558900078575,CO
+34,002,control,aorta,Heart-lung mean transit time,14.11835733102584,sec,0.6893869998273345,Thl
+35,002,control,aorta,Heart-lung dispersion,68.95823205640814,%,1.1994830997733639,Dhl
+36,002,control,aorta,Organs blood mean transit time,36.70744886472692,sec,1.9448301172879805,To
+37,002,control,aorta,Organs extraction fraction,19.366624739758564,%,0.6966858204745877,Eo
+38,002,control,aorta,Organs extravascular mean transit time,9.408911395270975,min,0.8054773104390266,Toe
+39,002,control,aorta,Body extraction fraction,6.398950959025025,%,0.4843332431970555,Eb
+40,002,control,liver,Hematocrit,45.0,%,0.0,H
+41,002,control,liver,Liver extracellular volume fraction,1.0176347844176763,mL/100cm3,1.63668358791566,ve
+42,002,control,liver,Extracellular mean transit time,3.744219812195942,sec,3.508149317133481,Te
+43,002,control,liver,Extracellular dispersion,8.944394166192643,%,231.4536771380274,De
+44,002,control,liver,Initial hepatocellular uptake rate,25.810039947465974,mL/min/100cm3,0.5417278069097462,khe_i
+45,002,control,liver,Final hepatocellular uptake rate,62.70528474991584,mL/min/100cm3,1.1566424502641715,khe_f
+46,002,control,liver,Hepatocellular mean transit time,40.413972944929775,min,0.0,Th
+47,002,control,liver,Hepatocellular uptake rate,44.25766234869091,mL/min/100cm3,0.0,khe
+48,002,control,liver,Biliary tissue excretion rate,2.474391719326019,mL/min/100cm3,0.0,Kbh
+49,002,control,liver,Hepatocellular tissue uptake rate,4349.071300075163,mL/min/100cm3,0.0,Khe
+50,002,control,liver,Biliary excretion rate,2.4492114484874072,mL/min/100cm3,0.0,kbh
+51,002,control,liver,Initial biliary excretion rate,1.9957400362234563,mL/min/100cm3,0.0,kbh_i
+52,002,control,liver,Final biliary excretion rate,3.1693501825733192,mL/min/100cm3,0.0,kbh_f
+53,002,control,liver,Liver blood clearance,0.30258043153016995,L/min,0.0,CL
+54,002,control,aorta,AUC for DR1b (0-inf),28992.713665157236,%,0.0,AUC_R1b
+55,002,control,aorta,AUC for Cb (0-inf),29.58440169914004,mM*sec,0.0,AUC_Cb
+56,002,control,liver,AUC for DR1l (0-inf),380660.36993626633,%,0.0,AUC_R1l
+57,002,control,liver,AUC for Cl (0-inf),388.42894891455745,mM*sec,0.0,AUC_Cl
+58,002,control,aorta,AUC for DR1b (0-35min),17073.90481816309,%,0.0,AUC35_R1b
+59,002,control,aorta,AUC for Cb (0-35min),17.422351855268456,mM*sec,0.0,AUC35_Cb
+60,002,control,liver,AUC for DR1l (0-35min),103348.24293204038,%,0.0,AUC35_R1l
+61,002,control,liver,AUC for Cl (0-35min),105.45739074697997,mM*sec,0.0,AUC35_Cl
+62,002,control,liver,RE for R1b at 20min,9.359878692644354,%,0.0,RE_R1b
+63,002,control,liver,RE for R1l at 20min,35.79775673281783,%,0.0,RE_R1l
+64,002,control,liver,RE for Sb at 20min,9.982953554355657,%,0.0,RE_Sb
+65,002,control,liver,RE for Sl at 20min,29.842224092821485,%,0.0,RE_Sl
+66,003,control,aorta,Cardiac output,5.52484909732252,L/min,0.18341285638782795,CO
+67,003,control,aorta,Heart-lung mean transit time,17.925332722684164,sec,1.6305870357387062,Thl
+68,003,control,aorta,Heart-lung dispersion,42.636352150743356,%,2.687938537456703,Dhl
+69,003,control,aorta,Organs blood mean transit time,27.58090741201013,sec,1.8671880178662168,To
+70,003,control,aorta,Organs extraction fraction,16.446843837799722,%,1.3296987181370579,Eo
+71,003,control,aorta,Organs extravascular mean transit time,4.649344883108429,min,0.42501363458268,Toe
+72,003,control,aorta,Body extraction fraction,9.011252245628608,%,0.44541782066975927,Eb
+73,003,control,liver,Hematocrit,45.0,%,0.0,H
+74,003,control,liver,Liver extracellular volume fraction,26.191031453903374,mL/100cm3,20.666804027184522,ve
+75,003,control,liver,Extracellular mean transit time,52.863792195919594,sec,41.518762393799705,Te
+76,003,control,liver,Extracellular dispersion,86.50946419691815,%,12.411122891066622,De
+77,003,control,liver,Initial hepatocellular uptake rate,47.962413395363825,mL/min/100cm3,2.3472110157657107,khe_i
+78,003,control,liver,Final hepatocellular uptake rate,85.45315770937304,mL/min/100cm3,253.87351029402743,khe_f
+79,003,control,liver,Hepatocellular mean transit time,26.863134986847005,min,0.0,Th
+80,003,control,liver,Hepatocellular uptake rate,66.70778555236843,mL/min/100cm3,0.0,khe
+81,003,control,liver,Biliary tissue excretion rate,3.7225737073860885,mL/min/100cm3,0.0,Kbh
+82,003,control,liver,Hepatocellular tissue uptake rate,254.69705410332995,mL/min/100cm3,0.0,Khe
+83,003,control,liver,Biliary excretion rate,2.7475932567898607,mL/min/100cm3,0.0,kbh
+84,003,control,liver,Initial biliary excretion rate,2.070850128667751,mL/min/100cm3,0.0,kbh_i
+85,003,control,liver,Final biliary excretion rate,4.081360933646393,mL/min/100cm3,0.0,kbh_f
+86,003,control,liver,Liver blood clearance,0.5830742525091764,L/min,0.0,CL
+87,003,control,aorta,AUC for DR1b (0-inf),13370.490354826967,%,0.0,AUC_R1b
+88,003,control,aorta,AUC for Cb (0-inf),13.643357504925476,mM*sec,0.0,AUC_Cb
+89,003,control,liver,AUC for DR1l (0-inf),218614.88252956618,%,0.0,AUC_R1l
+90,003,control,liver,AUC for Cl (0-inf),223.07641074445525,mM*sec,0.0,AUC_Cl
+91,003,control,aorta,AUC for DR1b (0-35min),11763.316516266836,%,0.0,AUC35_R1b
+92,003,control,aorta,AUC for Cb (0-35min),12.003384200272281,mM*sec,0.0,AUC35_Cb
+93,003,control,liver,AUC for DR1l (0-35min),109579.64535269521,%,0.0,AUC35_R1l
+94,003,control,liver,AUC for Cl (0-35min),111.81596464560735,mM*sec,0.0,AUC35_Cl
+95,003,control,liver,RE for R1b at 20min,5.999071360642785,%,0.0,RE_R1b
+96,003,control,liver,RE for R1l at 20min,41.22660138958961,%,0.0,RE_R1l
+97,003,control,liver,RE for Sb at 20min,4.933627520762346,%,0.0,RE_Sb
+98,003,control,liver,RE for Sl at 20min,33.40205560489671,%,0.0,RE_Sl
+99,004,control,aorta,Cardiac output,4.13472168277019,L/min,0.03948865996189491,CO
+100,004,control,aorta,Heart-lung mean transit time,18.753676763243135,sec,0.13857854068610367,Thl
+101,004,control,aorta,Heart-lung dispersion,31.150695273297025,%,0.3257297860138561,Dhl
+102,004,control,aorta,Organs blood mean transit time,26.330290378144323,sec,0.7976660717663542,To
+103,004,control,aorta,Organs extraction fraction,30.89780642249303,%,0.5800367669684248,Eo
+104,004,control,aorta,Organs extravascular mean transit time,5.603692654415085,min,0.2274447769720027,Toe
+105,004,control,aorta,Body extraction fraction,14.9090673686691,%,0.3849083568487276,Eb
+106,004,control,liver,Hematocrit,45.0,%,0.0,H
+107,004,control,liver,Liver extracellular volume fraction,5.799955999223359,mL/100cm3,1.1191653927786818,ve
+108,004,control,liver,Extracellular mean transit time,25.542868677890233,sec,4.136653182838318,Te
+109,004,control,liver,Extracellular dispersion,56.448630851170535,%,8.497805061383032,De
+110,004,control,liver,Initial hepatocellular uptake rate,19.62407218395548,mL/min/100cm3,0.25108158257904495,khe_i
+111,004,control,liver,Final hepatocellular uptake rate,28.148734852414396,mL/min/100cm3,0.5990017765200978,khe_f
+112,004,control,liver,Hepatocellular mean transit time,179.44412806438402,min,0.0,Th
+113,004,control,liver,Hepatocellular uptake rate,23.88640351818494,mL/min/100cm3,0.0,khe
+114,004,control,liver,Biliary tissue excretion rate,0.5572765243347517,mL/min/100cm3,0.0,Kbh
+115,004,control,liver,Hepatocellular tissue uptake rate,411.8376677578837,mL/min/100cm3,0.0,Khe
+116,004,control,liver,Biliary excretion rate,0.5249547311293349,mL/min/100cm3,0.0,kbh
+117,004,control,liver,Initial biliary excretion rate,0.6677534480907119,mL/min/100cm3,0.0,kbh_i
+118,004,control,liver,Final biliary excretion rate,0.4324710326085169,mL/min/100cm3,0.0,kbh_f
+119,004,control,liver,Liver blood clearance,0.21164484856007607,L/min,0.0,CL
+120,004,control,aorta,AUC for DR1b (0-inf),43458.870278174865,%,0.0,AUC_R1b
+121,004,control,aorta,AUC for Cb (0-inf),44.34578599813763,mM*sec,0.0,AUC_Cb
+122,004,control,liver,AUC for DR1l (0-inf),926531.052025696,%,0.0,AUC_R1l
+123,004,control,liver,AUC for Cl (0-inf),945.4398490058122,mM*sec,0.0,AUC_Cl
+124,004,control,aorta,AUC for DR1b (0-35min),36019.197178298964,%,0.0,AUC35_R1b
+125,004,control,aorta,AUC for Cb (0-35min),36.754282834998946,mM*sec,0.0,AUC35_Cb
+126,004,control,liver,AUC for DR1l (0-35min),186620.09848038887,%,0.0,AUC35_R1l
+127,004,control,liver,AUC for Cl (0-35min),190.42867191876417,mM*sec,0.0,AUC35_Cl
+128,004,control,liver,RE for R1b at 20min,18.188399061034247,%,0.0,RE_R1b
+129,004,control,liver,RE for R1l at 20min,75.50251136285763,%,0.0,RE_R1l
+130,004,control,liver,RE for Sb at 20min,6.01910403603376,%,0.0,RE_Sb
+131,004,control,liver,RE for Sl at 20min,61.8378654514423,%,0.0,RE_Sl
+132,005,control,aorta,Cardiac output,6.6148931396669255,L/min,0.10571324884991103,CO
+133,005,control,aorta,Heart-lung mean transit time,10.351961972390102,sec,0.33113608262502087,Thl
+134,005,control,aorta,Heart-lung dispersion,56.03675296829774,%,1.3626296048436914,Dhl
+135,005,control,aorta,Organs blood mean transit time,22.44283006972161,sec,0.784629467970286,To
+136,005,control,aorta,Organs extraction fraction,17.49966337667635,%,0.5168219225606001,Eo
+137,005,control,aorta,Organs extravascular mean transit time,4.608939811284859,min,0.1784909922104694,Toe
+138,005,control,aorta,Body extraction fraction,6.621333429447781,%,0.186713767801577,Eb
+139,005,control,liver,Hematocrit,45.0,%,0.0,H
+140,005,control,liver,Liver extracellular volume fraction,18.18859772193989,mL/100cm3,1.865763758192603,ve
+141,005,control,liver,Extracellular mean transit time,39.05713438368848,sec,4.804358715388767,Te
+142,005,control,liver,Extracellular dispersion,79.53483267495652,%,3.562632212771213,De
+143,005,control,liver,Initial hepatocellular uptake rate,34.85045981688628,mL/min/100cm3,0.43191961803107043,khe_i
+144,005,control,liver,Final hepatocellular uptake rate,24.181132418113393,mL/min/100cm3,0.40466054023834536,khe_f
+145,005,control,liver,Hepatocellular mean transit time,33.81866420887766,min,0.0,Th
+146,005,control,liver,Hepatocellular uptake rate,29.515796117499832,mL/min/100cm3,0.0,khe
+147,005,control,liver,Biliary tissue excretion rate,2.956947068706198,mL/min/100cm3,0.0,Kbh
+148,005,control,liver,Hepatocellular tissue uptake rate,162.27636989242208,mL/min/100cm3,0.0,Khe
+149,005,control,liver,Biliary excretion rate,2.419119861528534,mL/min/100cm3,0.0,kbh
+150,005,control,liver,Initial biliary excretion rate,2.5483726162025344,mL/min/100cm3,0.0,kbh_i
+151,005,control,liver,Final biliary excretion rate,2.3023455325316466,mL/min/100cm3,0.0,kbh_f
+152,005,control,liver,Liver blood clearance,0.2081814818858267,L/min,0.0,CL
+153,005,control,aorta,AUC for DR1b (0-inf),45441.2680165031,%,0.0,AUC_R1b
+154,005,control,aorta,AUC for Cb (0-inf),46.368640833166424,mM*sec,0.0,AUC_Cb
+155,005,control,liver,AUC for DR1l (0-inf),516682.76281146146,%,0.0,AUC_R1l
+156,005,control,liver,AUC for Cl (0-inf),527.2273089912871,mM*sec,0.0,AUC_Cl
+157,005,control,aorta,AUC for DR1b (0-35min),37008.43257560554,%,0.0,AUC35_R1b
+158,005,control,aorta,AUC for Cb (0-35min),37.76370670980157,mM*sec,0.0,AUC35_Cb
+159,005,control,liver,AUC for DR1l (0-35min),207621.67666639894,%,0.0,AUC35_R1l
+160,005,control,liver,AUC for Cl (0-35min),211.8588537412234,mM*sec,0.0,AUC35_Cl
+161,005,control,liver,RE for R1b at 20min,15.772771224324044,%,0.0,RE_R1b
+162,005,control,liver,RE for R1l at 20min,96.75660733913824,%,0.0,RE_R1l
+163,005,control,liver,RE for Sb at 20min,2.1801149062630945,%,0.0,RE_Sb
+164,005,control,liver,RE for Sl at 20min,75.13629108905359,%,0.0,RE_Sl
+165,006,control,aorta,Cardiac output,4.415036706073544,L/min,0.051045483992752674,CO
+166,006,control,aorta,Heart-lung mean transit time,15.907821245463628,sec,0.1489286877805157,Thl
+167,006,control,aorta,Heart-lung dispersion,34.64276238885634,%,0.46976487482047224,Dhl
+168,006,control,aorta,Organs blood mean transit time,31.608727747552123,sec,1.1152319936300523,To
+169,006,control,aorta,Organs extraction fraction,20.49670521369719,%,0.6447696278783287,Eo
+170,006,control,aorta,Organs extravascular mean transit time,6.489841682686082,min,0.3382237249169839,Toe
+171,006,control,aorta,Body extraction fraction,8.236065658413416,%,0.28387404932429416,Eb
+172,006,control,liver,Hematocrit,45.0,%,0.0,H
+173,006,control,liver,Liver extracellular volume fraction,18.681039366290364,mL/100cm3,3.169914747505957,ve
+174,006,control,liver,Extracellular mean transit time,44.54607807217631,sec,6.987507393103655,Te
+175,006,control,liver,Extracellular dispersion,67.68590201032171,%,5.708448973239133,De
+176,006,control,liver,Initial hepatocellular uptake rate,40.4427402753483,mL/min/100cm3,0.6066312860718817,khe_i
+177,006,control,liver,Final hepatocellular uptake rate,33.473370891631646,mL/min/100cm3,0.6486500884790743,khe_f
+178,006,control,liver,Hepatocellular mean transit time,43.348900617513856,min,0.0,Th
+179,006,control,liver,Hepatocellular uptake rate,36.95805558348997,mL/min/100cm3,0.0,khe
+180,006,control,liver,Biliary tissue excretion rate,2.30686357844097,mL/min/100cm3,0.0,Kbh
+181,006,control,liver,Hepatocellular tissue uptake rate,197.83725551256097,mL/min/100cm3,0.0,Khe
+182,006,control,liver,Biliary excretion rate,1.875917485225798,mL/min/100cm3,0.0,kbh
+183,006,control,liver,Initial biliary excretion rate,1.766481972190732,mL/min/100cm3,0.0,kbh_i
+184,006,control,liver,Final biliary excretion rate,1.9998077909398222,mL/min/100cm3,0.0,kbh_f
+185,006,control,liver,Liver blood clearance,0.2554355650572706,L/min,0.0,CL
+186,006,control,aorta,AUC for DR1b (0-inf),36454.39870264777,%,0.0,AUC_R1b
+187,006,control,aorta,AUC for Cb (0-inf),37.19836602310997,mM*sec,0.0,AUC_Cb
+188,006,control,liver,AUC for DR1l (0-inf),630107.715704175,%,0.0,AUC_R1l
+189,006,control,liver,AUC for Cl (0-inf),642.9670568409948,mM*sec,0.0,AUC_Cl
+190,006,control,aorta,AUC for DR1b (0-35min),26793.757299752924,%,0.0,AUC35_R1b
+191,006,control,aorta,AUC for Cb (0-35min),27.340568673217266,mM*sec,0.0,AUC35_Cb
+192,006,control,liver,AUC for DR1l (0-35min),193245.9870936743,%,0.0,AUC35_R1l
+193,006,control,liver,AUC for Cl (0-35min),197.18978274864725,mM*sec,0.0,AUC35_Cl
+194,006,control,liver,RE for R1b at 20min,15.332496310434726,%,0.0,RE_R1b
+195,006,control,liver,RE for R1l at 20min,93.25561382107121,%,0.0,RE_R1l
+196,006,control,liver,RE for Sb at 20min,11.97607627169357,%,0.0,RE_Sb
+197,006,control,liver,RE for Sl at 20min,75.75881903334445,%,0.0,RE_Sl
+198,007,control,aorta,Cardiac output,9.40707199334189,L/min,0.1698567739436689,CO
+199,007,control,aorta,Heart-lung mean transit time,11.334743296848698,sec,0.5560365747562569,Thl
+200,007,control,aorta,Heart-lung dispersion,36.429092990471254,%,1.3887585183591153,Dhl
+201,007,control,aorta,Organs blood mean transit time,19.327708518233568,sec,0.936141721769722,To
+202,007,control,aorta,Organs extraction fraction,19.650390861574458,%,0.7203635530396594,Eo
+203,007,control,aorta,Organs extravascular mean transit time,4.560158850906831,min,0.17189354647486718,Toe
+204,007,control,aorta,Body extraction fraction,3.1945986119271486,%,0.10977677830737158,Eb
+205,007,control,liver,Hematocrit,45.0,%,0.0,H
+206,007,control,liver,Liver extracellular volume fraction,21.99527972008842,mL/100cm3,8.452649255829588,ve
+207,007,control,liver,Extracellular mean transit time,58.01590522015788,sec,24.3449131838768,Te
+208,007,control,liver,Extracellular dispersion,95.59744278362882,%,3.2124387100021115,De
+209,007,control,liver,Initial hepatocellular uptake rate,35.48428349064616,mL/min/100cm3,0.9010919271211805,khe_i
+210,007,control,liver,Final hepatocellular uptake rate,29.707546777129377,mL/min/100cm3,1.057874795049339,khe_f
+211,007,control,liver,Hepatocellular mean transit time,29.732637710015418,min,0.0,Th
+212,007,control,liver,Hepatocellular uptake rate,32.59591513388777,mL/min/100cm3,0.0,khe
+213,007,control,liver,Biliary tissue excretion rate,3.3633073854834974,mL/min/100cm3,0.0,Kbh
+214,007,control,liver,Hepatocellular tissue uptake rate,148.19504706783852,mL/min/100cm3,0.0,Khe
+215,007,control,liver,Biliary excretion rate,2.62353851820001,mL/min/100cm3,0.0,kbh
+216,007,control,liver,Initial biliary excretion rate,3.269369122011037,mL/min/100cm3,0.0,kbh_i
+217,007,control,liver,Final biliary excretion rate,2.1907735039005574,mL/min/100cm3,0.0,kbh_f
+218,007,control,liver,Liver blood clearance,0.30775923486887435,L/min,0.0,CL
+219,007,control,aorta,AUC for DR1b (0-inf),65749.46159964245,%,0.0,AUC_R1b
+220,007,control,aorta,AUC for Cb (0-inf),67.09128734657394,mM*sec,0.0,AUC_Cb
+221,007,control,liver,AUC for DR1l (0-inf),639192.8601168452,%,0.0,AUC_R1l
+222,007,control,liver,AUC for Cl (0-inf),652.2376123641277,mM*sec,0.0,AUC_Cl
+223,007,control,aorta,AUC for DR1b (0-35min),35891.99322038854,%,0.0,AUC35_R1b
+224,007,control,aorta,AUC for Cb (0-35min),36.62448287794749,mM*sec,0.0,AUC35_Cb
+225,007,control,liver,AUC for DR1l (0-35min),184743.5965567101,%,0.0,AUC35_R1l
+226,007,control,liver,AUC for Cl (0-35min),188.51387403745926,mM*sec,0.0,AUC35_Cl
+227,007,control,liver,RE for R1b at 20min,24.941419309449376,%,0.0,RE_R1b
+228,007,control,liver,RE for R1l at 20min,85.54662635545091,%,0.0,RE_R1l
+229,007,control,liver,RE for Sb at 20min,2.3115946442358135,%,0.0,RE_Sb
+230,007,control,liver,RE for Sl at 20min,72.82212118207042,%,0.0,RE_Sl
+231,008,control,aorta,Cardiac output,10.736539344565161,L/min,0.14761220697890565,CO
+232,008,control,aorta,Heart-lung mean transit time,16.29829558190725,sec,0.40940362699577065,Thl
+233,008,control,aorta,Heart-lung dispersion,42.31193261822652,%,0.7665904269101373,Dhl
+234,008,control,aorta,Organs blood mean transit time,22.595627307530883,sec,0.783648379717885,To
+235,008,control,aorta,Organs extraction fraction,15.525308991564819,%,0.551456662292508,Eo
+236,008,control,aorta,Organs extravascular mean transit time,4.631597574337064,min,0.2030465080962739,Toe
+237,008,control,aorta,Body extraction fraction,4.765186023322886,%,0.11905399979545617,Eb
+238,008,control,liver,Hematocrit,45.0,%,0.0,H
+239,008,control,liver,Liver extracellular volume fraction,13.673406512324293,mL/100cm3,1.0578715881215028,ve
+240,008,control,liver,Extracellular mean transit time,18.818735802748122,sec,1.9364087437551085,Te
+241,008,control,liver,Extracellular dispersion,47.37016320213023,%,7.187482969490828,De
+242,008,control,liver,Initial hepatocellular uptake rate,39.58082927255139,mL/min/100cm3,0.4849432444362574,khe_i
+243,008,control,liver,Final hepatocellular uptake rate,24.47770956703203,mL/min/100cm3,0.41847760807826295,khe_f
+244,008,control,liver,Hepatocellular mean transit time,33.570322299219555,min,0.0,Th
+245,008,control,liver,Hepatocellular uptake rate,32.02926941979172,mL/min/100cm3,0.0,khe
+246,008,control,liver,Biliary tissue excretion rate,2.9788215647344205,mL/min/100cm3,0.0,Kbh
+247,008,control,liver,Hepatocellular tissue uptake rate,234.2449878230613,mL/min/100cm3,0.0,Khe
+248,008,control,liver,Biliary excretion rate,2.571515182911504,mL/min/100cm3,0.0,kbh
+249,008,control,liver,Initial biliary excretion rate,3.7555554747715627,mL/min/100cm3,0.0,kbh_i
+250,008,control,liver,Final biliary excretion rate,1.9551130051735095,mL/min/100cm3,0.0,kbh_f
+251,008,control,liver,Liver blood clearance,0.3296801790361648,L/min,0.0,CL
+252,008,control,aorta,AUC for DR1b (0-inf),38961.797787923075,%,0.0,AUC_R1b
+253,008,control,aorta,AUC for Cb (0-inf),39.75693651828885,mM*sec,0.0,AUC_Cb
+254,008,control,liver,AUC for DR1l (0-inf),425524.5641003711,%,0.0,AUC_R1l
+255,008,control,liver,AUC for Cl (0-inf),434.20873887792965,mM*sec,0.0,AUC_Cl
+256,008,control,aorta,AUC for DR1b (0-35min),27721.761373013327,%,0.0,AUC35_R1b
+257,008,control,aorta,AUC for Cb (0-35min),28.28751160511564,mM*sec,0.0,AUC35_Cb
+258,008,control,liver,AUC for DR1l (0-35min),159128.8832912528,%,0.0,AUC35_R1l
+259,008,control,liver,AUC for Cl (0-35min),162.37641152168655,mM*sec,0.0,AUC35_Cl
+260,008,control,liver,RE for R1b at 20min,18.3489910813761,%,0.0,RE_R1b
+261,008,control,liver,RE for R1l at 20min,65.14867410336342,%,0.0,RE_R1l
+262,008,control,liver,RE for Sb at 20min,12.386171118343734,%,0.0,RE_Sb
+263,008,control,liver,RE for Sl at 20min,54.35635437370154,%,0.0,RE_Sl
+264,009,control,aorta,Cardiac output,10.464746935420015,L/min,0.11683816661344655,CO
+265,009,control,aorta,Heart-lung mean transit time,22.82129666528413,sec,0.1599386432991124,Thl
+266,009,control,aorta,Heart-lung dispersion,31.424264552082214,%,0.5328388666458783,Dhl
+267,009,control,aorta,Organs blood mean transit time,23.872514754897654,sec,0.917518070478322,To
+268,009,control,aorta,Organs extraction fraction,18.610164825984143,%,0.6378634388172781,Eo
+269,009,control,aorta,Organs extravascular mean transit time,5.361764857774374,min,0.26325431766483953,Toe
+270,009,control,aorta,Body extraction fraction,6.544427594618832,%,0.1642585713301514,Eb
+271,009,control,liver,Hematocrit,45.0,%,0.0,H
+272,009,control,liver,Liver extracellular volume fraction,14.961912218258538,mL/100cm3,1.6501162085015828,ve
+273,009,control,liver,Extracellular mean transit time,33.93340441797262,sec,4.900333493332156,Te
+274,009,control,liver,Extracellular dispersion,69.43225100063565,%,5.926543771778051,De
+275,009,control,liver,Initial hepatocellular uptake rate,22.06838784164453,mL/min/100cm3,0.40943806107006453,khe_i
+276,009,control,liver,Final hepatocellular uptake rate,20.608571992777204,mL/min/100cm3,0.5418982652571854,khe_f
+277,009,control,liver,Hepatocellular mean transit time,28.00032410366068,min,0.0,Th
+278,009,control,liver,Hepatocellular uptake rate,21.338479917210865,mL/min/100cm3,0.0,khe
+279,009,control,liver,Biliary tissue excretion rate,3.571387232154441,mL/min/100cm3,0.0,Kbh
+280,009,control,liver,Hepatocellular tissue uptake rate,142.6186680280799,mL/min/100cm3,0.0,Khe
+281,009,control,liver,Biliary excretion rate,3.0370394095054003,mL/min/100cm3,0.0,kbh
+282,009,control,liver,Initial biliary excretion rate,2.8075546385543673,mL/min/100cm3,0.0,kbh_i
+283,009,control,liver,Final biliary excretion rate,3.3073789771089435,mL/min/100cm3,0.0,kbh_f
+284,009,control,liver,Liver blood clearance,0.25309925440616754,L/min,0.0,CL
+285,009,control,aorta,AUC for DR1b (0-inf),38910.845762836514,%,0.0,AUC_R1b
+286,009,control,aorta,AUC for Cb (0-inf),39.704944655955636,mM*sec,0.0,AUC_Cb
+287,009,control,liver,AUC for DR1l (0-inf),255766.5623018075,%,0.0,AUC_R1l
+288,009,control,liver,AUC for Cl (0-inf),260.9862880630689,mM*sec,0.0,AUC_Cl
+289,009,control,aorta,AUC for DR1b (0-35min),28248.689062404952,%,0.0,AUC35_R1b
+290,009,control,aorta,AUC for Cb (0-35min),28.82519292082138,mM*sec,0.0,AUC35_Cb
+291,009,control,liver,AUC for DR1l (0-35min),99072.83634180331,%,0.0,AUC35_R1l
+292,009,control,liver,AUC for Cl (0-35min),101.09473096102379,mM*sec,0.0,AUC35_Cl
+293,009,control,liver,RE for R1b at 20min,17.79620063012916,%,0.0,RE_R1b
+294,009,control,liver,RE for R1l at 20min,47.661381572570065,%,0.0,RE_R1l
+295,009,control,liver,RE for Sb at 20min,9.117477659907564,%,0.0,RE_Sb
+296,009,control,liver,RE for Sl at 20min,41.35525987352476,%,0.0,RE_Sl
+297,010,control,aorta,Cardiac output,7.123004313786696,L/min,0.09512219549615233,CO
+298,010,control,aorta,Heart-lung mean transit time,9.721636748483869,sec,0.22713699376290603,Thl
+299,010,control,aorta,Heart-lung dispersion,58.80743884736715,%,1.2980588654116423,Dhl
+300,010,control,aorta,Organs blood mean transit time,46.748547361918426,sec,1.4417567195816698,To
+301,010,control,aorta,Organs extraction fraction,14.239525357689518,%,0.5074616468717436,Eo
+302,010,control,aorta,Organs extravascular mean transit time,8.961346255046257,min,0.503353134745354,Toe
+303,010,control,aorta,Body extraction fraction,3.4609693734241116,%,0.1571693371609128,Eb
+304,010,control,liver,Hematocrit,45.0,%,0.0,H
+305,010,control,liver,Liver extracellular volume fraction,15.240543890083256,mL/100cm3,2.9365239964874714,ve
+306,010,control,liver,Extracellular mean transit time,39.11499329695533,sec,8.42025447771982,Te
+307,010,control,liver,Extracellular dispersion,74.64763110612573,%,6.742431127818276,De
+308,010,control,liver,Initial hepatocellular uptake rate,26.426395057530243,mL/min/100cm3,0.5813297089273706,khe_i
+309,010,control,liver,Final hepatocellular uptake rate,30.071110210155524,mL/min/100cm3,0.9789444282475216,khe_f
+310,010,control,liver,Hepatocellular mean transit time,26.05487379025821,min,0.0,Th
+311,010,control,liver,Hepatocellular uptake rate,28.248752633842887,mL/min/100cm3,0.0,khe
+312,010,control,liver,Biliary tissue excretion rate,3.838053517549162,mL/min/100cm3,0.0,Kbh
+313,010,control,liver,Hepatocellular tissue uptake rate,185.35265432504568,mL/min/100cm3,0.0,Khe
+314,010,control,liver,Biliary excretion rate,3.2531132866821983,mL/min/100cm3,0.0,kbh
+315,010,control,liver,Initial biliary excretion rate,3.2590447393213893,mL/min/100cm3,0.0,kbh_i
+316,010,control,liver,Final biliary excretion rate,3.247203385275447,mL/min/100cm3,0.0,kbh_f
+317,010,control,liver,Liver blood clearance,0.30392581912086897,L/min,0.0,CL
+318,010,control,aorta,AUC for DR1b (0-inf),77061.62267862019,%,0.0,AUC_R1b
+319,010,control,aorta,AUC for Cb (0-inf),78.63430885573489,mM*sec,0.0,AUC_Cb
+320,010,control,liver,AUC for DR1l (0-inf),551497.6473478378,%,0.0,AUC_R1l
+321,010,control,liver,AUC for Cl (0-inf),562.7527013753448,mM*sec,0.0,AUC_Cl
+322,010,control,aorta,AUC for DR1b (0-35min),36467.912169827694,%,0.0,AUC35_R1b
+323,010,control,aorta,AUC for Cb (0-35min),37.21215527533438,mM*sec,0.0,AUC35_Cb
+324,010,control,liver,AUC for DR1l (0-35min),148733.0590434031,%,0.0,AUC35_R1l
+325,010,control,liver,AUC for Cl (0-35min),151.76842759530928,mM*sec,0.0,AUC35_Cl
+326,010,control,liver,RE for R1b at 20min,21.07199855048249,%,0.0,RE_R1b
+327,010,control,liver,RE for R1l at 20min,63.36469912506818,%,0.0,RE_R1l
+328,010,control,liver,RE for Sb at 20min,10.056052018883657,%,0.0,RE_Sb
+329,010,control,liver,RE for Sl at 20min,51.682063828141736,%,0.0,RE_Sl
+330,002,drug,aorta,Cardiac output,5.754886265446996,L/min,0.12214180490942753,CO
+331,002,drug,aorta,Heart-lung mean transit time,8.232872050298436,sec,0.3210888771720833,Thl
+332,002,drug,aorta,Heart-lung dispersion,68.68853040758559,%,1.8494387413455469,Dhl
+333,002,drug,aorta,Organs blood mean transit time,25.396213593007637,sec,1.116648830759881,To
+334,002,drug,aorta,Organs extraction fraction,14.055657345882826,%,0.6573631390789377,Eo
+335,002,drug,aorta,Organs extravascular mean transit time,4.982793823147407,min,0.36359287598570605,Toe
+336,002,drug,aorta,Body extraction fraction,5.3054149003596285,%,0.21415673195892515,Eb
+337,002,drug,liver,Hematocrit,45.0,%,0.0,H
+338,002,drug,liver,Liver extracellular volume fraction,18.475148910096674,mL/100cm3,0.8778067842683569,ve
+339,002,drug,liver,Extracellular mean transit time,36.19478317152395,sec,3.2039396423265036,Te
+340,002,drug,liver,Extracellular dispersion,72.1717648332487,%,4.1200869168702825,De
+341,002,drug,liver,Initial hepatocellular uptake rate,2.5202907665465197,mL/min/100cm3,0.12633162203444342,khe_i
+342,002,drug,liver,Final hepatocellular uptake rate,3.432927941029808,mL/min/100cm3,0.48621042378354984,khe_f
+343,002,drug,liver,Hepatocellular mean transit time,315.11439080290717,min,0.0,Th
+344,002,drug,liver,Hepatocellular uptake rate,2.9766093537881644,mL/min/100cm3,0.0,khe
+345,002,drug,liver,Biliary tissue excretion rate,0.31734507505417753,mL/min/100cm3,0.0,Kbh
+346,002,drug,liver,Hepatocellular tissue uptake rate,16.111422799745046,mL/min/100cm3,0.0,Khe
+347,002,drug,liver,Biliary excretion rate,0.25871509987906016,mL/min/100cm3,0.0,kbh
+348,002,drug,liver,Initial biliary excretion rate,0.13587475420305095,mL/min/100cm3,0.0,kbh_i
+349,002,drug,liver,Final biliary excretion rate,2.6969271779195436,mL/min/100cm3,0.0,kbh_f
+350,002,drug,liver,Liver blood clearance,0.023885545958595093,L/min,0.0,CL
+351,002,drug,aorta,AUC for DR1b (0-inf),21763.561258480066,%,0.0,AUC_R1b
+352,002,drug,aorta,AUC for Cb (0-inf),22.207715569877625,mM*sec,0.0,AUC_Cb
+353,002,drug,liver,AUC for DR1l (0-inf),78912.65957419972,%,0.0,AUC_R1l
+354,002,drug,liver,AUC for Cl (0-inf),80.52312201448952,mM*sec,0.0,AUC_Cl
+355,002,drug,aorta,AUC for DR1b (0-35min),16882.309193342466,%,0.0,AUC35_R1b
+356,002,drug,aorta,AUC for Cb (0-35min),17.226846115655572,mM*sec,0.0,AUC35_Cb
+357,002,drug,liver,AUC for DR1l (0-35min),15984.944416693039,%,0.0,AUC35_R1l
+358,002,drug,liver,AUC for Cl (0-35min),16.311167772135754,mM*sec,0.0,AUC35_Cl
+359,002,drug,liver,RE for R1b at 20min,9.122881302552672,%,0.0,RE_R1b
+360,002,drug,liver,RE for R1l at 20min,6.153959699746806,%,0.0,RE_R1l
+361,002,drug,liver,RE for Sb at 20min,4.255517729394765,%,0.0,RE_Sb
+362,002,drug,liver,RE for Sl at 20min,3.9962138693645155,%,0.0,RE_Sl
+363,003,drug,aorta,Cardiac output,6.172199238996064,L/min,0.15477268552240586,CO
+364,003,drug,aorta,Heart-lung mean transit time,12.68760922100006,sec,0.9120070411658718,Thl
+365,003,drug,aorta,Heart-lung dispersion,48.91284167739295,%,2.2596358872391837,Dhl
+366,003,drug,aorta,Organs blood mean transit time,26.390259530179737,sec,0.8576362750904601,To
+367,003,drug,aorta,Organs extraction fraction,10.946635306519841,%,0.522592456764348,Eo
+368,003,drug,aorta,Organs extravascular mean transit time,6.11060590509138,min,0.39371956405810055,Toe
+369,003,drug,aorta,Body extraction fraction,3.4084295477419784,%,0.14025617173868252,Eb
+370,003,drug,liver,Hematocrit,45.0,%,0.0,H
+371,003,drug,liver,Liver extracellular volume fraction,20.088174440183195,mL/100cm3,0.9118597361834389,ve
+372,003,drug,liver,Extracellular mean transit time,28.346958380393843,sec,2.093498659918662,Te
+373,003,drug,liver,Extracellular dispersion,65.373966295776,%,3.894150775359299,De
+374,003,drug,liver,Initial hepatocellular uptake rate,3.214087279495119,mL/min/100cm3,0.23938758277595687,khe_i
+375,003,drug,liver,Final hepatocellular uptake rate,4.245466849684516,mL/min/100cm3,0.5151920950060058,khe_f
+376,003,drug,liver,Hepatocellular mean transit time,61.086754494718114,min,0.0,Th
+377,003,drug,liver,Hepatocellular uptake rate,3.729777064589818,mL/min/100cm3,0.0,khe
+378,003,drug,liver,Biliary tissue excretion rate,1.6370160901025859,mL/min/100cm3,0.0,Kbh
+379,003,drug,liver,Hepatocellular tissue uptake rate,18.56702845595064,mL/min/100cm3,0.0,Khe
+380,003,drug,liver,Biliary excretion rate,1.3081694423089119,mL/min/100cm3,0.0,kbh
+381,003,drug,liver,Initial biliary excretion rate,1.2166717764025141,mL/min/100cm3,0.0,kbh_i
+382,003,drug,liver,Final biliary excretion rate,1.4145480458199393,mL/min/100cm3,0.0,kbh_f
+383,003,drug,liver,Liver blood clearance,0.03214200947804495,L/min,0.0,CL
+384,003,drug,aorta,AUC for DR1b (0-inf),31509.78389044495,%,0.0,AUC_R1b
+385,003,drug,aorta,AUC for Cb (0-inf),32.15284070453566,mM*sec,0.0,AUC_Cb
+386,003,drug,liver,AUC for DR1l (0-inf),70973.09405790221,%,0.0,AUC_R1l
+387,003,drug,liver,AUC for Cl (0-inf),72.42152454887982,mM*sec,0.0,AUC_Cl
+388,003,drug,aorta,AUC for DR1b (0-35min),19678.444873405817,%,0.0,AUC35_R1b
+389,003,drug,aorta,AUC for Cb (0-35min),20.08004578918961,mM*sec,0.0,AUC35_Cb
+390,003,drug,liver,AUC for DR1l (0-35min),19461.767914770302,%,0.0,AUC35_R1l
+391,003,drug,liver,AUC for Cl (0-35min),19.858946851806433,mM*sec,0.0,AUC35_Cl
+392,003,drug,liver,RE for R1b at 20min,12.631753099160981,%,0.0,RE_R1b
+393,003,drug,liver,RE for R1l at 20min,6.726986497873068,%,0.0,RE_R1l
+394,003,drug,liver,RE for Sb at 20min,4.519528497988084,%,0.0,RE_Sb
+395,003,drug,liver,RE for Sl at 20min,4.715206942472793,%,0.0,RE_Sl
+396,004,drug,aorta,Cardiac output,6.054781654740845,L/min,0.05222665304810179,CO
+397,004,drug,aorta,Heart-lung mean transit time,20.44686609624904,sec,0.16201903244889138,Thl
+398,004,drug,aorta,Heart-lung dispersion,32.24616951959738,%,0.3218590822606857,Dhl
+399,004,drug,aorta,Organs blood mean transit time,36.325444060058985,sec,1.0554608631525877,To
+400,004,drug,aorta,Organs extraction fraction,22.091086254297007,%,0.5981880416659898,Eo
+401,004,drug,aorta,Organs extravascular mean transit time,5.5815140305708555,min,0.2799654773557937,Toe
+402,004,drug,aorta,Body extraction fraction,5.073389134608835,%,0.16649736925270472,Eb
+403,004,drug,liver,Hematocrit,45.0,%,0.0,H
+404,004,drug,liver,Liver extracellular volume fraction,19.542984307998445,mL/100cm3,0.7788452345050183,ve
+405,004,drug,liver,Extracellular mean transit time,52.7483132294662,sec,3.1942517322912702,Te
+406,004,drug,liver,Extracellular dispersion,80.48764634670732,%,2.044456754920431,De
+407,004,drug,liver,Initial hepatocellular uptake rate,1.7355976111302793,mL/min/100cm3,0.21091477004832176,khe_i
+408,004,drug,liver,Final hepatocellular uptake rate,2.817058939130784,mL/min/100cm3,0.2452784428221939,khe_f
+409,004,drug,liver,Hepatocellular mean transit time,79.49024763520592,min,0.0,Th
+410,004,drug,liver,Hepatocellular uptake rate,2.276328275130532,mL/min/100cm3,0.0,khe
+411,004,drug,liver,Biliary tissue excretion rate,1.2580159576167982,mL/min/100cm3,0.0,Kbh
+412,004,drug,liver,Hepatocellular tissue uptake rate,11.647802808698406,mL/min/100cm3,0.0,Khe
+413,004,drug,liver,Biliary excretion rate,1.012162096427631,mL/min/100cm3,0.0,kbh
+414,004,drug,liver,Initial biliary excretion rate,1.0643928549435115,mL/min/100cm3,0.0,kbh_i
+415,004,drug,liver,Final biliary excretion rate,0.9648175898273665,mL/min/100cm3,0.0,kbh_f
+416,004,drug,liver,Liver blood clearance,0.022382597969249914,L/min,0.0,CL
+417,004,drug,aorta,AUC for DR1b (0-inf),85899.81182046393,%,0.0,AUC_R1b
+418,004,drug,aorta,AUC for Cb (0-inf),87.65286920455503,mM*sec,0.0,AUC_Cb
+419,004,drug,liver,AUC for DR1l (0-inf),137629.73903901433,%,0.0,AUC_R1l
+420,004,drug,liver,AUC for Cl (0-inf),140.438509223484,mM*sec,0.0,AUC_Cl
+421,004,drug,aorta,AUC for DR1b (0-35min),47805.30096620856,%,0.0,AUC35_R1b
+422,004,drug,aorta,AUC for Cb (0-35min),48.78091935327404,mM*sec,0.0,AUC35_Cb
+423,004,drug,liver,AUC for DR1l (0-35min),34668.10709916773,%,0.0,AUC35_R1l
+424,004,drug,liver,AUC for Cl (0-35min),35.37561948894667,mM*sec,0.0,AUC35_Cl
+425,004,drug,liver,RE for R1b at 20min,31.957259742353333,%,0.0,RE_R1b
+426,004,drug,liver,RE for R1l at 20min,12.217745942611586,%,0.0,RE_R1l
+427,004,drug,liver,RE for Sb at 20min,26.951469868872003,%,0.0,RE_Sb
+428,004,drug,liver,RE for Sl at 20min,10.770289645841544,%,0.0,RE_Sl
+429,006,drug,aorta,Cardiac output,8.037589502054674,L/min,0.11184842204987232,CO
+430,006,drug,aorta,Heart-lung mean transit time,12.273923885375115,sec,0.2807200947094126,Thl
+431,006,drug,aorta,Heart-lung dispersion,52.85636498769458,%,0.6018273428595107,Dhl
+432,006,drug,aorta,Organs blood mean transit time,32.887265825830106,sec,0.8901191588499211,To
+433,006,drug,aorta,Organs extraction fraction,11.568151897885526,%,0.3700980163514146,Eo
+434,006,drug,aorta,Organs extravascular mean transit time,7.3442920175412265,min,0.4406803662758524,Toe
+435,006,drug,aorta,Body extraction fraction,2.4358130769199717,%,0.14272303636704936,Eb
+436,006,drug,liver,Hematocrit,45.0,%,0.0,H
+437,006,drug,liver,Liver extracellular volume fraction,31.99697162747514,mL/100cm3,0.9548240221094644,ve
+438,006,drug,liver,Extracellular mean transit time,43.50311758918786,sec,1.8604822423506324,Te
+439,006,drug,liver,Extracellular dispersion,67.01592586990965,%,2.0551206761061107,De
+440,006,drug,liver,Initial hepatocellular uptake rate,1.3773242926382396,mL/min/100cm3,0.22715557740454898,khe_i
+441,006,drug,liver,Final hepatocellular uptake rate,2.5108319915415054,mL/min/100cm3,0.35787402241365485,khe_f
+442,006,drug,liver,Hepatocellular mean transit time,93.01844721985135,min,0.0,Th
+443,006,drug,liver,Hepatocellular uptake rate,1.9440781420898727,mL/min/100cm3,0.0,khe
+444,006,drug,liver,Biliary tissue excretion rate,1.0750555721882518,mL/min/100cm3,0.0,Kbh
+445,006,drug,liver,Hepatocellular tissue uptake rate,6.0758191891526785,mL/min/100cm3,0.0,Khe
+446,006,drug,liver,Biliary excretion rate,0.7310703457755864,mL/min/100cm3,0.0,kbh
+447,006,drug,liver,Initial biliary excretion rate,0.6067655124519211,mL/min/100cm3,0.0,kbh_i
+448,006,drug,liver,Final biliary excretion rate,0.9194288616316536,mL/min/100cm3,0.0,kbh_f
+449,006,drug,liver,Liver blood clearance,0.013720559310428593,L/min,0.0,CL
+450,006,drug,aorta,AUC for DR1b (0-inf),65111.21127935734,%,0.0,AUC_R1b
+451,006,drug,aorta,AUC for Cb (0-inf),66.4400115095483,mM*sec,0.0,AUC_Cb
+452,006,drug,liver,AUC for DR1l (0-inf),110535.88291053101,%,0.0,AUC_R1l
+453,006,drug,liver,AUC for Cl (0-inf),112.79171725564389,mM*sec,0.0,AUC_Cl
+454,006,drug,aorta,AUC for DR1b (0-35min),30057.084346117863,%,0.0,AUC35_R1b
+455,006,drug,aorta,AUC for Cb (0-35min),30.670494230732515,mM*sec,0.0,AUC35_Cb
+456,006,drug,liver,AUC for DR1l (0-35min),26669.31584373845,%,0.0,AUC35_R1l
+457,006,drug,liver,AUC for Cl (0-35min),27.213587595651475,mM*sec,0.0,AUC35_Cl
+458,006,drug,liver,RE for R1b at 20min,20.715784332989013,%,0.0,RE_R1b
+459,006,drug,liver,RE for R1l at 20min,9.485457996449147,%,0.0,RE_R1l
+460,006,drug,liver,RE for Sb at 20min,7.99500581901613,%,0.0,RE_Sb
+461,006,drug,liver,RE for Sl at 20min,8.085628970375708,%,0.0,RE_Sl
+462,007,drug,aorta,Cardiac output,8.421140451981161,L/min,0.1268298851084619,CO
+463,007,drug,aorta,Heart-lung mean transit time,12.921185819079204,sec,0.16187013323129731,Thl
+464,007,drug,aorta,Heart-lung dispersion,36.58233514491162,%,0.8191746622675393,Dhl
+465,007,drug,aorta,Organs blood mean transit time,15.419996185900315,sec,0.6575366862318323,To
+466,007,drug,aorta,Organs extraction fraction,19.372436868513184,%,0.6116199938423154,Eo
+467,007,drug,aorta,Organs extravascular mean transit time,4.0832316846083865,min,0.17988650219742083,Toe
+468,007,drug,aorta,Body extraction fraction,3.063379656664315,%,0.08583291598109248,Eb
+469,007,drug,liver,Hematocrit,45.0,%,0.0,H
+470,007,drug,liver,Liver extracellular volume fraction,18.945020216004618,mL/100cm3,0.9820599051153699,ve
+471,007,drug,liver,Extracellular mean transit time,38.888668967161905,sec,3.119684091301102,Te
+472,007,drug,liver,Extracellular dispersion,77.128306211519,%,3.0782524623457004,De
+473,007,drug,liver,Initial hepatocellular uptake rate,2.299623864380983,mL/min/100cm3,1.0367811258513187,khe_i
+474,007,drug,liver,Final hepatocellular uptake rate,1.3343424126827224,mL/min/100cm3,0.13628038671834353,khe_f
+475,007,drug,liver,Hepatocellular mean transit time,148.98428846205044,min,0.0,Th
+476,007,drug,liver,Hepatocellular uptake rate,1.816983138531853,mL/min/100cm3,0.0,khe
+477,007,drug,liver,Biliary tissue excretion rate,0.6712117165661544,mL/min/100cm3,0.0,Kbh
+478,007,drug,liver,Hepatocellular tissue uptake rate,9.590821850888702,mL/min/100cm3,0.0,Khe
+479,007,drug,liver,Biliary excretion rate,0.5440505211705048,mL/min/100cm3,0.0,kbh
+480,007,drug,liver,Initial biliary excretion rate,8.057611356532455,mL/min/100cm3,0.0,kbh_i
+481,007,drug,liver,Final biliary excretion rate,0.281529714262156,mL/min/100cm3,0.0,kbh_f
+482,007,drug,liver,Liver blood clearance,0.020269387344455655,L/min,0.0,CL
+483,007,drug,aorta,AUC for DR1b (0-inf),76898.36550466991,%,0.0,AUC_R1b
+484,007,drug,aorta,AUC for Cb (0-inf),78.46771990272441,mM*sec,0.0,AUC_Cb
+485,007,drug,liver,AUC for DR1l (0-inf),140466.61238060473,%,0.0,AUC_R1l
+486,007,drug,liver,AUC for Cl (0-inf),143.33327793939256,mM*sec,0.0,AUC_Cl
+487,007,drug,aorta,AUC for DR1b (0-35min),43816.10191427432,%,0.0,AUC35_R1b
+488,007,drug,aorta,AUC for Cb (0-35min),44.71030807579012,mM*sec,0.0,AUC35_Cb
+489,007,drug,liver,AUC for DR1l (0-35min),31773.6771269795,%,0.0,AUC35_R1l
+490,007,drug,liver,AUC for Cl (0-35min),32.42211951732602,mM*sec,0.0,AUC35_Cl
+491,007,drug,liver,RE for R1b at 20min,29.391039857692615,%,0.0,RE_R1b
+492,007,drug,liver,RE for R1l at 20min,11.699201976228013,%,0.0,RE_R1l
+493,007,drug,liver,RE for Sb at 20min,34.26531533732706,%,0.0,RE_Sb
+494,007,drug,liver,RE for Sl at 20min,9.464872155380013,%,0.0,RE_Sl
+495,008,drug,aorta,Cardiac output,10.724784218560373,L/min,0.178074793164321,CO
+496,008,drug,aorta,Heart-lung mean transit time,11.379778595527384,sec,0.37111685923983784,Thl
+497,008,drug,aorta,Heart-lung dispersion,48.43072112754728,%,0.8878754079572917,Dhl
+498,008,drug,aorta,Organs blood mean transit time,22.92409133372404,sec,0.6451866915544513,To
+499,008,drug,aorta,Organs extraction fraction,9.150250092270849,%,0.31641675747272485,Eo
+500,008,drug,aorta,Organs extravascular mean transit time,7.055926035116706,min,0.3582154669292452,Toe
+501,008,drug,aorta,Body extraction fraction,2.5736330587265264,%,0.08094505428388186,Eb
+502,008,drug,liver,Hematocrit,45.0,%,0.0,H
+503,008,drug,liver,Liver extracellular volume fraction,16.318642394696028,mL/100cm3,0.6509834903127013,ve
+504,008,drug,liver,Extracellular mean transit time,31.301522763939467,sec,2.3435062198498122,Te
+505,008,drug,liver,Extracellular dispersion,62.34126248544663,%,4.161380498846861,De
+506,008,drug,liver,Initial hepatocellular uptake rate,1.2709748496226585,mL/min/100cm3,0.10417190958224105,khe_i
+507,008,drug,liver,Final hepatocellular uptake rate,2.9036744954825187,mL/min/100cm3,0.30180478678341865,khe_f
+508,008,drug,liver,Hepatocellular mean transit time,217.92392265743572,min,0.0,Th
+509,008,drug,liver,Hepatocellular uptake rate,2.0873246725525885,mL/min/100cm3,0.0,khe
+510,008,drug,liver,Biliary tissue excretion rate,0.45887573415789895,mL/min/100cm3,0.0,Kbh
+511,008,drug,liver,Hepatocellular tissue uptake rate,12.791043654654885,mL/min/100cm3,0.0,Khe
+512,008,drug,liver,Biliary excretion rate,0.3839934440646354,mL/min/100cm3,0.0,kbh
+513,008,drug,liver,Initial biliary excretion rate,0.22725677148107848,mL/min/100cm3,0.0,kbh_i
+514,008,drug,liver,Final biliary excretion rate,1.2374501983447461,mL/min/100cm3,0.0,kbh_f
+515,008,drug,liver,Liver blood clearance,0.018382318258866447,L/min,0.0,CL
+516,008,drug,aorta,AUC for DR1b (0-inf),71526.20486088636,%,0.0,AUC_R1b
+517,008,drug,aorta,AUC for Cb (0-inf),72.98592332743505,mM*sec,0.0,AUC_Cb
+518,008,drug,liver,AUC for DR1l (0-inf),136594.91236226063,%,0.0,AUC_R1l
+519,008,drug,liver,AUC for Cl (0-inf),139.38256363495984,mM*sec,0.0,AUC_Cl
+520,008,drug,aorta,AUC for DR1b (0-35min),40178.8268945126,%,0.0,AUC35_R1b
+521,008,drug,aorta,AUC for Cb (0-35min),40.99880295358428,mM*sec,0.0,AUC35_Cb
+522,008,drug,liver,AUC for DR1l (0-35min),25893.845378426482,%,0.0,AUC35_R1l
+523,008,drug,liver,AUC for Cl (0-35min),26.422291202476003,mM*sec,0.0,AUC35_Cl
+524,008,drug,liver,RE for R1b at 20min,25.597947720567177,%,0.0,RE_R1b
+525,008,drug,liver,RE for R1l at 20min,7.707209287771523,%,0.0,RE_R1l
+526,008,drug,liver,RE for Sb at 20min,20.06459461116933,%,0.0,RE_Sb
+527,008,drug,liver,RE for Sl at 20min,5.160944008563375,%,0.0,RE_Sl
+528,009,drug,aorta,Cardiac output,12.374084243295417,L/min,0.19391708252814446,CO
+529,009,drug,aorta,Heart-lung mean transit time,13.99055537502177,sec,0.49217353905466665,Thl
+530,009,drug,aorta,Heart-lung dispersion,57.68722213007679,%,0.9504264952525168,Dhl
+531,009,drug,aorta,Organs blood mean transit time,38.759565708506805,sec,1.013599907376045,To
+532,009,drug,aorta,Organs extraction fraction,9.469157078405974,%,0.36017779725660115,Eo
+533,009,drug,aorta,Organs extravascular mean transit time,8.013156693639296,min,0.4655173429639765,Toe
+534,009,drug,aorta,Body extraction fraction,2.2720445063582484,%,0.09698926070250667,Eb
+535,009,drug,liver,Hematocrit,45.0,%,0.0,H
+536,009,drug,liver,Liver extracellular volume fraction,22.396552524216187,mL/100cm3,0.7821755462690992,ve
+537,009,drug,liver,Extracellular mean transit time,53.82163154539401,sec,3.1927051412692125,Te
+538,009,drug,liver,Extracellular dispersion,68.54716772389092,%,2.814779389184036,De
+539,009,drug,liver,Initial hepatocellular uptake rate,0.7862097638458357,mL/min/100cm3,0.1802802600680874,khe_i
+540,009,drug,liver,Final hepatocellular uptake rate,1.411729973024758,mL/min/100cm3,0.26204087744742094,khe_f
+541,009,drug,liver,Hepatocellular mean transit time,47.856629800937505,min,0.0,Th
+542,009,drug,liver,Hepatocellular uptake rate,1.0989698684352969,mL/min/100cm3,0.0,khe
+543,009,drug,liver,Biliary tissue excretion rate,2.0895746402526867,mL/min/100cm3,0.0,Kbh
+544,009,drug,liver,Hepatocellular tissue uptake rate,4.906870676846537,mL/min/100cm3,0.0,Khe
+545,009,drug,liver,Biliary excretion rate,1.6215819584157927,mL/min/100cm3,0.0,kbh
+546,009,drug,liver,Initial biliary excretion rate,1.294170981745949,mL/min/100cm3,0.0,kbh_i
+547,009,drug,liver,Final biliary excretion rate,2.1707603790863046,mL/min/100cm3,0.0,kbh_f
+548,009,drug,liver,Liver blood clearance,0.013185612041672852,L/min,0.0,CL
+549,009,drug,aorta,AUC for DR1b (0-inf),89464.0894314514,%,0.0,AUC_R1b
+550,009,drug,aorta,AUC for Cb (0-inf),91.28988717495041,mM*sec,0.0,AUC_Cb
+551,009,drug,liver,AUC for DR1l (0-inf),73265.92544119184,%,0.0,AUC_R1l
+552,009,drug,liver,AUC for Cl (0-inf),74.76114840937942,mM*sec,0.0,AUC_Cl
+553,009,drug,aorta,AUC for DR1b (0-35min),39867.176144023564,%,0.0,AUC35_R1b
+554,009,drug,aorta,AUC for Cb (0-35min),40.68079198369751,mM*sec,0.0,AUC35_Cb
+555,009,drug,liver,AUC for DR1l (0-35min),22200.389186055825,%,0.0,AUC35_R1l
+556,009,drug,liver,AUC for Cl (0-35min),22.653458353118186,mM*sec,0.0,AUC35_Cl
+557,009,drug,liver,RE for R1b at 20min,30.056397566727156,%,0.0,RE_R1b
+558,009,drug,liver,RE for R1l at 20min,8.404793272241848,%,0.0,RE_R1l
+559,009,drug,liver,RE for Sb at 20min,15.427742628433275,%,0.0,RE_Sb
+560,009,drug,liver,RE for Sl at 20min,7.916556227510722,%,0.0,RE_Sl
+561,010,drug,aorta,Cardiac output,7.031785714024292,L/min,0.088216453679356,CO
+562,010,drug,aorta,Heart-lung mean transit time,22.064994578411547,sec,0.6017768017319587,Thl
+563,010,drug,aorta,Heart-lung dispersion,39.733359786719554,%,0.6488755643549312,Dhl
+564,010,drug,aorta,Organs blood mean transit time,38.18275953202334,sec,1.1191797340536045,To
+565,010,drug,aorta,Organs extraction fraction,16.206795251971094,%,0.475698743136551,Eo
+566,010,drug,aorta,Organs extravascular mean transit time,8.592802305775916,min,0.4431122370861499,Toe
+567,010,drug,aorta,Body extraction fraction,3.2130957865435703,%,0.15567949134024908,Eb
+568,010,drug,liver,Hematocrit,45.0,%,0.0,H
+569,010,drug,liver,Liver extracellular volume fraction,23.81536076424518,mL/100cm3,0.9304592558817268,ve
+570,010,drug,liver,Extracellular mean transit time,53.77294285193779,sec,3.536743185635993,Te
+571,010,drug,liver,Extracellular dispersion,73.10737033856091,%,2.7614083117471924,De
+572,010,drug,liver,Initial hepatocellular uptake rate,0.9913379884473636,mL/min/100cm3,0.28032259234160156,khe_i
+573,010,drug,liver,Final hepatocellular uptake rate,1.7719171107203815,mL/min/100cm3,0.42787536742803417,khe_f
+574,010,drug,liver,Hepatocellular mean transit time,132.06656465205282,min,0.0,Th
+575,010,drug,liver,Hepatocellular uptake rate,1.3816275495838726,mL/min/100cm3,0.0,khe
+576,010,drug,liver,Biliary tissue excretion rate,0.7571939215914604,mL/min/100cm3,0.0,Kbh
+577,010,drug,liver,Hepatocellular tissue uptake rate,5.801413479564658,mL/min/100cm3,0.0,Khe
+578,010,drug,liver,Biliary excretion rate,0.5768654574795183,mL/min/100cm3,0.0,kbh
+579,010,drug,liver,Initial biliary excretion rate,1.2397300311339934,mL/min/100cm3,0.0,kbh_i
+580,010,drug,liver,Final biliary excretion rate,0.37588534612748997,mL/min/100cm3,0.0,kbh_f
+581,010,drug,liver,Liver blood clearance,0.015323214232505366,L/min,0.0,CL
+582,010,drug,aorta,AUC for DR1b (0-inf),81322.44808400884,%,0.0,AUC_R1b
+583,010,drug,aorta,AUC for Cb (0-inf),82.98208988164167,mM*sec,0.0,AUC_Cb
+584,010,drug,liver,AUC for DR1l (0-inf),106047.91467267032,%,0.0,AUC_R1l
+585,010,drug,liver,AUC for Cl (0-inf),108.21215782925545,mM*sec,0.0,AUC_Cl
+586,010,drug,aorta,AUC for DR1b (0-35min),35186.41945505487,%,0.0,AUC35_R1b
+587,010,drug,aorta,AUC for Cb (0-35min),35.904509648015186,mM*sec,0.0,AUC35_Cb
+588,010,drug,liver,AUC for DR1l (0-35min),23206.964379067886,%,0.0,AUC35_R1l
+589,010,drug,liver,AUC for Cl (0-35min),23.680575897008048,mM*sec,0.0,AUC35_Cl
+590,010,drug,liver,RE for R1b at 20min,22.652999298247728,%,0.0,RE_R1b
+591,010,drug,liver,RE for R1l at 20min,7.8112685907816175,%,0.0,RE_R1l
+592,010,drug,liver,RE for Sb at 20min,15.721920114655349,%,0.0,RE_Sb
+593,010,drug,liver,RE for Sl at 20min,7.005733921333998,%,0.0,RE_Sl

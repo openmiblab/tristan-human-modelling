@@ -130,7 +130,7 @@ def format_data(datapath, resultspath):
                     'rate':  1,
                     'field_strength':  3.0,
                     't0':  subj_data['baseline'],
-                    'TR':  3.71/1000.0,
+                    'TR':  subj_data['TR']/1000.0, # Exp Med: 3.71/1000.0,
                     'FA':  15,
                     'TS':  subj_data['time1'][1]-subj_data['time1'][0],
                     'R10a': subj_data['R1a'][0],

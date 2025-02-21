@@ -19,6 +19,7 @@ mark = {
     8: '*',
     9: 'x',
     10: 'd',
+    11: 'X',
 }
 clr = {
     1: 'tab:blue',
@@ -31,6 +32,7 @@ clr = {
     8: 'tab:gray',
     9: 'tab:olive',
     10: 'tab:cyan',
+    11: 'b',
 }
 
 def _line_plot_ref(ax1, ax2, visits):

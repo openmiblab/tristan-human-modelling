@@ -20,8 +20,52 @@ def generate(filename, results):
 
     if filename == 'gothenburg':
         generate_gothenburg(filename, results)
-    if filename == 'exp_med':
+    elif filename == 'exp_med':
         generate_exp_med(filename, results)
+    elif filename in ['ciclosporin', 'metformin']:
+        generate_two_compound(filename, results)
+
+
+def generate_two_compound(filename, results):
+
+    print('Creating report..')
+
+    # Cover and title pages
+    report.setup(os.path.abspath(""), results)
+    doc = pl.Document()
+    doc.documentclass = pl.Command('documentclass',"epflreport")
+    report.makecover(doc, 
+            title = 'Two-compound study',
+            subtitle = filename + ' results',
+            subject = 'D2.10 - Internal report')
+    report.titlepage(doc, results)
+    doc.append(pl.NewPage())
+    doc.append(NoEscape('\\tableofcontents'))
+    doc.append(NoEscape('\\mainmatter'))
+
+    # Two-scan results
+    folder = 'twoscan'
+    doc.append(NoEscape('\\clearpage'))
+    doc.append(pl.Command('chapter', 'Two-scan results'))
+    section_summary(doc, results, folder)
+    section_biomarkers(doc, results, folder)
+    section_case_notes(doc, results, folder)
+
+    # One-scan results
+    folder = 'onescan'
+    doc.append(NoEscape('\\clearpage'))
+    doc.append(pl.Command('chapter', 'One-scan results'))
+    section_summary(doc, results, folder)
+    section_biomarkers(doc, results, folder)
+    section_case_notes(doc, results, folder)
+
+    # Secondary results
+    doc.append(NoEscape('\\clearpage'))
+    doc.append(pl.Command('chapter', 'Secondary results'))
+    section_diurnal(doc, results)
+    #section_acqtime(doc, results)
+
+    report.create(doc, os.path.abspath(""), 'report_' + filename, results)
 
 
 def generate_exp_med(filename, results):

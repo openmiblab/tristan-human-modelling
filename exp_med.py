@@ -9,19 +9,20 @@ sourcepath = os.path.join(datapath, 'Data', 'tristan_exp_med')
 resultspath = os.path.join(datapath, 'Results', 'tristan_exp_med_dev')
 
 # Format data
-onescan.format_data(sourcepath, os.path.join(resultspath, 'onescan'))
+# onescan.format_data(sourcepath, os.path.join(resultspath, 'onescan'))
 twoscan.format_data(sourcepath, os.path.join(resultspath, 'twoscan'))
 
 # Calculate
-tools.compute(onescan.fit_subj, os.path.join(resultspath, 'onescan'))
+# tools.compute(onescan.fit_subj, os.path.join(resultspath, 'onescan'))
 tools.compute(twoscan.fit_subj, os.path.join(resultspath, 'twoscan'))
-tools.compute_vart(
-    onescan.fit_subj, 
-    os.path.join(resultspath, 'onescan_vart'),
-    os.path.join(resultspath, 'onescan'))
+# tools.compute_vart(
+#     onescan.fit_subj, 
+#     os.path.join(resultspath, 'onescan_vart'),
+#     os.path.join(resultspath, 'onescan'))
 
 # Summarise results
-for exp in ['onescan','twoscan']:
+#for exp in ['onescan','twoscan']:
+for exp in ['twoscan']:
     src = os.path.join(resultspath, exp)
     plot.create_bar_chart(src)
     calc.derive_pars(src)
@@ -30,19 +31,17 @@ for exp in ['onescan','twoscan']:
     plot.effect_plot(src, ylim=[50,5])
 
 # Plot diurnal variations
-plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[50,5])
+# plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[50,5])
 
-# Variable acquisition time results
-src = os.path.join(resultspath, 'onescan_vart')
-plot.create_bar_chart(src)
-calc.derive_vart_pars(src)
-plot.vart_effect_plot(src, os.path.join(resultspath, 'twoscan'))
+# # Variable acquisition time results
+# src = os.path.join(resultspath, 'onescan_vart')
+# plot.create_bar_chart(src)
+# calc.derive_vart_pars(src)
+# plot.vart_effect_plot(src, os.path.join(resultspath, 'twoscan'))
 
-# Create report
-report.generate('exp_med', resultspath)
-report.generate('exp_med', resultspath)
+# # Create report
+# report.generate('exp_med', resultspath)
+# report.generate('exp_med', resultspath)
 
-# Obsolete
-# exp_med_report.generate('report_exp_med', resultspath)
-
+# Generate reference data for future studies
 calc.derive_pars(os.path.join(resultspath, 'twoscan'), ref=True)
