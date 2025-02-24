@@ -4,12 +4,13 @@ from tristan import onescan, twoscan
 import plot, tools, calc, report
 
 root = os.path.abspath(os.sep)
-datapath = os.path.join(root, 'Users', 'steve', 'Dropbox')
+outputpath = os.path.join(root, 'Users', 'md1spsx', 'Documents', 'Results')
 
-for drug in ['ciclosporin', 'metformin']:
+#for drug in ['ciclosporin', 'metformin']:
+for drug in ['metformin']:
 
-    sourcepath = os.path.join(datapath, 'Data', 'tristan_two_compounds', drug)
-    resultspath = os.path.join(datapath, 'Results', 'tristan_two_compounds', drug)
+    sourcepath = os.path.join(os.getcwd(), 'data', 'tristan_two_compounds', drug)
+    resultspath = os.path.join(outputpath, 'tristan_two_compounds', drug)
 
     # Format data
     onescan.format_data(sourcepath, os.path.join(resultspath, 'onescan'))
@@ -34,7 +35,7 @@ for drug in ['ciclosporin', 'metformin']:
     plot.compare_to_ref(resultspath)
 
     # Plot diurnal variations
-    plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[50,10])
+    plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[100,10])
 
     # Create report
     report.generate(drug, resultspath)

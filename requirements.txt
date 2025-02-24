@@ -6,3 +6,4 @@ scipy
 pingouin
 openpyxl
 dcmri
+pdfLaTex
