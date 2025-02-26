@@ -49,6 +49,7 @@ def generate_two_compound(filename, results):
     doc.append(pl.Command('chapter', 'Two-scan results'))
     section_summary(doc, results, folder)
     section_biomarkers(doc, results, folder)
+    section_reference(doc, results, folder)
     section_case_notes(doc, results, folder)
 
     # One-scan results

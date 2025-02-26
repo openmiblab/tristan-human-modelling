@@ -6,8 +6,7 @@ import plot, tools, calc, report
 root = os.path.abspath(os.sep)
 outputpath = os.path.join(root, 'Users', 'md1spsx', 'Documents', 'Results')
 
-#for drug in ['ciclosporin', 'metformin']:
-for drug in ['metformin']:
+for drug in ['ciclosporin', 'metformin']:
 
     sourcepath = os.path.join(os.getcwd(), 'data', 'tristan_two_compounds', drug)
     resultspath = os.path.join(outputpath, 'tristan_two_compounds', drug)
