@@ -5,7 +5,7 @@ import numpy as np
 import pylatex as pl
 from pylatex.utils import NoEscape
 
-from miblab_report import report
+from miblab import report
 
 
 CONTROL = 'control'
@@ -26,19 +26,18 @@ def generate(filename, results):
         generate_two_compound(filename, results)
 
 
-def generate_two_compound(filename, results):
+def generate_two_compound(filename, resultspath):
 
     print('Creating report..')
 
     # Cover and title pages
-    report.setup(os.path.abspath(""), results)
-    doc = pl.Document()
-    doc.documentclass = pl.Command('documentclass',"epflreport")
-    report.makecover(doc, 
-            title = 'Two-compound study',
-            subtitle = filename + ' results',
-            subject = 'D2.10 - Internal report')
-    report.titlepage(doc, results)
+    # doc = report.setup(os.path.abspath(""), resultspath)
+    doc = report.setup(
+        resultspath,
+        title = 'Two-compound study',
+        subtitle = filename + ' results',
+        subject = 'D2.10 - Internal report',
+    )
     doc.append(pl.NewPage())
     doc.append(NoEscape('\\tableofcontents'))
     doc.append(NoEscape('\\mainmatter'))
@@ -47,26 +46,27 @@ def generate_two_compound(filename, results):
     folder = 'twoscan'
     doc.append(NoEscape('\\clearpage'))
     doc.append(pl.Command('chapter', 'Two-scan results'))
-    section_summary(doc, results, folder)
-    section_biomarkers(doc, results, folder)
-    section_reference(doc, results, folder)
-    section_case_notes(doc, results, folder)
+    section_summary(doc, resultspath, folder)
+    section_biomarkers(doc, resultspath, folder)
+    section_reference(doc, resultspath, folder)
+    section_case_notes(doc, resultspath, folder)
 
     # One-scan results
     folder = 'onescan'
     doc.append(NoEscape('\\clearpage'))
     doc.append(pl.Command('chapter', 'One-scan results'))
-    section_summary(doc, results, folder)
-    section_biomarkers(doc, results, folder)
-    section_case_notes(doc, results, folder)
+    section_summary(doc, resultspath, folder)
+    section_biomarkers(doc, resultspath, folder)
+    section_case_notes(doc, resultspath, folder)
 
     # Secondary results
     doc.append(NoEscape('\\clearpage'))
     doc.append(pl.Command('chapter', 'Secondary results'))
-    section_diurnal(doc, results)
+    section_diurnal(doc, resultspath)
     #section_acqtime(doc, results)
 
-    report.create(doc, os.path.abspath(""), 'report_' + filename, results)
+    #report.create(doc, os.path.abspath(""), 'report_' + filename, resultspath)
+    report.build(doc, 'report_' + filename, resultspath)
 
 
 def generate_exp_med(filename, results):
@@ -74,14 +74,12 @@ def generate_exp_med(filename, results):
     print('Creating report..')
 
     # Cover and title pages
-    report.setup(os.path.abspath(""), results)
-    doc = pl.Document()
-    doc.documentclass = pl.Command('documentclass',"epflreport")
-    report.makecover(doc, 
-            title = 'Experimental medicine study',
-            subtitle = 'Results',
-            subject = 'D2.13 - Internal report')
-    report.titlepage(doc, results)
+    doc = report.setup(
+        results,
+        title = 'Experimental medicine study',
+        subtitle = 'Results',
+        subject = 'D2.13 - Internal report',
+    )
     doc.append(pl.NewPage())
     doc.append(NoEscape('\\tableofcontents'))
     doc.append(NoEscape('\\mainmatter'))
@@ -108,7 +106,7 @@ def generate_exp_med(filename, results):
     section_diurnal(doc, results)
     section_acqtime(doc, results)
 
-    report.create(doc, os.path.abspath(""), 'report_' + filename, results)
+    report.build(doc, 'report_' + filename, results)
 
 
 def generate_gothenburg(filename, results):
@@ -116,14 +114,12 @@ def generate_gothenburg(filename, results):
     print('Creating report..')
 
     # Cover and title pages
-    report.setup(os.path.abspath(""), results)
-    doc = pl.Document()
-    doc.documentclass = pl.Command('documentclass',"epflreport")
-    report.makecover(doc, 
-            title = 'Gothenburg patient study',
-            subtitle = 'Interim analysis',
-            subject = 'D2.07 - Internal report')
-    report.titlepage(doc, results)
+    doc = report.setup(
+        results,
+        title = 'Gothenburg patient study',
+        subtitle = 'Interim analysis',
+        subject = 'D2.07 - Internal report',
+    )
     doc.append(pl.NewPage())
     doc.append(NoEscape('\\tableofcontents'))
     doc.append(NoEscape('\\mainmatter'))
@@ -151,7 +147,7 @@ def generate_gothenburg(filename, results):
     section_diurnal(doc, results)
     section_acqtime(doc, results)
 
-    report.create(doc, os.path.abspath(""), 'report_' + filename, results)
+    report.build(doc, 'report_' + filename, results)
 
 
 

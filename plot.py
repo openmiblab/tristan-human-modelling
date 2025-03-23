@@ -20,20 +20,48 @@ mark = {
     9: 'x',
     10: 'd',
     11: 'X',
+    12: 'o',
+    13: 'v',
+    14: '^',
+    15: '<',
+    16: '>',
+    17: 's',
+    18: 'p',
+    19: '*',
+    20: 'x',
+    21: 'd',
+    22: 'X',
 }
-clr = {
-    1: 'tab:blue',
-    2: 'tab:orange',
-    3: 'tab:green',
-    4: 'tab:red',
-    5: 'tab:purple',
-    6: 'tab:brown',
-    7: 'tab:pink',
-    8: 'tab:gray',
-    9: 'tab:olive',
-    10: 'tab:cyan',
-    11: 'b',
-}
+
+
+def color(index: int) -> str:
+    """
+    Returns a unique Matplotlib color in a format accepted by plot() for a given integer less than 25.
+    
+    Parameters:
+        index (int): An integer less than 25.
+        
+    Returns:
+        str: A unique color as a hexadecimal string.
+        
+    Raises:
+        ValueError: If the index is not in the range 0-24.
+    """
+    if not (0 <= index < 25):
+        raise ValueError("Index must be an integer between 0 and 24.")
+    
+    cmap = plt.get_cmap("gist_rainbow")  # Use the 'viridis' colormap
+    normalized_index = index / 24   # Normalize index to the range [0,1]
+    rgba_color = cmap(normalized_index)  # Get RGBA tuple
+    hex_color = "#{:02x}{:02x}{:02x}".format(
+        int(rgba_color[0] * 255),
+        int(rgba_color[1] * 255),
+        int(rgba_color[2] * 255)
+    )  # Convert to hex
+
+    return hex_color
+
+
 
 def _line_plot_ref(ax1, ax2, visits):
 
@@ -109,9 +137,9 @@ def _line_plots(src, ax1, ax2, ylim=[50,5], ref=False):
             khe = [khe_ref[s]]
             kbh = [kbh_ref[s]]      
         ax1.plot(x, khe, '-', label=s, marker=mark[int(s)], 
-                 markersize=markersize, color=clr[int(s)])
+                 markersize=markersize, color=color(int(s)))
         ax2.plot(x, kbh, '-', label=s, marker=mark[int(s)], 
-                 markersize=markersize, color=clr[int(s)])
+                 markersize=markersize, color=color(int(s)))
 
 
 def _effect_box_plots(src, ax):
@@ -411,9 +439,9 @@ def _max_line_plots(output_file, ax1, ax2):
             khe = [khe_ref[s]]
             kbh = [kbh_ref[s]]            
         ax1.plot(x, khe, '-', label=s, marker=mark[int(s)], 
-                 markersize=markersize, color=clr[int(s)])
+                 markersize=markersize, color=color(int(s)))
         ax2.plot(x, kbh, '-', label=s, marker=mark[int(s)], 
-                 markersize=markersize, color=clr[int(s)])
+                 markersize=markersize, color=color(int(s)))
     #ax1.legend(loc='upper center', ncol=5, prop={'size': 14})
     #ax2.legend(loc='upper center', ncol=5, prop={'size': 14})
 
@@ -633,7 +661,7 @@ def diurnal_k(src, ylim=[50,6]):
                     ax[visit+par].plot(
                         t, data_subj, '-', 
                         label=s, marker=mark[int(s)], 
-                        markersize=markersize, color=clr[int(s)])
+                        markersize=markersize, color=color(int(s)))
 
     plot_file = os.path.join(src, '_diurnal_function.png')
     plt.savefig(fname=plot_file)
