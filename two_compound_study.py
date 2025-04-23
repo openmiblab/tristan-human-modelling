@@ -1,53 +1,50 @@
 import os
 
-from tristan import onescan, twoscan 
-import plot, tools, calc, report
+from tristan import onescan, twoscan, plot, tools, calc
+import two_compound_study_report
 
-root = os.path.abspath(os.sep)
-outputpath = os.path.join(root, 'Users', 'md1spsx', 'Documents', 'Results')
+def main():
+
+    root = os.path.abspath(os.sep)
+    outputpath = os.path.join(root, 'Users', 'md1spsx', 'Documents', 'Results')
+
+    for drug in ['ciclosporin', 'metformin']:
+
+        sourcepath = os.path.join(os.getcwd(), 'data', drug + '.dmr')
+        resultspath = os.path.join(outputpath, 'tristan_two_compounds', drug)
+
+        # Onescan
+        path = os.path.join(resultspath, 'onescan')
+        onescan.compute(sourcepath, path)
+
+        # Twoscan
+        path = os.path.join(resultspath, 'twoscan')
+        twoscan.compute(sourcepath, path)
+
+        # Compute statistics
+        for exp in ['onescan','twoscan']:
+            path = os.path.join(resultspath, exp)
+            tools.build_master(path)
+            calc.derive_pars(path)
+            calc.desc_stats(path)
+            calc.ttest(path)
+        path = os.path.join(resultspath, 'twoscan')
+        calc.derive_pars(path, ref=True)
+        calc.compare_to_ref(path)
+
+        # Create plots
+        for exp in ['onescan','twoscan']:
+            path = os.path.join(resultspath, exp)
+            plot.create_bar_chart(path)
+            plot.effect_plot(path, ylim=[100,10], ref=True)
+        plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[100,10])
+        plot.compare_to_ref(resultspath)
+
+        # Create report
+        two_compound_study_report.build(drug, resultspath)
+        two_compound_study_report.build(drug, resultspath)
 
 
-# for drug in ['ciclosporin', 'metformin']:
-
-#     sourcepath = os.path.join(os.getcwd(), 'data', 'tristan_two_compounds', drug)
-#     resultspath = os.path.join(outputpath, 'tristan_two_compounds', drug)
-
-#     # Format data
-#     onescan.format_data(sourcepath, os.path.join(resultspath, 'onescan'))
-#     twoscan.format_data(sourcepath, os.path.join(resultspath, 'twoscan'))
-
-#     # Calculate
-#     tools.compute(onescan.fit_subj, os.path.join(resultspath, 'onescan'))
-#     tools.compute(twoscan.fit_subj, os.path.join(resultspath, 'twoscan'))
-
-
-# for drug in ['ciclosporin', 'metformin']:
-
-#     resultspath = os.path.join(outputpath, 'tristan_two_compounds', drug)
-
-#     # Summarise results
-#     for exp in ['onescan','twoscan']:
-#         src = os.path.join(resultspath, exp)
-#         plot.create_bar_chart(src)
-#         calc.derive_pars(src)
-#         calc.ttest(src)
-#         calc.desc_stats(src)
-#         plot.effect_plot(src, ylim=[100,10], ref=True)
-
-#     # Compare to reference data
-#     calc.derive_pars(os.path.join(resultspath, 'twoscan'), ref=True)
-#     calc.compare_to_ref(resultspath)
-#     plot.compare_to_ref(resultspath)
-
-#     # Plot diurnal variations
-#     plot.diurnal_k(os.path.join(resultspath, 'twoscan'), ylim=[100,10])
-
-
-for drug in ['ciclosporin', 'metformin']:
-
-    resultspath = os.path.join(outputpath, 'tristan_two_compounds', drug)
-
-    # Create report
-    report.generate(drug, resultspath)
-    report.generate(drug, resultspath)
+if __name__ == '__main__':
+    main()
 
