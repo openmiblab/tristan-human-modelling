@@ -1,7 +1,7 @@
 import os
-import time
 
 import pandas as pd
+import dcmri as dc
 
 
 AORTA_PARS = ['RE_Sb', 'RE_R1b', 'S02a', 'BAT','CO','Thl','Dhl',
@@ -59,77 +59,41 @@ LABEL = {
     'To': 'MTT(o)',
     'Toe': 'MTT(o,e)',
     've': 'v(e)',
+    'H': 'Hct',
 }
 
 
-    
-
-def build_master(resultspath, vart=False):
-    path = os.path.join(resultspath, 'Pars')
+def build_master(resultspath):
+    path = os.path.join(resultspath, 'Results')
     filenames = os.listdir(path)
-    output = None
+
+    # combine dmr files
+    output_data = {}
+    output_pars = {}
+    output_sdev = {}
     for filename in filenames:
         subj_file = os.path.join(path, filename)
-        pars = pd.read_csv(subj_file)
-        pars['subject'] = filename[:3]
-        pars['visit'] = 'control' if 'control' in filename else 'drug'
-        group = []
-        for p in pars.parameter.values:
-            if p in AORTA_PARS:
-                group.append('MRI - aorta')
-            else:
-                group.append('MRI - liver')
-        pars['group'] = group
-        pars['label'] = pars['parameter'].map(LABEL)
-        if vart:
-            pars['tacq'] = float(filename[-6:-4])
-        if output is None:
-            output = pars
+        dmr = dc.read_dmr(subj_file)
+        output_data = output_data | dmr['data']
+        output_pars = output_pars | dmr['pars']
+        output_sdev = output_sdev | dmr['sdev']
+    
+    # Append group and label to the data dictionary
+    for p in output_data:
+        if p in AORTA_PARS:
+            output_data[p].append('MRI - aorta')
         else:
-            output = pd.concat([output, pars])
+            output_data[p].append('MRI - liver')
+        output_data[p].append(LABEL[p])
 
-    # Export data for analysis (final format)
-    labels = ['subject','visit','parameter','value','stdev']
-    if vart:
-        labels.append('tacq')
-    output[labels].to_csv(os.path.join(resultspath, 'output_data.csv'), index=False)
-
-    # Export dictionary for analysis
-    pars = pars[['parameter','name','unit','group','label']]
-    pars.to_csv(os.path.join(resultspath, 'output_data_dict.csv'),index=False)
-
-
-# def build_master_vart(resultspath):
-#     path = os.path.join(resultspath, 'Pars')
-#     filenames = os.listdir(path)
-#     output = None
-#     for filename in filenames:
-#         subj_file = os.path.join(path, filename)
-#         pars = pd.read_csv(subj_file)
-#         pars['subject'] = filename[:3]
-       
-#         pars['visit'] = 'control' if 'control' in filename else 'drug'
-#         structure = []
-#         for p in pars.parameter.values:
-#             if p in AORTA_PARS:
-#                 structure.append('MRI - aorta')
-#             else:
-#                 structure.append('MRI - liver')
-#         pars['group'] = structure
-#         if output is None:
-#             output = pars
-#         else:
-#             output = pd.concat([output, pars])
-#         pars['tacq'] = float(filename[-6:-4])
-
-#     # Export data for analysis (final format)
-#     output = output[['subject','visit','parameter','value','stdev', 'tacq']]
-#     output.to_csv(os.path.join(resultspath, 'output_data.csv'), index=False)
-
-#     # Export dictionary for analysis
-#     pars = pars[['parameter','name','unit','group']]
-#     pars.to_csv(os.path.join(resultspath, 'output_data_dict.csv'),index=False)
-
+    dmr = {
+        'data': output_data,
+        'pars': output_pars,
+        'sdev': output_sdev,
+        'columns': ['group', 'label'],
+    }
+    dmr_file = os.path.join(resultspath, 'all_results')
+    dc.write_dmr(dmr_file, dmr)
 
 
 def to_tristan_units(pars):
@@ -153,22 +117,21 @@ def to_tristan_units(pars):
     return pars
 
 
-
-def to_csv(path, name, pars):
+def to_dmr(path, subj, study, name, pars):
     pars = to_tristan_units(pars)
-    if not os.path.exists(path):
-        os.makedirs(path)
-    file = os.path.join(path, name + '.csv')
-    cols = ['parameter', 'name', 'value', 'unit', 'stdev']
-    pars = [[key] + val for key, val in pars.items()]
-    df = pd.DataFrame(pars, columns=cols)
-    path = os.path.dirname(file)
-    if not os.path.isdir(path):
-        os.makedirs(path)
-    try:
-        df.to_csv(file, index=False)
-    except:
-        print("Can't write to file ", file)
-        print("Please close the file before saving data.") 
+    data_dict = {}
+    dmr_pars = {}
+    dmr_sdev = {}
+    for key, val in pars.items():
+        data_dict[key] = [val[0], val[2], 'float']
+        dmr_pars[subj, study, key] = val[1]
+        dmr_sdev[subj, study, key] = val[3]
+    dmr = {
+        'data': data_dict,
+        'pars': dmr_pars,   
+        'sdev': dmr_sdev,
+    }
+    file = os.path.join(path, name + '.dmr')
+    dc.write_dmr(file, dmr)
 
 

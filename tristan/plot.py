@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import dcmri as dc
 
 from tristan import calc
 
@@ -57,12 +58,8 @@ def _line_plot_ref(ax1, ax2, visits):
 
     pivot = pd.pivot_table(output[output.visit=='control'], values='value', 
                            columns='parameter', index='subject')
-    # pivot = pd.pivot_table(output[output.visit=='baseline'], values='value', 
-    #                        columns='parameter', index='subject')
     khe_ref = pivot.loc[:, 'khe']
     kbh_ref = pivot.loc[:, 'kbh']
-    # pivot = pd.pivot_table(output[output.visit=='rifampicin'], values='value', 
-    #                        columns='parameter', index='subject')
     pivot = pd.pivot_table(output[output.visit=='drug'], values='value', 
                            columns='parameter', index='subject')
     khe_rif = pivot.loc[:, 'khe']
@@ -180,8 +177,8 @@ def effect_plot(src, ylim=[50,5], ref=False):
     fig.subplots_adjust(wspace=0.5)
     _effect_box_plots(src, ax0)
     _line_plots(src, ax1, ax2, ylim=ylim, ref=ref)
-    path = os.path.join(src, 'Plots')
-    if not os.path.exists(path):#
+    path = os.path.join(src, 'Figures')
+    if not os.path.exists(path):
         os.makedirs(path)
     plt.savefig(fname=os.path.join(path, '_effect_plot.png'))
     plt.close()
@@ -234,7 +231,10 @@ def _compare_to_ref_box_plot(ax, all_data, ylabel=None, title=None, ylim=None):
 
 def compare_to_ref(src):
 
-    df = pd.read_csv(os.path.join(src, 'twoscan', 'output_data.csv'))
+    output_file = os.path.join(src, 'all_results')
+    dmr = dc.read_dmr(output_file, format='table')
+    df = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
+
     df_ref = pd.read_csv(
         os.path.join(os.getcwd(), 'tristan', 'reference.csv')
     )
@@ -275,7 +275,7 @@ def compare_to_ref(src):
             title = visit if par=='khe' else None
             _compare_to_ref_box_plot(ax[par][visit], [x,y], ylabel, title, ylim[par])
       
-    plt.savefig(fname=os.path.join(src, 'twoscan', 'Plots', '_compare_to_ref.png'))
+    plt.savefig(fname=os.path.join(src, 'Figures', '_compare_to_ref.png'))
     plt.close()
 
 
@@ -384,7 +384,7 @@ def vart_effect_plot(src, src_2scan, ylim=None):
     _vart_effect_box_plots(src, 'kbh', ax2, ylim=ylim[1])
     _ref_effect_box_plots(src_2scan, 'khe', ax1, ylim=ylim[0])
     _ref_effect_box_plots(src_2scan, 'kbh', ax3, ylim=ylim[1])
-    path = os.path.join(src, 'Plots')
+    path = os.path.join(src, 'Figures')
     if not os.path.exists(path):
         os.makedirs(path)
     plt.savefig(fname=os.path.join(path, '_effect_plot.png'))
@@ -392,10 +392,11 @@ def vart_effect_plot(src, src_2scan, ylim=None):
 
 
 def diurnal_k(src, ylim=[50,6]):
-    # output = pd.read_pickle(os.path.join(src, 'parameters_ext.pkl'))
-    # visits = output.visit[output.visit!='change (%)'].unique()
 
-    output = pd.read_csv(os.path.join(src, 'output_data.csv'))
+    output_file = os.path.join(src, 'all_results')
+    dmr = dc.read_dmr(output_file, format='table')
+    output = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
+
     visits = output.visit.unique()
 
     fontsize=10
@@ -461,12 +462,12 @@ def diurnal_k(src, ylim=[50,6]):
                         v = df_par.value.values[0]
                         t.append(v)
                 if len(data_subj) == 2:
-                    si = float(s)/np.amax(subjects)
+                    si = float(s)/np.amax(subjects.astype(int))
                     ax[visit+par].plot(
                         t, data_subj, '-', 
                         label=s, marker=mark[int(s)], 
                         markersize=markersize, color=color(si))
-    path = os.path.join(src, 'Plots')
+    path = os.path.join(src, 'Figures')
     if not os.path.exists(path):
         os.makedirs(path)
     plot_file = os.path.join(path, '_diurnal_function.png')
@@ -476,14 +477,16 @@ def diurnal_k(src, ylim=[50,6]):
 
 def create_bar_chart(resultsfolder, ylim={}):
 
-    path = os.path.join(resultsfolder, 'Charts')
+    path = os.path.join(resultsfolder, 'Figures')
     if not os.path.exists(path):
         os.makedirs(path)
 
-    output_file = os.path.join(resultsfolder, 'output_data.csv')
-    output = pd.read_csv(output_file)
+    output_file = os.path.join(resultsfolder, 'all_results')
+    dmr = dc.read_dmr(output_file, format='table')
+    output = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
+
     output['group'] = calc.lookup(resultsfolder, output.parameter.values, 'group')
-    output['name'] = calc.lookup(resultsfolder, output.parameter.values, 'name')
+    output['description'] = calc.lookup(resultsfolder, output.parameter.values, 'description')
     output['unit'] = calc.lookup(resultsfolder, output.parameter.values, 'unit') 
     visits = output.visit[output.visit!='change (%)'].unique()
 
@@ -539,300 +542,3 @@ def create_bar_chart(resultsfolder, ylim={}):
             )
             plt.savefig(fname=plot_file)
             plt.close()
-
-
-
-# def _max_line_plots(output_file, ax1, ax2):
-
-#     resultsfolder = os.path.dirname(output_file)
-#     output = pd.read_pickle(os.path.join(resultsfolder, 'parameters_ext.pkl'))
-#     visits = output.visit[output.visit!='change (%)'].unique()
-
-#     fontsize=12
-#     markersize=6
-#     ax1.set_title('Hepatocellular uptake rate', fontsize=fontsize, pad=10)
-#     ax1.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
-#     ax1.set_ylim(0, 40)
-#     ax1.tick_params(axis='x', labelsize=fontsize)
-#     ax1.tick_params(axis='y', labelsize=fontsize)
-#     ax2.set_title('Biliary excretion rate', fontsize=fontsize, pad=10)
-#     ax2.set_ylabel('kbh (mL/min/100mL)', fontsize=fontsize)
-#     ax2.set_ylim(0, 3.5)
-#     ax2.tick_params(axis='x', labelsize=fontsize)
-#     ax2.tick_params(axis='y', labelsize=fontsize)
-
-#     pivot = pd.pivot_table(output[output.visit==visits[0]], values='value', 
-#                            columns='parameter', index='subject')
-#     khe_ref = pivot.loc[:, 'khe_max']
-#     kbh_ref = pivot.loc[:, 'kbh_max']
-#     pivot = pd.pivot_table(output[output.visit==visits[1]], values='value', 
-#                            columns='parameter', index='subject')
-#     khe_rif = pivot.loc[:, 'khe_min']
-#     kbh_rif = pivot.loc[:, 'kbh_min']
-    
-#     for s in khe_ref.index:
-#         if s in khe_rif.index:
-#             x = visits
-#             khe = [khe_ref[s],khe_rif[s]]
-#             kbh = [kbh_ref[s],kbh_rif[s]]
-#         else:
-#             x = [visits[0]]
-#             khe = [khe_ref[s]]
-#             kbh = [kbh_ref[s]]            
-#         ax1.plot(x, khe, '-', label=s, marker=mark[int(s)], 
-#                  markersize=markersize, color=color(int(s)))
-#         ax2.plot(x, kbh, '-', label=s, marker=mark[int(s)], 
-#                  markersize=markersize, color=color(int(s)))
-#     #ax1.legend(loc='upper center', ncol=5, prop={'size': 14})
-#     #ax2.legend(loc='upper center', ncol=5, prop={'size': 14})
-
-
-# def _max_effect_box_plots(output_file, ax):
-
-#     resultsfolder = os.path.dirname(output_file)
-#     output = pd.read_pickle(os.path.join(resultsfolder,
-#                                           'parameters_ext.pkl'))
-#     khe = output[output.parameter=='khe max effect size 1'].value.values.tolist()
-#     kbh = output[output.parameter=='kbh max effect size 1'].value.values.tolist()
-#     all_data = [khe, kbh]
-#     parameters = ['khe', 'kbh']
-    
-#     # Create box plot
-#     linewidth = 1.0
-#     fontsize=10
-#     for axis in ['top','bottom','left','right']:
-#         ax.spines[axis].set_linewidth(linewidth)
-
-#     # box plot
-#     boxprops = dict(linestyle='-', linewidth=linewidth, color='black')
-#     medianprops = dict(linestyle='-', linewidth=linewidth, color='black')
-#     whiskerprops = dict(linestyle='-', linewidth=linewidth, color='black')
-#     capprops = dict(linestyle='-', linewidth=linewidth, color='black')
-#     flierprops = dict(marker='o', markerfacecolor='white', markersize=6,
-#                   markeredgecolor='black', markeredgewidth=linewidth)
-#     bplot = ax.boxplot(all_data,
-#                         whis = [2.5,97.5],
-#                         capprops=capprops,
-#                         flierprops=flierprops,
-#                         whiskerprops=whiskerprops,
-#                         medianprops=medianprops,
-#                         boxprops=boxprops,
-#                         widths=0.3,
-#                         vert=True,  # vertical box alignment
-#                         patch_artist=True,  # fill with color
-#                         labels=parameters)  # will be used to label x-ticks
-    
-#     ax.set_xticklabels(labels=parameters, fontsize=fontsize)
-#     ax.set_yticklabels(labels=ax.get_yticklabels(), fontsize=fontsize)
-
-#     # fill with colors
-#     for patch in bplot['boxes']:
-#         patch.set_facecolor('white')
-
-#     # adding horizontal grid line
-#     ax.yaxis.grid(True)
-#     ax.set_ylabel('Maximum effect size (%)', fontsize=fontsize)
-#     #ax.set_ylim(-100, 20)
-
-
-# def max_effect_plot(output_file):
-#     fig, (ax0, ax1, ax2) = plt.subplots(1, 3, width_ratios=[2, 4, 4], 
-#                                         figsize=(8,3))
-#     fig.subplots_adjust(wspace=0.5)
-#     _max_effect_box_plots(output_file, ax0)
-#     _max_line_plots(output_file, ax1, ax2)
-#     resultsfolder = os.path.dirname(output_file)
-#     plt.savefig(fname=os.path.join(resultsfolder, '_max_effect_plot.png'))
-#     plt.close()
-
-
-# def tmax_effect(output_file, pdf):
-#     # Read parameter file
-#     output = pd.read_pkl(output_file)
-#     output = output[output.group=='MRI - liver']
-#     # Set up figure
-#     fontsize=12
-#     titlesize=14
-#     markersize=2
-#     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2,2,figsize=(8.27,11.69))
-#     fig.subplots_adjust(
-#                     left=0.1,
-#                     right=0.95,
-#                     bottom=0.2,
-#                     top = 0.80, 
-#                     wspace=0.3,
-#                     #hspace=1,
-#                     )
-#     title =( 
-#         "Effect of changing acquisition time \non hepatocellular uptake "
-#         "(khe, top row) and biliary excretion (k_bh, bottom row) of "
-#         "gadoxetate \n at the control visit (left column) and after administration "
-#         "of the drug (right column). \n Full lines connect values taken in "
-#         "the same subject." )
-#     fig.suptitle(title, fontsize=12)
-#     ax = {
-#         # 'baselinekhe': ax1,
-#         'controlkhe': ax1,
-#         # 'rifampicinkhe': ax2,
-#         'drugkhe': ax2,
-#         # 'baselinekbh': ax3,
-#         'controlkbh': ax3,
-#         # 'rifampicinkbh': ax4,
-#         'drugkbh': ax4,
-#     }
-#     ax1.set_title('Control', fontsize=titlesize)
-#     ax1.set_xlabel('Scan time (mins)', fontsize=fontsize)
-#     ax1.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
-#     ax1.set_ylim(0, 50)
-#     ax1.tick_params(axis='x', labelsize=fontsize)
-#     ax1.tick_params(axis='y', labelsize=fontsize)
-#     # ax2.set_title('Rifampicin', fontsize=titlesize)
-#     ax2.set_title('Drug', fontsize=titlesize)
-#     ax2.set_xlabel('Scan time (mins)', fontsize=fontsize)
-#     ax2.set_ylabel('khe (mL/min/100mL)', fontsize=fontsize)
-#     ax2.set_ylim(0, 3)
-#     ax2.tick_params(axis='x', labelsize=fontsize)
-#     ax2.tick_params(axis='y', labelsize=fontsize)
- 
-#     ax3.set_xlabel('Scan time (mins)', fontsize=fontsize)
-#     ax3.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
-#     ax3.set_ylim(0, 4)
-#     ax3.tick_params(axis='x', labelsize=fontsize)
-#     ax3.tick_params(axis='y', labelsize=fontsize)
-  
-#     ax4.set_xlabel('Scan time (mins)', fontsize=fontsize)
-#     ax4.set_ylabel('k_bh (mL/min/100mL)', fontsize=fontsize)
-#     ax4.set_ylim(0, 4)
-#     ax4.tick_params(axis='x', labelsize=fontsize)
-#     ax4.tick_params(axis='y', labelsize=fontsize)
-    
-#     # Create plots
-#     for visit in output.visit.unique():
-#         for subject in output.subject.unique():
-#             df = output[output.visit==visit]
-#             df = df[df.subject==subject]
-#             if not df.empty:
-#                 df = pd.pivot(df, values='value', columns='parameter', 
-#                               index='tmax') 
-#                 for par in ['khe', 'kbh']:
-#                     ax[visit+par].plot(
-#                         df.index.values/60, df[par].values, 'k-', 
-#                         label=subject, marker=mark[int(subject)], 
-#                         markersize=markersize)
-
-#     # Export results
-#     resultsfolder = os.path.dirname(output_file)
-#     plot_file = os.path.join(resultsfolder, '_tmax.png')
-#     plt.savefig(fname=plot_file)
-#     pdf.savefig()
-#     #plt.show()
-#     plt.close()
-                
-
-
-
-
-# def line_plot_extracellular(output_file):
-#     resultsfolder = os.path.dirname(output_file)
-#     output = pd.read_pickle(output_file)
-#     fontsize=20
-#     titlesize=30
-#     fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,8))
-#     fig.tight_layout(pad=10.0)
-#     fig.suptitle('Extracellular drug effects', fontsize=titlesize)
-#     ax1.set_title('Volume fraction', fontsize=24)
-#     ax1.set_ylabel('ve (mL/100mL)', fontsize=fontsize)
-#     ax1.set_ylim(0, 60)
-#     ax1.tick_params(axis='x', labelsize=fontsize)
-#     ax1.tick_params(axis='y', labelsize=18)
-#     ax2.set_title('Transit time', fontsize=24)
-#     ax2.set_ylabel('Te (min)', fontsize=fontsize)
-#     ax2.set_ylim(0, 1)
-#     ax2.tick_params(axis='x', labelsize=fontsize)
-#     ax2.tick_params(axis='y', labelsize=18)
-
-#     ax = {
-#         've': ax1,
-#         'Te': ax2,
-#     }
-#     subjects = output['subject'].unique()
-#     visits = output.visit[output.visit!='change (%)'].unique()
-#     structures = output['group'].unique()
-#     for struct in structures:
-#         df_struct = output[output.group==struct]
-#         for par in ['ve', 'Te']:
-#             df_par = df_struct[df_struct.parameter==par]
-#             for s in subjects:
-#                 df_subj = df_par[df_par.subject==s]
-#                 x = []
-#                 y = []
-#                 for visit in visits:
-#                     df_visit = df_subj[df_subj.visit==visit]
-#                     if not df_visit.empty:
-#                         v = df_visit['value'].values[0]
-#                         x.append(visit)
-#                         y.append(v)
-#                 ax[par].plot(x, y, 'k-', label=s, marker=mark[int(s)], 
-#                              markersize=12)
-#     #ax1.legend(loc='upper center', ncol=5, prop={'size': 14})
-#     #ax2.legend(loc='upper center', ncol=5, prop={'size': 14})
-#     plot_file = os.path.join(resultsfolder, '_lineplot_extracellular.png')
-#     #plt.show()
-#     plt.savefig(fname=plot_file)
-#     plt.close()
-
-
-# def create_box_plot(output_file, ylim={}):
-
-#     resultsfolder = os.path.dirname(output_file)
-#     output = pd.read_pickle(output_file)
-
-#     # Create box plots for each parameter
-#     subjects = output['subject'].unique()
-#     visits = output.visit[output.visit!='change (%)'].unique()
-#     structures = output['group'].unique()
-#     for struct in structures:
-#         df_struct = output[output.group==struct]
-#         for par in df_struct['parameter'].unique():
-#             df = df_struct[df_struct.parameter==par]
-#             all_data = []
-#             for visit in visits:
-#                 df_visit = df[df.visit==visit]
-#                 data_visit = []
-#                 for s in subjects:
-#                     df_visit_subj = df_visit[df_visit.subject==s]
-#                     if not df_visit_subj.empty:
-#                         val = df_visit_subj['value'].values[0]
-#                     data_visit.append(val)
-#                 all_data.append(data_visit)
-
-#             fig, ax = plt.subplots(layout='constrained')
-
-#             # notch shape box plot
-#             bplot = ax.boxplot(all_data,
-#                                 #notch=True,  # notch shape
-#                                 vert=True,  # vertical box alignment
-#                                 patch_artist=True,  # fill with color
-#                                 labels=visits)  # will be used to label x-ticks
-#             ax.set_title('Drug effect on ' + par)
-
-#             # fill with colors
-#             colors = ['slateblue', 'coral']
-#             for patch, color in zip(bplot['boxes'], colors):
-#                 patch.set_facecolor(color)
-
-#             # adding horizontal grid line
-#             ax.yaxis.grid(True)
-#             ax.set_xlabel('Visit')
-#             units = df.unit.unique()[0]
-#             ax.set_ylabel(par + ' (' + str(units) + ')')
-#             #ax.legend(loc='upper left', ncols=2)
-#             if par in ylim:
-#                 ax.set_ylim(ylim[par][0], ylim[par][1])
-
-#             plot_file = os.path.join(
-#                 resultsfolder, '_boxplot_' + struct + '_' + par + '.png')
-#             plt.savefig(fname=plot_file)
-#             plt.close()
-
-

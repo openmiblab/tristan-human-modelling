@@ -15,53 +15,59 @@ def compute(datapath, resultspath):
     if not os.path.exists(resultspath):
         os.makedirs(resultspath)
 
-    rois, pars = dc.read_dmr(datapath, nest=True, valsonly=True)
+    dmr = dc.read_dmr(datapath, format='nest')
+    rois, pars = dmr['rois'], dmr['pars']
     for subj in rois.keys():
         for visit in rois[subj].keys():
             name = subj + '_' + visit
-            fit_subj(rois[subj][visit], pars[subj][visit], resultspath, name)
+            fit_subj(rois, pars, subj, visit, resultspath, name)
 
     print('Calculation time (mins): ', (time.time()-start)/60)
 
 
-def fit_subj(rois, pars, path, name):
+def fit_subj(rois, pars, subj, visit, path, name):
 
-    aorta_1 = rois['aorta_1_accept']==1
-    aorta_2 = rois['aorta_2_accept']==1
-    liver_1 = rois['liver_1_accept']==1
-    liver_2 = rois['liver_2_accept']==1
-    t0 = rois['time_1'][0]
+    rois = rois[subj][visit]
+    pars = pars[subj][visit]
+
     xdata = (
-        rois['time_1'][aorta_1] - t0, 
-        rois['time_2'][aorta_2] - t0, 
-        rois['time_1'][liver_1] - t0,
-        rois['time_2'][liver_2] - t0,
+        rois['time_1'][rois['aorta_1_accept']] - rois['time_1'][0], 
+        rois['time_2'][rois['aorta_2_accept']] - rois['time_1'][0], 
+        rois['time_1'][rois['liver_1_accept']] - rois['time_1'][0],
+        rois['time_2'][rois['liver_2_accept']] - rois['time_1'][0],
     )
     ydata = (
-        rois['aorta_1'][aorta_1], 
-        rois['aorta_2'][aorta_2], 
-        rois['liver_1'][liver_1],
-        rois['liver_2'][liver_2],
+        rois['aorta_1'][rois['aorta_1_accept']], 
+        rois['aorta_2'][rois['aorta_2_accept']], 
+        rois['liver_1'][rois['liver_1_accept']],
+        rois['liver_2'][rois['liver_2_accept']],
     )
 
     # Fit model to data
     model = dc.AortaLiver2scan(
+
+        # Injection parameters
         weight=pars['weight'],
         agent='gadoxetate',
         dose=pars['dose_1'],
         dose2=pars['dose_2'],
         rate=1,
+
+        # Acquisition parameters
         field_strength=3.0,
         t0=pars['t0'],
         TR=pars['TR'], 
         FA=pars['FA_1'],
         FA2=pars['FA_2'],
-        TS=rois['time_1'][1]-t0,
+        TS=rois['time_1'][1]-rois['time_1'][0],
+
+        # Signal parameters
         R10a=1/pars['T1_aorta_1'],
         R10l=1/pars['T1_liver_1'],
         R102a=1/pars['T1_aorta_3'],
         R102l=1/pars['T1_liver_3'],
-        H=0.45,
+
+        # Tissue parameters
         vol=pars['liver_volume'],
     )
     loss0 = model.cost(xdata, ydata)
@@ -71,10 +77,10 @@ def fit_subj(rois, pars, path, name):
     print('Goodness of fit (improvement, %): ', 100*(loss0-loss1)/loss0)
 
     # Export data
-    figure(model, xdata, ydata, os.path.join(path, 'Figs'), name, 
-           pars, t0)
-    pars = parameters(model, xdata, ydata, t0, pars)
-    tools.to_csv(os.path.join(path, 'Pars'), name, pars)
+    figure(model, xdata, ydata, os.path.join(path, 'Plots'), name, 
+           pars, rois['time_1'][0])
+    pars = parameters(model, xdata, ydata, rois['time_1'][0], pars)
+    tools.to_dmr(os.path.join(path, 'Results'), subj, visit, name, pars)
 
 
 def parameters(model:dc.AortaLiver2scan, xdata, ydata, t0, params):

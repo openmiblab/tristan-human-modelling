@@ -1,357 +1,247 @@
 import os
 import pandas as pd
-import numpy as np
-import pylatex as pl
-from pylatex.utils import NoEscape
-
-from tristan import calc
+import miblab
 
 
-CONTROL = 'control'
-DRUG = 'drug'
+def build(
+        resultspath, 
+        filename,
+        title = 'Liver-mediated DDI study',
+        subtitle = 'Interim analysis',
+        subject = 'Internal report',
+    ):
 
-# # Needs harmonizing
-# CONTROL = 'baseline'
-# DRUG = 'rifampicin'
+    print('Creating report..')
 
-def section_diurnal(doc, results):
-    with doc.create(pl.Section('Diurnal variation')):
+    # Cover and title pages
+    doc = miblab.Report(
+        resultspath,
+        title = title,
+        subtitle = subtitle,
+        subject = subject,
+    )
 
-        with doc.create(pl.Figure(position='h!')) as pic:
-            im = os.path.join(results, 'twoscan', 'Plots', '_diurnal_function.png')
-            pic.add_image(im, width='6in')
-            pic.add_caption(
-                "Intra-day changes in hepatocellular uptake (k_he, top row) "
-                "and biliary excretion (k_bh, bottom row) of gadoxetate at "
-                "for the control (left column) and treatment (right "
-                "column). Full lines connect values taken in the same subject "
-                "at the same day." )
+    # Two-scan results
+    folder = 'twoscan'
+    doc.chapter('Two-scan results')
+    section_summary(doc, resultspath, folder)
+    section_biomarkers(doc, resultspath, folder)
+    section_reference(doc, resultspath, folder)
+    section_case_notes(doc, resultspath, folder)
+
+    # One-scan results
+    folder = 'onescan'
+    doc.chapter('One-scan results')
+    section_summary(doc, resultspath, folder)
+    section_biomarkers(doc, resultspath, folder)
+    section_case_notes(doc, resultspath, folder)
+
+    # Secondary results
+    doc.chapter('Secondary results')
+    section_diurnal(doc, resultspath)
+    section_acqtime(doc, resultspath)
+
+    doc.build('report_' + filename)
 
 
-def section_acqtime(doc, results):
-    doc.append(NoEscape('\\clearpage'))
-    with doc.create(pl.Section('Acquisition time')):
+def section_diurnal(doc: miblab.Report, results):
 
-        with doc.create(pl.Figure(position='h!')) as pic:
-            im = os.path.join(results, 'onescan_vart', 'Plots', '_effect_plot.png')
-            pic.add_image(im, width='6in')
-            pic.add_caption(
-                "The effect of shortening the acquisition time on measured "
-                "effect sizes. The figure shows the reference result with 2 "
-                "scans, and then repeated results with shorter acquisition "
-                "times ranging from 5min to 40min." )
+    doc.section('Diurnal variation')
+
+    fig = os.path.join(results, 'twoscan', 'Figures', '_diurnal_function.png')
+    caption = (
+        "Intra-day changes in hepatocellular uptake (k_he, top row) "
+        "and biliary excretion (k_bh, bottom row) of gadoxetate at "
+        "for the control (left column) and treatment (right "
+        "column). Full lines connect values taken in the same subject "
+        "at the same day." 
+    )
+    doc.figure(fig, caption=caption)
+
+
+
+def section_acqtime(doc: miblab.Report, results):
+
+    fig = os.path.join(results, 'onescan_vart', 'Figures', '_effect_plot.png')
+    if not os.path.exists(fig):
+        return
+
+    doc.section('Acquisition time', clearpage=True)
+   
+    caption = (
+        "The effect of shortening the acquisition time on measured "
+        "effect sizes. The figure shows the reference result with 2 "
+        "scans, and then repeated results with shorter acquisition "
+        "times ranging from 5min to 40min." 
+    )
+    doc.figure(fig, caption=caption)
             
-            
-def section_summary(doc, results, folder):
 
-    with doc.create(pl.Section('Data summary')):
 
-        with doc.create(pl.Figure(position='h!')) as pic:
-            pic.append(pl.Command('centering'))
-            im = os.path.join(results, folder, 'Plots', '_effect_plot.png')
-            pic.add_image(im, width='7in')
-            pic.add_caption(
-                "Effect size (%) on hepatocellular uptake (k_he, left) and "
-                "biliary excretion (k_bh, right) of gadoxetate. The boxplot "
-                "shows median, interquartile range and 95 percent range. The "
-                "line plots show individual values for hepatocellular uptake "
-                "(k_he, middle) and biliary excretion (k_bh, right) of "
-                "gadoxetate of the control (left of plot) and treatment "
-                "(right of plot). Grey lines are healthy controls with "
-                "rifampicin injection.")
+def section_summary(doc: miblab.Report, results, folder):
 
-        df = pd.read_csv(
-            os.path.join(results, folder, 'Analysis', '_table_k_stats.csv')
-        ).set_index('parameter')
-        with doc.create(pl.Table(position='h!')) as table:
-            table.append(pl.Command('centering'))
-            with table.create(pl.Tabular('l'+'c'*df.shape[1])) as tab:
-                tab.add_hline()
-                tab.add_row([df.index.name] + list(df.columns))
-                tab.add_hline()
-                for row in df.index:
-                    tab.add_row([row] + list(df.loc[row,:]))
-                tab.add_hline()
-            table.add_caption(
-                "Effect size and absolute values of hepatocellular uptake "
-                "(k_he) and biliary excretion (k_bh) of gadoxetate")
+    doc.section('Data summary')
+
+    fig = os.path.join(results, folder, 'Figures', '_effect_plot.png')
+    caption = (
+        "Effect size (%) on hepatocellular uptake (k_he, left) and "
+        "biliary excretion (k_bh, right) of gadoxetate. The boxplot "
+        "shows median, interquartile range and 95 percent range. The "
+        "line plots show individual values for hepatocellular uptake "
+        "(k_he, middle) and biliary excretion (k_bh, right) of "
+        "gadoxetate of the control (left of plot) and treatment "
+        "(right of plot). Grey lines are healthy controls with "
+        "rifampicin injection."
+    )
+    doc.figure(fig, width='7in', caption=caption)
+
+    table = os.path.join(results, folder, 'Analysis', 'k_descriptive_stats.csv')
+    caption = (
+        "Effect size and absolute values of hepatocellular uptake "
+        "(k_he) and biliary excretion (k_bh) of gadoxetate"
+    )
+    doc.table(table, caption=caption)   
             
 
-def section_reference(doc, results, folder):
 
-    doc.append(NoEscape('\\clearpage'))
-    with doc.create(pl.Section('Comparison to reference values')):
+def section_reference(doc: miblab.Report, results, folder):
 
-        with doc.create(pl.Figure(position='h!')) as pic:
-            im = os.path.join(results, folder, 'Plots', '_compare_to_ref.png')
-            pic.add_image(im, width='6in')
-            pic.add_caption(
-                "Comparison to reference values in healthy volunteers "
-                "treated with the drug and under control conditions.")
+    fig = os.path.join(results, folder, 'Figures', '_compare_to_ref.png')
+    if not os.path.exists(fig):
+        return
 
-        doc.append(NoEscape('\\clearpage')) 
-        with doc.create(pl.Subsection('Control')):
-            
-            df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats_ref.csv'))
-            df = df[df.visit==CONTROL]
-            df = df[df.group=='MRI - liver']
-            df.drop(columns=['visit','group'], inplace=True)
-            with doc.create(pl.Table(position='h!')) as table:
-                table.append(pl.Command('centering'))
-                with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                    tab.add_hline()
-                    tab.add_row([df.index.name] + list(df.columns))
-                    tab.add_hline()
-                    for row in df.index:
-                        tab.add_row([row] + list(df.loc[row,:]))
-                    tab.add_hline()
-                table.add_caption(
-                    "Results of a pairwise comparison testing for differences in "
-                    "liver biomarkers between this study and healthy "
-                    "reference data, under control conditions.")
-                
-            df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats_ref.csv'))
-            df = df[df.visit==CONTROL]
-            df = df[df.group=='MRI - aorta']
-            df.drop(columns=['visit','group'], inplace=True)
-            with doc.create(pl.Table(position='h!')) as table:
-                table.append(pl.Command('centering'))
-                with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                    tab.add_hline()
-                    tab.add_row([df.index.name] + list(df.columns))
-                    tab.add_hline()
-                    for row in df.index:
-                        tab.add_row([row] + list(df.loc[row,:]))
-                    tab.add_hline()
-                table.add_caption(
-                    "Results of a pairwise comparison testing for differences in "
-                    "aorta biomarkers between this study and healthy "
-                    "reference data, under control conditions.")
+    doc.section('Comparison to reference values', clearpage=True)
+    
+    caption = (
+        "Comparison to reference values in healthy volunteers "
+        "treated with the drug and under control conditions."
+    )
+    doc.figure(fig, caption=caption)
 
-        doc.append(NoEscape('\\clearpage'))        
-        with doc.create(pl.Subsection('Treatment')):
-            
-            df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats_ref.csv'))
-            df = df[df.visit==DRUG]
-            df = df[df.group=='MRI - liver']
-            df.drop(columns=['visit','group'], inplace=True)
-            with doc.create(pl.Table(position='h!')) as table:
-                table.append(pl.Command('centering'))
-                with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                    tab.add_hline()
-                    tab.add_row([df.index.name] + list(df.columns))
-                    tab.add_hline()
-                    for row in df.index:
-                        tab.add_row([row] + list(df.loc[row,:]))
-                    tab.add_hline()
-                table.add_caption(
-                    "Results of a pairwise comparison testing for differences in "
-                    "liver biomarkers between this study and healthy "
-                    "reference data, under treatment conditions.")
-                
-            df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats_ref.csv'))
-            df = df[df.visit==DRUG]
-            df = df[df.group=='MRI - aorta']
-            df.drop(columns=['visit','group'], inplace=True)
-            with doc.create(pl.Table(position='h!')) as table:
-                table.append(pl.Command('centering'))
-                with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                    tab.add_hline()
-                    tab.add_row([df.index.name] + list(df.columns))
-                    tab.add_hline()
-                    for row in df.index:
-                        tab.add_row([row] + list(df.loc[row,:]))
-                    tab.add_hline()
-                table.add_caption(
-                    "Results of a pairwise comparison testing for differences in "
-                    "aorta biomarkers between this study and healthy "
-                    "reference data, under treatment conditions.")
+    doc.subsection('Control', clearpage=True)
+
+    table = os.path.join(results, folder, 'Tables', 'reference_liver_control.csv')
+    caption = (
+        "Results of a pairwise comparison testing for differences in "
+        "liver biomarkers between this study and healthy "
+        "reference data, under control conditions."
+    )
+    doc.table(table, caption=caption)
+
+    table = os.path.join(results, folder, 'Tables', 'reference_aorta_control.csv')
+    caption = (
+        "Results of a pairwise comparison testing for differences in "
+        "aorta biomarkers between this study and healthy "
+        "reference data, under control conditions."
+    )
+    doc.table(table, caption=caption)
+
+    doc.subsection('Treatment', clearpage=True)
+        
+    table = os.path.join(results, folder, 'Tables', 'reference_liver_drug.csv')
+    caption = (
+        "Results of a pairwise comparison testing for differences in "
+        "liver biomarkers between this study and healthy "
+        "reference data, under treatment conditions."
+    )
+    doc.table(table, caption=caption)
+
+    table = os.path.join(results, folder, 'Tables', 'reference_aorta_drug.csv')
+    caption = (
+        "Results of a pairwise comparison testing for differences in "
+        "aorta biomarkers between this study and healthy "
+        "reference data, under treatment conditions."
+    )
+    doc.table(table, caption=caption)
 
 
 
-def section_biomarkers(doc, results, folder):
+def section_biomarkers(doc: miblab.Report, results, folder):
 
-    doc.append(NoEscape('\\clearpage'))
-    with doc.create(pl.Section('Liver biomarkers')):
-        df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats2.csv')).set_index('Biomarker')
-        df = df[df.group=='MRI - liver']
-        df.drop(columns='group', inplace=True)
-        with doc.create(pl.Table(position='h!')) as table:
-            table.append(pl.Command('centering'))
-            with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                tab.add_hline()
-                tab.add_row([df.index.name] + list(df.columns))
-                tab.add_hline()
-                for row in df.index:
-                    tab.add_row([row] + list(df.loc[row,:]))
-                tab.add_hline()
-            table.add_caption(
-                "Results of a pairwise comparison testing for differences in "
-                "liver biomarkers between control and treatment. The "
-                "results are ranked by their p-value, with most significant "
-                "differences at the top of the list.")
+    doc.section('Liver biomarkers', clearpage=True)
 
-        df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats1.csv')).set_index('Biomarker')
-        df = df[df.group=='MRI - liver']
-        df.drop(columns='group', inplace=True)
-        with doc.create(pl.Table(position='h!')) as table:
-            table.append(pl.Command('centering'))
-            with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                tab.add_hline()
-                tab.add_row([df.index.name] + list(df.columns))
-                tab.add_hline()
-                for row in df.index:
-                    tab.add_row([row] + list(df.loc[row,:]))
-                tab.add_hline()
-            table.add_caption(
-                "Mean values along with their 95 percent confidence "
-                "intervals for all liver biomarkers of the control and "
-                "treatment visit. The last column shows the relative change "
-                "at the treatment visit. The results are ranked by their "
-                "p-value, with most significant differences at the top of the "
-                "list.")
+    table = os.path.join(results, folder, 'Tables', 'liver_ttest.csv')
+    caption = (
+        "Results of a pairwise comparison testing for differences in "
+        "liver biomarkers between control and treatment. The "
+        "results are ranked by their p-value, with most significant "
+        "differences at the top of the list."
+    )
+    doc.table(table, caption=caption)
 
-    doc.append(NoEscape('\\clearpage'))
-    with doc.create(pl.Section('Systemic biomarkers')):
+    table = os.path.join(results, folder, 'Tables', 'liver_pairwise.csv')
+    caption = (
+        "Mean values along with their 95 percent confidence "
+        "intervals for all liver biomarkers of the control and "
+        "treatment visit. The last column shows the relative change "
+        "at the treatment visit. The results are ranked by their "
+        "p-value, with most significant differences at the top of the "
+        "list."
+    )
+    doc.table(table, caption=caption)
 
-        df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats2.csv')).set_index('Biomarker')
-        df = df[df.group=='MRI - aorta']
-        df.drop(columns='group', inplace=True)
-        with doc.create(pl.Table(position='h!')) as table:
-            table.append(pl.Command('centering'))
-            with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                tab.add_hline()
-                tab.add_row([df.index.name] + list(df.columns))
-                tab.add_hline()
-                for row in df.index:
-                    tab.add_row([row] + list(df.loc[row,:]))
-                tab.add_hline()
-            table.add_caption(
-                "Results of a pairwise comparison testing for differences in "
-                "systemic biomarkers between control and treatment visit. The "
-                "results are ranked by their p-value, with most significant "
-                "differences at the top of the list.")
+    doc.section('Systemic biomarkers', clearpage=True)
 
-        df = pd.read_csv(os.path.join(results, folder, 'Analysis', 'stats1.csv')).set_index('Biomarker')
-        df = df[df.group=='MRI - aorta']
-        df.drop(columns='group', inplace=True)
-        with doc.create(pl.Table(position='h!')) as table:
-            table.append(pl.Command('centering'))
-            with table.create(pl.Tabular('ll'+'c'*(df.shape[1]-1))) as tab:
-                tab.add_hline()
-                tab.add_row([df.index.name] + list(df.columns))
-                tab.add_hline()
-                for row in df.index:
-                    tab.add_row([row] + list(df.loc[row,:]))
-                tab.add_hline()
-            table.add_caption(
-                "Mean values along with their 95 percent confidence "
-                "intervals for all systemic biomarkers at the control and "
-                "and treatment visit. The last column shows the relative "
-                "change at the treatment visit. The results are ranked by "
-                "their p-value, with most significant differences at the top "
-                "of the list.")
+    table = os.path.join(results, folder, 'Tables', 'aorta_ttest.csv')
+    caption = (
+        "Results of a pairwise comparison testing for differences in "
+        "systemic biomarkers between control and treatment visit. The "
+        "results are ranked by their p-value, with most significant "
+        "differences at the top of the list."
+    )
+    doc.table(table, caption=caption)
+
+    table = os.path.join(results, folder, 'Tables', 'aorta_pairwise.csv')
+    caption = (
+        "Mean values along with their 95 percent confidence "
+        "intervals for all systemic biomarkers at the control and "
+        "and treatment visit. The last column shows the relative "
+        "change at the treatment visit. The results are ranked by "
+        "their p-value, with most significant differences at the top "
+        "of the list."
+    )
+    doc.table(table, caption=caption)
 
 
-def section_case_notes(doc, results, folder):
 
-    doc.append(NoEscape('\\clearpage'))
-    with doc.create(pl.Section('Case notes')):
+def section_case_notes(doc: miblab.Report, results, folder):
 
-        # Get data
-        df = pd.read_csv(
-            os.path.join(results, folder, 'Analysis', 'parameters_rep.csv')
+    doc.section('Case notes', clearpage=True)
+
+    # Get data
+    file = os.path.join(results, folder, 'Analysis', 'parameters_rep.csv')
+    subjects = pd.read_csv(file).subject.unique()
+
+    for i, subject in enumerate(subjects):
+        if i>0:
+            doc.clearpage()
+        subj = str(subject).zfill(3)
+
+        doc.subsection('Subject ' + subj)
+
+        # Images
+        fig = os.path.join(results, folder, 'Plots', subj +'_control.png')
+        caption = (
+            "Signal-time curves for subject "+subj+" at the "
+            "control visit."
         )
-        src = os.path.join(results, folder)
-        df['group'] = calc.lookup(src, df.parameter.values, 'group')
-        df['name'] = calc.lookup(src, df.parameter.values, 'name')
-        df['unit'] = calc.lookup(src, df.parameter.values, 'unit') 
+        doc.figure(fig, width='4.5in', caption=caption)
 
-        # Get effect sizes
-        ef = pd.read_csv(
-            os.path.join(results, folder, 'Analysis', 'effect_size.csv')
+        fig = os.path.join(results, folder,  'Plots', subj +'_drug.png')
+        caption = (
+            "Signal-time curves for subject "+subj+" at "
+            "the treatment visit."
         )
-        ef['group'] = calc.lookup(src, ef.parameter.values, 'group')
-        ef['name'] = calc.lookup(src, ef.parameter.values, 'name')
-        ef['visit'] = 'change (%)'
-        ef['unit'] = calc.lookup(src, ef.parameter.values, 'unit')
-        ef['stdev'] = np.nan
+        if os.path.exists(fig):
+            doc.figure(fig, width='4.5in', caption=caption)
 
-        # Concatenate
-        ef = ef[['subject','visit','parameter','name','value','unit','stdev','group']]
-        df = df[['subject','visit','parameter','name','value','unit','stdev','group']]
-        df = pd.concat([df, ef])
-        dfa = df[df.group=='MRI - aorta']
-        df = df[df.group=='MRI - liver']
+        # Tables
+        doc.clearpage()
 
-        for i, subject in enumerate(df.subject.unique()):
-            if i>0:
-                doc.append(NoEscape('\\clearpage'))
-            subj = str(subject).zfill(3)
-            with doc.create(pl.Subsection('Subject ' + subj)):
+        table = os.path.join(results, folder, 'Tables', subj + '_liver.csv')
+        caption = "Values for liver of subject "+subj
+        doc.table(table, caption=caption)
 
-                dfs = df[df.subject==subject]
-                dfas = dfa[dfa.subject==subject]
-                dfr = dfs[dfs.visit==DRUG]
-
-                # Images
-                with doc.create(pl.Figure(position='h!')) as pic:
-                    im = os.path.join(
-                        results, folder, 'Figs', subj +'_'+CONTROL+'.png')
-                    pic.add_image(im, width='4.5in')
-                    pic.add_caption(
-                        "Signal-time curves for subject "+subj+" at the "
-                        "control visit.")
-
-                if not dfr.empty:
-                    with doc.create(pl.Figure(position='h!')) as pic:
-                        im = os.path.join(
-                            results, folder,  'Figs', subj +'_'+DRUG+'.png')
-                        pic.add_image(im, width='4.5in')
-                        pic.add_caption(
-                            "Signal-time curves for subject "+subj+" at "
-                            "the treatment visit.")
-
-                # Tables
-                doc.append(NoEscape('\\clearpage'))
-                pivot = pd.pivot_table(dfs, values='value', columns='visit', 
-                                       index=['name','unit'])
-                cols = pivot.columns.tolist()
-                if len(cols)>1:
-                    pivot = pivot[[CONTROL,DRUG,'change (%)']]
-                with doc.create(pl.Table(position='h!')) as table:
-                    table.append(pl.Command('centering'))
-                    tabular = pl.Tabular('ll'+'c'*pivot.shape[1])
-                    with table.create(tabular) as tab:
-                        rvals = ['Biomarker', 'Units'] + list(pivot.columns)
-                        tab.add_hline()
-                        tab.add_row(rvals)
-                        tab.add_hline()
-                        for row in pivot.index:
-                            rvals = list(np.around(pivot.loc[row,:].values,2))
-                            tab.add_row([row[0],row[1]] + rvals)
-                        tab.add_hline()
-                    table.add_caption("Values for liver of subject "+subj)
-
-                pivot = pd.pivot_table(dfas, values='value', columns='visit', 
-                                       index=['name','unit'])
-                cols = pivot.columns.tolist()
-                if len(cols)>1:
-                    pivot = pivot[[CONTROL,DRUG,'change (%)']]
-                with doc.create(pl.Table(position='h!')) as table:
-                    table.append(pl.Command('centering'))
-                    tabular = pl.Tabular('ll'+'c'*pivot.shape[1])
-                    with table.create(tabular) as tab:
-                        rvals = ['Biomarker', 'Units'] + list(pivot.columns)
-                        tab.add_hline()
-                        tab.add_row(rvals)
-                        tab.add_hline()
-                        for row in pivot.index:
-                            rvals = list(np.around(pivot.loc[row,:].values,2))
-                            tab.add_row([row[0],row[1]] + rvals)
-                        tab.add_hline()
-                    table.add_caption("Values for aorta of subject "+subj)
-
-
-if __name__ == "__main__":
-    generate()
+        table = os.path.join(results, folder, 'Tables', subj + '_aorta.csv')
+        caption = "Values for aorta of subject "+subj
+        doc.table(table, caption=caption)
