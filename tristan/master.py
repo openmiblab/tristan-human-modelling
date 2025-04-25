@@ -7,22 +7,25 @@ def run(
         sourcepath, 
         resultspath, 
         effect_range=([-100,200], [-100,500]),
-        k_max = [50, 10],
+        k_max = [100, 10],
         acq_times=[5,10,15,20],
         ref=True,
+        compute=True,
     ):
 
-    # Onescan
-    path = os.path.join(resultspath, 'onescan')
-    onescan.compute(sourcepath, path)
+    if compute:
 
-    # Twoscan
-    path = os.path.join(resultspath, 'twoscan')
-    twoscan.compute(sourcepath, path)
+        # Onescan
+        path = os.path.join(resultspath, 'onescan')
+        onescan.compute(sourcepath, path)
 
-    # Variable time
-    path = os.path.join(resultspath, 'onescan_vart')
-    onescan.compute_vart(sourcepath, path, acq_times=acq_times)
+        # Twoscan
+        path = os.path.join(resultspath, 'twoscan')
+        twoscan.compute(sourcepath, path)
+
+        # Variable time
+        path = os.path.join(resultspath, 'onescan_vart')
+        onescan.compute_vart(sourcepath, path, acq_times=acq_times)
 
     # Compute statistics
     for exp in ['onescan','twoscan']:

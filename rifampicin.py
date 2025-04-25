@@ -16,9 +16,10 @@ def main():
         sourcepath, 
         resultspath, 
         effect_range=([-100,200], [-100,500]),
-        k_max=[50, 5],
+        k_max=[100, 5],
         acq_times=[5,10,15,20,25,30,35,40],
         ref=False,
+        compute=True,
     )
     report.build(
         resultspath, 
