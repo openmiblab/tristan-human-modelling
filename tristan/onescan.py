@@ -3,6 +3,7 @@ import time
 
 import numpy as np
 import dcmri as dc
+import pydmr
 
 from tristan import tools
 
@@ -14,7 +15,7 @@ def compute(datapath, resultspath):
     if not os.path.exists(resultspath):
         os.makedirs(resultspath)
 
-    dmr = dc.read_dmr(datapath, format='nest')
+    dmr = pydmr.read(datapath, format='nest')
     rois, pars = dmr['rois'], dmr['pars']
     for subj in rois.keys():
         for visit in rois[subj].keys():
@@ -32,7 +33,7 @@ def compute_vart(datapath, resultspath,
     if not os.path.exists(resultspath):
         os.makedirs(resultspath)
 
-    dmr = dc.read_dmr(datapath, format='nest')
+    dmr = pydmr.read(datapath, format='nest')
     rois, pars = dmr['rois'], dmr['pars']
     for subj in rois.keys():
         for visit in rois[subj].keys():

@@ -6,8 +6,6 @@ from tristan import calc
 
 
 
-
-
 def cases(results, folder):
 
     path = os.path.join(results, folder, 'Tables')
@@ -164,32 +162,3 @@ def pairwise_stats(results, folder):
     aorta.drop(columns='group', inplace=True)
     aorta = aorta.sort_values('Biomarker', ascending=True)
     aorta.to_csv(os.path.join(path, 'aorta_ttest.csv'), index=False)
-
-
-# def ttest(resultspath, folder):
-
-#     path = os.path.join(resultspath, folder, 'Tables')
-#     if not os.path.exists(path):#
-#         os.makedirs(path)
-
-#     df = pd.read_csv(os.path.join(resultspath, folder, 'Analysis', 'pairwise_statistics.csv')).set_index('Biomarker')
-#     df = df[df.group=='MRI - liver']
-#     df.drop(columns='group', inplace=True)
-#     df.to_csv(os.path.join(path, 'liver_ttest.csv'))
-
-#     df = pd.read_csv(os.path.join(resultspath, folder, 'Analysis', 'pairwise_statistics.csv')).set_index('Biomarker')
-#     df = df[df.group=='MRI - aorta']
-#     df.drop(columns='group', inplace=True)
-#     df.to_csv(os.path.join(path, 'aorta_ttest.csv'))
-
-    # df = pd.read_csv(os.path.join(resultspath, folder, 'Analysis', 'pairwise_differences.csv')).set_index('Biomarker')
-    # df = df[df.group=='MRI - liver']
-    # df.drop(columns='group', inplace=True)
-    # df.to_csv(os.path.join(path, 'liver_pairwise.csv'))
-
-    # df = pd.read_csv(os.path.join(resultspath, folder, 'Analysis', 'pairwise_differences.csv')).set_index('Biomarker')
-    # df = df[df.group=='MRI - aorta']
-    # df.drop(columns='group', inplace=True)
-    # df.to_csv(os.path.join(path, 'aorta_pairwise.csv'))
-
-

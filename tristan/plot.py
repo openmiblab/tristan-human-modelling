@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import dcmri as dc
+import pydmr
 
 from tristan import calc
 
@@ -232,7 +233,7 @@ def _compare_to_ref_box_plot(ax, all_data, ylabel=None, title=None, ylim=None):
 def compare_to_ref(src):
 
     output_file = os.path.join(src, 'all_results')
-    dmr = dc.read_dmr(output_file, format='table')
+    dmr = pydmr.read(output_file, format='table')
     df = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
 
     df_ref = pd.read_csv(
@@ -394,7 +395,7 @@ def vart_effect_plot(src, src_2scan, ylim=None):
 def diurnal_k(src, ylim=[50,6]):
 
     output_file = os.path.join(src, 'all_results')
-    dmr = dc.read_dmr(output_file, format='table')
+    dmr = pydmr.read(output_file, format='table')
     output = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
 
     visits = output.visit.unique()
@@ -482,7 +483,7 @@ def create_bar_chart(resultsfolder, ylim={}):
         os.makedirs(path)
 
     output_file = os.path.join(resultsfolder, 'all_results')
-    dmr = dc.read_dmr(output_file, format='table')
+    dmr = pydmr.read(output_file, format='table')
     output = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
 
     output['group'] = calc.lookup(resultsfolder, output.parameter.values, 'group')

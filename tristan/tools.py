@@ -1,7 +1,6 @@
 import os
 
-import pandas as pd
-import dcmri as dc
+import pydmr
 
 
 AORTA_PARS = ['RE_Sb', 'RE_R1b', 'S02a', 'BAT','CO','Thl','Dhl',
@@ -73,7 +72,7 @@ def build_master(resultspath):
     output_sdev = {}
     for filename in filenames:
         subj_file = os.path.join(path, filename)
-        dmr = dc.read_dmr(subj_file)
+        dmr = pydmr.read(subj_file)
         output_data = output_data | dmr['data']
         output_pars = output_pars | dmr['pars']
         output_sdev = output_sdev | dmr['sdev']
@@ -93,7 +92,7 @@ def build_master(resultspath):
         'columns': ['group', 'label'],
     }
     dmr_file = os.path.join(resultspath, 'all_results')
-    dc.write_dmr(dmr_file, dmr)
+    pydmr.write(dmr_file, dmr)
 
 
 def to_tristan_units(pars):
@@ -132,6 +131,6 @@ def to_dmr(path, subj, study, name, pars):
         'sdev': dmr_sdev,
     }
     file = os.path.join(path, name + '.dmr')
-    dc.write_dmr(file, dmr)
+    pydmr.write(file, dmr)
 
 

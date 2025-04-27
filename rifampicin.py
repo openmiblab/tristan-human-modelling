@@ -1,5 +1,7 @@
 import os
 
+import miblab
+
 from tristan import report, master
 
 def main():
@@ -9,7 +11,10 @@ def main():
 
     drug = 'rifampicin'
 
-    sourcepath = os.path.join(os.getcwd(), 'data', f'tristan_humans_healthy_{drug}.dmr')
+    sourcepath = miblab.zenodo_fetch(
+        f'tristan_humans_healthy_{drug}.dmr.zip', 
+        os.path.join(os.getcwd(), 'data'),
+    )
     resultspath = os.path.join(outputpath, drug)
 
     master.run(

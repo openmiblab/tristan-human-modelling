@@ -4,11 +4,12 @@ import pandas as pd
 import numpy as np
 import pingouin as pg
 import dcmri as dc
+import pydmr
 
 
 def lookup(path, params, prop): # TODO: dcmri.lookup_dmr()
     
-    dmr = dc.read_dmr(os.path.join(path, 'all_results'), format='table')
+    dmr = pydmr.read(os.path.join(path, 'all_results'), format='table')
     cols = ['parameter', 'description', 'unit', 'type', 'group', 'label']
     df = pd.DataFrame(dmr['data'], columns=cols)
     df.set_index('parameter', inplace=True)
@@ -67,7 +68,7 @@ def _derive_vart_effect_sizes(output):
 
 def derive_pars(src, ref=False):
     output_file = os.path.join(src, 'all_results')
-    dmr = dc.read_dmr(output_file, format='table')
+    dmr = pydmr.read(output_file, format='table')
     cols = ['subject', 'visit', 'parameter', 'value']
     output = pd.DataFrame(dmr['pars'], columns=cols)
     stdev = pd.DataFrame(dmr['sdev'], columns=cols)
@@ -99,7 +100,7 @@ def derive_pars(src, ref=False):
 
 def derive_vart_pars(src):
     output_file = os.path.join(src, 'all_results')
-    dmr = dc.read_dmr(output_file, format='table')
+    dmr = pydmr.read(output_file, format='table')
     output = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
     todrop =[
         'BAT','BAT1','BAT2','S02b','S02','Tc'
@@ -257,113 +258,11 @@ def pairwise_ttest(src):
 
 
 
-# def ttest(src):
-    
-#     path = os.path.join(src, 'Analysis')
-#     if not os.path.exists(path):
-#         os.makedirs(path)
-
-#     df = pd.read_csv(os.path.join(path, 'parameters_rep.csv'))
-#     df['group'] = lookup(src, df.parameter.values, 'group')
-#     df['unit'] = lookup(src, df.parameter.values, 'unit') 
-#     visits = df.visit.unique()
-#     eff = pd.read_csv(os.path.join(path, 'effect_size.csv'))
-#     eff['visit'] = 'change (%)'
-#     eff['group'] = lookup(src, eff.parameter.values, 'group')
-#     eff['unit'] = lookup(src, eff.parameter.values, 'unit') 
-    
-#     df = df[['subject','visit','group','parameter','value','unit']]
-#     eff = eff[['subject','visit','group','parameter','value','unit']]
-#     df = pd.concat([df, eff])
-
-#     # Get mean, sdev and count of all variables
-#     avr = pd.pivot_table(df, values='value', columns='visit', 
-#                          index=['group','parameter','unit'], aggfunc='mean')
-#     std = pd.pivot_table(df, values='value', columns='visit', 
-#                          index=['group','parameter','unit'], aggfunc='std')
-#     cnt = pd.pivot_table(df, values='value', columns='visit', 
-#                          index=['group','parameter','unit'], aggfunc='count')
-
-#     avr = avr.sort_values(['group','parameter']) 
-#     std = std.sort_values(['group','parameter'])
-#     cnt = cnt.sort_values(['group','parameter'])
-
-#     # Calculate 95% CI intervals
-#     b_avr = around_sig(avr[visits[0]].values, 3)
-#     r_avr = around_sig(avr[visits[1]].values, 3)
-#     c_avr = around_sig(avr['change (%)'].values, 3)
-#     b_err = around_sig(
-#         1.96*std[visits[0]].values / np.sqrt(cnt[visits[0]].values), 2)
-#     r_err = around_sig(
-#         1.96*std[visits[1]].values / np.sqrt(cnt[visits[1]].values), 2)
-#     c_err = around_sig(
-#         1.96*std['change (%)'].values / np.sqrt(cnt['change (%)'].values), 2)
-    
-#     # data = {
-#     #     'mean baseline': b_avr,
-#     #     'mean drug': r_avr,
-#     #     'mean effect': c_avr,
-#     #     '95%CI baseline': b_err,
-#     #     '95%CI drug': r_err,
-#     #     '95%CI change': c_err,
-#     # }
-#     # pd.DataFrame(data).to_csv(os.path.join(path, '_output_avr_ci.csv'))
-
-#     # Perform t-tests and save if df output
-#     output = None
-#     df = df[df.visit != 'change (%)']
-#     for struct in df.group.unique():
-#         dfs = df[df.group==struct]
-#         for par in dfs.parameter.unique():
-#             dfp = dfs[dfs.parameter==par]
-#             stats = pg.pairwise_tests(data=dfp, 
-#                     dv='value', within='visit', subject='subject', 
-#                     return_desc=False, effsize='odds-ratio')
-#             stats['group'] = [struct]
-#             stats['parameter'] = [par]
-#             if output is None:
-#                 output = stats
-#             else:
-#                 output = pd.concat([output, stats])
-#     output = output.sort_values(['group','parameter'])
-#     # output.to_csv(os.path.join(path, '_output_ttest.csv'))
-
-#     # Update output array
-#     output['unit'] = [i[2] for i in avr.index.tolist()]
-#     output[visits[0]] = [str(b_avr[i]) + ' (' + str(b_err[i]) + ') ' 
-#                          for i in range(b_avr.size)]
-#     output[visits[1]] = [str(r_avr[i]) + ' (' + str(r_err[i]) + ') ' 
-#                          for i in range(r_avr.size)]
-#     output['change (%)'] = [str(c_avr[i]) + ' (' + str(c_err[i]) + ') ' 
-#                             for i in range(c_avr.size)]
-    
-#     output.reset_index(drop=True, inplace=True)
-#     output.drop(columns=['Contrast', 'A', 'B', 'Paired', 'Parametric', 'T', 
-#                          'dof', 'alternative'], inplace=True)
-#     output['description'] = lookup(src, output.parameter.values, 'description')
-#     output = output[['group','description', 'unit', visits[0], visits[1], 
-#                      'change (%)', 'p-unc','BF10', 'odds-ratio']]
-#     output.rename(columns={'description': "Biomarker", "unit": "Units", 
-#                            "p-unc": "p-value", 'BF10': 'Bayes Factor', 
-#                            'odds-ratio': 'Odds Ratio'}, inplace=True)
-#     output = output.sort_values(['group','p-value'], ascending=True)
-#     output.set_index('Biomarker', inplace=True)
-#     output1 = output[['group','Units', visits[0], visits[1], 'change (%)']]
-#     output2 = output[['group','Units', "p-value", 'Bayes Factor', 
-#                       'Odds Ratio']]
-#     output2 = output2.astype({'Bayes Factor': 'float32'})
-#     output2.loc[:,'p-value'] = np.around(output2['p-value'].values, 5)
-#     output2.loc[:,'Bayes Factor'] = np.around(output2['Bayes Factor'].values, 2)
-#     output2.loc[:,'Odds Ratio'] = np.around(output2['Odds Ratio'].values, 2)
-#     output1.to_csv(os.path.join(path, 'pairwise_differences.csv'))
-#     output2.to_csv(os.path.join(path, 'pairwise_statistics.csv'))
-
-
 
 def compare_to_ref(src):
 
     output_file = os.path.join(src, 'all_results')
-    dmr = dc.read_dmr(output_file, format='table')
+    dmr = pydmr.read(output_file, format='table')
     df = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
     dfsd = pd.DataFrame(dmr['sdev'], columns=['subject', 'visit', 'parameter', 'value'])
     df['stdev'] = dfsd['value'].values

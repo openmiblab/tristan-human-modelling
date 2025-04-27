@@ -7,4 +7,5 @@ pingouin
 openpyxl
 pdfLaTex
 miblab[report]
-# dcmri
+dcmri
+pydmr
