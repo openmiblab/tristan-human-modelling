@@ -1,595 +1,577 @@
-,subject,visit,structure,name,value,unit,stdev,parameter
-0,001,control,aorta,Cardiac output,12.955197131841564,L/min,0.4051750886368221,CO
-1,001,control,aorta,Heart-lung mean transit time,26.71166353314846,sec,1.73115364020899,Thl
-2,001,control,aorta,Heart-lung dispersion,63.77053961067188,%,1.3483021973480689,Dhl
-3,001,control,aorta,Organs blood mean transit time,22.687372052849632,sec,0.6358205997500763,To
-4,001,control,aorta,Organs extraction fraction,14.153624853965036,%,0.4524887645482043,Eo
-5,001,control,aorta,Organs extravascular mean transit time,7.504397974950432,min,0.28549039055966946,Toe
-6,001,control,aorta,Body extraction fraction,6.238714051534032,%,0.31432373520883716,Eb
-7,001,control,liver,Hematocrit,45.0,%,0.0,H
-8,001,control,liver,Liver extracellular volume fraction,29.696819692240833,mL/100cm3,0.7674438001481005,ve
-9,001,control,liver,Extracellular mean transit time,39.663786004563114,sec,1.4076530061912857,Te
-10,001,control,liver,Extracellular dispersion,72.15730651381126,%,1.9755621660251168,De
-11,001,control,liver,Initial hepatocellular uptake rate,38.043181393270146,mL/min/100cm3,0.3998135756896346,khe_i
-12,001,control,liver,Final hepatocellular uptake rate,8.082280764802407,mL/min/100cm3,0.19568693223026667,khe_f
-13,001,control,liver,Hepatocellular mean transit time,80.46123973025315,min,0.0,Th
-14,001,control,liver,Hepatocellular uptake rate,23.062731079036276,mL/min/100cm3,0.0,khe
-15,001,control,liver,Biliary tissue excretion rate,1.2428344422140483,mL/min/100cm3,0.0,Kbh
-16,001,control,liver,Hepatocellular tissue uptake rate,77.66060917648394,mL/min/100cm3,0.0,Khe
-17,001,control,liver,Biliary excretion rate,0.8737521388366754,mL/min/100cm3,0.0,kbh
-18,001,control,liver,Initial biliary excretion rate,3.7134082153458072,mL/min/100cm3,0.0,kbh_i
-19,001,control,liver,Final biliary excretion rate,0.4951268942325072,mL/min/100cm3,0.0,kbh_f
-20,001,control,liver,Liver blood clearance,0.2551230167590904,L/min,0.0,CL
-21,001,control,aorta,AUC for DR1b (0-inf),147572.8040405377,%,0.0,AUC_R1b
-22,001,control,aorta,AUC for Cb (0-inf),150.58449391891605,mM*sec,0.0,AUC_Cb
-23,001,control,liver,AUC for DR1l (0-inf),2521181.018527091,%,0.0,AUC_R1l
-24,001,control,liver,AUC for Cl (0-inf),2572.6336923745826,mM*sec,0.0,AUC_Cl
-25,001,control,aorta,AUC for DR1b (0-35min),104738.20838759246,%,0.0,AUC35_R1b
-26,001,control,aorta,AUC for Cb (0-35min),106.8757228444821,mM*sec,0.0,AUC35_Cb
-27,001,control,liver,AUC for DR1l (0-35min),657661.660750715,%,0.0,AUC35_R1l
-28,001,control,liver,AUC for Cl (0-35min),671.0833272966479,mM*sec,0.0,AUC35_Cl
-29,001,control,liver,RE for R1b at 20min,60.10953377791435,%,0.0,RE_R1b
-30,001,control,liver,RE for R1l at 20min,260.2982624840488,%,0.0,RE_R1l
-31,001,control,liver,RE for Sb at 20min,46.327859310340436,%,0.0,RE_Sb
-32,001,control,liver,RE for Sl at 20min,176.7902028794001,%,0.0,RE_Sl
-33,002,control,aorta,Cardiac output,3.5304422319908206,L/min,0.09331558900078575,CO
-34,002,control,aorta,Heart-lung mean transit time,14.11835733102584,sec,0.6893869998273345,Thl
-35,002,control,aorta,Heart-lung dispersion,68.95823205640814,%,1.1994830997733639,Dhl
-36,002,control,aorta,Organs blood mean transit time,36.70744886472692,sec,1.9448301172879805,To
-37,002,control,aorta,Organs extraction fraction,19.366624739758564,%,0.6966858204745877,Eo
-38,002,control,aorta,Organs extravascular mean transit time,9.408911395270975,min,0.8054773104390266,Toe
-39,002,control,aorta,Body extraction fraction,6.398950959025025,%,0.4843332431970555,Eb
-40,002,control,liver,Hematocrit,45.0,%,0.0,H
-41,002,control,liver,Liver extracellular volume fraction,1.0176347844176763,mL/100cm3,1.63668358791566,ve
-42,002,control,liver,Extracellular mean transit time,3.744219812195942,sec,3.508149317133481,Te
-43,002,control,liver,Extracellular dispersion,8.944394166192643,%,231.4536771380274,De
-44,002,control,liver,Initial hepatocellular uptake rate,25.810039947465974,mL/min/100cm3,0.5417278069097462,khe_i
-45,002,control,liver,Final hepatocellular uptake rate,62.70528474991584,mL/min/100cm3,1.1566424502641715,khe_f
-46,002,control,liver,Hepatocellular mean transit time,40.413972944929775,min,0.0,Th
-47,002,control,liver,Hepatocellular uptake rate,44.25766234869091,mL/min/100cm3,0.0,khe
-48,002,control,liver,Biliary tissue excretion rate,2.474391719326019,mL/min/100cm3,0.0,Kbh
-49,002,control,liver,Hepatocellular tissue uptake rate,4349.071300075163,mL/min/100cm3,0.0,Khe
-50,002,control,liver,Biliary excretion rate,2.4492114484874072,mL/min/100cm3,0.0,kbh
-51,002,control,liver,Initial biliary excretion rate,1.9957400362234563,mL/min/100cm3,0.0,kbh_i
-52,002,control,liver,Final biliary excretion rate,3.1693501825733192,mL/min/100cm3,0.0,kbh_f
-53,002,control,liver,Liver blood clearance,0.30258043153016995,L/min,0.0,CL
-54,002,control,aorta,AUC for DR1b (0-inf),28992.713665157236,%,0.0,AUC_R1b
-55,002,control,aorta,AUC for Cb (0-inf),29.58440169914004,mM*sec,0.0,AUC_Cb
-56,002,control,liver,AUC for DR1l (0-inf),380660.36993626633,%,0.0,AUC_R1l
-57,002,control,liver,AUC for Cl (0-inf),388.42894891455745,mM*sec,0.0,AUC_Cl
-58,002,control,aorta,AUC for DR1b (0-35min),17073.90481816309,%,0.0,AUC35_R1b
-59,002,control,aorta,AUC for Cb (0-35min),17.422351855268456,mM*sec,0.0,AUC35_Cb
-60,002,control,liver,AUC for DR1l (0-35min),103348.24293204038,%,0.0,AUC35_R1l
-61,002,control,liver,AUC for Cl (0-35min),105.45739074697997,mM*sec,0.0,AUC35_Cl
-62,002,control,liver,RE for R1b at 20min,9.359878692644354,%,0.0,RE_R1b
-63,002,control,liver,RE for R1l at 20min,35.79775673281783,%,0.0,RE_R1l
-64,002,control,liver,RE for Sb at 20min,9.982953554355657,%,0.0,RE_Sb
-65,002,control,liver,RE for Sl at 20min,29.842224092821485,%,0.0,RE_Sl
-66,003,control,aorta,Cardiac output,5.52484909732252,L/min,0.18341285638782795,CO
-67,003,control,aorta,Heart-lung mean transit time,17.925332722684164,sec,1.6305870357387062,Thl
-68,003,control,aorta,Heart-lung dispersion,42.636352150743356,%,2.687938537456703,Dhl
-69,003,control,aorta,Organs blood mean transit time,27.58090741201013,sec,1.8671880178662168,To
-70,003,control,aorta,Organs extraction fraction,16.446843837799722,%,1.3296987181370579,Eo
-71,003,control,aorta,Organs extravascular mean transit time,4.649344883108429,min,0.42501363458268,Toe
-72,003,control,aorta,Body extraction fraction,9.011252245628608,%,0.44541782066975927,Eb
-73,003,control,liver,Hematocrit,45.0,%,0.0,H
-74,003,control,liver,Liver extracellular volume fraction,26.191031453903374,mL/100cm3,20.666804027184522,ve
-75,003,control,liver,Extracellular mean transit time,52.863792195919594,sec,41.518762393799705,Te
-76,003,control,liver,Extracellular dispersion,86.50946419691815,%,12.411122891066622,De
-77,003,control,liver,Initial hepatocellular uptake rate,47.962413395363825,mL/min/100cm3,2.3472110157657107,khe_i
-78,003,control,liver,Final hepatocellular uptake rate,85.45315770937304,mL/min/100cm3,253.87351029402743,khe_f
-79,003,control,liver,Hepatocellular mean transit time,26.863134986847005,min,0.0,Th
-80,003,control,liver,Hepatocellular uptake rate,66.70778555236843,mL/min/100cm3,0.0,khe
-81,003,control,liver,Biliary tissue excretion rate,3.7225737073860885,mL/min/100cm3,0.0,Kbh
-82,003,control,liver,Hepatocellular tissue uptake rate,254.69705410332995,mL/min/100cm3,0.0,Khe
-83,003,control,liver,Biliary excretion rate,2.7475932567898607,mL/min/100cm3,0.0,kbh
-84,003,control,liver,Initial biliary excretion rate,2.070850128667751,mL/min/100cm3,0.0,kbh_i
-85,003,control,liver,Final biliary excretion rate,4.081360933646393,mL/min/100cm3,0.0,kbh_f
-86,003,control,liver,Liver blood clearance,0.5830742525091764,L/min,0.0,CL
-87,003,control,aorta,AUC for DR1b (0-inf),13370.490354826967,%,0.0,AUC_R1b
-88,003,control,aorta,AUC for Cb (0-inf),13.643357504925476,mM*sec,0.0,AUC_Cb
-89,003,control,liver,AUC for DR1l (0-inf),218614.88252956618,%,0.0,AUC_R1l
-90,003,control,liver,AUC for Cl (0-inf),223.07641074445525,mM*sec,0.0,AUC_Cl
-91,003,control,aorta,AUC for DR1b (0-35min),11763.316516266836,%,0.0,AUC35_R1b
-92,003,control,aorta,AUC for Cb (0-35min),12.003384200272281,mM*sec,0.0,AUC35_Cb
-93,003,control,liver,AUC for DR1l (0-35min),109579.64535269521,%,0.0,AUC35_R1l
-94,003,control,liver,AUC for Cl (0-35min),111.81596464560735,mM*sec,0.0,AUC35_Cl
-95,003,control,liver,RE for R1b at 20min,5.999071360642785,%,0.0,RE_R1b
-96,003,control,liver,RE for R1l at 20min,41.22660138958961,%,0.0,RE_R1l
-97,003,control,liver,RE for Sb at 20min,4.933627520762346,%,0.0,RE_Sb
-98,003,control,liver,RE for Sl at 20min,33.40205560489671,%,0.0,RE_Sl
-99,004,control,aorta,Cardiac output,4.13472168277019,L/min,0.03948865996189491,CO
-100,004,control,aorta,Heart-lung mean transit time,18.753676763243135,sec,0.13857854068610367,Thl
-101,004,control,aorta,Heart-lung dispersion,31.150695273297025,%,0.3257297860138561,Dhl
-102,004,control,aorta,Organs blood mean transit time,26.330290378144323,sec,0.7976660717663542,To
-103,004,control,aorta,Organs extraction fraction,30.89780642249303,%,0.5800367669684248,Eo
-104,004,control,aorta,Organs extravascular mean transit time,5.603692654415085,min,0.2274447769720027,Toe
-105,004,control,aorta,Body extraction fraction,14.9090673686691,%,0.3849083568487276,Eb
-106,004,control,liver,Hematocrit,45.0,%,0.0,H
-107,004,control,liver,Liver extracellular volume fraction,5.799955999223359,mL/100cm3,1.1191653927786818,ve
-108,004,control,liver,Extracellular mean transit time,25.542868677890233,sec,4.136653182838318,Te
-109,004,control,liver,Extracellular dispersion,56.448630851170535,%,8.497805061383032,De
-110,004,control,liver,Initial hepatocellular uptake rate,19.62407218395548,mL/min/100cm3,0.25108158257904495,khe_i
-111,004,control,liver,Final hepatocellular uptake rate,28.148734852414396,mL/min/100cm3,0.5990017765200978,khe_f
-112,004,control,liver,Hepatocellular mean transit time,179.44412806438402,min,0.0,Th
-113,004,control,liver,Hepatocellular uptake rate,23.88640351818494,mL/min/100cm3,0.0,khe
-114,004,control,liver,Biliary tissue excretion rate,0.5572765243347517,mL/min/100cm3,0.0,Kbh
-115,004,control,liver,Hepatocellular tissue uptake rate,411.8376677578837,mL/min/100cm3,0.0,Khe
-116,004,control,liver,Biliary excretion rate,0.5249547311293349,mL/min/100cm3,0.0,kbh
-117,004,control,liver,Initial biliary excretion rate,0.6677534480907119,mL/min/100cm3,0.0,kbh_i
-118,004,control,liver,Final biliary excretion rate,0.4324710326085169,mL/min/100cm3,0.0,kbh_f
-119,004,control,liver,Liver blood clearance,0.21164484856007607,L/min,0.0,CL
-120,004,control,aorta,AUC for DR1b (0-inf),43458.870278174865,%,0.0,AUC_R1b
-121,004,control,aorta,AUC for Cb (0-inf),44.34578599813763,mM*sec,0.0,AUC_Cb
-122,004,control,liver,AUC for DR1l (0-inf),926531.052025696,%,0.0,AUC_R1l
-123,004,control,liver,AUC for Cl (0-inf),945.4398490058122,mM*sec,0.0,AUC_Cl
-124,004,control,aorta,AUC for DR1b (0-35min),36019.197178298964,%,0.0,AUC35_R1b
-125,004,control,aorta,AUC for Cb (0-35min),36.754282834998946,mM*sec,0.0,AUC35_Cb
-126,004,control,liver,AUC for DR1l (0-35min),186620.09848038887,%,0.0,AUC35_R1l
-127,004,control,liver,AUC for Cl (0-35min),190.42867191876417,mM*sec,0.0,AUC35_Cl
-128,004,control,liver,RE for R1b at 20min,18.188399061034247,%,0.0,RE_R1b
-129,004,control,liver,RE for R1l at 20min,75.50251136285763,%,0.0,RE_R1l
-130,004,control,liver,RE for Sb at 20min,6.01910403603376,%,0.0,RE_Sb
-131,004,control,liver,RE for Sl at 20min,61.8378654514423,%,0.0,RE_Sl
-132,005,control,aorta,Cardiac output,6.6148931396669255,L/min,0.10571324884991103,CO
-133,005,control,aorta,Heart-lung mean transit time,10.351961972390102,sec,0.33113608262502087,Thl
-134,005,control,aorta,Heart-lung dispersion,56.03675296829774,%,1.3626296048436914,Dhl
-135,005,control,aorta,Organs blood mean transit time,22.44283006972161,sec,0.784629467970286,To
-136,005,control,aorta,Organs extraction fraction,17.49966337667635,%,0.5168219225606001,Eo
-137,005,control,aorta,Organs extravascular mean transit time,4.608939811284859,min,0.1784909922104694,Toe
-138,005,control,aorta,Body extraction fraction,6.621333429447781,%,0.186713767801577,Eb
-139,005,control,liver,Hematocrit,45.0,%,0.0,H
-140,005,control,liver,Liver extracellular volume fraction,18.18859772193989,mL/100cm3,1.865763758192603,ve
-141,005,control,liver,Extracellular mean transit time,39.05713438368848,sec,4.804358715388767,Te
-142,005,control,liver,Extracellular dispersion,79.53483267495652,%,3.562632212771213,De
-143,005,control,liver,Initial hepatocellular uptake rate,34.85045981688628,mL/min/100cm3,0.43191961803107043,khe_i
-144,005,control,liver,Final hepatocellular uptake rate,24.181132418113393,mL/min/100cm3,0.40466054023834536,khe_f
-145,005,control,liver,Hepatocellular mean transit time,33.81866420887766,min,0.0,Th
-146,005,control,liver,Hepatocellular uptake rate,29.515796117499832,mL/min/100cm3,0.0,khe
-147,005,control,liver,Biliary tissue excretion rate,2.956947068706198,mL/min/100cm3,0.0,Kbh
-148,005,control,liver,Hepatocellular tissue uptake rate,162.27636989242208,mL/min/100cm3,0.0,Khe
-149,005,control,liver,Biliary excretion rate,2.419119861528534,mL/min/100cm3,0.0,kbh
-150,005,control,liver,Initial biliary excretion rate,2.5483726162025344,mL/min/100cm3,0.0,kbh_i
-151,005,control,liver,Final biliary excretion rate,2.3023455325316466,mL/min/100cm3,0.0,kbh_f
-152,005,control,liver,Liver blood clearance,0.2081814818858267,L/min,0.0,CL
-153,005,control,aorta,AUC for DR1b (0-inf),45441.2680165031,%,0.0,AUC_R1b
-154,005,control,aorta,AUC for Cb (0-inf),46.368640833166424,mM*sec,0.0,AUC_Cb
-155,005,control,liver,AUC for DR1l (0-inf),516682.76281146146,%,0.0,AUC_R1l
-156,005,control,liver,AUC for Cl (0-inf),527.2273089912871,mM*sec,0.0,AUC_Cl
-157,005,control,aorta,AUC for DR1b (0-35min),37008.43257560554,%,0.0,AUC35_R1b
-158,005,control,aorta,AUC for Cb (0-35min),37.76370670980157,mM*sec,0.0,AUC35_Cb
-159,005,control,liver,AUC for DR1l (0-35min),207621.67666639894,%,0.0,AUC35_R1l
-160,005,control,liver,AUC for Cl (0-35min),211.8588537412234,mM*sec,0.0,AUC35_Cl
-161,005,control,liver,RE for R1b at 20min,15.772771224324044,%,0.0,RE_R1b
-162,005,control,liver,RE for R1l at 20min,96.75660733913824,%,0.0,RE_R1l
-163,005,control,liver,RE for Sb at 20min,2.1801149062630945,%,0.0,RE_Sb
-164,005,control,liver,RE for Sl at 20min,75.13629108905359,%,0.0,RE_Sl
-165,006,control,aorta,Cardiac output,4.415036706073544,L/min,0.051045483992752674,CO
-166,006,control,aorta,Heart-lung mean transit time,15.907821245463628,sec,0.1489286877805157,Thl
-167,006,control,aorta,Heart-lung dispersion,34.64276238885634,%,0.46976487482047224,Dhl
-168,006,control,aorta,Organs blood mean transit time,31.608727747552123,sec,1.1152319936300523,To
-169,006,control,aorta,Organs extraction fraction,20.49670521369719,%,0.6447696278783287,Eo
-170,006,control,aorta,Organs extravascular mean transit time,6.489841682686082,min,0.3382237249169839,Toe
-171,006,control,aorta,Body extraction fraction,8.236065658413416,%,0.28387404932429416,Eb
-172,006,control,liver,Hematocrit,45.0,%,0.0,H
-173,006,control,liver,Liver extracellular volume fraction,18.681039366290364,mL/100cm3,3.169914747505957,ve
-174,006,control,liver,Extracellular mean transit time,44.54607807217631,sec,6.987507393103655,Te
-175,006,control,liver,Extracellular dispersion,67.68590201032171,%,5.708448973239133,De
-176,006,control,liver,Initial hepatocellular uptake rate,40.4427402753483,mL/min/100cm3,0.6066312860718817,khe_i
-177,006,control,liver,Final hepatocellular uptake rate,33.473370891631646,mL/min/100cm3,0.6486500884790743,khe_f
-178,006,control,liver,Hepatocellular mean transit time,43.348900617513856,min,0.0,Th
-179,006,control,liver,Hepatocellular uptake rate,36.95805558348997,mL/min/100cm3,0.0,khe
-180,006,control,liver,Biliary tissue excretion rate,2.30686357844097,mL/min/100cm3,0.0,Kbh
-181,006,control,liver,Hepatocellular tissue uptake rate,197.83725551256097,mL/min/100cm3,0.0,Khe
-182,006,control,liver,Biliary excretion rate,1.875917485225798,mL/min/100cm3,0.0,kbh
-183,006,control,liver,Initial biliary excretion rate,1.766481972190732,mL/min/100cm3,0.0,kbh_i
-184,006,control,liver,Final biliary excretion rate,1.9998077909398222,mL/min/100cm3,0.0,kbh_f
-185,006,control,liver,Liver blood clearance,0.2554355650572706,L/min,0.0,CL
-186,006,control,aorta,AUC for DR1b (0-inf),36454.39870264777,%,0.0,AUC_R1b
-187,006,control,aorta,AUC for Cb (0-inf),37.19836602310997,mM*sec,0.0,AUC_Cb
-188,006,control,liver,AUC for DR1l (0-inf),630107.715704175,%,0.0,AUC_R1l
-189,006,control,liver,AUC for Cl (0-inf),642.9670568409948,mM*sec,0.0,AUC_Cl
-190,006,control,aorta,AUC for DR1b (0-35min),26793.757299752924,%,0.0,AUC35_R1b
-191,006,control,aorta,AUC for Cb (0-35min),27.340568673217266,mM*sec,0.0,AUC35_Cb
-192,006,control,liver,AUC for DR1l (0-35min),193245.9870936743,%,0.0,AUC35_R1l
-193,006,control,liver,AUC for Cl (0-35min),197.18978274864725,mM*sec,0.0,AUC35_Cl
-194,006,control,liver,RE for R1b at 20min,15.332496310434726,%,0.0,RE_R1b
-195,006,control,liver,RE for R1l at 20min,93.25561382107121,%,0.0,RE_R1l
-196,006,control,liver,RE for Sb at 20min,11.97607627169357,%,0.0,RE_Sb
-197,006,control,liver,RE for Sl at 20min,75.75881903334445,%,0.0,RE_Sl
-198,007,control,aorta,Cardiac output,9.40707199334189,L/min,0.1698567739436689,CO
-199,007,control,aorta,Heart-lung mean transit time,11.334743296848698,sec,0.5560365747562569,Thl
-200,007,control,aorta,Heart-lung dispersion,36.429092990471254,%,1.3887585183591153,Dhl
-201,007,control,aorta,Organs blood mean transit time,19.327708518233568,sec,0.936141721769722,To
-202,007,control,aorta,Organs extraction fraction,19.650390861574458,%,0.7203635530396594,Eo
-203,007,control,aorta,Organs extravascular mean transit time,4.560158850906831,min,0.17189354647486718,Toe
-204,007,control,aorta,Body extraction fraction,3.1945986119271486,%,0.10977677830737158,Eb
-205,007,control,liver,Hematocrit,45.0,%,0.0,H
-206,007,control,liver,Liver extracellular volume fraction,21.99527972008842,mL/100cm3,8.452649255829588,ve
-207,007,control,liver,Extracellular mean transit time,58.01590522015788,sec,24.3449131838768,Te
-208,007,control,liver,Extracellular dispersion,95.59744278362882,%,3.2124387100021115,De
-209,007,control,liver,Initial hepatocellular uptake rate,35.48428349064616,mL/min/100cm3,0.9010919271211805,khe_i
-210,007,control,liver,Final hepatocellular uptake rate,29.707546777129377,mL/min/100cm3,1.057874795049339,khe_f
-211,007,control,liver,Hepatocellular mean transit time,29.732637710015418,min,0.0,Th
-212,007,control,liver,Hepatocellular uptake rate,32.59591513388777,mL/min/100cm3,0.0,khe
-213,007,control,liver,Biliary tissue excretion rate,3.3633073854834974,mL/min/100cm3,0.0,Kbh
-214,007,control,liver,Hepatocellular tissue uptake rate,148.19504706783852,mL/min/100cm3,0.0,Khe
-215,007,control,liver,Biliary excretion rate,2.62353851820001,mL/min/100cm3,0.0,kbh
-216,007,control,liver,Initial biliary excretion rate,3.269369122011037,mL/min/100cm3,0.0,kbh_i
-217,007,control,liver,Final biliary excretion rate,2.1907735039005574,mL/min/100cm3,0.0,kbh_f
-218,007,control,liver,Liver blood clearance,0.30775923486887435,L/min,0.0,CL
-219,007,control,aorta,AUC for DR1b (0-inf),65749.46159964245,%,0.0,AUC_R1b
-220,007,control,aorta,AUC for Cb (0-inf),67.09128734657394,mM*sec,0.0,AUC_Cb
-221,007,control,liver,AUC for DR1l (0-inf),639192.8601168452,%,0.0,AUC_R1l
-222,007,control,liver,AUC for Cl (0-inf),652.2376123641277,mM*sec,0.0,AUC_Cl
-223,007,control,aorta,AUC for DR1b (0-35min),35891.99322038854,%,0.0,AUC35_R1b
-224,007,control,aorta,AUC for Cb (0-35min),36.62448287794749,mM*sec,0.0,AUC35_Cb
-225,007,control,liver,AUC for DR1l (0-35min),184743.5965567101,%,0.0,AUC35_R1l
-226,007,control,liver,AUC for Cl (0-35min),188.51387403745926,mM*sec,0.0,AUC35_Cl
-227,007,control,liver,RE for R1b at 20min,24.941419309449376,%,0.0,RE_R1b
-228,007,control,liver,RE for R1l at 20min,85.54662635545091,%,0.0,RE_R1l
-229,007,control,liver,RE for Sb at 20min,2.3115946442358135,%,0.0,RE_Sb
-230,007,control,liver,RE for Sl at 20min,72.82212118207042,%,0.0,RE_Sl
-231,008,control,aorta,Cardiac output,10.736539344565161,L/min,0.14761220697890565,CO
-232,008,control,aorta,Heart-lung mean transit time,16.29829558190725,sec,0.40940362699577065,Thl
-233,008,control,aorta,Heart-lung dispersion,42.31193261822652,%,0.7665904269101373,Dhl
-234,008,control,aorta,Organs blood mean transit time,22.595627307530883,sec,0.783648379717885,To
-235,008,control,aorta,Organs extraction fraction,15.525308991564819,%,0.551456662292508,Eo
-236,008,control,aorta,Organs extravascular mean transit time,4.631597574337064,min,0.2030465080962739,Toe
-237,008,control,aorta,Body extraction fraction,4.765186023322886,%,0.11905399979545617,Eb
-238,008,control,liver,Hematocrit,45.0,%,0.0,H
-239,008,control,liver,Liver extracellular volume fraction,13.673406512324293,mL/100cm3,1.0578715881215028,ve
-240,008,control,liver,Extracellular mean transit time,18.818735802748122,sec,1.9364087437551085,Te
-241,008,control,liver,Extracellular dispersion,47.37016320213023,%,7.187482969490828,De
-242,008,control,liver,Initial hepatocellular uptake rate,39.58082927255139,mL/min/100cm3,0.4849432444362574,khe_i
-243,008,control,liver,Final hepatocellular uptake rate,24.47770956703203,mL/min/100cm3,0.41847760807826295,khe_f
-244,008,control,liver,Hepatocellular mean transit time,33.570322299219555,min,0.0,Th
-245,008,control,liver,Hepatocellular uptake rate,32.02926941979172,mL/min/100cm3,0.0,khe
-246,008,control,liver,Biliary tissue excretion rate,2.9788215647344205,mL/min/100cm3,0.0,Kbh
-247,008,control,liver,Hepatocellular tissue uptake rate,234.2449878230613,mL/min/100cm3,0.0,Khe
-248,008,control,liver,Biliary excretion rate,2.571515182911504,mL/min/100cm3,0.0,kbh
-249,008,control,liver,Initial biliary excretion rate,3.7555554747715627,mL/min/100cm3,0.0,kbh_i
-250,008,control,liver,Final biliary excretion rate,1.9551130051735095,mL/min/100cm3,0.0,kbh_f
-251,008,control,liver,Liver blood clearance,0.3296801790361648,L/min,0.0,CL
-252,008,control,aorta,AUC for DR1b (0-inf),38961.797787923075,%,0.0,AUC_R1b
-253,008,control,aorta,AUC for Cb (0-inf),39.75693651828885,mM*sec,0.0,AUC_Cb
-254,008,control,liver,AUC for DR1l (0-inf),425524.5641003711,%,0.0,AUC_R1l
-255,008,control,liver,AUC for Cl (0-inf),434.20873887792965,mM*sec,0.0,AUC_Cl
-256,008,control,aorta,AUC for DR1b (0-35min),27721.761373013327,%,0.0,AUC35_R1b
-257,008,control,aorta,AUC for Cb (0-35min),28.28751160511564,mM*sec,0.0,AUC35_Cb
-258,008,control,liver,AUC for DR1l (0-35min),159128.8832912528,%,0.0,AUC35_R1l
-259,008,control,liver,AUC for Cl (0-35min),162.37641152168655,mM*sec,0.0,AUC35_Cl
-260,008,control,liver,RE for R1b at 20min,18.3489910813761,%,0.0,RE_R1b
-261,008,control,liver,RE for R1l at 20min,65.14867410336342,%,0.0,RE_R1l
-262,008,control,liver,RE for Sb at 20min,12.386171118343734,%,0.0,RE_Sb
-263,008,control,liver,RE for Sl at 20min,54.35635437370154,%,0.0,RE_Sl
-264,009,control,aorta,Cardiac output,10.464746935420015,L/min,0.11683816661344655,CO
-265,009,control,aorta,Heart-lung mean transit time,22.82129666528413,sec,0.1599386432991124,Thl
-266,009,control,aorta,Heart-lung dispersion,31.424264552082214,%,0.5328388666458783,Dhl
-267,009,control,aorta,Organs blood mean transit time,23.872514754897654,sec,0.917518070478322,To
-268,009,control,aorta,Organs extraction fraction,18.610164825984143,%,0.6378634388172781,Eo
-269,009,control,aorta,Organs extravascular mean transit time,5.361764857774374,min,0.26325431766483953,Toe
-270,009,control,aorta,Body extraction fraction,6.544427594618832,%,0.1642585713301514,Eb
-271,009,control,liver,Hematocrit,45.0,%,0.0,H
-272,009,control,liver,Liver extracellular volume fraction,14.961912218258538,mL/100cm3,1.6501162085015828,ve
-273,009,control,liver,Extracellular mean transit time,33.93340441797262,sec,4.900333493332156,Te
-274,009,control,liver,Extracellular dispersion,69.43225100063565,%,5.926543771778051,De
-275,009,control,liver,Initial hepatocellular uptake rate,22.06838784164453,mL/min/100cm3,0.40943806107006453,khe_i
-276,009,control,liver,Final hepatocellular uptake rate,20.608571992777204,mL/min/100cm3,0.5418982652571854,khe_f
-277,009,control,liver,Hepatocellular mean transit time,28.00032410366068,min,0.0,Th
-278,009,control,liver,Hepatocellular uptake rate,21.338479917210865,mL/min/100cm3,0.0,khe
-279,009,control,liver,Biliary tissue excretion rate,3.571387232154441,mL/min/100cm3,0.0,Kbh
-280,009,control,liver,Hepatocellular tissue uptake rate,142.6186680280799,mL/min/100cm3,0.0,Khe
-281,009,control,liver,Biliary excretion rate,3.0370394095054003,mL/min/100cm3,0.0,kbh
-282,009,control,liver,Initial biliary excretion rate,2.8075546385543673,mL/min/100cm3,0.0,kbh_i
-283,009,control,liver,Final biliary excretion rate,3.3073789771089435,mL/min/100cm3,0.0,kbh_f
-284,009,control,liver,Liver blood clearance,0.25309925440616754,L/min,0.0,CL
-285,009,control,aorta,AUC for DR1b (0-inf),38910.845762836514,%,0.0,AUC_R1b
-286,009,control,aorta,AUC for Cb (0-inf),39.704944655955636,mM*sec,0.0,AUC_Cb
-287,009,control,liver,AUC for DR1l (0-inf),255766.5623018075,%,0.0,AUC_R1l
-288,009,control,liver,AUC for Cl (0-inf),260.9862880630689,mM*sec,0.0,AUC_Cl
-289,009,control,aorta,AUC for DR1b (0-35min),28248.689062404952,%,0.0,AUC35_R1b
-290,009,control,aorta,AUC for Cb (0-35min),28.82519292082138,mM*sec,0.0,AUC35_Cb
-291,009,control,liver,AUC for DR1l (0-35min),99072.83634180331,%,0.0,AUC35_R1l
-292,009,control,liver,AUC for Cl (0-35min),101.09473096102379,mM*sec,0.0,AUC35_Cl
-293,009,control,liver,RE for R1b at 20min,17.79620063012916,%,0.0,RE_R1b
-294,009,control,liver,RE for R1l at 20min,47.661381572570065,%,0.0,RE_R1l
-295,009,control,liver,RE for Sb at 20min,9.117477659907564,%,0.0,RE_Sb
-296,009,control,liver,RE for Sl at 20min,41.35525987352476,%,0.0,RE_Sl
-297,010,control,aorta,Cardiac output,7.123004313786696,L/min,0.09512219549615233,CO
-298,010,control,aorta,Heart-lung mean transit time,9.721636748483869,sec,0.22713699376290603,Thl
-299,010,control,aorta,Heart-lung dispersion,58.80743884736715,%,1.2980588654116423,Dhl
-300,010,control,aorta,Organs blood mean transit time,46.748547361918426,sec,1.4417567195816698,To
-301,010,control,aorta,Organs extraction fraction,14.239525357689518,%,0.5074616468717436,Eo
-302,010,control,aorta,Organs extravascular mean transit time,8.961346255046257,min,0.503353134745354,Toe
-303,010,control,aorta,Body extraction fraction,3.4609693734241116,%,0.1571693371609128,Eb
-304,010,control,liver,Hematocrit,45.0,%,0.0,H
-305,010,control,liver,Liver extracellular volume fraction,15.240543890083256,mL/100cm3,2.9365239964874714,ve
-306,010,control,liver,Extracellular mean transit time,39.11499329695533,sec,8.42025447771982,Te
-307,010,control,liver,Extracellular dispersion,74.64763110612573,%,6.742431127818276,De
-308,010,control,liver,Initial hepatocellular uptake rate,26.426395057530243,mL/min/100cm3,0.5813297089273706,khe_i
-309,010,control,liver,Final hepatocellular uptake rate,30.071110210155524,mL/min/100cm3,0.9789444282475216,khe_f
-310,010,control,liver,Hepatocellular mean transit time,26.05487379025821,min,0.0,Th
-311,010,control,liver,Hepatocellular uptake rate,28.248752633842887,mL/min/100cm3,0.0,khe
-312,010,control,liver,Biliary tissue excretion rate,3.838053517549162,mL/min/100cm3,0.0,Kbh
-313,010,control,liver,Hepatocellular tissue uptake rate,185.35265432504568,mL/min/100cm3,0.0,Khe
-314,010,control,liver,Biliary excretion rate,3.2531132866821983,mL/min/100cm3,0.0,kbh
-315,010,control,liver,Initial biliary excretion rate,3.2590447393213893,mL/min/100cm3,0.0,kbh_i
-316,010,control,liver,Final biliary excretion rate,3.247203385275447,mL/min/100cm3,0.0,kbh_f
-317,010,control,liver,Liver blood clearance,0.30392581912086897,L/min,0.0,CL
-318,010,control,aorta,AUC for DR1b (0-inf),77061.62267862019,%,0.0,AUC_R1b
-319,010,control,aorta,AUC for Cb (0-inf),78.63430885573489,mM*sec,0.0,AUC_Cb
-320,010,control,liver,AUC for DR1l (0-inf),551497.6473478378,%,0.0,AUC_R1l
-321,010,control,liver,AUC for Cl (0-inf),562.7527013753448,mM*sec,0.0,AUC_Cl
-322,010,control,aorta,AUC for DR1b (0-35min),36467.912169827694,%,0.0,AUC35_R1b
-323,010,control,aorta,AUC for Cb (0-35min),37.21215527533438,mM*sec,0.0,AUC35_Cb
-324,010,control,liver,AUC for DR1l (0-35min),148733.0590434031,%,0.0,AUC35_R1l
-325,010,control,liver,AUC for Cl (0-35min),151.76842759530928,mM*sec,0.0,AUC35_Cl
-326,010,control,liver,RE for R1b at 20min,21.07199855048249,%,0.0,RE_R1b
-327,010,control,liver,RE for R1l at 20min,63.36469912506818,%,0.0,RE_R1l
-328,010,control,liver,RE for Sb at 20min,10.056052018883657,%,0.0,RE_Sb
-329,010,control,liver,RE for Sl at 20min,51.682063828141736,%,0.0,RE_Sl
-330,002,drug,aorta,Cardiac output,5.754886265446996,L/min,0.12214180490942753,CO
-331,002,drug,aorta,Heart-lung mean transit time,8.232872050298436,sec,0.3210888771720833,Thl
-332,002,drug,aorta,Heart-lung dispersion,68.68853040758559,%,1.8494387413455469,Dhl
-333,002,drug,aorta,Organs blood mean transit time,25.396213593007637,sec,1.116648830759881,To
-334,002,drug,aorta,Organs extraction fraction,14.055657345882826,%,0.6573631390789377,Eo
-335,002,drug,aorta,Organs extravascular mean transit time,4.982793823147407,min,0.36359287598570605,Toe
-336,002,drug,aorta,Body extraction fraction,5.3054149003596285,%,0.21415673195892515,Eb
-337,002,drug,liver,Hematocrit,45.0,%,0.0,H
-338,002,drug,liver,Liver extracellular volume fraction,18.475148910096674,mL/100cm3,0.8778067842683569,ve
-339,002,drug,liver,Extracellular mean transit time,36.19478317152395,sec,3.2039396423265036,Te
-340,002,drug,liver,Extracellular dispersion,72.1717648332487,%,4.1200869168702825,De
-341,002,drug,liver,Initial hepatocellular uptake rate,2.5202907665465197,mL/min/100cm3,0.12633162203444342,khe_i
-342,002,drug,liver,Final hepatocellular uptake rate,3.432927941029808,mL/min/100cm3,0.48621042378354984,khe_f
-343,002,drug,liver,Hepatocellular mean transit time,315.11439080290717,min,0.0,Th
-344,002,drug,liver,Hepatocellular uptake rate,2.9766093537881644,mL/min/100cm3,0.0,khe
-345,002,drug,liver,Biliary tissue excretion rate,0.31734507505417753,mL/min/100cm3,0.0,Kbh
-346,002,drug,liver,Hepatocellular tissue uptake rate,16.111422799745046,mL/min/100cm3,0.0,Khe
-347,002,drug,liver,Biliary excretion rate,0.25871509987906016,mL/min/100cm3,0.0,kbh
-348,002,drug,liver,Initial biliary excretion rate,0.13587475420305095,mL/min/100cm3,0.0,kbh_i
-349,002,drug,liver,Final biliary excretion rate,2.6969271779195436,mL/min/100cm3,0.0,kbh_f
-350,002,drug,liver,Liver blood clearance,0.023885545958595093,L/min,0.0,CL
-351,002,drug,aorta,AUC for DR1b (0-inf),21763.561258480066,%,0.0,AUC_R1b
-352,002,drug,aorta,AUC for Cb (0-inf),22.207715569877625,mM*sec,0.0,AUC_Cb
-353,002,drug,liver,AUC for DR1l (0-inf),78912.65957419972,%,0.0,AUC_R1l
-354,002,drug,liver,AUC for Cl (0-inf),80.52312201448952,mM*sec,0.0,AUC_Cl
-355,002,drug,aorta,AUC for DR1b (0-35min),16882.309193342466,%,0.0,AUC35_R1b
-356,002,drug,aorta,AUC for Cb (0-35min),17.226846115655572,mM*sec,0.0,AUC35_Cb
-357,002,drug,liver,AUC for DR1l (0-35min),15984.944416693039,%,0.0,AUC35_R1l
-358,002,drug,liver,AUC for Cl (0-35min),16.311167772135754,mM*sec,0.0,AUC35_Cl
-359,002,drug,liver,RE for R1b at 20min,9.122881302552672,%,0.0,RE_R1b
-360,002,drug,liver,RE for R1l at 20min,6.153959699746806,%,0.0,RE_R1l
-361,002,drug,liver,RE for Sb at 20min,4.255517729394765,%,0.0,RE_Sb
-362,002,drug,liver,RE for Sl at 20min,3.9962138693645155,%,0.0,RE_Sl
-363,003,drug,aorta,Cardiac output,6.172199238996064,L/min,0.15477268552240586,CO
-364,003,drug,aorta,Heart-lung mean transit time,12.68760922100006,sec,0.9120070411658718,Thl
-365,003,drug,aorta,Heart-lung dispersion,48.91284167739295,%,2.2596358872391837,Dhl
-366,003,drug,aorta,Organs blood mean transit time,26.390259530179737,sec,0.8576362750904601,To
-367,003,drug,aorta,Organs extraction fraction,10.946635306519841,%,0.522592456764348,Eo
-368,003,drug,aorta,Organs extravascular mean transit time,6.11060590509138,min,0.39371956405810055,Toe
-369,003,drug,aorta,Body extraction fraction,3.4084295477419784,%,0.14025617173868252,Eb
-370,003,drug,liver,Hematocrit,45.0,%,0.0,H
-371,003,drug,liver,Liver extracellular volume fraction,20.088174440183195,mL/100cm3,0.9118597361834389,ve
-372,003,drug,liver,Extracellular mean transit time,28.346958380393843,sec,2.093498659918662,Te
-373,003,drug,liver,Extracellular dispersion,65.373966295776,%,3.894150775359299,De
-374,003,drug,liver,Initial hepatocellular uptake rate,3.214087279495119,mL/min/100cm3,0.23938758277595687,khe_i
-375,003,drug,liver,Final hepatocellular uptake rate,4.245466849684516,mL/min/100cm3,0.5151920950060058,khe_f
-376,003,drug,liver,Hepatocellular mean transit time,61.086754494718114,min,0.0,Th
-377,003,drug,liver,Hepatocellular uptake rate,3.729777064589818,mL/min/100cm3,0.0,khe
-378,003,drug,liver,Biliary tissue excretion rate,1.6370160901025859,mL/min/100cm3,0.0,Kbh
-379,003,drug,liver,Hepatocellular tissue uptake rate,18.56702845595064,mL/min/100cm3,0.0,Khe
-380,003,drug,liver,Biliary excretion rate,1.3081694423089119,mL/min/100cm3,0.0,kbh
-381,003,drug,liver,Initial biliary excretion rate,1.2166717764025141,mL/min/100cm3,0.0,kbh_i
-382,003,drug,liver,Final biliary excretion rate,1.4145480458199393,mL/min/100cm3,0.0,kbh_f
-383,003,drug,liver,Liver blood clearance,0.03214200947804495,L/min,0.0,CL
-384,003,drug,aorta,AUC for DR1b (0-inf),31509.78389044495,%,0.0,AUC_R1b
-385,003,drug,aorta,AUC for Cb (0-inf),32.15284070453566,mM*sec,0.0,AUC_Cb
-386,003,drug,liver,AUC for DR1l (0-inf),70973.09405790221,%,0.0,AUC_R1l
-387,003,drug,liver,AUC for Cl (0-inf),72.42152454887982,mM*sec,0.0,AUC_Cl
-388,003,drug,aorta,AUC for DR1b (0-35min),19678.444873405817,%,0.0,AUC35_R1b
-389,003,drug,aorta,AUC for Cb (0-35min),20.08004578918961,mM*sec,0.0,AUC35_Cb
-390,003,drug,liver,AUC for DR1l (0-35min),19461.767914770302,%,0.0,AUC35_R1l
-391,003,drug,liver,AUC for Cl (0-35min),19.858946851806433,mM*sec,0.0,AUC35_Cl
-392,003,drug,liver,RE for R1b at 20min,12.631753099160981,%,0.0,RE_R1b
-393,003,drug,liver,RE for R1l at 20min,6.726986497873068,%,0.0,RE_R1l
-394,003,drug,liver,RE for Sb at 20min,4.519528497988084,%,0.0,RE_Sb
-395,003,drug,liver,RE for Sl at 20min,4.715206942472793,%,0.0,RE_Sl
-396,004,drug,aorta,Cardiac output,6.054781654740845,L/min,0.05222665304810179,CO
-397,004,drug,aorta,Heart-lung mean transit time,20.44686609624904,sec,0.16201903244889138,Thl
-398,004,drug,aorta,Heart-lung dispersion,32.24616951959738,%,0.3218590822606857,Dhl
-399,004,drug,aorta,Organs blood mean transit time,36.325444060058985,sec,1.0554608631525877,To
-400,004,drug,aorta,Organs extraction fraction,22.091086254297007,%,0.5981880416659898,Eo
-401,004,drug,aorta,Organs extravascular mean transit time,5.5815140305708555,min,0.2799654773557937,Toe
-402,004,drug,aorta,Body extraction fraction,5.073389134608835,%,0.16649736925270472,Eb
-403,004,drug,liver,Hematocrit,45.0,%,0.0,H
-404,004,drug,liver,Liver extracellular volume fraction,19.542984307998445,mL/100cm3,0.7788452345050183,ve
-405,004,drug,liver,Extracellular mean transit time,52.7483132294662,sec,3.1942517322912702,Te
-406,004,drug,liver,Extracellular dispersion,80.48764634670732,%,2.044456754920431,De
-407,004,drug,liver,Initial hepatocellular uptake rate,1.7355976111302793,mL/min/100cm3,0.21091477004832176,khe_i
-408,004,drug,liver,Final hepatocellular uptake rate,2.817058939130784,mL/min/100cm3,0.2452784428221939,khe_f
-409,004,drug,liver,Hepatocellular mean transit time,79.49024763520592,min,0.0,Th
-410,004,drug,liver,Hepatocellular uptake rate,2.276328275130532,mL/min/100cm3,0.0,khe
-411,004,drug,liver,Biliary tissue excretion rate,1.2580159576167982,mL/min/100cm3,0.0,Kbh
-412,004,drug,liver,Hepatocellular tissue uptake rate,11.647802808698406,mL/min/100cm3,0.0,Khe
-413,004,drug,liver,Biliary excretion rate,1.012162096427631,mL/min/100cm3,0.0,kbh
-414,004,drug,liver,Initial biliary excretion rate,1.0643928549435115,mL/min/100cm3,0.0,kbh_i
-415,004,drug,liver,Final biliary excretion rate,0.9648175898273665,mL/min/100cm3,0.0,kbh_f
-416,004,drug,liver,Liver blood clearance,0.022382597969249914,L/min,0.0,CL
-417,004,drug,aorta,AUC for DR1b (0-inf),85899.81182046393,%,0.0,AUC_R1b
-418,004,drug,aorta,AUC for Cb (0-inf),87.65286920455503,mM*sec,0.0,AUC_Cb
-419,004,drug,liver,AUC for DR1l (0-inf),137629.73903901433,%,0.0,AUC_R1l
-420,004,drug,liver,AUC for Cl (0-inf),140.438509223484,mM*sec,0.0,AUC_Cl
-421,004,drug,aorta,AUC for DR1b (0-35min),47805.30096620856,%,0.0,AUC35_R1b
-422,004,drug,aorta,AUC for Cb (0-35min),48.78091935327404,mM*sec,0.0,AUC35_Cb
-423,004,drug,liver,AUC for DR1l (0-35min),34668.10709916773,%,0.0,AUC35_R1l
-424,004,drug,liver,AUC for Cl (0-35min),35.37561948894667,mM*sec,0.0,AUC35_Cl
-425,004,drug,liver,RE for R1b at 20min,31.957259742353333,%,0.0,RE_R1b
-426,004,drug,liver,RE for R1l at 20min,12.217745942611586,%,0.0,RE_R1l
-427,004,drug,liver,RE for Sb at 20min,26.951469868872003,%,0.0,RE_Sb
-428,004,drug,liver,RE for Sl at 20min,10.770289645841544,%,0.0,RE_Sl
-429,006,drug,aorta,Cardiac output,8.037589502054674,L/min,0.11184842204987232,CO
-430,006,drug,aorta,Heart-lung mean transit time,12.273923885375115,sec,0.2807200947094126,Thl
-431,006,drug,aorta,Heart-lung dispersion,52.85636498769458,%,0.6018273428595107,Dhl
-432,006,drug,aorta,Organs blood mean transit time,32.887265825830106,sec,0.8901191588499211,To
-433,006,drug,aorta,Organs extraction fraction,11.568151897885526,%,0.3700980163514146,Eo
-434,006,drug,aorta,Organs extravascular mean transit time,7.3442920175412265,min,0.4406803662758524,Toe
-435,006,drug,aorta,Body extraction fraction,2.4358130769199717,%,0.14272303636704936,Eb
-436,006,drug,liver,Hematocrit,45.0,%,0.0,H
-437,006,drug,liver,Liver extracellular volume fraction,31.99697162747514,mL/100cm3,0.9548240221094644,ve
-438,006,drug,liver,Extracellular mean transit time,43.50311758918786,sec,1.8604822423506324,Te
-439,006,drug,liver,Extracellular dispersion,67.01592586990965,%,2.0551206761061107,De
-440,006,drug,liver,Initial hepatocellular uptake rate,1.3773242926382396,mL/min/100cm3,0.22715557740454898,khe_i
-441,006,drug,liver,Final hepatocellular uptake rate,2.5108319915415054,mL/min/100cm3,0.35787402241365485,khe_f
-442,006,drug,liver,Hepatocellular mean transit time,93.01844721985135,min,0.0,Th
-443,006,drug,liver,Hepatocellular uptake rate,1.9440781420898727,mL/min/100cm3,0.0,khe
-444,006,drug,liver,Biliary tissue excretion rate,1.0750555721882518,mL/min/100cm3,0.0,Kbh
-445,006,drug,liver,Hepatocellular tissue uptake rate,6.0758191891526785,mL/min/100cm3,0.0,Khe
-446,006,drug,liver,Biliary excretion rate,0.7310703457755864,mL/min/100cm3,0.0,kbh
-447,006,drug,liver,Initial biliary excretion rate,0.6067655124519211,mL/min/100cm3,0.0,kbh_i
-448,006,drug,liver,Final biliary excretion rate,0.9194288616316536,mL/min/100cm3,0.0,kbh_f
-449,006,drug,liver,Liver blood clearance,0.013720559310428593,L/min,0.0,CL
-450,006,drug,aorta,AUC for DR1b (0-inf),65111.21127935734,%,0.0,AUC_R1b
-451,006,drug,aorta,AUC for Cb (0-inf),66.4400115095483,mM*sec,0.0,AUC_Cb
-452,006,drug,liver,AUC for DR1l (0-inf),110535.88291053101,%,0.0,AUC_R1l
-453,006,drug,liver,AUC for Cl (0-inf),112.79171725564389,mM*sec,0.0,AUC_Cl
-454,006,drug,aorta,AUC for DR1b (0-35min),30057.084346117863,%,0.0,AUC35_R1b
-455,006,drug,aorta,AUC for Cb (0-35min),30.670494230732515,mM*sec,0.0,AUC35_Cb
-456,006,drug,liver,AUC for DR1l (0-35min),26669.31584373845,%,0.0,AUC35_R1l
-457,006,drug,liver,AUC for Cl (0-35min),27.213587595651475,mM*sec,0.0,AUC35_Cl
-458,006,drug,liver,RE for R1b at 20min,20.715784332989013,%,0.0,RE_R1b
-459,006,drug,liver,RE for R1l at 20min,9.485457996449147,%,0.0,RE_R1l
-460,006,drug,liver,RE for Sb at 20min,7.99500581901613,%,0.0,RE_Sb
-461,006,drug,liver,RE for Sl at 20min,8.085628970375708,%,0.0,RE_Sl
-462,007,drug,aorta,Cardiac output,8.421140451981161,L/min,0.1268298851084619,CO
-463,007,drug,aorta,Heart-lung mean transit time,12.921185819079204,sec,0.16187013323129731,Thl
-464,007,drug,aorta,Heart-lung dispersion,36.58233514491162,%,0.8191746622675393,Dhl
-465,007,drug,aorta,Organs blood mean transit time,15.419996185900315,sec,0.6575366862318323,To
-466,007,drug,aorta,Organs extraction fraction,19.372436868513184,%,0.6116199938423154,Eo
-467,007,drug,aorta,Organs extravascular mean transit time,4.0832316846083865,min,0.17988650219742083,Toe
-468,007,drug,aorta,Body extraction fraction,3.063379656664315,%,0.08583291598109248,Eb
-469,007,drug,liver,Hematocrit,45.0,%,0.0,H
-470,007,drug,liver,Liver extracellular volume fraction,18.945020216004618,mL/100cm3,0.9820599051153699,ve
-471,007,drug,liver,Extracellular mean transit time,38.888668967161905,sec,3.119684091301102,Te
-472,007,drug,liver,Extracellular dispersion,77.128306211519,%,3.0782524623457004,De
-473,007,drug,liver,Initial hepatocellular uptake rate,2.299623864380983,mL/min/100cm3,1.0367811258513187,khe_i
-474,007,drug,liver,Final hepatocellular uptake rate,1.3343424126827224,mL/min/100cm3,0.13628038671834353,khe_f
-475,007,drug,liver,Hepatocellular mean transit time,148.98428846205044,min,0.0,Th
-476,007,drug,liver,Hepatocellular uptake rate,1.816983138531853,mL/min/100cm3,0.0,khe
-477,007,drug,liver,Biliary tissue excretion rate,0.6712117165661544,mL/min/100cm3,0.0,Kbh
-478,007,drug,liver,Hepatocellular tissue uptake rate,9.590821850888702,mL/min/100cm3,0.0,Khe
-479,007,drug,liver,Biliary excretion rate,0.5440505211705048,mL/min/100cm3,0.0,kbh
-480,007,drug,liver,Initial biliary excretion rate,8.057611356532455,mL/min/100cm3,0.0,kbh_i
-481,007,drug,liver,Final biliary excretion rate,0.281529714262156,mL/min/100cm3,0.0,kbh_f
-482,007,drug,liver,Liver blood clearance,0.020269387344455655,L/min,0.0,CL
-483,007,drug,aorta,AUC for DR1b (0-inf),76898.36550466991,%,0.0,AUC_R1b
-484,007,drug,aorta,AUC for Cb (0-inf),78.46771990272441,mM*sec,0.0,AUC_Cb
-485,007,drug,liver,AUC for DR1l (0-inf),140466.61238060473,%,0.0,AUC_R1l
-486,007,drug,liver,AUC for Cl (0-inf),143.33327793939256,mM*sec,0.0,AUC_Cl
-487,007,drug,aorta,AUC for DR1b (0-35min),43816.10191427432,%,0.0,AUC35_R1b
-488,007,drug,aorta,AUC for Cb (0-35min),44.71030807579012,mM*sec,0.0,AUC35_Cb
-489,007,drug,liver,AUC for DR1l (0-35min),31773.6771269795,%,0.0,AUC35_R1l
-490,007,drug,liver,AUC for Cl (0-35min),32.42211951732602,mM*sec,0.0,AUC35_Cl
-491,007,drug,liver,RE for R1b at 20min,29.391039857692615,%,0.0,RE_R1b
-492,007,drug,liver,RE for R1l at 20min,11.699201976228013,%,0.0,RE_R1l
-493,007,drug,liver,RE for Sb at 20min,34.26531533732706,%,0.0,RE_Sb
-494,007,drug,liver,RE for Sl at 20min,9.464872155380013,%,0.0,RE_Sl
-495,008,drug,aorta,Cardiac output,10.724784218560373,L/min,0.178074793164321,CO
-496,008,drug,aorta,Heart-lung mean transit time,11.379778595527384,sec,0.37111685923983784,Thl
-497,008,drug,aorta,Heart-lung dispersion,48.43072112754728,%,0.8878754079572917,Dhl
-498,008,drug,aorta,Organs blood mean transit time,22.92409133372404,sec,0.6451866915544513,To
-499,008,drug,aorta,Organs extraction fraction,9.150250092270849,%,0.31641675747272485,Eo
-500,008,drug,aorta,Organs extravascular mean transit time,7.055926035116706,min,0.3582154669292452,Toe
-501,008,drug,aorta,Body extraction fraction,2.5736330587265264,%,0.08094505428388186,Eb
-502,008,drug,liver,Hematocrit,45.0,%,0.0,H
-503,008,drug,liver,Liver extracellular volume fraction,16.318642394696028,mL/100cm3,0.6509834903127013,ve
-504,008,drug,liver,Extracellular mean transit time,31.301522763939467,sec,2.3435062198498122,Te
-505,008,drug,liver,Extracellular dispersion,62.34126248544663,%,4.161380498846861,De
-506,008,drug,liver,Initial hepatocellular uptake rate,1.2709748496226585,mL/min/100cm3,0.10417190958224105,khe_i
-507,008,drug,liver,Final hepatocellular uptake rate,2.9036744954825187,mL/min/100cm3,0.30180478678341865,khe_f
-508,008,drug,liver,Hepatocellular mean transit time,217.92392265743572,min,0.0,Th
-509,008,drug,liver,Hepatocellular uptake rate,2.0873246725525885,mL/min/100cm3,0.0,khe
-510,008,drug,liver,Biliary tissue excretion rate,0.45887573415789895,mL/min/100cm3,0.0,Kbh
-511,008,drug,liver,Hepatocellular tissue uptake rate,12.791043654654885,mL/min/100cm3,0.0,Khe
-512,008,drug,liver,Biliary excretion rate,0.3839934440646354,mL/min/100cm3,0.0,kbh
-513,008,drug,liver,Initial biliary excretion rate,0.22725677148107848,mL/min/100cm3,0.0,kbh_i
-514,008,drug,liver,Final biliary excretion rate,1.2374501983447461,mL/min/100cm3,0.0,kbh_f
-515,008,drug,liver,Liver blood clearance,0.018382318258866447,L/min,0.0,CL
-516,008,drug,aorta,AUC for DR1b (0-inf),71526.20486088636,%,0.0,AUC_R1b
-517,008,drug,aorta,AUC for Cb (0-inf),72.98592332743505,mM*sec,0.0,AUC_Cb
-518,008,drug,liver,AUC for DR1l (0-inf),136594.91236226063,%,0.0,AUC_R1l
-519,008,drug,liver,AUC for Cl (0-inf),139.38256363495984,mM*sec,0.0,AUC_Cl
-520,008,drug,aorta,AUC for DR1b (0-35min),40178.8268945126,%,0.0,AUC35_R1b
-521,008,drug,aorta,AUC for Cb (0-35min),40.99880295358428,mM*sec,0.0,AUC35_Cb
-522,008,drug,liver,AUC for DR1l (0-35min),25893.845378426482,%,0.0,AUC35_R1l
-523,008,drug,liver,AUC for Cl (0-35min),26.422291202476003,mM*sec,0.0,AUC35_Cl
-524,008,drug,liver,RE for R1b at 20min,25.597947720567177,%,0.0,RE_R1b
-525,008,drug,liver,RE for R1l at 20min,7.707209287771523,%,0.0,RE_R1l
-526,008,drug,liver,RE for Sb at 20min,20.06459461116933,%,0.0,RE_Sb
-527,008,drug,liver,RE for Sl at 20min,5.160944008563375,%,0.0,RE_Sl
-528,009,drug,aorta,Cardiac output,12.374084243295417,L/min,0.19391708252814446,CO
-529,009,drug,aorta,Heart-lung mean transit time,13.99055537502177,sec,0.49217353905466665,Thl
-530,009,drug,aorta,Heart-lung dispersion,57.68722213007679,%,0.9504264952525168,Dhl
-531,009,drug,aorta,Organs blood mean transit time,38.759565708506805,sec,1.013599907376045,To
-532,009,drug,aorta,Organs extraction fraction,9.469157078405974,%,0.36017779725660115,Eo
-533,009,drug,aorta,Organs extravascular mean transit time,8.013156693639296,min,0.4655173429639765,Toe
-534,009,drug,aorta,Body extraction fraction,2.2720445063582484,%,0.09698926070250667,Eb
-535,009,drug,liver,Hematocrit,45.0,%,0.0,H
-536,009,drug,liver,Liver extracellular volume fraction,22.396552524216187,mL/100cm3,0.7821755462690992,ve
-537,009,drug,liver,Extracellular mean transit time,53.82163154539401,sec,3.1927051412692125,Te
-538,009,drug,liver,Extracellular dispersion,68.54716772389092,%,2.814779389184036,De
-539,009,drug,liver,Initial hepatocellular uptake rate,0.7862097638458357,mL/min/100cm3,0.1802802600680874,khe_i
-540,009,drug,liver,Final hepatocellular uptake rate,1.411729973024758,mL/min/100cm3,0.26204087744742094,khe_f
-541,009,drug,liver,Hepatocellular mean transit time,47.856629800937505,min,0.0,Th
-542,009,drug,liver,Hepatocellular uptake rate,1.0989698684352969,mL/min/100cm3,0.0,khe
-543,009,drug,liver,Biliary tissue excretion rate,2.0895746402526867,mL/min/100cm3,0.0,Kbh
-544,009,drug,liver,Hepatocellular tissue uptake rate,4.906870676846537,mL/min/100cm3,0.0,Khe
-545,009,drug,liver,Biliary excretion rate,1.6215819584157927,mL/min/100cm3,0.0,kbh
-546,009,drug,liver,Initial biliary excretion rate,1.294170981745949,mL/min/100cm3,0.0,kbh_i
-547,009,drug,liver,Final biliary excretion rate,2.1707603790863046,mL/min/100cm3,0.0,kbh_f
-548,009,drug,liver,Liver blood clearance,0.013185612041672852,L/min,0.0,CL
-549,009,drug,aorta,AUC for DR1b (0-inf),89464.0894314514,%,0.0,AUC_R1b
-550,009,drug,aorta,AUC for Cb (0-inf),91.28988717495041,mM*sec,0.0,AUC_Cb
-551,009,drug,liver,AUC for DR1l (0-inf),73265.92544119184,%,0.0,AUC_R1l
-552,009,drug,liver,AUC for Cl (0-inf),74.76114840937942,mM*sec,0.0,AUC_Cl
-553,009,drug,aorta,AUC for DR1b (0-35min),39867.176144023564,%,0.0,AUC35_R1b
-554,009,drug,aorta,AUC for Cb (0-35min),40.68079198369751,mM*sec,0.0,AUC35_Cb
-555,009,drug,liver,AUC for DR1l (0-35min),22200.389186055825,%,0.0,AUC35_R1l
-556,009,drug,liver,AUC for Cl (0-35min),22.653458353118186,mM*sec,0.0,AUC35_Cl
-557,009,drug,liver,RE for R1b at 20min,30.056397566727156,%,0.0,RE_R1b
-558,009,drug,liver,RE for R1l at 20min,8.404793272241848,%,0.0,RE_R1l
-559,009,drug,liver,RE for Sb at 20min,15.427742628433275,%,0.0,RE_Sb
-560,009,drug,liver,RE for Sl at 20min,7.916556227510722,%,0.0,RE_Sl
-561,010,drug,aorta,Cardiac output,7.031785714024292,L/min,0.088216453679356,CO
-562,010,drug,aorta,Heart-lung mean transit time,22.064994578411547,sec,0.6017768017319587,Thl
-563,010,drug,aorta,Heart-lung dispersion,39.733359786719554,%,0.6488755643549312,Dhl
-564,010,drug,aorta,Organs blood mean transit time,38.18275953202334,sec,1.1191797340536045,To
-565,010,drug,aorta,Organs extraction fraction,16.206795251971094,%,0.475698743136551,Eo
-566,010,drug,aorta,Organs extravascular mean transit time,8.592802305775916,min,0.4431122370861499,Toe
-567,010,drug,aorta,Body extraction fraction,3.2130957865435703,%,0.15567949134024908,Eb
-568,010,drug,liver,Hematocrit,45.0,%,0.0,H
-569,010,drug,liver,Liver extracellular volume fraction,23.81536076424518,mL/100cm3,0.9304592558817268,ve
-570,010,drug,liver,Extracellular mean transit time,53.77294285193779,sec,3.536743185635993,Te
-571,010,drug,liver,Extracellular dispersion,73.10737033856091,%,2.7614083117471924,De
-572,010,drug,liver,Initial hepatocellular uptake rate,0.9913379884473636,mL/min/100cm3,0.28032259234160156,khe_i
-573,010,drug,liver,Final hepatocellular uptake rate,1.7719171107203815,mL/min/100cm3,0.42787536742803417,khe_f
-574,010,drug,liver,Hepatocellular mean transit time,132.06656465205282,min,0.0,Th
-575,010,drug,liver,Hepatocellular uptake rate,1.3816275495838726,mL/min/100cm3,0.0,khe
-576,010,drug,liver,Biliary tissue excretion rate,0.7571939215914604,mL/min/100cm3,0.0,Kbh
-577,010,drug,liver,Hepatocellular tissue uptake rate,5.801413479564658,mL/min/100cm3,0.0,Khe
-578,010,drug,liver,Biliary excretion rate,0.5768654574795183,mL/min/100cm3,0.0,kbh
-579,010,drug,liver,Initial biliary excretion rate,1.2397300311339934,mL/min/100cm3,0.0,kbh_i
-580,010,drug,liver,Final biliary excretion rate,0.37588534612748997,mL/min/100cm3,0.0,kbh_f
-581,010,drug,liver,Liver blood clearance,0.015323214232505366,L/min,0.0,CL
-582,010,drug,aorta,AUC for DR1b (0-inf),81322.44808400884,%,0.0,AUC_R1b
-583,010,drug,aorta,AUC for Cb (0-inf),82.98208988164167,mM*sec,0.0,AUC_Cb
-584,010,drug,liver,AUC for DR1l (0-inf),106047.91467267032,%,0.0,AUC_R1l
-585,010,drug,liver,AUC for Cl (0-inf),108.21215782925545,mM*sec,0.0,AUC_Cl
-586,010,drug,aorta,AUC for DR1b (0-35min),35186.41945505487,%,0.0,AUC35_R1b
-587,010,drug,aorta,AUC for Cb (0-35min),35.904509648015186,mM*sec,0.0,AUC35_Cb
-588,010,drug,liver,AUC for DR1l (0-35min),23206.964379067886,%,0.0,AUC35_R1l
-589,010,drug,liver,AUC for Cl (0-35min),23.680575897008048,mM*sec,0.0,AUC35_Cl
-590,010,drug,liver,RE for R1b at 20min,22.652999298247728,%,0.0,RE_R1b
-591,010,drug,liver,RE for R1l at 20min,7.8112685907816175,%,0.0,RE_R1l
-592,010,drug,liver,RE for Sb at 20min,15.721920114655349,%,0.0,RE_Sb
-593,010,drug,liver,RE for Sl at 20min,7.005733921333998,%,0.0,RE_Sl
+subject,visit,parameter,value,stdev
+001,control,CO,12.970040809116663,0.22505302266688587
+001,control,Thl,26.335813696199445,0.7019960177595321
+001,control,Dhl,65.33211115411511,1.0899652831211428
+001,control,To,23.109502126067273,0.6246585605910431
+001,control,Eo,14.085984710433694,0.2659501778451636
+001,control,Toe,7.557697934197346,0.22134344148595336
+001,control,Eb,6.219278593360274,0.17889615905295914
+001,control,H,45.0,0.0
+001,control,ve,29.80003075298842,0.7691597811000607
+001,control,Te,39.7000257486437,1.4078538650799253
+001,control,De,72.18963512070401,1.9794204616727276
+001,control,khe_i,37.909558511386514,0.3947817032797891
+001,control,khe_f,8.125870477917635,0.19626617805723587
+001,control,Th,80.2838097056008,0.0
+001,control,khe,23.017714494652072,0.0
+001,control,Kbh,1.2455811497573184,0.0
+001,control,Khe,77.2405729559316,0.0
+001,control,kbh,0.8743975840762106,0.0
+001,control,kbh_i,3.6453609713093966,0.0
+001,control,kbh_f,0.4967789420051481,0.0
+001,control,CL,0.25462503727986346,0.0
+001,control,AUC_Cb,150.7581266628857,0.0
+001,control,AUC_Cl,2573.236161194696,0.0
+001,control,AUC35_Cb,106.83768598948568,0.0
+001,control,AUC35_Cl,669.4802013500412,0.0
+001,control,RE_R1b,60.055282354712745,0.0
+001,control,RE_R1l,260.3329752908269,0.0
+001,control,RE_Sb,48.27375803586696,0.0
+001,control,RE_Sl,161.41869792342413,0.0
+001,control,T1_1,0.762049988,0.0
+001,control,T1_2,0.164630005,0.0
+001,control,T1_3,0.269029999,0.0
+002,control,CO,3.606952779826367,0.09050797811073885
+002,control,Thl,14.640800228728752,0.5677165666136458
+002,control,Dhl,64.20811524586867,1.184907621978096
+002,control,To,32.91791838353487,1.7952932966292707
+002,control,Eo,19.5323024861743,0.7293563125313879
+002,control,Toe,8.003844296058908,0.6148170862360806
+002,control,Eb,6.936221660061488,0.4324000710700481
+002,control,H,45.0,0.0
+002,control,ve,1.0025074349074525,1.6922298300352194
+002,control,Te,3.3025219471744087,3.623786483204037
+002,control,De,3.0622920148470856,958.1622175583093
+002,control,khe_i,25.949754462419346,0.5443228458519457
+002,control,khe_f,63.12936994783604,1.1696437627701572
+002,control,Th,39.50806256336678,0.0
+002,control,khe,44.53956220512769,0.0
+002,control,Kbh,2.531128926902212,0.0
+002,control,Khe,4442.81614821534,0.0
+002,control,kbh,2.5057541712229243,0.0
+002,control,kbh_i,2.035301126609818,0.0
+002,control,kbh_f,3.259079489166657,0.0
+002,control,CL,0.3045077222112028,0.0
+002,control,AUC_Cb,26.952164559159172,0.0
+002,control,AUC_Cl,346.5191767393574,0.0
+002,control,AUC35_Cb,17.569588841152765,0.0
+002,control,AUC35_Cl,106.45521811370462,0.0
+002,control,RE_R1b,9.496854288748661,0.0
+002,control,RE_R1l,36.15870178052921,0.0
+002,control,RE_Sb,9.982953554355657,0.0
+002,control,RE_Sl,29.842224092821485,0.0
+002,control,T1_1,0.756169983,0.0
+002,control,T1_2,0.582789978,0.0
+002,control,T1_3,0.739849976,0.0
+002,drug,CO,5.753983038232595,0.12230482951151002
+002,drug,Thl,8.236781912977625,0.323966391081483
+002,drug,Dhl,68.67257622591363,1.8663489426867967
+002,drug,To,25.395755704595217,1.116553646726714
+002,drug,Eo,14.057291012758553,0.6575911655617985
+002,drug,Toe,4.982543882405896,0.3635689376347396
+002,drug,Eb,5.306290856333922,0.2143465140267564
+002,drug,H,45.0,0.0
+002,drug,ve,18.474968227267958,0.8777018154779391
+002,drug,Te,36.196450650333205,3.203710596020568
+002,drug,De,72.1726707795789,4.119808544822023
+002,drug,khe_i,2.520292432842841,0.12631592331565125
+002,drug,khe_f,3.4329294031414515,0.4861437795161313
+002,drug,Th,315.1150633656216,0.0
+002,drug,khe,2.9766109179921463,0.0
+002,drug,Kbh,0.31734439773185974,0.0
+002,drug,Khe,16.111588834014043,0.0
+002,drug,kbh,0.25871512107988376,0.0
+002,drug,kbh_i,0.13587505535668315,0.0
+002,drug,kbh_f,2.6968131457538007,0.0
+002,drug,CL,0.02388555851041552,0.0
+002,drug,AUC_Cb,22.208472184292795,0.0
+002,drug,AUC_Cl,80.52580806979825,0.0
+002,drug,AUC35_Cb,17.227721441012015,0.0
+002,drug,AUC35_Cl,16.311879614079356,0.0
+002,drug,RE_R1b,9.122948338789632,0.0
+002,drug,RE_R1l,6.154124743395002,0.0
+002,drug,RE_Sb,4.255517729394765,0.0
+002,drug,RE_Sl,3.9962138693645155,0.0
+002,drug,T1_1,0.81451001,0.0
+002,drug,T1_2,0.718359985,0.0
+002,drug,T1_3,0.75377002,0.0
+003,control,CO,7.364691309969706,0.15160041700681043
+003,control,Thl,10.604072552272793,0.38628528405735846
+003,control,Dhl,34.71721572250523,1.1850734629506057
+003,control,To,17.45896952250813,1.3316254091749011
+003,control,Eo,17.552244125496806,1.6968876853425932
+003,control,Toe,2.3141782126465755,0.26194889150247846
+003,control,Eb,7.0321310380626905,0.23654941606653132
+003,control,H,45.0,0.0
+003,control,ve,36.624485643754966,10.163363288108808
+003,control,Te,59.99959238425666,19.55639817588249
+003,control,De,88.39867213426128,5.238299636440191
+003,control,khe_i,43.50050867151811,1.7721113575862761
+003,control,khe_f,4.530252853829653,56.27901671798342
+003,control,Th,30.595044092376206,0.0
+003,control,khe,24.015380762673885,0.0
+003,control,Kbh,3.2685032156864384,0.0
+003,control,Khe,65.57192637808109,0.0
+003,control,kbh,2.071430724691689,0.0
+003,control,kbh_i,1.2380431716228852,0.0
+003,control,kbh_f,6.337538752972113,0.0
+003,control,CL,0.2099117827247702,0.0
+003,control,AUC_Cb,13.077368659426789,0.0
+003,control,AUC_Cl,219.64400482464555,0.0
+003,control,AUC35_Cb,12.496261233676146,0.0
+003,control,AUC35_Cl,78.23373874835323,0.0
+003,control,RE_R1b,5.890019680800087,0.0
+003,control,RE_R1l,41.64030572710024,0.0
+003,control,RE_Sb,28.865642819683675,0.0
+003,control,RE_Sl,36.02204550854229,0.0
+003,control,T1_1,0.706900024,0.0
+003,control,T1_2,0.529400024,0.0
+003,control,T1_3,0.659650024,0.0
+003,drug,CO,6.10229004365253,0.15860472438613427
+003,drug,Thl,13.17806333926924,1.0577089704614913
+003,drug,Dhl,48.33329608532031,2.4811062787141225
+003,drug,To,26.818815099760126,0.8902456760697651
+003,drug,Eo,10.80815872337,0.5288331560776398
+003,drug,Toe,6.3732598164253,0.4205649565768527
+003,drug,Eb,3.3980526253319945,0.14992845532009316
+003,drug,H,45.0,0.0
+003,drug,ve,20.118849070697344,0.9107253086097293
+003,drug,Te,28.28341413464597,2.0767413702319586
+003,drug,De,65.13240901214282,3.8939112539286023
+003,drug,khe_i,3.2105140857188417,0.2392031059554315
+003,drug,khe_f,4.313198792810413,0.5185433103844095
+003,drug,Th,60.33641007711931,0.0
+003,drug,khe,3.761856439264627,0.0
+003,drug,Kbh,1.6573740444979153,0.0
+003,drug,Khe,18.69816919469657,0.0
+003,drug,kbh,1.3239294619484674,0.0
+003,drug,kbh_i,1.2254333566492428,0.0
+003,drug,kbh_f,1.4396429992697393,0.0
+003,drug,CL,0.03241845912824968,0.0
+003,drug,AUC_Cb,32.591840963147725,0.0
+003,drug,AUC_Cl,72.9716581774003,0.0
+003,drug,AUC35_Cb,19.995737682520616,0.0
+003,drug,AUC35_Cl,19.83559781537468,0.0
+003,drug,RE_R1b,12.595020581660798,0.0
+003,drug,RE_R1l,6.709923663869405,0.0
+003,drug,RE_Sb,4.158960416581606,0.0
+003,drug,RE_Sl,4.630855952706361,0.0
+003,drug,T1_1,0.725539978,0.0
+003,drug,T1_2,0.689530029,0.0
+003,drug,T1_3,0.709669983,0.0
+004,control,CO,4.1347011193581205,0.0394913659223264
+004,control,Thl,18.75594473441108,0.13780548127474976
+004,control,Dhl,31.148139802832198,0.32594499791923054
+004,control,To,26.328184492733218,0.7976896210692709
+004,control,Eo,30.898208303861914,0.5800546619311436
+004,control,Toe,5.6037169464087775,0.22746250645072102
+004,control,Eb,14.908973146763907,0.3849348784344856
+004,control,H,45.0,0.0
+004,control,ve,5.800437254820501,1.1192996524841141
+004,control,Te,25.544342464119076,4.137143036644367
+004,control,De,56.45056013959465,8.497573040455968
+004,control,khe_i,19.623930613783806,0.25110958405991063
+004,control,khe_f,28.148797954522337,0.5990653867049156
+004,control,Th,179.44194541858445,0.0
+004,control,khe,23.88636428415307,0.0
+004,control,Kbh,0.5572833027792352,0.0
+004,control,Khe,411.80282166317915,0.0
+004,control,kbh,0.5249584344699344,0.0
+004,control,kbh_i,0.6677250702865705,0.0
+004,control,kbh_f,0.4324879636822949,0.0
+004,control,CL,0.2116445009279712,0.0
+004,control,AUC_Cb,44.34621501995895,0.0
+004,control,AUC_Cl,945.4444036525074,0.0
+004,control,AUC35_Cb,36.75448259143732,0.0
+004,control,AUC35_Cl,190.4285596166083,0.0
+004,control,RE_R1b,18.188603362790033,0.0
+004,control,RE_R1l,75.5024588592584,0.0
+004,control,RE_Sb,6.01910403603376,0.0
+004,control,RE_Sl,61.8378654514423,0.0
+004,control,T1_1,0.802359985,0.0
+004,control,T1_2,0.502459991,0.0
+004,control,T1_3,0.649890015,0.0
+004,drug,CO,6.001229351848873,0.052392971240164704
+004,drug,Thl,21.09538003918464,0.4275414781906846
+004,drug,Dhl,33.078290064578745,0.6674247328757034
+004,drug,To,36.580942375641044,1.171772573300232
+004,drug,Eo,22.192120057090314,0.6172299454636737
+004,drug,Toe,5.612492092607893,0.2849273711541238
+004,drug,Eb,5.108502761833045,0.16960517618155707
+004,drug,H,45.0,0.0
+004,drug,ve,19.556461429504054,0.7730864508965903
+004,drug,Te,52.59878590427428,3.165851230752418
+004,drug,De,80.40328659930256,2.075376647884604
+004,drug,khe_i,1.7416730287949456,0.20990268487682093
+004,drug,khe_f,2.830244084726201,0.24301179160345637
+004,drug,Th,78.86694165908132,0.0
+004,drug,khe,2.2859585567605736,0.0
+004,drug,Kbh,1.2679583853050964,0.0
+004,drug,Khe,11.689019330009462,0.0
+004,drug,kbh,1.0199905927407429,0.0
+004,drug,kbh_i,1.0751347732416037,0.0
+004,drug,kbh_f,0.9702271735697161,0.0
+004,drug,CL,0.022477290252612917,0.0
+004,drug,AUC_Cb,87.9723197122686,0.0
+004,drug,AUC_Cl,140.7214596416775,0.0
+004,drug,AUC35_Cb,48.80727049473497,0.0
+004,drug,AUC35_Cl,35.43028817675621,0.0
+004,drug,RE_R1b,31.902185993172367,0.0
+004,drug,RE_R1l,12.215144949843841,0.0
+004,drug,RE_Sb,26.783505982348416,0.0
+004,drug,RE_Sl,10.712681717567596,0.0
+004,drug,T1_1,0.802289978,0.0
+004,drug,T1_2,0.709969971,0.0
+004,drug,T1_3,0.742330017,0.0
+005,control,CO,6.615377684586724,0.10576650668458346
+005,control,Thl,10.351665576354364,0.3318048871715732
+005,control,Dhl,56.029566970035646,1.363820707701159
+005,control,To,22.440342312352914,0.7844999489884306
+005,control,Eo,17.499472421182062,0.5168874290326041
+005,control,Toe,4.608889734602632,0.17849282636261599
+005,control,Eb,6.620785448186462,0.1867639246748199
+005,control,H,45.0,0.0
+005,control,ve,18.18403686160293,1.8654697135481926
+005,control,Te,39.04736476450093,4.803579756598252
+005,control,De,79.5295709749692,3.5636630050825264
+005,control,khe_i,34.85084180428993,0.4319087649027914
+005,control,khe_f,24.18143609673502,0.4046498469949869
+005,control,Th,33.81775709207568,0.0
+005,control,khe,29.516138950512474,0.0
+005,control,Kbh,2.957026384917538,0.0
+005,control,Khe,162.3189568694628,0.0
+005,control,kbh,2.419319617076809,0.0
+005,control,kbh_i,2.548579060784048,0.0
+005,control,kbh_f,2.3025388973549643,0.0
+005,control,CL,0.20818389996339864,0.0
+005,control,AUC_Cb,46.368083950303046,0.0
+005,control,AUC_Cl,527.2101111676402,0.0
+005,control,AUC35_Cb,37.76303853129276,0.0
+005,control,AUC35_Cl,211.8539403345398,0.0
+005,control,RE_R1b,15.772888795739767,0.0
+005,control,RE_R1l,96.75513653564931,0.0
+005,control,RE_Sb,2.1801149062630945,0.0
+005,control,RE_Sl,75.13629108905359,0.0
+005,control,T1_1,0.8025,0.0
+005,control,T1_2,0.450480011,0.0
+005,control,T1_3,0.66952002,0.0
+006,control,CO,4.425114583504892,0.05058866834843434
+006,control,Thl,16.64328398922914,0.14735876360755515
+006,control,Dhl,33.42835643501222,0.5757799464535932
+006,control,To,30.412666955566785,1.114160975434881
+006,control,Eo,20.76804101494134,0.6710160327544625
+006,control,Toe,6.070399102590551,0.3143541651826868
+006,control,Eb,8.505042992746862,0.27578257712977317
+006,control,H,45.0,0.0
+006,control,ve,19.27128891134062,3.482855059173932
+006,control,Te,45.2620781381582,7.805308350749825
+006,control,De,71.21048024711223,5.677683908862026
+006,control,khe_i,40.617182858633875,0.6166671870628476
+006,control,khe_f,33.418596413581504,0.6412104463678345
+006,control,Th,43.10961672848728,0.0
+006,control,khe,37.01788963610768,0.0
+006,control,Kbh,2.319668036712536,0.0
+006,control,Khe,192.08829158450158,0.0
+006,control,kbh,1.8726381075736402,0.0
+006,control,kbh_i,1.7590126941264077,0.0
+006,control,kbh_f,2.0019567681155337,0.0
+006,control,CL,0.2558491080534801,0.0
+006,control,AUC_Cb,35.90307703704716,0.0
+006,control,AUC_Cl,623.21893685952,0.0
+006,control,AUC35_Cb,27.201055164959506,0.0
+006,control,AUC35_Cl,197.21207891108577,0.0
+006,control,RE_R1b,15.243614406928533,0.0
+006,control,RE_R1l,93.60429260996682,0.0
+006,control,RE_Sb,11.97607627169357,0.0
+006,control,RE_Sl,75.75881903334445,0.0
+006,control,T1_1,0.83976001,0.0
+006,control,T1_2,0.498440002,0.0
+006,control,T1_3,0.684710022,0.0
+006,drug,CO,8.045961491030214,0.0902816383894483
+006,drug,Thl,15.983929448751663,0.29900613023726147
+006,drug,Dhl,40.026055505935254,0.9604271955133208
+006,drug,To,27.737030169311897,0.8473801707861529
+006,drug,Eo,12.076570295260835,0.39379254865135394
+006,drug,Toe,6.6054673929289125,0.39751591192444624
+006,drug,Eb,2.6863244131873074,0.1304140125045616
+006,drug,H,45.0,0.0
+006,drug,ve,31.70063992722763,0.937244996455351
+006,drug,Te,42.251495628395396,1.8026120519295128
+006,drug,De,65.99867425674458,2.0617266930648572
+006,drug,khe_i,1.3967313738967555,0.2203898998011339
+006,drug,khe_f,2.419692745787489,0.34366243954444187
+006,drug,Th,104.90698623190292,0.0
+006,drug,khe,1.9082120598421224,0.0
+006,drug,Kbh,0.9532253626936175,0.0
+006,drug,Khe,6.019474888275558,0.0
+006,drug,kbh,0.6510468227711043,0.0
+006,drug,kbh_i,0.5308353634634689,0.0
+006,drug,kbh_f,0.8416428593165379,0.0
+006,drug,CL,0.013467430231890648,0.0
+006,drug,AUC_Cb,61.46224378947961,0.0
+006,drug,AUC_Cl,109.44043406947974,0.0
+006,drug,AUC35_Cb,30.58811340534543,0.0
+006,drug,AUC35_Cl,27.081597970093338,0.0
+006,drug,RE_R1b,20.76717876046467,0.0
+006,drug,RE_R1l,9.546916380112929,0.0
+006,drug,RE_Sb,25.10970368390103,0.0
+006,drug,RE_Sl,7.57604777028895,0.0
+006,drug,T1_1,0.83651001,0.0
+006,drug,T1_2,0.75448999,0.0
+006,drug,T1_3,0.790440002,0.0
+007,control,CO,9.39284599173318,0.15339408574311714
+007,control,Thl,12.14141882777849,0.4218885306637373
+007,control,Dhl,32.600226072424135,1.086706601580827
+007,control,To,19.123169396940476,0.9251487918372252
+007,control,Eo,19.816098529405718,0.7074517703276946
+007,control,Toe,4.566546863622205,0.1696765102705843
+007,control,Eb,3.202102321650984,0.10623734444332536
+007,control,H,45.0,0.0
+007,control,ve,21.175554139560628,9.526870005963763
+007,control,Te,57.9681145119969,27.712596354065546
+007,control,De,95.11093886174659,3.549709533581008
+007,control,khe_i,35.811538611573894,0.9415774178840363
+007,control,khe_f,29.985629768717253,1.093323934757859
+007,control,Th,29.741564481890855,0.0
+007,control,khe,32.89858419014558,0.0
+007,control,Kbh,3.3622979067186716,0.0
+007,control,Khe,155.36114886686119,0.0
+007,control,kbh,2.650312693148145,0.0
+007,control,kbh_i,3.3030471796342513,0.0
+007,control,kbh_f,2.212990656493297,0.0
+007,control,CL,0.3106169302822344,0.0
+007,control,AUC_Cb,67.06861720263596,0.0
+007,control,AUC_Cl,656.6836304300978,0.0
+007,control,AUC35_Cb,36.4121566914554,0.0
+007,control,AUC35_Cl,188.07329544304505,0.0
+007,control,RE_R1b,24.77679298873401,0.0
+007,control,RE_R1l,85.36895657455756,0.0
+007,control,RE_Sb,19.07316135544974,0.0
+007,control,RE_Sl,72.97111999670273,0.0
+007,control,T1_1,0.855419983,0.0
+007,control,T1_2,0.537539978,0.0
+007,control,T1_3,0.601840027,0.0
+007,drug,CO,8.414039392724915,0.12655820807540416
+007,drug,Thl,12.94906482139464,0.18121520759269338
+007,drug,Dhl,36.53613967145006,0.8409828634858717
+007,drug,To,15.418434682298825,0.661572929955736
+007,drug,Eo,19.395424985064068,0.6130415232211572
+007,drug,Toe,4.07794070792903,0.17959541392057668
+007,drug,Eb,3.067408297542809,0.08578045592855982
+007,drug,H,45.0,0.0
+007,drug,ve,18.947335325041262,0.9812447311725173
+007,drug,Te,38.9027678562344,3.117168309150877
+007,drug,De,77.13014308021039,3.0758113690458684
+007,drug,khe_i,2.2981211016571605,1.036049749721199
+007,drug,khe_f,1.334156419820806,0.13613859145537174
+007,drug,Th,149.1609163496623,0.0
+007,drug,khe,1.8161387607389832,0.0
+007,drug,Kbh,0.6704169057635747,0.0
+007,drug,Khe,9.585193535571884,0.0
+007,drug,kbh,0.5433907665527844,0.0
+007,drug,kbh_i,8.052418026753081,0.0
+007,drug,kbh_f,0.2811827258634711,0.0
+007,drug,CL,0.020259967873143145,0.0
+007,drug,AUC_Cb,78.45760897910895,0.0
+007,drug,AUC_Cl,143.33091901306756,0.0
+007,drug,AUC35_Cb,44.71988702851583,0.0
+007,drug,AUC35_Cl,32.421744133063825,0.0
+007,drug,RE_R1b,29.393908423609172,0.0
+007,drug,RE_R1l,11.69932123843937,0.0
+007,drug,RE_Sb,34.26531533732706,0.0
+007,drug,RE_Sl,9.464872155380013,0.0
+007,drug,T1_1,0.84047998,0.0
+007,drug,T1_2,0.754640015,0.0
+007,drug,T1_3,0.80072998,0.0
+008,control,CO,10.737320899508111,0.15367419715603856
+008,control,Thl,16.264251581252534,0.5240402696687155
+008,control,Dhl,42.40617242150723,0.922078145868136
+008,control,To,22.623823957379244,0.8044011543066185
+008,control,Eo,15.521945629462714,0.5596021102001822
+008,control,Toe,4.632348779277776,0.20436668216580378
+008,control,Eb,4.764627209843034,0.12223067586244582
+008,control,H,45.0,0.0
+008,control,ve,13.666125709373835,1.0577392850514509
+008,control,Te,18.811914910765076,1.935913351587446
+008,control,De,47.35023091693808,7.197238496248318
+008,control,khe_i,39.58010694997721,0.4846672687202476
+008,control,khe_f,24.477988824636068,0.41827580668053677
+008,control,Th,33.5708847846876,0.0
+008,control,khe,32.02904788730664,0.0
+008,control,Kbh,2.978771654109401,0.0
+008,control,Khe,234.36816379742032,0.0
+008,control,kbh,2.5716889752636156,0.0
+008,control,kbh_i,3.755691999877871,0.0
+008,control,kbh_f,1.9552769275598576,0.0
+008,control,CL,0.32967789878217635,0.0
+008,control,AUC_Cb,39.757515905829294,0.0
+008,control,AUC_Cl,434.21568164163,0.0
+008,control,AUC35_Cb,28.287321695453798,0.0
+008,control,AUC35_Cl,162.37483445476937,0.0
+008,control,RE_R1b,18.348989657630803,0.0
+008,control,RE_R1l,65.14863086623336,0.0
+008,control,RE_Sb,12.386171118343734,0.0
+008,control,RE_Sl,54.35635437370154,0.0
+008,control,T1_1,0.74397998,0.0
+008,control,T1_2,0.46023999,0.0
+008,control,T1_3,0.574929993,0.0
+008,drug,CO,9.500154474694938,0.13081719125088856
+008,drug,Thl,14.676193458594227,0.5474237299667374
+008,drug,Dhl,43.944520731578834,1.279271426497888
+008,drug,To,26.042065917145944,0.7133235778851272
+008,drug,Eo,9.013580634208358,0.2688561403255611
+008,drug,Toe,8.875789702166209,0.4386277020379419
+008,drug,Eb,2.621428032729953,0.0904930896940754
+008,drug,H,45.0,0.0
+008,drug,ve,16.572115129894215,0.5903684554182567
+008,drug,Te,32.118696555963844,2.011879932550813
+008,drug,De,59.26579989105174,3.675696945600576
+008,drug,khe_i,1.2538543833856273,0.0959539763838134
+008,drug,khe_f,2.931723731482229,0.27886301858217816
+008,drug,Th,209.5452666681589,0.0
+008,drug,khe,2.092789057433928,0.0
+008,drug,Kbh,0.4772238552081565,0.0
+008,drug,Khe,12.628376287700139,0.0
+008,drug,kbh,0.3981377684957411,0.0
+008,drug,kbh_i,0.2397607244478307,0.0
+008,drug,kbh_f,1.1729354009980992,0.0
+008,drug,CL,0.01843044113275309,0.0
+008,drug,AUC_Cb,79.901355095907,0.0
+008,drug,AUC_Cl,148.41932009381037,0.0
+008,drug,AUC35_Cb,41.15368135742984,0.0
+008,drug,AUC35_Cl,26.61989971572405,0.0
+008,drug,RE_R1b,25.194431081646297,0.0
+008,drug,RE_R1l,7.663164696877906,0.0
+008,drug,RE_Sb,21.0039755425488,0.0
+008,drug,RE_Sl,4.536316549971405,0.0
+008,drug,T1_1,0.70625,0.0
+008,drug,T1_2,0.615119995,0.0
+008,drug,T1_3,0.656880005,0.0
+009,control,CO,11.388944922614348,0.1609355948227359
+009,control,Thl,9.41827282156907,0.16751075554297865
+009,control,Dhl,51.71816688353875,1.081273418945372
+009,control,To,35.43864878731361,1.1724682640608848
+009,control,Eo,13.825573476248785,0.5645368587837506
+009,control,Toe,6.645758566779027,0.4034779538112272
+009,control,Eb,5.701092055342727,0.1766908378145779
+009,control,H,45.0,0.0
+009,control,ve,15.884277898652005,1.980078058830908
+009,control,Te,36.24849575309691,5.8686214719536265
+009,control,De,72.7236411223615,5.857298503529205
+009,control,khe_i,22.937511028256786,0.46897129204171883
+009,control,khe_f,20.67653063012903,0.6024579504474132
+009,control,Th,28.562054713199934,0.0
+009,control,khe,21.807020829192904,0.0
+009,control,Kbh,3.5011486744959237,0.0
+009,control,Khe,137.28682517600328,0.0
+009,control,kbh,2.94501648939402,0.0
+009,control,kbh_i,2.7623059184078382,0.0
+009,control,kbh_f,3.1536095328257066,0.0
+009,control,CL,0.25865669598314656,0.0
+009,control,AUC_Cb,41.78664927044066,0.0
+009,control,AUC_Cl,287.4620386098399,0.0
+009,control,AUC35_Cb,29.52312405265828,0.0
+009,control,AUC35_Cl,108.62345448492971,0.0
+009,control,RE_R1b,17.91278058980001,0.0
+009,control,RE_R1l,51.206636465440795,0.0
+009,control,RE_Sb,3.7769611044079423,0.0
+009,control,RE_Sl,40.87363225313824,0.0
+009,control,T1_1,0.847049988,0.0
+009,control,T1_2,0.621599976,0.0
+009,control,T1_3,0.726429993,0.0
+009,drug,CO,10.383727633630425,0.12422539634779191
+009,drug,Thl,14.795897473088836,0.19805886509755455
+009,drug,Dhl,55.633996665606404,0.9254525437346242
+009,drug,To,45.44948440300113,1.1775109054174904
+009,drug,Eo,10.213302195923038,0.39035463468430975
+009,drug,Toe,8.03444830964184,0.48291480178978613
+009,drug,Eb,2.618835596752699,0.10397694046426027
+009,drug,H,45.0,0.0
+009,drug,ve,22.61612218935244,0.7911607032911516
+009,drug,Te,58.17904689374618,3.320639945739459
+009,drug,De,69.8638943651516,2.5871963602426673
+009,drug,khe_i,0.8219715427284138,0.18193120030119025
+009,drug,khe_f,1.5000404708168007,0.257970272027876
+009,drug,Th,46.45786513219268,0.0
+009,drug,khe,1.1610060067726071,0.0
+009,drug,Kbh,2.1524880602123417,0.0
+009,drug,Khe,5.133532605864693,0.0
+009,drug,kbh,1.6656787304034961,0.0
+009,drug,kbh_i,1.347279521937357,0.0
+009,drug,kbh_f,2.1811427570501616,0.0
+009,drug,CL,0.01392993131390546,0.0
+009,drug,AUC_Cb,95.12606752548353,0.0
+009,drug,AUC_Cl,79.39721845555465,0.0
+009,drug,AUC35_Cb,42.863303373030334,0.0
+009,drug,AUC35_Cl,24.349543940820954,0.0
+009,drug,RE_R1b,31.623342318710318,0.0
+009,drug,RE_R1l,9.041410348298998,0.0
+009,drug,RE_Sb,22.023857209480585,0.0
+009,drug,RE_Sl,5.562230479795377,0.0
+009,drug,T1_1,0.881320007,0.0
+009,drug,T1_2,0.817150024,0.0
+009,drug,T1_3,0.829539978,0.0
+010,control,CO,7.121990662638001,0.09516224089681495
+010,control,Thl,9.730773100307557,0.23436195715272132
+010,control,Dhl,58.76958719738163,1.3260813204671205
+010,control,To,46.74759800156098,1.4410714605241424
+010,control,Eo,14.240908567670859,0.5074930499346064
+010,control,Toe,8.961321801544944,0.5032473763798057
+010,control,Eb,3.461421813385375,0.15715777135643785
+010,control,H,45.0,0.0
+010,control,ve,15.225286048210629,2.931517977796643
+010,control,Te,39.061742578992515,8.401428987901951
+010,control,De,74.60718613994918,6.747359919934082
+010,control,khe_i,26.4304180565601,0.5809566077876346
+010,control,khe_f,30.085265565859242,0.9788664768229651
+010,control,Th,26.052392391175097,0.0
+010,control,khe,28.25784181120967,0.0
+010,control,Kbh,3.838419078697497,0.0
+010,control,Khe,185.59810122273996,0.0
+010,control,kbh,3.254008794236712,0.0
+010,control,kbh_i,3.260205825752191,0.0
+010,control,kbh_f,3.2478352767832046,0.0
+010,control,CL,0.3040236087724031,0.0
+010,control,AUC_Cb,78.63774756796393,0.0
+010,control,AUC_Cl,562.8251190876815,0.0
+010,control,AUC35_Cb,37.21383149781865,0.0
+010,control,AUC35_Cl,151.7973835977772,0.0
+010,control,RE_R1b,21.07237195703773,0.0
+010,control,RE_R1l,63.36990678028114,0.0
+010,control,RE_Sb,10.056052018883657,0.0
+010,control,RE_Sl,51.682063828141736,0.0
+010,control,T1_1,0.806320007,0.0
+010,control,T1_2,0.561890015,0.0
+010,control,T1_3,0.715039978,0.0
+010,drug,CO,7.411803198690125,0.1025850985837204
+010,drug,Thl,14.778585828516691,0.6562222062457297
+010,drug,Dhl,53.09410756561568,1.62952316954038
+010,drug,To,43.35599887867731,1.1893183366169973
+010,drug,Eo,14.72362868546443,0.4362526590870409
+010,drug,Toe,9.2205614885765,0.4976660143248525
+010,drug,Eb,2.9055488206072564,0.15379488169665612
+010,drug,H,45.0,0.0
+010,drug,ve,24.235547372740346,0.9597265380832651
+010,drug,Te,55.14027853452556,3.626849362768
+010,drug,De,73.61304469982423,2.7536323511641503
+010,drug,khe_i,0.9684114755420469,0.32620515770098013
+010,drug,khe_f,1.681256733975592,0.4316722629009403
+010,drug,Th,162.54301137759427,0.0
+010,drug,khe,1.3248341047588195,0.0
+010,drug,Kbh,0.6152217751626109,0.0
+010,drug,Khe,5.466491366516301,0.0
+010,drug,kbh,0.46611941039566224,0.0
+010,drug,kbh_i,1.2697032747397916,0.0
+010,drug,kbh_f,0.2854565248789678,0.0
+010,drug,CL,0.014693335273940613,0.0
+010,drug,AUC_Cb,85.48407071325092,0.0
+010,drug,AUC_Cl,114.54866740578893,0.0
+010,drug,AUC35_Cb,36.32013127405342,0.0
+010,drug,AUC35_Cl,24.046141721828302,0.0
+010,drug,RE_R1b,22.65591298733508,0.0
+010,drug,RE_R1l,7.859072028724023,0.0
+010,drug,RE_Sb,24.14803290252962,0.0
+010,drug,RE_Sl,5.852072806945635,0.0
+010,drug,T1_1,0.830440002,0.0
+010,drug,T1_2,0.754059998,0.0
+010,drug,T1_3,0.78526001,0.0

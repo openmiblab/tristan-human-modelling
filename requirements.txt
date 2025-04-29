@@ -5,5 +5,7 @@ matplotlib
 scipy
 pingouin
 openpyxl
-dcmri
 pdfLaTex
+miblab[report]
+dcmri
+pydmr
