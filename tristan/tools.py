@@ -1,5 +1,7 @@
 import os
 
+import numpy as np
+
 import pydmr
 
 
@@ -62,37 +64,80 @@ LABEL = {
 }
 
 
-def build_master(resultspath):
-    path = os.path.join(resultspath, 'Results')
-    filenames = os.listdir(path)
+def export_params(model, tb, Sb, tl, Sl, params):
 
-    # combine dmr files
-    output_data = {}
-    output_pars = {}
-    output_sdev = {}
-    for filename in filenames:
-        subj_file = os.path.join(path, filename)
-        dmr = pydmr.read(subj_file)
-        output_data = output_data | dmr['data']
-        output_pars = output_pars | dmr['pars']
-        output_sdev = output_sdev | dmr['sdev']
-    
-    # Append group and label to the data dictionary
-    for p in output_data:
-        if p in AORTA_PARS:
-            output_data[p].append('MRI - aorta')
-        else:
-            output_data[p].append('MRI - liver')
-        output_data[p].append(LABEL[p])
+     # Compute AUC over 3hrs
+    model.tmax = model.BAT+180*60
+    t, cb, Cl = model.conc()
+    t, R1b, R1l = model.relax()
+    AUC_Cb = np.trapezoid(cb, model.t) 
+    AUC_Cl = np.trapezoid(Cl, t)
 
+    # Compute relative enhancement at 20mins
+    tRE = model.BAT + 20*60
+    RE_R1b = (R1b[t<tRE][-1] - R1b[0])/R1b[0]
+    RE_R1l = (R1l[t<tRE][-1] - R1l[0])/R1l[0]
+    S0b = np.mean(Sb[tb<model.BAT-30])
+    S0l = np.mean(Sl[tl<model.BAT-30])
+    RE_Sb = (Sb[tb<tRE][-1] - S0b)/S0b
+    RE_Sl = (Sl[tl<tRE][-1] - S0l)/S0l
+
+    # Compute AUC over 35min
+    model.tmax = model.BAT+35*60
+    t, cb, Cl = model.conc()
+    t, R1b, R1l = model.relax()
+    AUC35_Cb = np.trapezoid(cb, model.t) 
+    AUC35_Cl = np.trapezoid(Cl, t) 
+
+    pars = model.export_params()
+    pars['AUC_Cb']=['AUC for Cb (0-inf)', 1000*AUC_Cb, 'mM*sec',0]
+    pars['AUC_Cl']=['AUC for Cl (0-inf)', 1000*AUC_Cl, 'mM*sec',0]  
+    pars['AUC35_Cb']=['AUC for Cb (0-35min)', 1000*AUC35_Cb, 'mM*sec',0]
+    pars['AUC35_Cl']=['AUC for Cl (0-35min)', 1000*AUC35_Cl, 'mM*sec',0]  
+    pars['RE_R1b']=['RE for R1b at 20min', 100*RE_R1b, '%',0]
+    pars['RE_R1l']=['RE for R1l at 20min', 100*RE_R1l, '%',0]
+    pars['RE_Sb']=['RE for Sb at 20min', 100*RE_Sb, '%',0]
+    pars['RE_Sl']=['RE for Sl at 20min', 100*RE_Sl, '%',0]     
+
+    # MOLLI values     
+    pars['T1_1']=['Liver T1-MOLLI at baseline', params['T1_liver_1'], 'sec', 0]
+    pars['T1_2']=['Liver T1-MOLLI at 45min', params['T1_liver_2'], 'sec', 0]
+
+    # Timings needed for plotting etc
+    pars['t1_MOLLI']=['Time of T1-MOLLI at baseline', params['T1_time_1']/(60*60), 'hrs', 0]
+    pars['t2_MOLLI']=['Time of T1-MOLLI at 45min', params['T1_time_2']/(60*60), 'hrs', 0]
+  
+    return pars  
+
+
+
+def to_dmr(path, subj, study, name, pars):
+
+    # Build data dictionary
     dmr = {
-        'data': output_data,
-        'pars': output_pars,
-        'sdev': output_sdev,
+        'data': {},
+        'pars': {},   
+        'sdev': {},
         'columns': ['group', 'label'],
     }
-    dmr_file = os.path.join(resultspath, 'all_results')
-    pydmr.write(dmr_file, dmr)
+    for key, val in pars.items():
+        dmr['data'][key] = [val[0], val[2], 'float']
+        dmr['pars'][subj, study, key] = val[1]
+        dmr['sdev'][subj, study, key] = val[3]
+
+    # Append group and label to the data dictionary
+    for p in dmr['data']:
+        if p in AORTA_PARS:
+            dmr['data'][p].append('MRI - aorta')
+        else:
+            dmr['data'][p].append('MRI - liver')
+        dmr['data'][p].append(LABEL[p])
+
+    # Save as dmr file
+    file = os.path.join(path, name + '.dmr')
+    pydmr.write(file, dmr)
+    return file
+
 
 
 def to_tristan_units(pars):
@@ -114,23 +159,5 @@ def to_tristan_units(pars):
         pars['CL'][1:] = [pars['CL'][1]*60/1000, 'L/min', pars['CL'][3]*60/1000]
 
     return pars
-
-
-def to_dmr(path, subj, study, name, pars):
-    pars = to_tristan_units(pars)
-    data_dict = {}
-    dmr_pars = {}
-    dmr_sdev = {}
-    for key, val in pars.items():
-        data_dict[key] = [val[0], val[2], 'float']
-        dmr_pars[subj, study, key] = val[1]
-        dmr_sdev[subj, study, key] = val[3]
-    dmr = {
-        'data': data_dict,
-        'pars': dmr_pars,   
-        'sdev': dmr_sdev,
-    }
-    file = os.path.join(path, name + '.dmr')
-    pydmr.write(file, dmr)
 
 

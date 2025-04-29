@@ -1,32 +1,38 @@
 import os
 
+import miblab
+
 from tristan import report, master
 
-def main():
+drug = 'rifampicin'
+results = os.path.join(os.getcwd(), 'results', f'{drug}_clinical')
 
-    root = os.path.abspath(os.sep)
-    outputpath = os.path.join(root, 'Users', 'md1spsx', 'Documents', 'Results')
+def main(compute=True):
 
-    drug = 'rifampicin'
-
-    sourcepath = os.path.join(os.getcwd(), 'data', f'tristan_humans_patients_{drug}.dmr')
-    resultspath = os.path.join(outputpath, f'{drug}_clinical')
-
+    data = miblab.zenodo_fetch(
+        f'tristan_humans_patients_{drug}.dmr.zip', 
+        os.path.join(os.getcwd(), 'data'),
+    )
     master.run(
-        sourcepath, 
-        resultspath, 
-        effect_range=([-100,200], [-100,500]),
-        k_max=[100, 5],
+        data, 
+        results, 
         acq_times=[5,10,15,20],
         ref=True,
-        compute=True,
+        compute=compute,
     )
-    report.build(
-        resultspath, 
-        f'{drug}_clinical',
+    report.all_results(
+        results, 
+        f'{drug}_clinical' + '_all_results',
         title = 'Gothenburg patient study',
-        subtitle = drug,
+        subtitle = drug + ' (all results)',
         subject = 'D2.07 - Internal report',
+    )
+    report.key_results(
+        results, 
+        f'{drug}_clinical' + '_key_results',
+        title = 'Gothenburg patient study',
+        subtitle = drug + ' (key results)',
+        subject = 'D2.13 - Internal report',
     )
 
     

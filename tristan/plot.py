@@ -111,7 +111,7 @@ def _line_plots(src, ax1, ax2, ylim=[50,5], ref=False):
     khe_rif = pivot.loc[:, 'khe']
     kbh_rif = pivot.loc[:, 'kbh']
     
-    for s in khe_ref.index:
+    for i, s in enumerate(khe_ref.index):
         if s in khe_rif.index:
             x = [visits[0], visits[1]]
             khe = [khe_ref[s],khe_rif[s]]
@@ -120,10 +120,10 @@ def _line_plots(src, ax1, ax2, ylim=[50,5], ref=False):
             x = [visits[0]]
             khe = [khe_ref[s]]
             kbh = [kbh_ref[s]]    
-        si = float(s)/np.amax(khe_ref.index.values)  
-        ax1.plot(x, khe, '-', label=s, marker=mark[int(s)], 
+        si = i/len(khe_ref.index.values)  
+        ax1.plot(x, khe, '-', label=s, marker=mark[int(i+1)], 
                  markersize=markersize, color=color(si))
-        ax2.plot(x, kbh, '-', label=s, marker=mark[int(s)], 
+        ax2.plot(x, kbh, '-', label=s, marker=mark[int(i+1)], 
                  markersize=markersize, color=color(si))
 
 
@@ -447,7 +447,7 @@ def diurnal_k(src, ylim=[50,6]):
     for visit in visits:
         df_visit = output[output.visit==visit]
         subjects = df_visit.subject.unique()
-        for s in subjects:
+        for i, s in enumerate(subjects):
             df_subj = df_visit[df_visit.subject==s]
             for par in ['khe', 'kbh']:
                 data_subj = []
@@ -463,10 +463,10 @@ def diurnal_k(src, ylim=[50,6]):
                         v = df_par.value.values[0]
                         t.append(v)
                 if len(data_subj) == 2:
-                    si = float(s)/np.amax(subjects.astype(int))
+                    si = i/len(subjects)
                     ax[visit+par].plot(
                         t, data_subj, '-', 
-                        label=s, marker=mark[int(s)], 
+                        label=s, marker=mark[int(i+1)], 
                         markersize=markersize, color=color(si))
     path = os.path.join(src, 'Figures')
     if not os.path.exists(path):

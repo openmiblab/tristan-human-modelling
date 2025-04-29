@@ -1,7 +1,6 @@
 import os
 import time
 
-import numpy as np
 import dcmri as dc
 import pydmr
 
@@ -9,27 +8,30 @@ from tristan import tools
 
 
 
-def compute(datapath, resultspath):
+def compute(datafile, resultspath):
 
     start = time.time()
 
     if not os.path.exists(resultspath):
         os.makedirs(resultspath)
 
-    dmr = pydmr.read(datapath, format='nest')
-    rois, pars = dmr['rois'], dmr['pars']
-    for subj in rois.keys():
-        for visit in rois[subj].keys():
+    results = []
+    data = pydmr.read(datafile, format='nest')
+    for subj in data['rois'].keys():
+        for visit in data['rois'][subj].keys():
             name = subj + '_' + visit
-            fit_subj(rois, pars, subj, visit, resultspath, name)
+            file = fit_subj(data, subj, visit, resultspath, name)
+            results.append(file)
+    file = os.path.join(resultspath, 'all_results')
+    pydmr.concat(results, file)
 
     print('Calculation time (mins): ', (time.time()-start)/60)
 
 
-def fit_subj(rois, pars, subj, visit, path, name):
+def fit_subj(data, subj, visit, path, name):
 
-    rois = rois[subj][visit]
-    pars = pars[subj][visit]
+    rois = data['rois'][subj][visit]
+    pars = data['pars'][subj][visit]
 
     xdata = (
         rois['time_1'][rois['aorta_1_accept']] - rois['time_1'][0], 
@@ -78,61 +80,22 @@ def fit_subj(rois, pars, subj, visit, path, name):
     print('Goodness of fit (improvement, %): ', 100*(loss0-loss1)/loss0)
 
     # Export data
-    figure(model, xdata, ydata, os.path.join(path, 'Plots'), name, 
-           pars, rois['time_1'][0])
+    pngpath =  os.path.join(path, 'Plots')
+    figure(model, xdata, ydata, pngpath, name, pars, rois['time_1'][0])
     pars = parameters(model, xdata, ydata, rois['time_1'][0], pars)
-    tools.to_dmr(os.path.join(path, 'Results'), subj, visit, name, pars)
+    dmrpath = os.path.join(path, 'Results')
+    return tools.to_dmr(dmrpath, subj, visit, name, pars)
 
 
 def parameters(model:dc.AortaLiver2scan, xdata, ydata, t0, params):
 
-    time = (xdata[0], xdata[1])
     tb, Sb, tl, Sl = xdata[0], ydata[0], xdata[2], ydata[2]
 
+    time = (xdata[0], xdata[1])
     model.dose2 = 0
 
-    # Compute AUC over 3hrs
-    model.tmax = model.BAT+180*60
-    t, cb, Cl = model.conc()
-    t, R1b, R1l = model.relax()
-    AUC_Cb = np.trapezoid(cb, model.t) 
-    AUC_Cl = np.trapezoid(Cl, t)
-
-    # Compute relative enhancement at 20mins
-    tRE = model.BAT + 20*60
-    RE_R1b = (R1b[t<tRE][-1] - R1b[0])/R1b[0]
-    RE_R1l = (R1l[t<tRE][-1] - R1l[0])/R1l[0]
-    S0b = np.mean(Sb[tb<model.BAT-30])
-    S0l = np.mean(Sl[tl<model.BAT-30])
-    RE_Sb = (Sb[tb<tRE][-1] - S0b)/S0b
-    RE_Sl = (Sl[tl<tRE][-1] - S0l)/S0l
-
-    # Compute AUC over 35min
-    model.tmax = model.BAT+35*60
-    t, cb, Cl = model.conc()
-    t, R1b, R1l = model.relax()
-    AUC35_Cb = np.trapezoid(cb, model.t)
-    AUC35_Cl = np.trapezoid(Cl, t) 
-
-    # Export parameters
-    pars = model.export_params()
-    pars['AUC_Cb']=['AUC for Cb (0-inf)', 1000*AUC_Cb, 'mM*sec',0]
-    pars['AUC_Cl']=['AUC for Cl (0-inf)', 1000*AUC_Cl, 'mM*sec',0]  
-    pars['AUC35_Cb']=['AUC for Cb (0-35min)', 1000*AUC35_Cb, 'mM*sec',0]
-    pars['AUC35_Cl']=['AUC for Cl (0-35min)', 1000*AUC35_Cl, 'mM*sec',0]  
-    pars['RE_R1b']=['RE for R1b at 20min', 100*RE_R1b, '%',0]
-    pars['RE_R1l']=['RE for R1l at 20min', 100*RE_R1l, '%',0]
-    pars['RE_Sb']=['RE for Sb at 20min', 100*RE_Sb, '%',0]
-    pars['RE_Sl']=['RE for Sl at 20min', 100*RE_Sl, '%',0]    
-
-    # MOLLI values     
-    pars['T1_1']=['Liver T1-MOLLI at baseline', params['T1_liver_1'], 'sec', 0]
-    pars['T1_2']=['Liver T1-MOLLI at 45min', params['T1_liver_2'], 'sec', 0]
+    pars = tools.export_params(model, tb, Sb, tl, Sl, params)
     pars['T1_3']=['Liver T1-MOLLI at scan 2', params['T1_liver_3'], 'sec', 0]
-
-    # Timings needed for plotting etc
-    pars['t1_MOLLI']=['Time of T1-MOLLI at baseline', params['T1_time_1']/(60*60), 'hrs', 0]
-    pars['t2_MOLLI']=['Time of T1-MOLLI at 45min', params['T1_time_2']/(60*60), 'hrs', 0]
     pars['t3_MOLLI']=['Time of T1-MOLLI at scan 2', params['T1_time_3']/(60*60), 'hrs', 0]
 
     pars['t0']=["Start time first acquisition", (t0+time[0][0])/(60*60), 
@@ -146,7 +109,7 @@ def parameters(model:dc.AortaLiver2scan, xdata, ydata, t0, params):
     pars['dt1']=["Time step first acquisition", model.TS, 'sec',0]
     pars['dt2']=["Time step second acquisition", model.TS, 'sec',0]
 
-    return pars  
+    return tools.to_tristan_units(pars)
 
 
 def figure(model:dc.AortaLiver2scan, xdata, ydata, path, name, 

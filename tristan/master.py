@@ -4,11 +4,11 @@ from tristan import onescan, twoscan, plot, tools, calc, tables
 
 
 def run(
-        sourcepath, 
+        dmr_file, 
         resultspath, 
         effect_range=([-100,200], [-100,500]),
         k_max = [100, 10],
-        acq_times=[5,10,15,20],
+        acq_times=[5,10,15,20,25,30,35,40],
         ref=True,
         compute=True,
     ):
@@ -17,20 +17,19 @@ def run(
 
         # Onescan
         path = os.path.join(resultspath, 'onescan')
-        onescan.compute(sourcepath, path)
+        onescan.compute(dmr_file, path)
 
         # Twoscan
         path = os.path.join(resultspath, 'twoscan')
-        twoscan.compute(sourcepath, path)
+        twoscan.compute(dmr_file, path)
 
         # Variable time
         path = os.path.join(resultspath, 'onescan_vart')
-        onescan.compute_vart(sourcepath, path, acq_times=acq_times)
+        onescan.compute_vart(dmr_file, path, acq_times=acq_times)
 
     # Compute statistics
     for exp in ['onescan','twoscan']:
         path = os.path.join(resultspath, exp)
-        tools.build_master(path)
         calc.derive_pars(path)
         calc.desc_stats(path)
         calc.pairwise_diff(path)
@@ -52,7 +51,6 @@ def run(
     
     # Variable acquisition time results
     path = os.path.join(resultspath, 'onescan_vart')
-    tools.build_master(path)
     calc.derive_vart_pars(path)
     plot.vart_effect_plot(
         path, os.path.join(resultspath, 'twoscan'), 

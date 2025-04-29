@@ -3,11 +3,11 @@ import pandas as pd
 import miblab
 
 
-def build(
+def key_results(
         resultspath, 
         filename,
         title = 'Liver-mediated DDI study',
-        subtitle = 'Interim analysis',
+        subtitle = 'Key results',
         subject = 'Internal report',
     ):
 
@@ -16,6 +16,34 @@ def build(
     # Cover and title pages
     doc = miblab.Report(
         resultspath,
+        filename,
+        title = title,
+        subtitle = subtitle,
+        subject = subject,
+    )
+
+    folder = 'twoscan'
+    doc.chapter('Key results')
+    section_summary(doc, resultspath, folder)
+    section_biomarkers(doc, resultspath, folder)
+
+    doc.build()
+
+
+def all_results(
+        resultspath, 
+        filename,
+        title = 'Liver-mediated DDI study',
+        subtitle = 'All results',
+        subject = 'Internal report',
+    ):
+
+    print('Creating report..')
+
+    # Cover and title pages
+    doc = miblab.Report(
+        resultspath,
+        filename,
         title = title,
         subtitle = subtitle,
         subject = subject,
@@ -41,7 +69,7 @@ def build(
     section_diurnal(doc, resultspath)
     section_acqtime(doc, resultspath)
 
-    doc.build('report_' + filename)
+    doc.build()
 
 
 def section_diurnal(doc: miblab.Report, results):
