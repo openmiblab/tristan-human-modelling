@@ -4,7 +4,7 @@ import time
 import dcmri as dc
 import pydmr
 
-from tristan import tools
+from methods import tools
 
 
 def compute(datafile, resultspath):

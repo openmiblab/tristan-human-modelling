@@ -6,6 +6,6 @@ scipy
 pingouin
 openpyxl
 pdfLaTex
-miblab[report]
+miblab[data,report]
 dcmri
 pydmr

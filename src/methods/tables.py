@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 
-from tristan import calc
+from methods import calc
 
 
 

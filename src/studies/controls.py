@@ -2,10 +2,14 @@ import os
 
 import miblab
 
-from tristan import onescan, twoscan
+from methods import onescan, twoscan
+
+ONESCAN = 'results (one scan)'
+TWOSCAN = 'results (two scans)'
+VART = 'results (one scan - variable tacq)'
 
 drug = 'controls'
-results = os.path.join(os.getcwd(), 'results', drug)
+results = os.path.join(os.getcwd(), 'build', drug)
 
 def main(compute=True):
 
@@ -17,15 +21,15 @@ def main(compute=True):
     if compute:
 
         # Onescan
-        path = os.path.join(results, 'onescan')
+        path = os.path.join(results, ONESCAN)
         onescan.compute(data, path)
 
         # Twoscan
-        path = os.path.join(results, 'twoscan')
+        path = os.path.join(results, TWOSCAN)
         twoscan.compute(data, path)
 
         # Variable time
-        path = os.path.join(results, 'onescan_vart')
+        path = os.path.join(results, VART)
         onescan.compute_vart(data, path)
 
 

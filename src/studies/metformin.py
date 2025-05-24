@@ -2,10 +2,10 @@ import os
 
 import miblab
 
-from tristan import report, master
+from methods import report, master
 
-drug = 'ciclosporin'
-results = os.path.join(os.getcwd(), 'results', drug)
+drug = 'metformin'
+results = os.path.join(os.getcwd(), 'build', drug)
 
 def main(compute=True):
 
@@ -21,15 +21,15 @@ def main(compute=True):
     )
     report.all_results(
         results, 
-        drug + '_all_results',
-        title = 'Two-compound study',
+        'report (complete)',
+        title = 'Sheffield two-compound study',
         subtitle = drug + ' (all results)',
         subject = 'D2.10 - Internal report',
     )
     report.key_results(
         results, 
-        drug + '_key_results',
-        title = 'Two-compound study',
+        'report (summary)',
+        title = 'Sheffield two-compound study',
         subtitle = drug + ' (key results)',
         subject = 'D2.13 - Internal report',
     )

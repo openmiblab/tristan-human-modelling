@@ -3,6 +3,11 @@ import pandas as pd
 import miblab
 
 
+ONESCAN = 'results (one scan)'
+TWOSCAN = 'results (two scans)'
+VART = 'results (one scan - variable tacq'
+
+
 def key_results(
         resultspath, 
         filename,
@@ -22,7 +27,7 @@ def key_results(
         subject = subject,
     )
 
-    folder = 'twoscan'
+    folder = TWOSCAN
     doc.chapter('Key results')
     section_summary(doc, resultspath, folder)
     section_biomarkers(doc, resultspath, folder)
@@ -50,7 +55,7 @@ def all_results(
     )
 
     # Two-scan results
-    folder = 'twoscan'
+    folder = TWOSCAN
     doc.chapter('Two-scan results')
     section_summary(doc, resultspath, folder)
     section_biomarkers(doc, resultspath, folder)
@@ -58,7 +63,7 @@ def all_results(
     section_case_notes(doc, resultspath, folder)
 
     # One-scan results
-    folder = 'onescan'
+    folder = ONESCAN
     doc.chapter('One-scan results')
     section_summary(doc, resultspath, folder)
     section_biomarkers(doc, resultspath, folder)
@@ -76,7 +81,7 @@ def section_diurnal(doc: miblab.Report, results):
 
     doc.section('Diurnal variation')
 
-    fig = os.path.join(results, 'twoscan', 'Figures', '_diurnal_function.png')
+    fig = os.path.join(results, TWOSCAN, 'Figures', '_diurnal_function.png')
     caption = (
         "Intra-day changes in hepatocellular uptake (k_he, top row) "
         "and biliary excretion (k_bh, bottom row) of gadoxetate at "
@@ -90,7 +95,7 @@ def section_diurnal(doc: miblab.Report, results):
 
 def section_acqtime(doc: miblab.Report, results):
 
-    fig = os.path.join(results, 'onescan_vart', 'Figures', '_effect_plot.png')
+    fig = os.path.join(results, VART, 'Figures', '_effect_plot.png')
     if not os.path.exists(fig):
         return
 

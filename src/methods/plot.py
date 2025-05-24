@@ -2,10 +2,9 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import dcmri as dc
 import pydmr
 
-from tristan import calc
+from methods import calc
 
 
 sym = {
@@ -54,7 +53,7 @@ def color(index: float) -> str:
 def _line_plot_ref(ax1, ax2, visits):
 
     output = pd.read_csv(
-        os.path.join(os.getcwd(), 'tristan', 'reference.csv')
+        os.path.join(os.getcwd(), 'src', 'methods', 'reference.csv')
     )
 
     pivot = pd.pivot_table(output[output.visit=='control'], values='value', 
@@ -237,7 +236,7 @@ def compare_to_ref(src):
     df = pd.DataFrame(dmr['pars'], columns=['subject', 'visit', 'parameter', 'value'])
 
     df_ref = pd.read_csv(
-        os.path.join(os.getcwd(), 'tristan', 'reference.csv')
+        os.path.join(os.getcwd(), 'src', 'methods', 'reference.csv')
     )
 
     # Add column and merge

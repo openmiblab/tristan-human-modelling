@@ -3,7 +3,6 @@ import math
 import pandas as pd
 import numpy as np
 import pingouin as pg
-import dcmri as dc
 import pydmr
 
 
@@ -268,7 +267,7 @@ def compare_to_ref(src):
     df['stdev'] = dfsd['value'].values
 
     df_ref = pd.read_csv(
-        os.path.join(os.getcwd(), 'tristan', 'reference.csv')
+        os.path.join(os.getcwd(), 'src', 'methods', 'reference.csv')
     )
 
     # Add column and merge
