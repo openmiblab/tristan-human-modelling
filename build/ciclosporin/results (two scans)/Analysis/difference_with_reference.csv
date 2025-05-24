@@ -1,0 +1,65 @@
+Biomarker,group,Units,visit,p-value,Bayes Factor,Power
+Organs extraction fraction,MRI - aorta,%,drug,0.03558,2.22,0.56
+Body extraction fraction,MRI - aorta,%,control,0.06706,1.51,0.33
+Organs extravascular mean transit time,MRI - aorta,min,drug,0.09122,1.24,0.37
+Heart-lung mean transit time,MRI - aorta,sec,control,0.09349,1.22,0.28
+Heart-lung mean transit time,MRI - aorta,sec,drug,0.12742,1.09,0.39
+Cardiac output,MRI - aorta,L/min,control,0.22356,0.74,0.2
+Organs extraction fraction,MRI - aorta,%,control,0.29351,0.64,0.14
+Heart-lung dispersion,MRI - aorta,%,control,0.31667,0.64,0.2
+RE for R1b at 20min,MRI - aorta,%,control,0.4631,0.53,0.09
+AUC for Cb (0-35min),MRI - aorta,mM*sec,drug,0.46518,0.54,0.12
+AUC for Cb (0-35min),MRI - aorta,mM*sec,control,0.49087,0.52,0.08
+Body extraction fraction,MRI - aorta,%,drug,0.50402,0.53,0.1
+Organs blood mean transit time,MRI - aorta,sec,drug,0.54587,0.51,0.08
+AUC for Cb (0-inf),MRI - aorta,mM*sec,drug,0.59529,0.5,0.08
+AUC for Cb (0-inf),MRI - aorta,mM*sec,control,0.6965,0.46,0.06
+Organs blood mean transit time,MRI - aorta,sec,control,0.70927,0.46,0.06
+Organs extravascular mean transit time,MRI - aorta,min,control,0.74534,0.45,0.06
+RE for R1b at 20min,MRI - aorta,%,drug,0.75914,0.46,0.06
+RE for Sb at 20min,MRI - aorta,%,drug,0.8456,0.46,0.05
+RE for Sb at 20min,MRI - aorta,%,control,0.89459,0.44,0.05
+Cardiac output,MRI - aorta,L/min,drug,0.92609,0.45,0.05
+Heart-lung dispersion,MRI - aorta,%,drug,0.96182,0.45,0.05
+Hepatocellular tissue uptake rate,MRI - liver,mL/min/100cm3,drug,3e-05,10500.0,1.0
+RE for Sl at 20min,MRI - liver,%,drug,0.00013,1722.82,1.0
+RE for R1l at 20min,MRI - liver,%,drug,0.00111,229.01,1.0
+AUC for Cl (0-35min),MRI - liver,mM*sec,drug,0.00161,204.15,1.0
+Final hepatocellular uptake rate,MRI - liver,mL/min/100cm3,drug,0.00416,64.74,1.0
+Liver T1-MOLLI at scan 2,MRI - liver,sec,drug,0.0044,13.6,0.95
+Hepatocellular uptake rate,MRI - liver,mL/min/100cm3,drug,0.00738,27.22,1.0
+AUC for Cl (0-inf),MRI - liver,mM*sec,drug,0.01151,14.82,0.98
+Liver blood clearance,MRI - liver,L/min,drug,0.02021,7.59,0.95
+Initial hepatocellular uptake rate,MRI - liver,mL/min/100cm3,drug,0.0335,3.97,0.85
+Extracellular mean transit time,MRI - liver,sec,control,0.05197,1.81,0.36
+Liver T1-MOLLI at 45min,MRI - liver,sec,drug,0.05691,1.88,0.59
+Liver T1-MOLLI at baseline,MRI - liver,sec,drug,0.05946,1.62,0.43
+Liver T1-MOLLI at baseline,MRI - liver,sec,control,0.07573,1.5,0.51
+Extracellular mean transit time,MRI - liver,sec,drug,0.08233,1.32,0.4
+Final hepatocellular uptake rate,MRI - liver,mL/min/100cm3,control,0.11396,1.09,0.35
+Hepatocellular uptake rate,MRI - liver,mL/min/100cm3,control,0.17531,0.91,0.38
+Liver extracellular volume fraction,MRI - liver,mL/100cm3,drug,0.27045,0.7,0.22
+Final biliary excretion rate,MRI - liver,mL/min/100cm3,drug,0.34318,0.62,0.15
+Extracellular dispersion,MRI - liver,%,control,0.35258,0.59,0.12
+Hepatocellular tissue uptake rate,MRI - liver,mL/min/100cm3,control,0.3885,0.57,0.1
+Initial biliary excretion rate,MRI - liver,mL/min/100cm3,drug,0.39227,0.58,0.11
+Initial hepatocellular uptake rate,MRI - liver,mL/min/100cm3,control,0.48218,0.52,0.12
+Extracellular dispersion,MRI - liver,%,drug,0.48789,0.53,0.11
+Initial biliary excretion rate,MRI - liver,mL/min/100cm3,control,0.51765,0.51,0.1
+Biliary tissue excretion rate,MRI - liver,mL/min/100cm3,drug,0.51911,0.52,0.11
+Liver blood clearance,MRI - liver,L/min,control,0.55971,0.5,0.12
+Hepatocellular mean transit time,MRI - liver,min,control,0.61991,0.48,0.07
+Liver extracellular volume fraction,MRI - liver,mL/100cm3,control,0.62378,0.48,0.07
+Biliary excretion rate,MRI - liver,mL/min/100cm3,drug,0.63232,0.49,0.08
+RE for R1l at 20min,MRI - liver,%,control,0.63664,0.47,0.07
+Final biliary excretion rate,MRI - liver,mL/min/100cm3,control,0.67158,0.46,0.06
+Liver T1-MOLLI at 45min,MRI - liver,sec,control,0.74368,0.45,0.06
+Hepatocellular mean transit time,MRI - liver,min,drug,0.83075,0.46,0.06
+AUC for Cl (0-35min),MRI - liver,mM*sec,control,0.85893,0.44,0.05
+Liver T1-MOLLI at scan 2,MRI - liver,sec,control,0.93067,0.44,0.05
+AUC for Cl (0-inf),MRI - liver,mM*sec,control,0.96072,0.44,0.05
+Biliary excretion rate,MRI - liver,mL/min/100cm3,control,0.96579,0.44,0.05
+Biliary tissue excretion rate,MRI - liver,mL/min/100cm3,control,0.98706,0.44,0.05
+RE for Sl at 20min,MRI - liver,%,control,0.98727,0.44,0.05
+Hematocrit,MRI - liver,%,control,,,
+Hematocrit,MRI - liver,%,drug,,,

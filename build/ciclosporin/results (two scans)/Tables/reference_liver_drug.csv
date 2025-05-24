@@ -1,0 +1,22 @@
+Biomarker,Units,p-value,Bayes Factor,Power
+Hepatocellular tissue uptake rate,mL/min/100cm3,3e-05,10500.0,1.0
+RE for Sl at 20min,%,0.00013,1722.82,1.0
+RE for R1l at 20min,%,0.00111,229.01,1.0
+AUC for Cl (0-35min),mM*sec,0.00161,204.15,1.0
+Final hepatocellular uptake rate,mL/min/100cm3,0.00416,64.74,1.0
+Liver T1-MOLLI at scan 2,sec,0.0044,13.6,0.95
+Hepatocellular uptake rate,mL/min/100cm3,0.00738,27.22,1.0
+AUC for Cl (0-inf),mM*sec,0.01151,14.82,0.98
+Liver blood clearance,L/min,0.02021,7.59,0.95
+Initial hepatocellular uptake rate,mL/min/100cm3,0.0335,3.97,0.85
+Liver T1-MOLLI at 45min,sec,0.05691,1.88,0.59
+Liver T1-MOLLI at baseline,sec,0.05946,1.62,0.43
+Extracellular mean transit time,sec,0.08233,1.32,0.4
+Liver extracellular volume fraction,mL/100cm3,0.27045,0.7,0.22
+Final biliary excretion rate,mL/min/100cm3,0.34318,0.62,0.15
+Initial biliary excretion rate,mL/min/100cm3,0.39227,0.58,0.11
+Extracellular dispersion,%,0.48789,0.53,0.11
+Biliary tissue excretion rate,mL/min/100cm3,0.51911,0.52,0.11
+Biliary excretion rate,mL/min/100cm3,0.63232,0.49,0.08
+Hepatocellular mean transit time,min,0.83075,0.46,0.06
+Hematocrit,%,,,

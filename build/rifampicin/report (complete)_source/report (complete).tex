@@ -1,0 +1,1420 @@
+\documentclass{epflreport}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{graphicx}%
+\usepackage{longtable}%
+%
+%
+%
+\begin{document}%
+\normalsize%
+\frontmatter%
+\title{Leeds pilot study study}%
+\subtitle{rifampicin (all results)}%
+\author{miblab.org}%
+\subject{D2.13 {-} Internal report}%
+\affiliation{https://miblab.org}%
+\coverimage{cover.jpg}%
+\definecolor{title}{HTML}{FF0000}%
+\makecover%
+\begin{titlepage}%
+\begin{center}%
+\makeatletter%
+\largetitlestyle\fontsize{45}{45}\selectfont\@title%
+\makeatother%
+\linebreak%
+\makeatletter%
+\ifdefvoid{\@subtitle}{}{\bigskip\titlestyle\fontsize{20}{20}\selectfont\@subtitle}%
+\makeatother%
+\linebreak%
+\bigskip%
+\bigskip%
+by%
+\linebreak%
+\bigskip%
+\bigskip%
+\makeatletter%
+\largetitlestyle\fontsize{25}{25}\selectfont\@author%
+\makeatother%
+\vfill%
+\large%
+\begin{tabular}{ll}%
+\hline%
+Report compiled by: &Steven Sourbron\\%
+Institute: &University of Sheffield\\%
+Department: &Section of Medical Imaging and Technologies\\%
+Email: &s.sourbron@sheffield.ac.uk\\%
+Date: &\today\\%
+\hline%
+\end{tabular}%
+
+
+\begin{figure}[b!]%
+\centering%
+\centering%
+\includegraphics[width=2in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/report (complete)_source/layout/tristan-logo.jpg}%
+\end{figure}
+
+%
+\end{center}%
+\end{titlepage}%
+\newpage%
+\tableofcontents%
+\mainmatter%
+\clearpage%
+\chapter{Two{-}scan results}%
+\section{Data summary}%
+\label{sec:Datasummary}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=7in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Figures/_effect_plot.png}%
+\caption{Effect size (\%) on hepatocellular uptake (k\_he, left) and biliary excretion (k\_bh, right) of gadoxetate. The boxplot shows median, interquartile range and 95 percent range. The line plots show individual values for hepatocellular uptake (k\_he, middle) and biliary excretion (k\_bh, right) of gadoxetate of the control (left of plot) and treatment (right of plot). Grey lines are healthy controls with rifampicin injection.}%
+\end{figure}
+
+%
+\begin{longtable}{rcccccccc}%
+\hline%
+parameter&count&mean&std&min&25\%&50\%&75\%&max\\%
+\hline%
+khe effect size (\%)&8.0&{-}92.6&3.7&{-}95.3&{-}94.7&{-}94.0&{-}92.6&{-}84.3\\%
+khe control (mL/min/100cm3)&8.0&30.56&7.69&21.81&23.98&30.14&33.93&44.54\\%
+khe drug (mL/min/100cm3)&8.0&2.17&0.86&1.16&1.69&2.0&2.46&3.76\\%
+kbh effect size (\%)&8.0&{-}48.7&61.2&{-}89.7&{-}84.8&{-}72.4&{-}41.6&94.3\\%
+kbh control (mL/min/100cm3)&8.0&2.3&0.84&0.52&2.02&2.54&2.72&3.25\\%
+kbh drug (mL/min/100cm3)&8.0&0.79&0.5&0.26&0.45&0.6&1.1&1.67\\%
+\hline%
+\caption{Effect size and absolute values of hepatocellular uptake (k\_he) and biliary excretion (k\_bh) of gadoxetate} \\%
+\end{longtable}%
+\clearpage%
+\section{Liver biomarkers}%
+\label{sec:Liverbiomarkers}%
+
+%
+\begin{longtable}{rccc}%
+\hline%
+Biomarker&p{-}value&Bayes Factor&Odds Ratio\\%
+\hline%
+AUC for Cl (0{-}35min)&6e{-}05&441.16&984.97\\%
+AUC for Cl (0{-}inf)&0.0012&35.49&71.93\\%
+Biliary excretion rate&0.00478&11.71&52.58\\%
+Biliary tissue excretion rate&0.00419&13.0&43.2\\%
+Extracellular dispersion&0.53091&0.4&0.55\\%
+Extracellular mean transit time&0.40589&0.46&0.44\\%
+Final biliary excretion rate&0.03153&2.69&8.5\\%
+Final hepatocellular uptake rate&0.00251&19.61&65.66\\%
+Hematocrit&&&\\%
+Hepatocellular mean transit time&0.06155&1.63&0.11\\%
+Hepatocellular tissue uptake rate&0.21877&0.67&3.4\\%
+Hepatocellular uptake rate&1e{-}05&1363.5&12220.54\\%
+Initial biliary excretion rate&0.50746&0.41&1.75\\%
+Initial hepatocellular uptake rate&3e{-}05&803.62&4532.55\\%
+Liver T1{-}MOLLI at 45min&0.0&6244.03&0.0\\%
+Liver T1{-}MOLLI at baseline&0.3834&0.48&0.73\\%
+Liver T1{-}MOLLI at scan 2&0.00215&22.19&0.06\\%
+Liver blood clearance&0.0&8478.98&1174265.47\\%
+Liver extracellular volume fraction&0.19862&0.71&0.3\\%
+RE for R1l at 20min&7e{-}05&364.52&993.63\\%
+RE for Sl at 20min&5e{-}05&479.18&1113.99\\%
+\hline%
+\caption{Results of a pairwise comparison testing for differences in liver biomarkers between control and treatment. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&148.0 (31.0) &25.8 (4.3) &{-}81.9 (2.7) \\%
+AUC for Cl (0{-}inf)&mM*sec&510.0 (160.0) &111.0 (21.0) &{-}75.9 (4.9) \\%
+Biliary excretion rate&mL/min/100cm3&2.3 (0.58) &0.791 (0.34) &{-}48.7 (42.0) \\%
+Biliary tissue excretion rate&mL/min/100cm3&2.79 (0.72) &1.01 (0.44) &{-}44.3 (50.0) \\%
+Extracellular dispersion&\%&63.6 (20.0) &70.4 (4.8) &283.0 (550.0) \\%
+Extracellular mean transit time&sec&35.8 (13.0) &43.0 (7.7) &148.0 (240.0) \\%
+Final biliary excretion rate&mL/min/100cm3&2.83 (1.2) &1.23 (0.59) &{-}34.7 (48.0) \\%
+Final hepatocellular uptake rate&mL/min/100cm3&29.3 (11.0) &2.56 (0.72) &{-}81.6 (22.0) \\%
+Hematocrit&\%&45.0 (0.0) &45.0 (0.0) &0.0 (0.0) \\%
+Hepatocellular mean transit time&min&51.3 (36.0) &141.0 (62.0) &299.0 (190.0) \\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&728.0 (1000.0) &10.7 (3.5) &{-}93.4 (6.2) \\%
+Hepatocellular uptake rate&mL/min/100cm3&30.6 (5.3) &2.17 (0.59) &{-}92.6 (2.5) \\%
+Initial biliary excretion rate&mL/min/100cm3&2.35 (0.76) &1.73 (1.8) &{-}20.7 (58.0) \\%
+Initial hepatocellular uptake rate&mL/min/100cm3&31.8 (6.3) &1.78 (0.58) &{-}94.2 (1.8) \\%
+Liver T1{-}MOLLI at 45min&sec&0.537 (0.036) &0.727 (0.041) &35.7 (5.9) \\%
+Liver T1{-}MOLLI at baseline&sec&0.795 (0.037) &0.805 (0.041) &1.27 (2.7) \\%
+Liver T1{-}MOLLI at scan 2&sec&0.669 (0.041) &0.759 (0.038) &13.8 (6.3) \\%
+Liver blood clearance&L/min&0.273 (0.032) &0.0199 (0.0044) &{-}92.3 (2.5) \\%
+Liver extracellular volume fraction&mL/100cm3&16.1 (7.4) &21.5 (3.3) &264.0 (420.0) \\%
+RE for R1l at 20min&\%&64.0 (14.0) &8.86 (1.5) &{-}85.6 (1.9) \\%
+RE for Sl at 20min&\%&52.9 (12.0) &6.54 (1.7) &{-}87.5 (1.9) \\%
+\hline%
+\caption{Mean values along with their 95 percent confidence intervals for all liver biomarkers of the control and treatment visit. The last column shows the relative change at the treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\clearpage%
+\section{Systemic biomarkers}%
+\label{sec:Systemicbiomarkers}%
+
+%
+\begin{longtable}{rccc}%
+\hline%
+Biomarker&p{-}value&Bayes Factor&Odds Ratio\\%
+\hline%
+AUC for Cb (0{-}35min)&0.01059&6.25&0.3\\%
+AUC for Cb (0{-}inf)&0.01062&6.23&0.16\\%
+Body extraction fraction&0.0203&3.76&9.03\\%
+Cardiac output&0.53951&0.4&0.73\\%
+Heart{-}lung dispersion&0.08682&1.27&0.57\\%
+Heart{-}lung mean transit time&0.51409&0.41&0.62\\%
+Organs blood mean transit time&0.4645&0.43&0.7\\%
+Organs extraction fraction&0.00515&11.02&5.91\\%
+Organs extravascular mean transit time&0.33616&0.51&0.45\\%
+RE for R1b at 20min&0.00821&7.63&0.2\\%
+RE for Sb at 20min&0.21085&0.68&0.24\\%
+\hline%
+\caption{Results of a pairwise comparison testing for differences in systemic biomarkers between control and treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&28.2 (6.3) &35.2 (8.1) &26.8 (16.0) \\%
+AUC for Cb (0{-}inf)&mM*sec&43.4 (14.0) &67.9 (19.0) &69.4 (42.0) \\%
+Body extraction fraction&\%&6.81 (2.6) &3.46 (0.77) &{-}41.1 (16.0) \\%
+Cardiac output&L/min&7.27 (2.1) &7.7 (1.2) &17.8 (27.0) \\%
+Heart{-}lung dispersion&\%&43.6 (9.0) &47.4 (8.0) &10.7 (9.8) \\%
+Heart{-}lung mean transit time&sec&13.5 (2.5) &14.5 (2.5) &11.9 (23.0) \\%
+Organs blood mean transit time&sec&28.9 (6.7) &30.8 (7.0) &9.7 (20.0) \\%
+Organs extraction fraction&\%&19.0 (3.8) &14.1 (3.2) &{-}25.4 (12.0) \\%
+Organs extravascular mean transit time&min&5.85 (1.5) &6.72 (1.3) &31.4 (48.0) \\%
+RE for R1b at 20min&\%&16.4 (4.2) &22.9 (5.9) &45.2 (28.0) \\%
+RE for Sb at 20min&\%&12.8 (5.5) &20.2 (7.4) &136.0 (130.0) \\%
+\hline%
+\caption{Mean values along with their 95 percent confidence intervals for all systemic biomarkers at the control and and treatment visit. The last column shows the relative change at the treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\clearpage%
+\section{Case notes}%
+\label{sec:Casenotes}%
+
+%
+\subsection{Subject LDS{-}002}%
+\label{subsec:SubjectLDS{-}002}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-002_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}002 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-002_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}002 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&106.46&16.31&{-}84.68\\%
+AUC for Cl (0{-}inf)&mM*sec&346.52&80.53&{-}76.76\\%
+Biliary excretion rate&mL/min/100cm3&2.51&0.26&{-}89.68\\%
+Biliary tissue excretion rate&mL/min/100cm3&2.53&0.32&{-}87.46\\%
+Extracellular dispersion&\%&3.06&72.17&2256.82\\%
+Extracellular mean transit time&sec&3.3&36.2&996.02\\%
+Final biliary excretion rate&mL/min/100cm3&3.26&2.7&{-}17.25\\%
+Final hepatocellular uptake rate&mL/min/100cm3&63.13&3.43&{-}94.56\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&39.51&315.12&697.6\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&4442.82&16.11&{-}99.64\\%
+Hepatocellular uptake rate&mL/min/100cm3&44.54&2.98&{-}93.32\\%
+Initial biliary excretion rate&mL/min/100cm3&2.04&0.14&{-}93.32\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&25.95&2.52&{-}90.29\\%
+Liver T1{-}MOLLI at 45min&sec&0.58&0.72&23.26\\%
+Liver T1{-}MOLLI at baseline&sec&0.76&0.81&7.72\\%
+Liver T1{-}MOLLI at scan 2&sec&0.74&0.75&1.88\\%
+Liver blood clearance&L/min&0.3&0.02&{-}92.16\\%
+Liver extracellular volume fraction&mL/100cm3&1.0&18.47&1742.88\\%
+RE for R1l at 20min&\%&36.16&6.15&{-}82.98\\%
+RE for Sl at 20min&\%&29.84&4.0&{-}86.61\\%
+\hline%
+\caption{Values for liver of subject LDS-002} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&17.57&17.23&{-}1.95\\%
+AUC for Cb (0{-}inf)&mM*sec&26.95&22.21&{-}17.6\\%
+Body extraction fraction&\%&6.94&5.31&{-}23.5\\%
+Cardiac output&L/min&3.61&5.75&59.52\\%
+Heart{-}lung dispersion&\%&64.21&68.67&6.95\\%
+Heart{-}lung mean transit time&sec&14.64&8.24&{-}43.74\\%
+Organs blood mean transit time&sec&32.92&25.4&{-}22.85\\%
+Organs extraction fraction&\%&19.53&14.06&{-}28.03\\%
+Organs extravascular mean transit time&min&8.0&4.98&{-}37.75\\%
+RE for R1b at 20min&\%&9.5&9.12&{-}3.94\\%
+RE for Sb at 20min&\%&9.98&4.26&{-}57.37\\%
+\hline%
+\caption{Values for aorta of subject LDS-002} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}003}%
+\label{subsec:SubjectLDS{-}003}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-003_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}003 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-003_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}003 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&78.23&19.84&{-}74.65\\%
+AUC for Cl (0{-}inf)&mM*sec&219.64&72.97&{-}66.78\\%
+Biliary excretion rate&mL/min/100cm3&2.07&1.32&{-}36.09\\%
+Biliary tissue excretion rate&mL/min/100cm3&3.27&1.66&{-}49.29\\%
+Extracellular dispersion&\%&88.4&65.13&{-}26.32\\%
+Extracellular mean transit time&sec&60.0&28.28&{-}52.86\\%
+Final biliary excretion rate&mL/min/100cm3&6.34&1.44&{-}77.28\\%
+Final hepatocellular uptake rate&mL/min/100cm3&4.53&4.31&{-}4.79\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&30.6&60.34&97.21\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&65.57&18.7&{-}71.48\\%
+Hepatocellular uptake rate&mL/min/100cm3&24.02&3.76&{-}84.34\\%
+Initial biliary excretion rate&mL/min/100cm3&1.24&1.23&{-}1.02\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&43.5&3.21&{-}92.62\\%
+Liver T1{-}MOLLI at 45min&sec&0.53&0.69&30.25\\%
+Liver T1{-}MOLLI at baseline&sec&0.71&0.73&2.64\\%
+Liver T1{-}MOLLI at scan 2&sec&0.66&0.71&7.58\\%
+Liver blood clearance&L/min&0.21&0.03&{-}84.56\\%
+Liver extracellular volume fraction&mL/100cm3&36.62&20.12&{-}45.07\\%
+RE for R1l at 20min&\%&41.64&6.71&{-}83.89\\%
+RE for Sl at 20min&\%&36.02&4.63&{-}87.14\\%
+\hline%
+\caption{Values for liver of subject LDS-003} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&12.5&20.0&60.01\\%
+AUC for Cb (0{-}inf)&mM*sec&13.08&32.59&149.22\\%
+Body extraction fraction&\%&7.03&3.4&{-}51.68\\%
+Cardiac output&L/min&7.36&6.1&{-}17.14\\%
+Heart{-}lung dispersion&\%&34.72&48.33&39.22\\%
+Heart{-}lung mean transit time&sec&10.6&13.18&24.27\\%
+Organs blood mean transit time&sec&17.46&26.82&53.61\\%
+Organs extraction fraction&\%&17.55&10.81&{-}38.42\\%
+Organs extravascular mean transit time&min&2.31&6.37&175.4\\%
+RE for R1b at 20min&\%&5.89&12.6&113.84\\%
+RE for Sb at 20min&\%&28.87&4.16&{-}85.59\\%
+\hline%
+\caption{Values for aorta of subject LDS-003} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}004}%
+\label{subsec:SubjectLDS{-}004}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-004_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}004 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-004_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}004 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&190.43&35.43&{-}81.39\\%
+AUC for Cl (0{-}inf)&mM*sec&945.44&140.72&{-}85.12\\%
+Biliary excretion rate&mL/min/100cm3&0.52&1.02&94.3\\%
+Biliary tissue excretion rate&mL/min/100cm3&0.56&1.27&127.52\\%
+Extracellular dispersion&\%&56.45&80.4&42.43\\%
+Extracellular mean transit time&sec&25.54&52.6&105.91\\%
+Final biliary excretion rate&mL/min/100cm3&0.43&0.97&124.34\\%
+Final hepatocellular uptake rate&mL/min/100cm3&28.15&2.83&{-}89.95\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&179.44&78.87&{-}56.05\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&411.8&11.69&{-}97.16\\%
+Hepatocellular uptake rate&mL/min/100cm3&23.89&2.29&{-}90.43\\%
+Initial biliary excretion rate&mL/min/100cm3&0.67&1.08&61.01\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&19.62&1.74&{-}91.12\\%
+Liver T1{-}MOLLI at 45min&sec&0.5&0.71&41.3\\%
+Liver T1{-}MOLLI at baseline&sec&0.8&0.8&{-}0.01\\%
+Liver T1{-}MOLLI at scan 2&sec&0.65&0.74&14.22\\%
+Liver blood clearance&L/min&0.21&0.02&{-}89.38\\%
+Liver extracellular volume fraction&mL/100cm3&5.8&19.56&237.15\\%
+RE for R1l at 20min&\%&75.5&12.22&{-}83.82\\%
+RE for Sl at 20min&\%&61.84&10.71&{-}82.68\\%
+\hline%
+\caption{Values for liver of subject LDS-004} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&36.75&48.81&32.79\\%
+AUC for Cb (0{-}inf)&mM*sec&44.35&87.97&98.38\\%
+Body extraction fraction&\%&14.91&5.11&{-}65.74\\%
+Cardiac output&L/min&4.13&6.0&45.14\\%
+Heart{-}lung dispersion&\%&31.15&33.08&6.2\\%
+Heart{-}lung mean transit time&sec&18.76&21.1&12.47\\%
+Organs blood mean transit time&sec&26.33&36.58&38.94\\%
+Organs extraction fraction&\%&30.9&22.19&{-}28.18\\%
+Organs extravascular mean transit time&min&5.6&5.61&0.16\\%
+RE for R1b at 20min&\%&18.19&31.9&75.4\\%
+RE for Sb at 20min&\%&6.02&26.78&344.97\\%
+\hline%
+\caption{Values for aorta of subject LDS-004} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}006}%
+\label{subsec:SubjectLDS{-}006}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-006_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}006 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-006_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}006 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&197.21&27.08&{-}86.27\\%
+AUC for Cl (0{-}inf)&mM*sec&623.22&109.44&{-}82.44\\%
+Biliary excretion rate&mL/min/100cm3&1.87&0.65&{-}65.23\\%
+Biliary tissue excretion rate&mL/min/100cm3&2.32&0.95&{-}58.91\\%
+Extracellular dispersion&\%&71.21&66.0&{-}7.32\\%
+Extracellular mean transit time&sec&45.26&42.25&{-}6.65\\%
+Final biliary excretion rate&mL/min/100cm3&2.0&0.84&{-}57.96\\%
+Final hepatocellular uptake rate&mL/min/100cm3&33.42&2.42&{-}92.76\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&43.11&104.91&143.35\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&192.09&6.02&{-}96.87\\%
+Hepatocellular uptake rate&mL/min/100cm3&37.02&1.91&{-}94.85\\%
+Initial biliary excretion rate&mL/min/100cm3&1.76&0.53&{-}69.82\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&40.62&1.4&{-}96.56\\%
+Liver T1{-}MOLLI at 45min&sec&0.5&0.75&51.37\\%
+Liver T1{-}MOLLI at baseline&sec&0.84&0.84&{-}0.39\\%
+Liver T1{-}MOLLI at scan 2&sec&0.68&0.79&15.44\\%
+Liver blood clearance&L/min&0.26&0.01&{-}94.74\\%
+Liver extracellular volume fraction&mL/100cm3&19.27&31.7&64.5\\%
+RE for R1l at 20min&\%&93.6&9.55&{-}89.8\\%
+RE for Sl at 20min&\%&75.76&7.58&{-}90.0\\%
+\hline%
+\caption{Values for liver of subject LDS-006} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&27.2&30.59&12.45\\%
+AUC for Cb (0{-}inf)&mM*sec&35.9&61.46&71.19\\%
+Body extraction fraction&\%&8.51&2.69&{-}68.41\\%
+Cardiac output&L/min&4.43&8.05&81.82\\%
+Heart{-}lung dispersion&\%&33.43&40.03&19.74\\%
+Heart{-}lung mean transit time&sec&16.64&15.98&{-}3.96\\%
+Organs blood mean transit time&sec&30.41&27.74&{-}8.8\\%
+Organs extraction fraction&\%&20.77&12.08&{-}41.85\\%
+Organs extravascular mean transit time&min&6.07&6.61&8.81\\%
+RE for R1b at 20min&\%&15.24&20.77&36.24\\%
+RE for Sb at 20min&\%&11.98&25.11&109.67\\%
+\hline%
+\caption{Values for aorta of subject LDS-006} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}007}%
+\label{subsec:SubjectLDS{-}007}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-007_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}007 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-007_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}007 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&188.07&32.42&{-}82.76\\%
+AUC for Cl (0{-}inf)&mM*sec&656.68&143.33&{-}78.17\\%
+Biliary excretion rate&mL/min/100cm3&2.65&0.54&{-}79.5\\%
+Biliary tissue excretion rate&mL/min/100cm3&3.36&0.67&{-}80.06\\%
+Extracellular dispersion&\%&95.11&77.13&{-}18.91\\%
+Extracellular mean transit time&sec&57.97&38.9&{-}32.89\\%
+Final biliary excretion rate&mL/min/100cm3&2.21&0.28&{-}87.29\\%
+Final hepatocellular uptake rate&mL/min/100cm3&29.99&1.33&{-}95.55\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&29.74&149.16&401.52\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&155.36&9.59&{-}93.83\\%
+Hepatocellular uptake rate&mL/min/100cm3&32.9&1.82&{-}94.48\\%
+Initial biliary excretion rate&mL/min/100cm3&3.3&8.05&143.79\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&35.81&2.3&{-}93.58\\%
+Liver T1{-}MOLLI at 45min&sec&0.54&0.75&40.39\\%
+Liver T1{-}MOLLI at baseline&sec&0.86&0.84&{-}1.75\\%
+Liver T1{-}MOLLI at scan 2&sec&0.6&0.8&33.05\\%
+Liver blood clearance&L/min&0.31&0.02&{-}93.48\\%
+Liver extracellular volume fraction&mL/100cm3&21.18&18.95&{-}10.52\\%
+RE for R1l at 20min&\%&85.37&11.7&{-}86.3\\%
+RE for Sl at 20min&\%&72.97&9.46&{-}87.03\\%
+\hline%
+\caption{Values for liver of subject LDS-007} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&36.41&44.72&22.82\\%
+AUC for Cb (0{-}inf)&mM*sec&67.07&78.46&16.98\\%
+Body extraction fraction&\%&3.2&3.07&{-}4.21\\%
+Cardiac output&L/min&9.39&8.41&{-}10.42\\%
+Heart{-}lung dispersion&\%&32.6&36.54&12.07\\%
+Heart{-}lung mean transit time&sec&12.14&12.95&6.65\\%
+Organs blood mean transit time&sec&19.12&15.42&{-}19.37\\%
+Organs extraction fraction&\%&19.82&19.4&{-}2.12\\%
+Organs extravascular mean transit time&min&4.57&4.08&{-}10.7\\%
+RE for R1b at 20min&\%&24.78&29.39&18.63\\%
+RE for Sb at 20min&\%&19.07&34.27&79.65\\%
+\hline%
+\caption{Values for aorta of subject LDS-007} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}008}%
+\label{subsec:SubjectLDS{-}008}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-008_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}008 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-008_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}008 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&162.37&26.62&{-}83.61\\%
+AUC for Cl (0{-}inf)&mM*sec&434.22&148.42&{-}65.82\\%
+Biliary excretion rate&mL/min/100cm3&2.57&0.4&{-}84.52\\%
+Biliary tissue excretion rate&mL/min/100cm3&2.98&0.48&{-}83.98\\%
+Extracellular dispersion&\%&47.35&59.27&25.16\\%
+Extracellular mean transit time&sec&18.81&32.12&70.74\\%
+Final biliary excretion rate&mL/min/100cm3&1.96&1.17&{-}40.01\\%
+Final hepatocellular uptake rate&mL/min/100cm3&24.48&2.93&{-}88.02\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&33.57&209.55&524.19\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&234.37&12.63&{-}94.61\\%
+Hepatocellular uptake rate&mL/min/100cm3&32.03&2.09&{-}93.47\\%
+Initial biliary excretion rate&mL/min/100cm3&3.76&0.24&{-}93.62\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&39.58&1.25&{-}96.83\\%
+Liver T1{-}MOLLI at 45min&sec&0.46&0.62&33.65\\%
+Liver T1{-}MOLLI at baseline&sec&0.74&0.71&{-}5.07\\%
+Liver T1{-}MOLLI at scan 2&sec&0.57&0.66&14.25\\%
+Liver blood clearance&L/min&0.33&0.02&{-}94.41\\%
+Liver extracellular volume fraction&mL/100cm3&13.67&16.57&21.26\\%
+RE for R1l at 20min&\%&65.15&7.66&{-}88.24\\%
+RE for Sl at 20min&\%&54.36&4.54&{-}91.65\\%
+\hline%
+\caption{Values for liver of subject LDS-008} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&28.29&41.15&45.48\\%
+AUC for Cb (0{-}inf)&mM*sec&39.76&79.9&100.97\\%
+Body extraction fraction&\%&4.76&2.62&{-}44.98\\%
+Cardiac output&L/min&10.74&9.5&{-}11.52\\%
+Heart{-}lung dispersion&\%&42.41&43.94&3.63\\%
+Heart{-}lung mean transit time&sec&16.26&14.68&{-}9.76\\%
+Organs blood mean transit time&sec&22.62&26.04&15.11\\%
+Organs extraction fraction&\%&15.52&9.01&{-}41.93\\%
+Organs extravascular mean transit time&min&4.63&8.88&91.6\\%
+RE for R1b at 20min&\%&18.35&25.19&37.31\\%
+RE for Sb at 20min&\%&12.39&21.0&69.58\\%
+\hline%
+\caption{Values for aorta of subject LDS-008} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}009}%
+\label{subsec:SubjectLDS{-}009}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-009_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}009 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-009_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}009 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&108.62&24.35&{-}77.58\\%
+AUC for Cl (0{-}inf)&mM*sec&287.46&79.4&{-}72.38\\%
+Biliary excretion rate&mL/min/100cm3&2.95&1.67&{-}43.44\\%
+Biliary tissue excretion rate&mL/min/100cm3&3.5&2.15&{-}38.52\\%
+Extracellular dispersion&\%&72.72&69.86&{-}3.93\\%
+Extracellular mean transit time&sec&36.25&58.18&60.5\\%
+Final biliary excretion rate&mL/min/100cm3&3.15&2.18&{-}30.84\\%
+Final hepatocellular uptake rate&mL/min/100cm3&20.68&1.5&{-}92.75\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&28.56&46.46&62.66\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&137.29&5.13&{-}96.26\\%
+Hepatocellular uptake rate&mL/min/100cm3&21.81&1.16&{-}94.68\\%
+Initial biliary excretion rate&mL/min/100cm3&2.76&1.35&{-}51.23\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&22.94&0.82&{-}96.42\\%
+Liver T1{-}MOLLI at 45min&sec&0.62&0.82&31.46\\%
+Liver T1{-}MOLLI at baseline&sec&0.85&0.88&4.05\\%
+Liver T1{-}MOLLI at scan 2&sec&0.73&0.83&14.19\\%
+Liver blood clearance&L/min&0.26&0.01&{-}94.61\\%
+Liver extracellular volume fraction&mL/100cm3&15.88&22.62&42.38\\%
+RE for R1l at 20min&\%&51.21&9.04&{-}82.34\\%
+RE for Sl at 20min&\%&40.87&5.56&{-}86.39\\%
+\hline%
+\caption{Values for liver of subject LDS-009} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&29.52&42.86&45.19\\%
+AUC for Cb (0{-}inf)&mM*sec&41.79&95.13&127.65\\%
+Body extraction fraction&\%&5.7&2.62&{-}54.06\\%
+Cardiac output&L/min&11.39&10.38&{-}8.83\\%
+Heart{-}lung dispersion&\%&51.72&55.63&7.57\\%
+Heart{-}lung mean transit time&sec&9.42&14.8&57.1\\%
+Organs blood mean transit time&sec&35.44&45.45&28.25\\%
+Organs extraction fraction&\%&13.83&10.21&{-}26.13\\%
+Organs extravascular mean transit time&min&6.65&8.03&20.9\\%
+RE for R1b at 20min&\%&17.91&31.62&76.54\\%
+RE for Sb at 20min&\%&3.78&22.02&483.11\\%
+\hline%
+\caption{Values for aorta of subject LDS-009} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}010}%
+\label{subsec:SubjectLDS{-}010}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-010_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}010 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Plots/LDS-010_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}010 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&151.8&24.05&{-}84.16\\%
+AUC for Cl (0{-}inf)&mM*sec&562.83&114.55&{-}79.65\\%
+Biliary excretion rate&mL/min/100cm3&3.25&0.47&{-}85.68\\%
+Biliary tissue excretion rate&mL/min/100cm3&3.84&0.62&{-}83.97\\%
+Extracellular dispersion&\%&74.61&73.61&{-}1.33\\%
+Extracellular mean transit time&sec&39.06&55.14&41.16\\%
+Final biliary excretion rate&mL/min/100cm3&3.25&0.29&{-}91.21\\%
+Final hepatocellular uptake rate&mL/min/100cm3&30.09&1.68&{-}94.41\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&26.05&162.54&523.91\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&185.6&5.47&{-}97.05\\%
+Hepatocellular uptake rate&mL/min/100cm3&28.26&1.32&{-}95.31\\%
+Initial biliary excretion rate&mL/min/100cm3&3.26&1.27&{-}61.05\\%
+Initial hepatocellular uptake rate&mL/min/100cm3&26.43&0.97&{-}96.34\\%
+Liver T1{-}MOLLI at 45min&sec&0.56&0.75&34.2\\%
+Liver T1{-}MOLLI at baseline&sec&0.81&0.83&2.99\\%
+Liver T1{-}MOLLI at scan 2&sec&0.72&0.79&9.82\\%
+Liver blood clearance&L/min&0.3&0.01&{-}95.17\\%
+Liver extracellular volume fraction&mL/100cm3&15.23&24.24&59.18\\%
+RE for R1l at 20min&\%&63.37&7.86&{-}87.6\\%
+RE for Sl at 20min&\%&51.68&5.85&{-}88.68\\%
+\hline%
+\caption{Values for liver of subject LDS-010} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&37.21&36.32&{-}2.4\\%
+AUC for Cb (0{-}inf)&mM*sec&78.64&85.48&8.71\\%
+Body extraction fraction&\%&3.46&2.91&{-}16.06\\%
+Cardiac output&L/min&7.12&7.41&4.07\\%
+Heart{-}lung dispersion&\%&58.77&53.09&{-}9.66\\%
+Heart{-}lung mean transit time&sec&9.73&14.78&51.87\\%
+Organs blood mean transit time&sec&46.75&43.36&{-}7.26\\%
+Organs extraction fraction&\%&14.24&14.72&3.39\\%
+Organs extravascular mean transit time&min&8.96&9.22&2.89\\%
+RE for R1b at 20min&\%&21.07&22.66&7.51\\%
+RE for Sb at 20min&\%&10.06&24.15&140.13\\%
+\hline%
+\caption{Values for aorta of subject LDS-010} \\%
+\end{longtable}%
+\clearpage%
+\chapter{One{-}scan results}%
+\section{Data summary}%
+\label{sec:Datasummary}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=7in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Figures/_effect_plot.png}%
+\caption{Effect size (\%) on hepatocellular uptake (k\_he, left) and biliary excretion (k\_bh, right) of gadoxetate. The boxplot shows median, interquartile range and 95 percent range. The line plots show individual values for hepatocellular uptake (k\_he, middle) and biliary excretion (k\_bh, right) of gadoxetate of the control (left of plot) and treatment (right of plot). Grey lines are healthy controls with rifampicin injection.}%
+\end{figure}
+
+%
+\begin{longtable}{rcccccccc}%
+\hline%
+parameter&count&mean&std&min&25\%&50\%&75\%&max\\%
+\hline%
+khe effect size (\%)&8.0&{-}94.2&1.8&{-}96.6&{-}95.5&{-}94.1&{-}93.5&{-}90.9\\%
+khe control (mL/min/100cm3)&8.0&34.18&11.3&20.3&23.39&36.12&41.59&50.09\\%
+khe drug (mL/min/100cm3)&8.0&1.9&0.72&1.27&1.49&1.54&2.12&3.12\\%
+kbh effect size (\%)&8.0&{-}57.3&71.8&{-}95.6&{-}95.2&{-}93.2&{-}55.8&111.9\\%
+kbh control (mL/min/100cm3)&8.0&2.28&0.88&0.46&1.84&2.57&2.87&3.17\\%
+kbh drug (mL/min/100cm3)&8.0&0.53&0.6&0.12&0.14&0.14&0.96&1.68\\%
+\hline%
+\caption{Effect size and absolute values of hepatocellular uptake (k\_he) and biliary excretion (k\_bh) of gadoxetate} \\%
+\end{longtable}%
+\clearpage%
+\section{Liver biomarkers}%
+\label{sec:Liverbiomarkers}%
+
+%
+\begin{longtable}{rccc}%
+\hline%
+Biomarker&p{-}value&Bayes Factor&Odds Ratio\\%
+\hline%
+AUC for Cl (0{-}35min)&4e{-}05&620.98&1594.2\\%
+AUC for Cl (0{-}inf)&0.00064&59.19&112.63\\%
+Biliary excretion rate&0.00391&13.73&67.42\\%
+Biliary tissue excretion rate&0.00517&11.0&61.67\\%
+Extracellular dispersion&0.01065&6.22&5.19\\%
+Extracellular mean transit time&0.75483&0.35&1.24\\%
+Hematocrit&&&\\%
+Hepatocellular mean transit time&0.01471&4.83&0.04\\%
+Hepatocellular tissue uptake rate&0.00146&30.38&95.89\\%
+Hepatocellular uptake rate&7e{-}05&382.28&1501.73\\%
+Liver T1{-}MOLLI at 45min&0.0&6244.03&0.0\\%
+Liver T1{-}MOLLI at baseline&0.3834&0.48&0.73\\%
+Liver blood clearance&2e{-}05&883.28&6278.37\\%
+Liver extracellular volume fraction&0.03233&2.64&0.2\\%
+RE for R1l at 20min&8e{-}05&318.1&822.36\\%
+RE for Sl at 20min&8e{-}05&336.87&910.99\\%
+\hline%
+\caption{Results of a pairwise comparison testing for differences in liver biomarkers between control and treatment. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&148.0 (30.0) &23.9 (4.0) &{-}83.4 (1.8) \\%
+AUC for Cl (0{-}inf)&mM*sec&589.0 (170.0) &134.0 (27.0) &{-}75.1 (6.0) \\%
+Biliary excretion rate&mL/min/100cm3&2.28 (0.61) &0.534 (0.41) &{-}57.3 (50.0) \\%
+Biliary tissue excretion rate&mL/min/100cm3&2.68 (0.7) &0.665 (0.51) &{-}52.6 (56.0) \\%
+Extracellular dispersion&\%&78.3 (9.5) &67.8 (6.1) &{-}12.4 (6.5) \\%
+Extracellular mean transit time&sec&47.4 (11.0) &45.7 (8.8) &4.76 (30.0) \\%
+Hematocrit&\%&45.0 (0.0) &45.0 (0.0) &0.0 (0.0) \\%
+Hepatocellular mean transit time&min&54.7 (40.0) &402.0 (190.0) &1090.0 (640.0) \\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&276.0 (100.0) &10.1 (3.1) &{-}96.0 (1.0) \\%
+Hepatocellular uptake rate&mL/min/100cm3&34.2 (7.8) &1.9 (0.5) &{-}94.2 (1.3) \\%
+Liver T1{-}MOLLI at 45min&sec&0.537 (0.036) &0.727 (0.041) &35.7 (5.9) \\%
+Liver T1{-}MOLLI at baseline&sec&0.795 (0.037) &0.805 (0.041) &1.27 (2.7) \\%
+Liver blood clearance&L/min&0.304 (0.058) &0.0176 (0.0037) &{-}93.8 (1.6) \\%
+Liver extracellular volume fraction&mL/100cm3&14.4 (5.0) &19.6 (3.0) &63.5 (55.0) \\%
+RE for R1l at 20min&\%&63.6 (14.0) &8.82 (1.5) &{-}85.6 (1.9) \\%
+RE for Sl at 20min&\%&52.9 (12.0) &7.45 (1.6) &{-}85.3 (3.2) \\%
+\hline%
+\caption{Mean values along with their 95 percent confidence intervals for all liver biomarkers of the control and treatment visit. The last column shows the relative change at the treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\clearpage%
+\section{Systemic biomarkers}%
+\label{sec:Systemicbiomarkers}%
+
+%
+\begin{longtable}{rccc}%
+\hline%
+Biomarker&p{-}value&Bayes Factor&Odds Ratio\\%
+\hline%
+AUC for Cb (0{-}35min)&0.00893&7.14&0.31\\%
+AUC for Cb (0{-}inf)&0.11098&1.06&0.24\\%
+Body extraction fraction&0.12832&0.96&5.49\\%
+Cardiac output&0.28611&0.56&0.57\\%
+Heart{-}lung dispersion&0.80805&0.34&1.27\\%
+Heart{-}lung mean transit time&0.24649&0.62&0.38\\%
+Organs blood mean transit time&0.81701&0.34&1.19\\%
+Organs extraction fraction&0.03284&2.6&4.09\\%
+Organs extravascular mean transit time&0.96181&0.34&1.02\\%
+RE for R1b at 20min&0.00804&7.75&0.2\\%
+RE for Sb at 20min&0.25609&0.6&0.23\\%
+\hline%
+\caption{Results of a pairwise comparison testing for differences in systemic biomarkers between control and treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&27.0 (6.7) &34.3 (8.6) &28.7 (15.0) \\%
+AUC for Cb (0{-}inf)&mM*sec&48.9 (14.0) &73.8 (27.0) &64.1 (55.0) \\%
+Body extraction fraction&\%&6.55 (2.9) &3.58 (0.96) &20.1 (130.0) \\%
+Cardiac output&L/min&6.4 (1.7) &6.99 (0.88) &16.3 (17.0) \\%
+Heart{-}lung dispersion&\%&46.8 (6.3) &45.4 (8.6) &0.468 (25.0) \\%
+Heart{-}lung mean transit time&sec&14.1 (2.6) &15.9 (2.2) &19.9 (25.0) \\%
+Organs blood mean transit time&sec&33.4 (5.4) &32.2 (11.0) &{-}2.86 (29.0) \\%
+Organs extraction fraction&\%&21.0 (5.4) &16.3 (2.7) &{-}18.1 (13.0) \\%
+Organs extravascular mean transit time&min&7.82 (1.9) &7.77 (2.8) &{-}1.96 (26.0) \\%
+RE for R1b at 20min&\%&15.2 (3.8) &21.6 (5.8) &46.6 (29.0) \\%
+RE for Sb at 20min&\%&14.2 (5.2) &21.3 (6.7) &208.0 (330.0) \\%
+\hline%
+\caption{Mean values along with their 95 percent confidence intervals for all systemic biomarkers at the control and and treatment visit. The last column shows the relative change at the treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\clearpage%
+\section{Case notes}%
+\label{sec:Casenotes}%
+
+%
+\subsection{Subject LDS{-}002}%
+\label{subsec:SubjectLDS{-}002}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-002_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}002 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-002_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}002 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&86.94&15.27&{-}82.44\\%
+AUC for Cl (0{-}inf)&mM*sec&556.81&91.28&{-}83.61\\%
+Biliary excretion rate&mL/min/100cm3&3.17&0.14&{-}95.6\\%
+Biliary tissue excretion rate&mL/min/100cm3&3.71&0.17&{-}95.51\\%
+Extracellular dispersion&\%&83.64&70.3&{-}15.95\\%
+Extracellular mean transit time&sec&55.79&40.23&{-}27.89\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&26.97&600.0&2124.95\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&280.61&18.06&{-}93.56\\%
+Hepatocellular uptake rate&mL/min/100cm3&40.52&2.95&{-}92.73\\%
+Liver T1{-}MOLLI at 45min&sec&0.58&0.72&23.26\\%
+Liver T1{-}MOLLI at baseline&sec&0.76&0.81&7.72\\%
+Liver blood clearance&L/min&0.28&0.02&{-}91.46\\%
+Liver extracellular volume fraction&mL/100cm3&14.44&16.32&13.0\\%
+RE for R1l at 20min&\%&34.57&6.08&{-}82.41\\%
+RE for Sl at 20min&\%&28.34&6.65&{-}76.52\\%
+\hline%
+\caption{Values for liver of subject LDS-002} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&15.3&15.89&3.83\\%
+AUC for Cb (0{-}inf)&mM*sec&56.18&20.68&{-}63.18\\%
+Body extraction fraction&\%&1.02&6.08&494.28\\%
+Cardiac output&L/min&4.49&5.38&19.77\\%
+Heart{-}lung dispersion&\%&47.75&38.38&{-}19.61\\%
+Heart{-}lung mean transit time&sec&17.72&15.92&{-}10.19\\%
+Organs blood mean transit time&sec&27.11&21.3&{-}21.44\\%
+Organs extraction fraction&\%&32.8&18.92&{-}42.31\\%
+Organs extravascular mean transit time&min&7.11&4.4&{-}38.15\\%
+RE for R1b at 20min&\%&9.66&8.55&{-}11.41\\%
+RE for Sb at 20min&\%&9.91&12.87&29.85\\%
+\hline%
+\caption{Values for aorta of subject LDS-002} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}003}%
+\label{subsec:SubjectLDS{-}003}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-003_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}003 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-003_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}003 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&106.17&18.51&{-}82.57\\%
+AUC for Cl (0{-}inf)&mM*sec&269.18&100.99&{-}62.48\\%
+Biliary excretion rate&mL/min/100cm3&1.84&0.13&{-}92.79\\%
+Biliary tissue excretion rate&mL/min/100cm3&2.18&0.17&{-}92.37\\%
+Extracellular dispersion&\%&69.34&61.76&{-}10.94\\%
+Extracellular mean transit time&sec&30.84&26.71&{-}13.41\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&45.8&600.0&1210.11\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&314.9&15.21&{-}95.17\\%
+Hepatocellular uptake rate&mL/min/100cm3&50.09&3.12&{-}93.77\\%
+Liver T1{-}MOLLI at 45min&sec&0.53&0.69&30.25\\%
+Liver T1{-}MOLLI at baseline&sec&0.71&0.73&2.64\\%
+Liver blood clearance&L/min&0.44&0.03&{-}93.85\\%
+Liver extracellular volume fraction&mL/100cm3&15.91&20.53&29.06\\%
+RE for R1l at 20min&\%&41.11&6.54&{-}84.1\\%
+RE for Sl at 20min&\%&36.02&4.72&{-}86.91\\%
+\hline%
+\caption{Values for liver of subject LDS-003} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&10.72&17.15&59.94\\%
+AUC for Cb (0{-}inf)&mM*sec&11.9&21.04&76.73\\%
+Body extraction fraction&\%&9.55&4.28&{-}55.17\\%
+Cardiac output&L/min&5.94&7.5&26.36\\%
+Heart{-}lung dispersion&\%&55.66&30.93&{-}44.44\\%
+Heart{-}lung mean transit time&sec&12.51&10.65&{-}14.94\\%
+Organs blood mean transit time&sec&33.48&18.38&{-}45.11\\%
+Organs extraction fraction&\%&13.11&13.13&0.09\\%
+Organs extravascular mean transit time&min&5.4&3.44&{-}36.34\\%
+RE for R1b at 20min&\%&4.83&10.41&115.66\\%
+RE for Sb at 20min&\%&28.87&4.52&{-}84.34\\%
+\hline%
+\caption{Values for aorta of subject LDS-003} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}004}%
+\label{subsec:SubjectLDS{-}004}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-004_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}004 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-004_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}004 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&179.43&33.46&{-}81.35\\%
+AUC for Cl (0{-}inf)&mM*sec&1049.0&184.62&{-}82.4\\%
+Biliary excretion rate&mL/min/100cm3&0.46&0.97&111.93\\%
+Biliary tissue excretion rate&mL/min/100cm3&0.51&1.21&137.35\\%
+Extracellular dispersion&\%&86.8&79.93&{-}7.91\\%
+Extracellular mean transit time&sec&60.0&60.0&0.0\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&196.41&82.75&{-}57.87\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&209.03&9.52&{-}95.45\\%
+Hepatocellular uptake rate&mL/min/100cm3&20.3&1.84&{-}90.92\\%
+Liver T1{-}MOLLI at 45min&sec&0.5&0.71&41.3\\%
+Liver T1{-}MOLLI at baseline&sec&0.8&0.8&{-}0.01\\%
+Liver blood clearance&L/min&0.18&0.02&{-}89.92\\%
+Liver extracellular volume fraction&mL/100cm3&9.71&19.38&99.53\\%
+RE for R1l at 20min&\%&75.89&12.14&{-}84.0\\%
+RE for Sl at 20min&\%&63.38&11.68&{-}81.56\\%
+\hline%
+\caption{Values for liver of subject LDS-004} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&35.72&48.68&36.28\\%
+AUC for Cb (0{-}inf)&mM*sec&47.24&128.49&172.03\\%
+Body extraction fraction&\%&14.89&3.08&{-}79.29\\%
+Cardiac output&L/min&3.88&5.56&43.13\\%
+Heart{-}lung dispersion&\%&64.14&51.83&{-}19.19\\%
+Heart{-}lung mean transit time&sec&8.27&14.54&75.82\\%
+Organs blood mean transit time&sec&39.85&52.71&32.28\\%
+Organs extraction fraction&\%&30.2&21.29&{-}29.52\\%
+Organs extravascular mean transit time&min&7.98&9.42&18.17\\%
+RE for R1b at 20min&\%&16.96&30.79&81.54\\%
+RE for Sb at 20min&\%&14.55&30.96&112.8\\%
+\hline%
+\caption{Values for aorta of subject LDS-004} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}006}%
+\label{subsec:SubjectLDS{-}006}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-006_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}006 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-006_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}006 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&206.52&25.55&{-}87.63\\%
+AUC for Cl (0{-}inf)&mM*sec&630.61&144.19&{-}77.13\\%
+Biliary excretion rate&mL/min/100cm3&1.84&0.12&{-}93.57\\%
+Biliary tissue excretion rate&mL/min/100cm3&2.6&0.17&{-}93.59\\%
+Extracellular dispersion&\%&79.06&67.86&{-}14.16\\%
+Extracellular mean transit time&sec&59.62&43.49&{-}27.05\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&38.48&600.0&1459.43\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&154.18&5.33&{-}96.54\\%
+Hepatocellular uptake rate&mL/min/100cm3&44.78&1.54&{-}96.56\\%
+Liver T1{-}MOLLI at 45min&sec&0.5&0.75&51.37\\%
+Liver T1{-}MOLLI at baseline&sec&0.84&0.84&{-}0.39\\%
+Liver blood clearance&L/min&0.31&0.01&{-}96.49\\%
+Liver extracellular volume fraction&mL/100cm3&29.05&28.87&{-}0.61\\%
+RE for R1l at 20min&\%&93.67&9.65&{-}89.7\\%
+RE for Sl at 20min&\%&75.73&7.26&{-}90.42\\%
+\hline%
+\caption{Values for liver of subject LDS-006} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&25.91&30.55&17.91\\%
+AUC for Cb (0{-}inf)&mM*sec&36.3&60.35&66.24\\%
+Body extraction fraction&\%&7.72&2.99&{-}61.28\\%
+Cardiac output&L/min&4.83&7.41&53.42\\%
+Heart{-}lung dispersion&\%&37.22&32.16&{-}13.6\\%
+Heart{-}lung mean transit time&sec&14.96&19.76&32.1\\%
+Organs blood mean transit time&sec&35.42&20.48&{-}42.2\\%
+Organs extraction fraction&\%&22.38&16.62&{-}25.76\\%
+Organs extravascular mean transit time&min&5.47&5.35&{-}2.03\\%
+RE for R1b at 20min&\%&15.37&21.02&36.8\\%
+RE for Sb at 20min&\%&11.88&26.22&120.62\\%
+\hline%
+\caption{Values for aorta of subject LDS-006} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}007}%
+\label{subsec:SubjectLDS{-}007}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-007_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}007 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-007_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}007 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&184.07&29.77&{-}83.83\\%
+AUC for Cl (0{-}inf)&mM*sec&744.41&160.34&{-}78.46\\%
+Biliary excretion rate&mL/min/100cm3&2.84&0.14&{-}95.13\\%
+Biliary tissue excretion rate&mL/min/100cm3&3.0&0.17&{-}94.44\\%
+Extracellular dispersion&\%&100.0&77.21&{-}22.79\\%
+Extracellular mean transit time&sec&60.0&50.92&{-}15.12\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&33.37&600.0&1698.2\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&622.09&9.11&{-}98.54\\%
+Hepatocellular uptake rate&mL/min/100cm3&32.65&1.55&{-}95.26\\%
+Liver T1{-}MOLLI at 45min&sec&0.54&0.75&40.39\\%
+Liver T1{-}MOLLI at baseline&sec&0.86&0.84&{-}1.75\\%
+Liver blood clearance&L/min&0.31&0.02&{-}94.39\\%
+Liver extracellular volume fraction&mL/100cm3&5.25&17.0&223.89\\%
+RE for R1l at 20min&\%&84.86&11.7&{-}86.21\\%
+RE for Sl at 20min&\%&72.82&9.46&{-}87.0\\%
+\hline%
+\caption{Values for liver of subject LDS-007} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&36.07&46.28&28.3\\%
+AUC for Cb (0{-}inf)&mM*sec&70.85&66.41&{-}6.27\\%
+Body extraction fraction&\%&4.92&4.98&1.26\\%
+Cardiac output&L/min&5.67&6.15&8.5\\%
+Heart{-}lung dispersion&\%&45.72&35.34&{-}22.7\\%
+Heart{-}lung mean transit time&sec&9.91&14.13&42.59\\%
+Organs blood mean transit time&sec&31.97&20.75&{-}35.09\\%
+Organs extraction fraction&\%&24.89&20.73&{-}16.71\\%
+Organs extravascular mean transit time&min&6.95&3.96&{-}42.98\\%
+RE for R1b at 20min&\%&22.29&28.87&29.48\\%
+RE for Sb at 20min&\%&2.31&34.27&1382.32\\%
+\hline%
+\caption{Values for aorta of subject LDS-007} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}008}%
+\label{subsec:SubjectLDS{-}008}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-008_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}008 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-008_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}008 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&162.18&23.44&{-}85.55\\%
+AUC for Cl (0{-}inf)&mM*sec&490.56&181.57&{-}62.99\\%
+Biliary excretion rate&mL/min/100cm3&2.97&0.14&{-}95.22\\%
+Biliary tissue excretion rate&mL/min/100cm3&3.64&0.17&{-}95.42\\%
+Extracellular dispersion&\%&55.53&52.27&{-}5.88\\%
+Extracellular mean transit time&sec&23.52&30.12&28.09\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&27.46&600.0&2085.21\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&213.23&10.19&{-}95.22\\%
+Hepatocellular uptake rate&mL/min/100cm3&39.59&1.51&{-}96.17\\%
+Liver T1{-}MOLLI at 45min&sec&0.46&0.62&33.65\\%
+Liver T1{-}MOLLI at baseline&sec&0.74&0.71&{-}5.07\\%
+Liver blood clearance&L/min&0.41&0.01&{-}96.73\\%
+Liver extracellular volume fraction&mL/100cm3&18.57&14.87&{-}19.91\\%
+RE for R1l at 20min&\%&64.79&7.65&{-}88.2\\%
+RE for Sl at 20min&\%&52.32&5.61&{-}89.29\\%
+\hline%
+\caption{Values for liver of subject LDS-008} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&26.77&39.64&48.12\\%
+AUC for Cb (0{-}inf)&mM*sec&44.3&91.71&107.03\\%
+Body extraction fraction&\%&4.33&2.3&{-}46.95\\%
+Cardiac output&L/min&10.55&8.83&{-}16.28\\%
+Heart{-}lung dispersion&\%&38.73&58.41&50.79\\%
+Heart{-}lung mean transit time&sec&18.39&15.41&{-}16.19\\%
+Organs blood mean transit time&sec&19.79&26.02&31.48\\%
+Organs extraction fraction&\%&17.4&11.52&{-}33.8\\%
+Organs extravascular mean transit time&min&6.0&9.77&62.72\\%
+RE for R1b at 20min&\%&17.24&24.06&39.59\\%
+RE for Sb at 20min&\%&13.54&21.65&59.91\\%
+\hline%
+\caption{Values for aorta of subject LDS-008} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}009}%
+\label{subsec:SubjectLDS{-}009}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-009_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}009 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-009_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}009 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&111.34&22.83&{-}79.49\\%
+AUC for Cl (0{-}inf)&mM*sec&334.27&96.52&{-}71.13\\%
+Biliary excretion rate&mL/min/100cm3&2.58&1.68&{-}34.99\\%
+Biliary tissue excretion rate&mL/min/100cm3&2.94&2.08&{-}29.26\\%
+Extracellular dispersion&\%&67.51&69.92&3.57\\%
+Extracellular mean transit time&sec&29.47&60.0&103.62\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&33.98&48.04&41.37\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&177.1&6.58&{-}96.29\\%
+Hepatocellular uptake rate&mL/min/100cm3&21.53&1.27&{-}94.11\\%
+Liver T1{-}MOLLI at 45min&sec&0.62&0.82&31.46\\%
+Liver T1{-}MOLLI at baseline&sec&0.85&0.88&4.05\\%
+Liver blood clearance&L/min&0.26&0.02&{-}94.04\\%
+Liver extracellular volume fraction&mL/100cm3&12.15&19.26&58.5\\%
+RE for R1l at 20min&\%&50.45&8.86&{-}82.43\\%
+RE for Sl at 20min&\%&43.1&5.58&{-}87.05\\%
+\hline%
+\caption{Values for liver of subject LDS-009} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&29.61&41.43&39.9\\%
+AUC for Cb (0{-}inf)&mM*sec&45.31&112.02&147.2\\%
+Body extraction fraction&\%&6.2&2.22&{-}64.17\\%
+Cardiac output&L/min&9.6&8.37&{-}12.74\\%
+Heart{-}lung dispersion&\%&40.85&60.71&48.59\\%
+Heart{-}lung mean transit time&sec&17.89&16.92&{-}5.43\\%
+Organs blood mean transit time&sec&34.37&57.58&67.53\\%
+Organs extraction fraction&\%&13.17&11.94&{-}9.35\\%
+Organs extravascular mean transit time&min&10.35&13.3&28.59\\%
+RE for R1b at 20min&\%&16.54&28.68&73.43\\%
+RE for Sb at 20min&\%&16.15&21.8&34.98\\%
+\hline%
+\caption{Values for aorta of subject LDS-009} \\%
+\end{longtable}%
+\clearpage%
+\subsection{Subject LDS{-}010}%
+\label{subsec:SubjectLDS{-}010}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-010_control.png}%
+\caption{Signal{-}time curves for subject LDS{-}010 at the control visit.}%
+\end{figure}
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=4.5in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (one scan)/Plots/LDS-010_drug.png}%
+\caption{Signal{-}time curves for subject LDS{-}010 at the treatment visit.}%
+\end{figure}
+
+%
+\clearpage%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&144.72&22.12&{-}84.72\\%
+AUC for Cl (0{-}inf)&mM*sec&638.81&109.25&{-}82.9\\%
+Biliary excretion rate&mL/min/100cm3&2.55&0.95&{-}62.72\\%
+Biliary tissue excretion rate&mL/min/100cm3&2.84&1.2&{-}57.68\\%
+Extracellular dispersion&\%&84.16&62.87&{-}25.3\\%
+Extracellular mean transit time&sec&59.93&53.84&{-}10.17\\%
+Hematocrit&\%&45.0&45.0&0.0\\%
+Hepatocellular mean transit time&min&35.26&83.32&136.32\\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&235.27&6.8&{-}97.11\\%
+Hepatocellular uptake rate&mL/min/100cm3&24.01&1.42&{-}94.09\\%
+Liver T1{-}MOLLI at 45min&sec&0.56&0.75&34.2\\%
+Liver T1{-}MOLLI at baseline&sec&0.81&0.83&2.99\\%
+Liver blood clearance&L/min&0.26&0.02&{-}93.9\\%
+Liver extracellular volume fraction&mL/100cm3&10.2&20.88&104.64\\%
+RE for R1l at 20min&\%&63.27&7.94&{-}87.45\\%
+RE for Sl at 20min&\%&51.77&8.63&{-}83.33\\%
+\hline%
+\caption{Values for liver of subject LDS-010} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&36.26&34.49&{-}4.88\\%
+AUC for Cb (0{-}inf)&mM*sec&79.49&89.72&12.87\\%
+Body extraction fraction&\%&3.74&2.71&{-}27.61\\%
+Cardiac output&L/min&6.2&6.7&8.04\\%
+Heart{-}lung dispersion&\%&44.69&55.38&23.91\\%
+Heart{-}lung mean transit time&sec&13.02&20.22&55.23\\%
+Organs blood mean transit time&sec&45.48&40.77&{-}10.37\\%
+Organs extraction fraction&\%&14.23&15.97&12.2\\%
+Organs extravascular mean transit time&min&13.29&12.53&{-}5.7\\%
+RE for R1b at 20min&\%&18.78&20.29&8.05\\%
+RE for Sb at 20min&\%&16.7&17.76&6.33\\%
+\hline%
+\caption{Values for aorta of subject LDS-010} \\%
+\end{longtable}%
+\clearpage%
+\chapter{Secondary results}%
+\section{Diurnal variation}%
+\label{sec:Diurnalvariation}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=6in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Figures/_diurnal_function.png}%
+\caption{Intra{-}day changes in hepatocellular uptake (k\_he, top row) and biliary excretion (k\_bh, bottom row) of gadoxetate at for the control (left column) and treatment (right column). Full lines connect values taken in the same subject at the same day.}%
+\end{figure}
+
+%
+\end{document}

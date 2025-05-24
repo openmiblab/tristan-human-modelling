@@ -1,0 +1,22 @@
+Biomarker,Units,control,drug,change (%)
+AUC for Cl (0-35min),mM*sec,78.23,19.84,-74.65
+AUC for Cl (0-inf),mM*sec,219.64,72.97,-66.78
+Biliary excretion rate,mL/min/100cm3,2.07,1.32,-36.09
+Biliary tissue excretion rate,mL/min/100cm3,3.27,1.66,-49.29
+Extracellular dispersion,%,88.4,65.13,-26.32
+Extracellular mean transit time,sec,60.0,28.28,-52.86
+Final biliary excretion rate,mL/min/100cm3,6.34,1.44,-77.28
+Final hepatocellular uptake rate,mL/min/100cm3,4.53,4.31,-4.79
+Hematocrit,%,45.0,45.0,0.0
+Hepatocellular mean transit time,min,30.6,60.34,97.21
+Hepatocellular tissue uptake rate,mL/min/100cm3,65.57,18.7,-71.48
+Hepatocellular uptake rate,mL/min/100cm3,24.02,3.76,-84.34
+Initial biliary excretion rate,mL/min/100cm3,1.24,1.23,-1.02
+Initial hepatocellular uptake rate,mL/min/100cm3,43.5,3.21,-92.62
+Liver T1-MOLLI at 45min,sec,0.53,0.69,30.25
+Liver T1-MOLLI at baseline,sec,0.71,0.73,2.64
+Liver T1-MOLLI at scan 2,sec,0.66,0.71,7.58
+Liver blood clearance,L/min,0.21,0.03,-84.56
+Liver extracellular volume fraction,mL/100cm3,36.62,20.12,-45.07
+RE for R1l at 20min,%,41.64,6.71,-83.89
+RE for Sl at 20min,%,36.02,4.63,-87.14

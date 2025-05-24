@@ -1,0 +1,28 @@
+group,parameter,unit,description,mean control,mean drug,mean effect,95%CI control,95%CI drug,95%CI effect
+MRI - aorta,AUC35_Cb,mM*sec,AUC for Cb (0-35min),31.4,42.0,31.6,9.3,18.0,27.0
+MRI - aorta,AUC_Cb,mM*sec,AUC for Cb (0-inf),73.3,108.0,47.8,36.0,94.0,81.0
+MRI - aorta,CO,L/min,Cardiac output,9.6,7.92,-15.5,1.2,1.8,30.0
+MRI - aorta,Dhl,%,Heart-lung dispersion,39.8,44.3,13.5,11.0,14.0,36.0
+MRI - aorta,Eb,%,Body extraction fraction,3.26,2.93,6.71,2.3,1.7,92.0
+MRI - aorta,Eo,%,Organs extraction fraction,21.2,21.7,3.77,2.7,4.7,30.0
+MRI - aorta,RE_R1b,%,RE for R1b at 20min,22.4,31.2,36.1,7.9,16.0,36.0
+MRI - aorta,RE_Sb,%,RE for Sb at 20min,19.0,21.0,8.21,7.9,11.0,21.0
+MRI - aorta,Thl,sec,Heart-lung mean transit time,16.0,15.1,12.0,7.5,3.9,76.0
+MRI - aorta,To,sec,Organs blood mean transit time,31.1,28.1,-7.85,3.4,8.3,34.0
+MRI - aorta,Toe,min,Organs extravascular mean transit time,6.05,6.11,-0.186,3.0,3.4,35.0
+MRI - liver,AUC35_Cl,mM*sec,AUC for Cl (0-35min),52.2,34.8,-26.7,27.0,14.0,35.0
+MRI - liver,AUC_Cl,mM*sec,AUC for Cl (0-inf),387.0,209.0,-39.9,490.0,240.0,37.0
+MRI - liver,CL,L/min,Liver blood clearance,0.0781,0.0512,3.97,0.07,0.04,100.0
+MRI - liver,De,%,Extracellular dispersion,84.8,76.4,-9.96,5.4,8.8,7.1
+MRI - liver,H,%,Hematocrit,45.0,45.0,0.0,0.0,0.0,0.0
+MRI - liver,Kbh,mL/min/100cm3,Biliary tissue excretion rate,1.46,6.04,225.0,1.3,5.9,260.0
+MRI - liver,Khe,mL/min/100cm3,Hepatocellular tissue uptake rate,20.0,25.7,84.3,12.0,12.0,190.0
+MRI - liver,RE_R1l,%,RE for R1l at 20min,24.7,15.2,-31.9,12.0,5.4,34.0
+MRI - liver,RE_Sl,%,RE for Sl at 20min,19.8,10.5,-40.0,9.4,3.2,33.0
+MRI - liver,T1_1,sec,Liver T1-MOLLI at baseline,0.983,0.916,-6.57,0.12,0.089,3.5
+MRI - liver,T1_2,sec,Liver T1-MOLLI at 45min,0.793,0.793,0.33,0.14,0.13,10.0
+MRI - liver,Te,sec,Extracellular mean transit time,58.8,54.9,-6.83,2.4,6.9,8.3
+MRI - liver,Th,min,Hepatocellular mean transit time,173.0,208.0,-36.8,240.0,380.0,80.0
+MRI - liver,kbh,mL/min/100cm3,Biliary excretion rate,1.03,4.99,278.0,0.93,4.8,290.0
+MRI - liver,khe,mL/min/100cm3,Hepatocellular uptake rate,6.92,4.36,-1.9,5.3,2.1,97.0
+MRI - liver,ve,mL/100cm3,Liver extracellular volume fraction,31.7,17.7,-44.0,9.8,5.9,11.0

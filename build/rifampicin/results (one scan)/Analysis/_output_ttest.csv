@@ -1,0 +1,28 @@
+,Contrast,A,B,Paired,Parametric,T,dof,alternative,p-unc,BF10,odds-ratio,group,parameter,description
+0,visit,control,drug,True,True,-1.1546991815193033,7.0,two-sided,0.28610562206426804,0.565,0.5712607655332393,MRI - aorta,CO,Cardiac output
+0,visit,control,drug,True,True,-1.2646073714763935,7.0,two-sided,0.2464866884589042,0.62,0.3793251413096811,MRI - aorta,Thl,Heart-lung mean transit time
+0,visit,control,drug,True,True,0.25230552350581814,7.0,two-sided,0.8080529431841306,0.345,1.2745423496584474,MRI - aorta,Dhl,Heart-lung dispersion
+0,visit,control,drug,True,True,0.24026669367703413,7.0,two-sided,0.8170081244435776,0.345,1.1884371658643207,MRI - aorta,To,Organs blood mean transit time
+0,visit,control,drug,True,True,2.6520400243218933,7.0,two-sided,0.03284429679413645,2.605,4.086520699178713,MRI - aorta,Eo,Organs extraction fraction
+0,visit,control,drug,True,True,0.04962568583390771,7.0,two-sided,0.9618069852346893,0.337,1.024150856749194,MRI - aorta,Toe,Organs extravascular mean transit time
+0,visit,control,drug,True,True,1.7242422793648549,7.0,two-sided,0.1283217852934598,0.959,5.494403799704397,MRI - aorta,Eb,Body extraction fraction
+0,visit,control,drug,True,True,-1.8236281202014897,7.0,two-sided,0.1109769798900633,1.062,0.2391365293174017,MRI - aorta,AUC_Cb,AUC for Cb (0-inf)
+0,visit,control,drug,True,True,-3.5838153606575913,7.0,two-sided,0.008930547361988722,7.138,0.30808969855119583,MRI - aorta,AUC35_Cb,AUC for Cb (0-35min)
+0,visit,control,drug,True,True,-3.662798800410488,7.0,two-sided,0.00804047776391338,7.753,0.195068821197232,MRI - aorta,RE_R1b,RE for R1b at 20min
+0,visit,control,drug,True,True,-1.2366622333036132,7.0,two-sided,0.2560909957058476,0.605,0.22877911861076097,MRI - aorta,RE_Sb,RE for Sb at 20min
+0,visit,control,drug,True,True,,7.0,two-sided,,nan,,MRI - liver,H,Hematocrit
+0,visit,control,drug,True,True,-2.66282420144676,7.0,two-sided,0.03233439864497263,2.636,0.20160423298219182,MRI - liver,ve,Liver extracellular volume fraction
+0,visit,control,drug,True,True,0.32479142079179263,7.0,two-sided,0.754829958797866,0.352,1.2391829398938767,MRI - liver,Te,Extracellular mean transit time
+0,visit,control,drug,True,True,3.4528942947667516,7.0,two-sided,0.010649496711301687,6.217,5.186751832966778,MRI - liver,De,Extracellular dispersion
+0,visit,control,drug,True,True,8.39321682413104,7.0,two-sided,6.701210537878449e-05,382.281,1501.7337903913774,MRI - liver,khe,Hepatocellular uptake rate
+0,visit,control,drug,True,True,-3.2173990735169444,7.0,two-sided,0.01470634846690416,4.832,0.041513750218249254,MRI - liver,Th,Hepatocellular mean transit time
+0,visit,control,drug,True,True,4.002996083260485,7.0,two-sided,0.005170161352440063,10.997,61.67223570585665,MRI - liver,Kbh,Biliary tissue excretion rate
+0,visit,control,drug,True,True,5.063939151557937,7.0,two-sided,0.0014569248736083147,30.379,95.89262449929149,MRI - liver,Khe,Hepatocellular tissue uptake rate
+0,visit,control,drug,True,True,4.224736583738177,7.0,two-sided,0.0039135620821401495,13.727,67.42363776897598,MRI - liver,kbh,Biliary excretion rate
+0,visit,control,drug,True,True,9.78974807318795,7.0,two-sided,2.4606962638353295e-05,883.28,6278.369135332227,MRI - liver,CL,Liver blood clearance
+0,visit,control,drug,True,True,5.832912812175168,7.0,two-sided,0.0006416478250721781,59.188,112.62864432087642,MRI - liver,AUC_Cl,AUC for Cl (0-inf)
+0,visit,control,drug,True,True,9.180624036698218,7.0,two-sided,3.747861471799073e-05,620.978,1594.1977774835268,MRI - liver,AUC35_Cl,AUC for Cl (0-35min)
+0,visit,control,drug,True,True,8.109477628377892,7.0,two-sided,8.356363394795517e-05,318.102,822.3559303018309,MRI - liver,RE_R1l,RE for R1l at 20min
+0,visit,control,drug,True,True,8.19715744068357,7.0,two-sided,7.800076480966278e-05,336.871,910.9941685964639,MRI - liver,RE_Sl,RE for Sl at 20min
+0,visit,control,drug,True,True,-0.9298453177439222,7.0,two-sided,0.38339727954513303,0.476,0.7287825959724963,MRI - liver,T1_1,Liver T1-MOLLI at baseline
+0,visit,control,drug,True,True,-13.84819081318095,7.0,two-sided,2.4186130368401134e-06,6244.03,0.002025311066075478,MRI - liver,T1_2,Liver T1-MOLLI at 45min

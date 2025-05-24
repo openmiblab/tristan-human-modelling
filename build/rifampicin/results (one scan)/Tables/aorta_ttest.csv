@@ -1,0 +1,12 @@
+Biomarker,p-value,Bayes Factor,Odds Ratio
+AUC for Cb (0-35min),0.00893,7.14,0.31
+AUC for Cb (0-inf),0.11098,1.06,0.24
+Body extraction fraction,0.12832,0.96,5.49
+Cardiac output,0.28611,0.56,0.57
+Heart-lung dispersion,0.80805,0.34,1.27
+Heart-lung mean transit time,0.24649,0.62,0.38
+Organs blood mean transit time,0.81701,0.34,1.19
+Organs extraction fraction,0.03284,2.6,4.09
+Organs extravascular mean transit time,0.96181,0.34,1.02
+RE for R1b at 20min,0.00804,7.75,0.2
+RE for Sb at 20min,0.25609,0.6,0.23

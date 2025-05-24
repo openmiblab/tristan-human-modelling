@@ -1,0 +1,197 @@
+\documentclass{epflreport}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{graphicx}%
+\usepackage{longtable}%
+%
+%
+%
+\begin{document}%
+\normalsize%
+\frontmatter%
+\title{Leeds pilot study}%
+\subtitle{rifampicin (key results)}%
+\author{miblab.org}%
+\subject{D2.13 {-} Internal report}%
+\affiliation{https://miblab.org}%
+\coverimage{cover.jpg}%
+\definecolor{title}{HTML}{FF0000}%
+\makecover%
+\begin{titlepage}%
+\begin{center}%
+\makeatletter%
+\largetitlestyle\fontsize{45}{45}\selectfont\@title%
+\makeatother%
+\linebreak%
+\makeatletter%
+\ifdefvoid{\@subtitle}{}{\bigskip\titlestyle\fontsize{20}{20}\selectfont\@subtitle}%
+\makeatother%
+\linebreak%
+\bigskip%
+\bigskip%
+by%
+\linebreak%
+\bigskip%
+\bigskip%
+\makeatletter%
+\largetitlestyle\fontsize{25}{25}\selectfont\@author%
+\makeatother%
+\vfill%
+\large%
+\begin{tabular}{ll}%
+\hline%
+Report compiled by: &Steven Sourbron\\%
+Institute: &University of Sheffield\\%
+Department: &Section of Medical Imaging and Technologies\\%
+Email: &s.sourbron@sheffield.ac.uk\\%
+Date: &\today\\%
+\hline%
+\end{tabular}%
+
+
+\begin{figure}[b!]%
+\centering%
+\centering%
+\includegraphics[width=2in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/report (summary)_source/layout/tristan-logo.jpg}%
+\end{figure}
+
+%
+\end{center}%
+\end{titlepage}%
+\newpage%
+\tableofcontents%
+\mainmatter%
+\clearpage%
+\chapter{Key results}%
+\section{Data summary}%
+\label{sec:Datasummary}%
+
+%
+
+
+\begin{figure}[h!]%
+\centering%
+\includegraphics[width=7in]{C:/Users/md1spsx/Documents/GitHub/tristan-human-modelling/build/rifampicin/results (two scans)/Figures/_effect_plot.png}%
+\caption{Effect size (\%) on hepatocellular uptake (k\_he, left) and biliary excretion (k\_bh, right) of gadoxetate. The boxplot shows median, interquartile range and 95 percent range. The line plots show individual values for hepatocellular uptake (k\_he, middle) and biliary excretion (k\_bh, right) of gadoxetate of the control (left of plot) and treatment (right of plot). Grey lines are healthy controls with rifampicin injection.}%
+\end{figure}
+
+%
+\begin{longtable}{rcccccccc}%
+\hline%
+parameter&count&mean&std&min&25\%&50\%&75\%&max\\%
+\hline%
+khe effect size (\%)&8.0&{-}92.6&3.7&{-}95.3&{-}94.7&{-}94.0&{-}92.6&{-}84.3\\%
+khe control (mL/min/100cm3)&8.0&30.56&7.69&21.81&23.98&30.14&33.93&44.54\\%
+khe drug (mL/min/100cm3)&8.0&2.17&0.86&1.16&1.69&2.0&2.46&3.76\\%
+kbh effect size (\%)&8.0&{-}48.7&61.2&{-}89.7&{-}84.8&{-}72.4&{-}41.6&94.3\\%
+kbh control (mL/min/100cm3)&8.0&2.3&0.84&0.52&2.02&2.54&2.72&3.25\\%
+kbh drug (mL/min/100cm3)&8.0&0.79&0.5&0.26&0.45&0.6&1.1&1.67\\%
+\hline%
+\caption{Effect size and absolute values of hepatocellular uptake (k\_he) and biliary excretion (k\_bh) of gadoxetate} \\%
+\end{longtable}%
+\clearpage%
+\section{Liver biomarkers}%
+\label{sec:Liverbiomarkers}%
+
+%
+\begin{longtable}{rccc}%
+\hline%
+Biomarker&p{-}value&Bayes Factor&Odds Ratio\\%
+\hline%
+AUC for Cl (0{-}35min)&6e{-}05&441.16&984.97\\%
+AUC for Cl (0{-}inf)&0.0012&35.49&71.93\\%
+Biliary excretion rate&0.00478&11.71&52.58\\%
+Biliary tissue excretion rate&0.00419&13.0&43.2\\%
+Extracellular dispersion&0.53091&0.4&0.55\\%
+Extracellular mean transit time&0.40589&0.46&0.44\\%
+Final biliary excretion rate&0.03153&2.69&8.5\\%
+Final hepatocellular uptake rate&0.00251&19.61&65.66\\%
+Hematocrit&&&\\%
+Hepatocellular mean transit time&0.06155&1.63&0.11\\%
+Hepatocellular tissue uptake rate&0.21877&0.67&3.4\\%
+Hepatocellular uptake rate&1e{-}05&1363.5&12220.54\\%
+Initial biliary excretion rate&0.50746&0.41&1.75\\%
+Initial hepatocellular uptake rate&3e{-}05&803.62&4532.55\\%
+Liver T1{-}MOLLI at 45min&0.0&6244.03&0.0\\%
+Liver T1{-}MOLLI at baseline&0.3834&0.48&0.73\\%
+Liver T1{-}MOLLI at scan 2&0.00215&22.19&0.06\\%
+Liver blood clearance&0.0&8478.98&1174265.47\\%
+Liver extracellular volume fraction&0.19862&0.71&0.3\\%
+RE for R1l at 20min&7e{-}05&364.52&993.63\\%
+RE for Sl at 20min&5e{-}05&479.18&1113.99\\%
+\hline%
+\caption{Results of a pairwise comparison testing for differences in liver biomarkers between control and treatment. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cl (0{-}35min)&mM*sec&148.0 (31.0) &25.8 (4.3) &{-}81.9 (2.7) \\%
+AUC for Cl (0{-}inf)&mM*sec&510.0 (160.0) &111.0 (21.0) &{-}75.9 (4.9) \\%
+Biliary excretion rate&mL/min/100cm3&2.3 (0.58) &0.791 (0.34) &{-}48.7 (42.0) \\%
+Biliary tissue excretion rate&mL/min/100cm3&2.79 (0.72) &1.01 (0.44) &{-}44.3 (50.0) \\%
+Extracellular dispersion&\%&63.6 (20.0) &70.4 (4.8) &283.0 (550.0) \\%
+Extracellular mean transit time&sec&35.8 (13.0) &43.0 (7.7) &148.0 (240.0) \\%
+Final biliary excretion rate&mL/min/100cm3&2.83 (1.2) &1.23 (0.59) &{-}34.7 (48.0) \\%
+Final hepatocellular uptake rate&mL/min/100cm3&29.3 (11.0) &2.56 (0.72) &{-}81.6 (22.0) \\%
+Hematocrit&\%&45.0 (0.0) &45.0 (0.0) &0.0 (0.0) \\%
+Hepatocellular mean transit time&min&51.3 (36.0) &141.0 (62.0) &299.0 (190.0) \\%
+Hepatocellular tissue uptake rate&mL/min/100cm3&728.0 (1000.0) &10.7 (3.5) &{-}93.4 (6.2) \\%
+Hepatocellular uptake rate&mL/min/100cm3&30.6 (5.3) &2.17 (0.59) &{-}92.6 (2.5) \\%
+Initial biliary excretion rate&mL/min/100cm3&2.35 (0.76) &1.73 (1.8) &{-}20.7 (58.0) \\%
+Initial hepatocellular uptake rate&mL/min/100cm3&31.8 (6.3) &1.78 (0.58) &{-}94.2 (1.8) \\%
+Liver T1{-}MOLLI at 45min&sec&0.537 (0.036) &0.727 (0.041) &35.7 (5.9) \\%
+Liver T1{-}MOLLI at baseline&sec&0.795 (0.037) &0.805 (0.041) &1.27 (2.7) \\%
+Liver T1{-}MOLLI at scan 2&sec&0.669 (0.041) &0.759 (0.038) &13.8 (6.3) \\%
+Liver blood clearance&L/min&0.273 (0.032) &0.0199 (0.0044) &{-}92.3 (2.5) \\%
+Liver extracellular volume fraction&mL/100cm3&16.1 (7.4) &21.5 (3.3) &264.0 (420.0) \\%
+RE for R1l at 20min&\%&64.0 (14.0) &8.86 (1.5) &{-}85.6 (1.9) \\%
+RE for Sl at 20min&\%&52.9 (12.0) &6.54 (1.7) &{-}87.5 (1.9) \\%
+\hline%
+\caption{Mean values along with their 95 percent confidence intervals for all liver biomarkers of the control and treatment visit. The last column shows the relative change at the treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\clearpage%
+\section{Systemic biomarkers}%
+\label{sec:Systemicbiomarkers}%
+
+%
+\begin{longtable}{rccc}%
+\hline%
+Biomarker&p{-}value&Bayes Factor&Odds Ratio\\%
+\hline%
+AUC for Cb (0{-}35min)&0.01059&6.25&0.3\\%
+AUC for Cb (0{-}inf)&0.01062&6.23&0.16\\%
+Body extraction fraction&0.0203&3.76&9.03\\%
+Cardiac output&0.53951&0.4&0.73\\%
+Heart{-}lung dispersion&0.08682&1.27&0.57\\%
+Heart{-}lung mean transit time&0.51409&0.41&0.62\\%
+Organs blood mean transit time&0.4645&0.43&0.7\\%
+Organs extraction fraction&0.00515&11.02&5.91\\%
+Organs extravascular mean transit time&0.33616&0.51&0.45\\%
+RE for R1b at 20min&0.00821&7.63&0.2\\%
+RE for Sb at 20min&0.21085&0.68&0.24\\%
+\hline%
+\caption{Results of a pairwise comparison testing for differences in systemic biomarkers between control and treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\begin{longtable}{rcccc}%
+\hline%
+Biomarker&Units&control&drug&change (\%)\\%
+\hline%
+AUC for Cb (0{-}35min)&mM*sec&28.2 (6.3) &35.2 (8.1) &26.8 (16.0) \\%
+AUC for Cb (0{-}inf)&mM*sec&43.4 (14.0) &67.9 (19.0) &69.4 (42.0) \\%
+Body extraction fraction&\%&6.81 (2.6) &3.46 (0.77) &{-}41.1 (16.0) \\%
+Cardiac output&L/min&7.27 (2.1) &7.7 (1.2) &17.8 (27.0) \\%
+Heart{-}lung dispersion&\%&43.6 (9.0) &47.4 (8.0) &10.7 (9.8) \\%
+Heart{-}lung mean transit time&sec&13.5 (2.5) &14.5 (2.5) &11.9 (23.0) \\%
+Organs blood mean transit time&sec&28.9 (6.7) &30.8 (7.0) &9.7 (20.0) \\%
+Organs extraction fraction&\%&19.0 (3.8) &14.1 (3.2) &{-}25.4 (12.0) \\%
+Organs extravascular mean transit time&min&5.85 (1.5) &6.72 (1.3) &31.4 (48.0) \\%
+RE for R1b at 20min&\%&16.4 (4.2) &22.9 (5.9) &45.2 (28.0) \\%
+RE for Sb at 20min&\%&12.8 (5.5) &20.2 (7.4) &136.0 (130.0) \\%
+\hline%
+\caption{Mean values along with their 95 percent confidence intervals for all systemic biomarkers at the control and and treatment visit. The last column shows the relative change at the treatment visit. The results are ranked by their p-value, with most significant differences at the top of the list.} \\%
+\end{longtable}%
+\end{document}

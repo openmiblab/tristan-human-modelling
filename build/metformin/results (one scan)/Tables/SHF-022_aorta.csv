@@ -1,0 +1,12 @@
+Biomarker,Units,control,drug,change (%)
+AUC for Cb (0-35min),mM*sec,23.42,16.95,-27.62
+AUC for Cb (0-inf),mM*sec,46.01,33.77,-26.59
+Body extraction fraction,%,5.28,5.29,0.19
+Cardiac output,L/min,8.12,11.08,36.42
+Heart-lung dispersion,%,50.76,70.78,39.45
+Heart-lung mean transit time,sec,16.56,14.3,-13.62
+Organs blood mean transit time,sec,38.74,47.24,21.95
+Organs extraction fraction,%,22.14,24.18,9.2
+Organs extravascular mean transit time,min,8.38,6.92,-17.37
+RE for R1b at 20min,%,13.28,10.06,-24.26
+RE for Sb at 20min,%,7.78,10.6,36.26
