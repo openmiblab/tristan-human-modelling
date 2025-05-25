@@ -4,7 +4,7 @@
 
 ## Measuring drug-induced inhibition of liver transporters
 
-[![Code License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square&logo=apache&color=blue)](https://www.apache.org/licenses/LICENSE-2.0) [![Data License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) 
+[![Code License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square&logo=apache&color=blue)](https://www.apache.org/licenses/LICENSE-2.0) [![Data License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![DOI](https://zenodo.org/badge/751048746.svg)](https://doi.org/10.5281/zenodo.15512550)
 
 
 ## 📚 Context 
@@ -49,7 +49,7 @@ In order to **analyse a new drug** with the same method, perform the following s
 
 ## 	📄 Code structure
 
-The **build** folder contains the output of the the *reproduce.py* script as an example. It can be deleted and will be fully rebuilt whne running the script. 
+The **build** folder contains the output of the the *reproduce.py* script as an example. It can be deleted and will be fully rebuilt when running the script. 
 
 The **src** folder contains all the source code, with the top level entry scripts *reproduce.py* and *newdrug.py*. These call functions in the subfolders *methods* and *strudies*.
 
