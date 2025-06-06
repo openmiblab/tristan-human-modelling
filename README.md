@@ -2,7 +2,7 @@
 
 ---
 
-## Measuring drug-induced inhibition of liver transporters
+## Measuring drug-mediated inhibition of liver transporters
 
 [![Code License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square&logo=apache&color=blue)](https://www.apache.org/licenses/LICENSE-2.0) [![Data License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![DOI](https://zenodo.org/badge/751048746.svg)](https://doi.org/10.5281/zenodo.15512550)
 
@@ -51,7 +51,6 @@ In order to **analyse a new drug** with the same method, perform the following s
 2. Save your data in [dmr format](https://openmiblab.github.io/pydmr/format.html) in the same way as the datasets on [the public archive](https://zenodo.org/records/15301607).
 
 3. Then run the script **analyze_newdrug.py** making sure to replace the placeholder values by those that describe your data. When the computation finishes, the results will be added to the build folder.
-
 
 
 ## ❤️ Citation 
