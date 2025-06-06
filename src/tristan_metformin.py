@@ -1,38 +1,42 @@
 import os
+import shutil
 
 import miblab
 
 from methods import report, master
 
-drug = 'ciclosporin'
-results = os.path.join(os.getcwd(), 'build', drug)
 
-def main(compute=True):
+def main():
+
+    drug = 'metformin'
+    results = os.path.join(os.getcwd(), 'build', drug)
+    datapath = os.path.join(os.getcwd(), 'data')
 
     data = miblab.zenodo_fetch(
         f'tristan_humans_healthy_{drug}.dmr.zip', 
-        os.path.join(os.getcwd(), 'data'),
+        datapath,
     )
     master.run(
         data, 
         results, 
         ref=True,
-        compute=compute,
+        compute=True,
     )
     report.all_results(
         results, 
         'report (complete)',
         title = 'Sheffield two-compound study',
-        subtitle = drug + ' (all results)',
+        subtitle = f'{drug} (all results)',
         subject = 'D2.10 - Internal report',
     )
     report.key_results(
         results, 
         'report (summary)',
         title = 'Sheffield two-compound study',
-        subtitle = drug + ' (key results)',
+        subtitle = f'{drug} (key results)',
         subject = 'D2.13 - Internal report',
     )
+    shutil.rmtree(datapath)
 
 
 if __name__ == '__main__':

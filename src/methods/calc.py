@@ -65,7 +65,7 @@ def _derive_vart_effect_sizes(output):
     )
 
 
-def derive_pars(src, ref=False):
+def effect_size(src, ref=False):
     output_file = os.path.join(src, 'all_results')
     dmr = pydmr.read(output_file, format='table')
     cols = ['subject', 'visit', 'parameter', 'value']
@@ -120,9 +120,7 @@ def derive_vart_pars(src):
     effect_size.to_csv(os.path.join(path, 'effect_size.csv'), index=False)
     
 
-
-
-def desc_stats(src):
+def descriptive_statistics(src):
     path = os.path.join(src, 'Analysis')
     if not os.path.exists(path):
         os.makedirs(path)
@@ -140,9 +138,6 @@ def desc_stats(src):
     ef = pd.read_csv(effect_file)
     ef = pd.pivot_table(ef, values='value', index='subject', 
                         columns='parameter')
-    # v0.to_csv(os.path.join(path, '_table_'+visits[0]+'.csv'))
-    # v1.to_csv(os.path.join(path, '_table_'+visits[1]+'.csv'))
-    # ef.to_csv(os.path.join(path, '_table_effect.csv'))
     # Calculate stats
     bstats = v0.describe()
     bstats = bstats[['khe', 'kbh']].round(2)
@@ -172,7 +167,7 @@ def desc_stats(src):
 
 
 
-def pairwise_diff(src):
+def averages(src):
     
     path = os.path.join(src, 'Analysis')
     if not os.path.exists(path):
@@ -224,7 +219,8 @@ def pairwise_diff(src):
         '95%CI drug': r_err,
         '95%CI effect': c_err,
     }
-    pd.DataFrame(data, index=avr.index).to_csv(os.path.join(path, 'avr_95CI.csv'))
+    file = os.path.join(path, 'avr_95CI.csv')
+    pd.DataFrame(data, index=avr.index).to_csv(file)
 
 
 def pairwise_ttest(src):

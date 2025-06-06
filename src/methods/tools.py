@@ -111,7 +111,7 @@ def export_params(model, tb, Sb, tl, Sl, params):
 
 
 
-def to_dmr(path, subj, study, name, pars):
+def to_dmr(path, subj, study, pars):
 
     # Build data dictionary
     dmr = {
@@ -134,6 +134,7 @@ def to_dmr(path, subj, study, name, pars):
         dmr['data'][p].append(LABEL[p])
 
     # Save as dmr file
+    name = subj + '_' + study
     file = os.path.join(path, name + '.dmr')
     pydmr.write(file, dmr)
     return file

@@ -7,7 +7,6 @@ import pydmr
 from methods import tools
 
 
-
 def compute(datafile, resultspath):
 
     start = time.time()
@@ -19,20 +18,23 @@ def compute(datafile, resultspath):
     data = pydmr.read(datafile, format='nest')
     for subj in data['rois'].keys():
         for visit in data['rois'][subj].keys():
-            name = subj + '_' + visit
-            file = fit_subj(data, subj, visit, resultspath, name)
+            
+            # Train model
+            model = subject_model(data, subj, visit, verbose=2)
+
+            # Save results
+            save_plots(model, data, subj, visit, resultspath)
+            file = save_results(model, data, subj, visit, resultspath)
+
             results.append(file)
+
     file = os.path.join(resultspath, 'all_results')
     pydmr.concat(results, file)
 
     print('Calculation time (mins): ', (time.time()-start)/60)
 
 
-def fit_subj(data, subj, visit, path, name):
-
-    rois = data['rois'][subj][visit]
-    pars = data['pars'][subj][visit]
-
+def _data(rois):
     xdata = (
         rois['time_1'][rois['aorta_1_accept']] - rois['time_1'][0], 
         rois['time_2'][rois['aorta_2_accept']] - rois['time_1'][0], 
@@ -40,13 +42,20 @@ def fit_subj(data, subj, visit, path, name):
         rois['time_2'][rois['liver_2_accept']] - rois['time_1'][0],
     )
     ydata = (
-        rois['aorta_1'][rois['aorta_1_accept']], 
-        rois['aorta_2'][rois['aorta_2_accept']], 
+        rois['aorta_1'][rois['aorta_1_accept']],
+        rois['aorta_2'][rois['aorta_2_accept']],
         rois['liver_1'][rois['liver_1_accept']],
         rois['liver_2'][rois['liver_2_accept']],
     )
+    return xdata, ydata
 
-    # Fit model to data
+
+def subject_model(data, subj, visit, verbose=0):
+
+    rois = data['rois'][subj][visit]
+    pars = data['pars'][subj][visit]
+
+    # Define default model
     model = dc.AortaLiver2scan(
 
         # Injection parameters
@@ -73,62 +82,38 @@ def fit_subj(data, subj, visit, path, name):
         # Tissue parameters
         vol=pars['liver_volume'],
     )
-    loss0 = model.cost(xdata, ydata)
-    print('Goodness of fit (initial): ', loss0)
-    model.train(xdata, ydata, xtol=1e-3, verbose=2)
-    loss1 = model.cost(xdata, ydata)
-    print('Goodness of fit (improvement, %): ', 100*(loss0-loss1)/loss0)
 
-    # Export data
-    pngpath =  os.path.join(path, 'Plots')
-    figure(model, xdata, ydata, pngpath, name, pars, rois['time_1'][0])
-    pars = parameters(model, xdata, ydata, rois['time_1'][0], pars)
-    dmrpath = os.path.join(path, 'Results')
-    return tools.to_dmr(dmrpath, subj, visit, name, pars)
+    # Personalise model
+    xdata, ydata = _data(rois)
+    model.train(xdata, ydata, xtol=1e-3, verbose=verbose)
+    return model
 
 
-def parameters(model:dc.AortaLiver2scan, xdata, ydata, t0, params):
+def save_plots(model, data, subj, visit, path):
 
-    tb, Sb, tl, Sl = xdata[0], ydata[0], xdata[2], ydata[2]
+    rois = data['rois'][subj][visit]
+    pars = data['pars'][subj][visit]
 
-    time = (xdata[0], xdata[1])
-    model.dose2 = 0
-
-    pars = tools.export_params(model, tb, Sb, tl, Sl, params)
-    pars['T1_3']=['Liver T1-MOLLI at scan 2', params['T1_liver_3'], 'sec', 0]
-    pars['t3_MOLLI']=['Time of T1-MOLLI at scan 2', params['T1_time_3']/(60*60), 'hrs', 0]
-
-    pars['t0']=["Start time first acquisition", (t0+time[0][0])/(60*60), 
-                'hrs',0]
-    pars['t1']=["End time first acquisition", (t0+time[0][-1])/(60*60), 
-                'hrs',0]
-    pars['t2']=["Start time second acquisition", (t0+time[1][0])/(60*60), 
-                'hrs',0]
-    pars['t3']=["End time second acquisition", (t0+time[1][-1])/(60*60), 
-                'hrs',0]
-    pars['dt1']=["Time step first acquisition", model.TS, 'sec',0]
-    pars['dt2']=["Time step second acquisition", model.TS, 'sec',0]
-
-    return tools.to_tristan_units(pars)
-
-
-def figure(model:dc.AortaLiver2scan, xdata, ydata, path, name, 
-           params, t0):
+    name = subj + '_' + visit
+    xdata, ydata = _data(rois)
+    t0 = rois['time_1'][0]
+    path = os.path.join(path, 'Plots')
+    file = os.path.join(path, name)
 
     t = [
         0, 
-        params['T1_time_2']-t0,
-        params['T1_time_3']-t0,
+        pars['T1_time_2']-t0,
+        pars['T1_time_3']-t0,
     ]
     R1a = [
-        1/params['T1_aorta_1'], 
-        1/params['T1_aorta_2'],
-        1/params['T1_aorta_3'],
+        1/pars['T1_aorta_1'], 
+        1/pars['T1_aorta_2'],
+        1/pars['T1_aorta_3'],
     ]
     R1l = [
-        1/params['T1_liver_1'], 
-        1/params['T1_liver_2'],
-        1/params['T1_liver_3'],
+        1/pars['T1_liver_1'], 
+        1/pars['T1_liver_2'],
+        1/pars['T1_liver_3'],
     ]
 
     if not os.path.exists(path):
@@ -141,8 +126,8 @@ def figure(model:dc.AortaLiver2scan, xdata, ydata, path, name,
           dc.signal_ss(model.S0l, R1l[1], model.TR, model.FA),
           dc.signal_ss(model.S02l, R1l[2], model.TR, model.FA)]
     test = ((t,ya),(t,yl))
-    file = os.path.join(path, name)
     model.plot(xdata, ydata, fname=file + '.png', ref=test, show=False)
+
     BAT = model.BAT
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], 
                fname=file + '_scan1_win1.png', ref=test, show=False)
@@ -150,6 +135,7 @@ def figure(model:dc.AortaLiver2scan, xdata, ydata, path, name,
                fname=file + '_scan1_win2.png', ref=test, show=False)
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], 
                fname=file + '_scan1_win3.png', ref=test, show=False)
+    
     BAT = model.BAT2
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+1200], 
                fname=file + '_scan2_win1.png', ref=test, show=False)
@@ -157,4 +143,37 @@ def figure(model:dc.AortaLiver2scan, xdata, ydata, path, name,
                fname=file + '_scan2_win2.png', ref=test, show=False)
     model.plot(xdata, ydata, xlim=[BAT-20, BAT+160], 
                fname=file + '_scan2_win3.png', ref=test, show=False)
+
+
+def save_results(model, data, subj, visit, path):
+
+    rois = data['rois'][subj][visit]
+    pars = data['pars'][subj][visit]
+
+    xdata, ydata = _data(rois)
+    t0 = rois['time_1'][0]
+    tb, Sb, tl, Sl = xdata[0], ydata[0], xdata[2], ydata[2]
+
+    time = (xdata[0], xdata[1])
+    model.dose2 = 0
+
+    params = tools.export_params(model, tb, Sb, tl, Sl, pars)
+    params['T1_3']=['Liver T1-MOLLI at scan 2', pars['T1_liver_3'], 'sec', 0]
+    params['t3_MOLLI']=['Time of T1-MOLLI at scan 2', pars['T1_time_3']/(60*60), 'hrs', 0]
+
+    params['t0']=["Start time first acquisition", (t0+time[0][0])/(60*60), 
+                'hrs',0]
+    params['t1']=["End time first acquisition", (t0+time[0][-1])/(60*60), 
+                'hrs',0]
+    params['t2']=["Start time second acquisition", (t0+time[1][0])/(60*60), 
+                'hrs',0]
+    params['t3']=["End time second acquisition", (t0+time[1][-1])/(60*60), 
+                'hrs',0]
+    params['dt1']=["Time step first acquisition", model.TS, 'sec',0]
+    params['dt2']=["Time step second acquisition", model.TS, 'sec',0]
+
+    params = tools.to_tristan_units(params)
+    dmrpath = os.path.join(path, 'Results')
+    return tools.to_dmr(dmrpath, subj, visit, params)
+
 

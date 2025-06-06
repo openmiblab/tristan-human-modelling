@@ -6,24 +6,24 @@ from methods import calc
 
 
 
-def cases(results, folder):
+def cases(folder):
 
-    path = os.path.join(results, folder, 'Tables')
+    path = os.path.join(folder, 'Tables')
     if not os.path.exists(path):
         os.makedirs(path)
         
     # Get data
     df = pd.read_csv(
-        os.path.join(results, folder, 'Analysis', 'parameters_rep.csv')
+        os.path.join(folder, 'Analysis', 'parameters_rep.csv')
     )
-    src = os.path.join(results, folder)
+    src = os.path.join(folder)
     df['group'] = calc.lookup(src, df.parameter.values, 'group')
     df['description'] = calc.lookup(src, df.parameter.values, 'description')
     df['unit'] = calc.lookup(src, df.parameter.values, 'unit') 
 
     # Get effect sizes
     ef = pd.read_csv(
-        os.path.join(results, folder, 'Analysis', 'effect_size.csv')
+        os.path.join(folder, 'Analysis', 'effect_size.csv')
     )
     ef['group'] = calc.lookup(src, ef.parameter.values, 'group')
     ef['description'] = calc.lookup(src, ef.parameter.values, 'description')
@@ -73,15 +73,15 @@ def cases(results, folder):
         pd.DataFrame(table, columns=header).to_csv(file, index=False)
 
 
-def reference(results, folder):
+def reference(folder):
 
-    path = os.path.join(results, folder, 'Tables')
+    path = os.path.join(folder, 'Tables')
     if not os.path.exists(path):#
         os.makedirs(path)
 
     for visit in ['control', 'drug']:
         for group in ['aorta', 'liver']:
-            file = os.path.join(results, folder, 'Analysis', 'difference_with_reference.csv')
+            file = os.path.join(folder, 'Analysis', 'difference_with_reference.csv')
             df = pd.read_csv(file).set_index('Biomarker')
             df = df[df.visit==visit]
             df = df[df.group=='MRI - '+group]
@@ -94,13 +94,13 @@ def reference(results, folder):
             pd.DataFrame(table, columns=header).to_csv(file, index=False)
 
 
-def pairwise_diff(results, folder):
+def averages(folder):
 
-    path = os.path.join(results, folder, 'Tables')
+    path = os.path.join(folder, 'Tables')
     if not os.path.exists(path):
         os.makedirs(path)
 
-    data = pd.read_csv(os.path.join(results, folder, 'Analysis', 'avr_95CI.csv'))
+    data = pd.read_csv(os.path.join(folder, 'Analysis', 'avr_95CI.csv'))
     b_avr = data['mean control'].values
     r_avr = data['mean drug'].values
     c_avr = data['mean effect'].values
@@ -131,13 +131,13 @@ def pairwise_diff(results, folder):
 
 
 
-def pairwise_stats(results, folder):
+def pairwise_stats(folder):
 
-    path = os.path.join(results, folder, 'Tables')
+    path = os.path.join(folder, 'Tables')
     if not os.path.exists(path):
         os.makedirs(path)
 
-    output = pd.read_csv(os.path.join(results, folder, 'Analysis', '_output_ttest.csv'))
+    output = pd.read_csv(os.path.join(folder, 'Analysis', '_output_ttest.csv'))
 
     output.drop(columns=['Contrast', 'A', 'B', 'Paired', 'Parametric', 'T', 
                          'dof', 'alternative'], inplace=True)

@@ -34,9 +34,9 @@ def run(
     # Compute statistics
     for exp in [ONESCAN, TWOSCAN]:
         path = os.path.join(resultspath, exp)
-        calc.derive_pars(path)
-        calc.desc_stats(path)
-        calc.pairwise_diff(path)
+        calc.effect_size(path)
+        calc.descriptive_statistics(path)
+        calc.averages(path)
         calc.pairwise_ttest(path)
 
     # Create plots
@@ -49,9 +49,10 @@ def run(
     
     # Create tables
     for exp in [ONESCAN, TWOSCAN]:
-        tables.pairwise_diff(resultspath, exp)
-        tables.pairwise_stats(resultspath, exp)
-        tables.cases(resultspath, exp)
+        path = os.path.join(resultspath, exp)
+        tables.averages(path)
+        tables.pairwise_stats(path)
+        tables.cases(path)
     
     # Variable acquisition time results
     path = os.path.join(resultspath, VART)
@@ -61,14 +62,13 @@ def run(
         ylim=effect_range,
     )
 
+    path = os.path.join(resultspath, TWOSCAN)
     if ref:
         # Compare to reference results
-        path = os.path.join(resultspath, TWOSCAN)
-        calc.derive_pars(path, ref=True)
+        calc.effect_size(path, ref=True)
         calc.compare_to_ref(path)
         plot.compare_to_ref(path)
-        tables.reference(resultspath, TWOSCAN)
+        tables.reference(path)
     else:
         # Generate reference data for future studies
-        path = os.path.join(resultspath, TWOSCAN)
-        calc.derive_pars(path, ref=True)        
+        calc.effect_size(path, ref=True)        
