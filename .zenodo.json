@@ -1,7 +1,7 @@
 {
   "title": "Measuring drug-mediated inhibition of liver transporters",
   "upload_type": "software",
-  "description": "See the full documentation in the [README](https://github.com/openmiblab/tristan-human-stage-2-modelling#measuring-drug-induced-inhibition-of-liver-transporters)",
+  "description": "See the README on GitHub: https://github.com/openmiblab/tristan-human-stage-2-modelling",
   "creators": [
     {
       "name": "Min, Thazin",
