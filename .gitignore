@@ -9,8 +9,8 @@ tests/export/*
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
-tristan/__pycache__
-*__pycache__/
+# Ignore all Python cache directories recursively
+**/__pycache__/
 *.py[cod]
 *$py.class
 
