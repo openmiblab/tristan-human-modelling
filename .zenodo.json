@@ -1,7 +1,7 @@
 {
   "title": "Measuring drug-mediated inhibition of liver transporters",
   "upload_type": "software",
-  "description": "See the full documentation in the [README](https://github.com/openmiblab/tristan-human-stage-2-modelling?tab=readme-ov-file#measuring-drug-induced-inhibition-of-liver-transporters).",
+  "description": "See the full documentation in the README: https://github.com/openmiblab/tristan-human-stage-2-modelling#measuring-drug-induced-inhibition-of-liver-transporters",
   "creators": [
     {
       "name": "Min, Thazin",
@@ -9,7 +9,7 @@
     },
     {
       "name": "Tibiletti, Marta",
-      "affiliation": "Bioxydyn, Ltd."
+      "affiliation": "Bioxydyn Ltd."
     },
     {
       "name": "Hockings, Paul",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Kenna, Gerry",
-      "affiliation": "Bioxydyn, Ltd."
+      "affiliation": "Bioxydyn Ltd."
     },
     {
       "name": "Melillo, Nicola",
@@ -37,11 +37,11 @@
     },
     {
       "name": "Parker, Geoff JM",
-      "affiliation": "Bioxydyn, Ltd."
+      "affiliation": "Bioxydyn Ltd."
     },
     {
       "name": "Schuetz, Gunnar",
-      "affiliation": "Bayer, AG."
+      "affiliation": "Bayer AG"
     },
     {
       "name": "Scotcher, Daniel",
@@ -49,7 +49,7 @@
     },
     {
       "name": "Waterton, John",
-      "affiliation": "Bioxydyn, Ltd."
+      "affiliation": "Bioxydyn Ltd."
     },
     {
       "name": "Rowe, Ian",
@@ -61,8 +61,8 @@
     }
   ],
   "keywords": ["liver", "transporters", "MRI"],
-  "license": "Apache 2.0",
-  "version": "v0.0.2",
+  "license": "Apache-2.0",
+  "version": "v0.0.3",
   "publication_date": "2025-06-06",
   "related_identifiers": [
     {
