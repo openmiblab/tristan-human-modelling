@@ -4,7 +4,7 @@
 
 # Measuring drug-mediated inhibition of liver transporters
 
-[![Code License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square&logo=apache&color=blue)](https://www.apache.org/licenses/LICENSE-2.0) [![Data License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15609209.svg)](https://doi.org/10.5281/zenodo.15609209)
+[![Code License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square&logo=apache&color=blue)](https://www.apache.org/licenses/LICENSE-2.0) [![Data License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15609209.svg)](https://doi.org/10.5281/zenodo.15609209) [![Input Data](https://img.shields.io/badge/input%20data-Zenodo-3776AB?logo=databricks&logoColor=white)](https://doi.org/10.5281/zenodo.15610261) [![Output Data](https://img.shields.io/badge/output%20data-Zenodo-FF8C00?logo=databricks&logoColor=white)](https://doi.org/10.5281/zenodo.15610350)
 
 ## 📚 Context 
 
